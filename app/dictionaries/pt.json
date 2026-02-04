@@ -1,0 +1,118 @@
+{
+  "navigation": {
+    "home": "Início",
+    "skills": "Habilidades",
+    "projects": "Projetos",
+    "experience": "Experiência",
+    "contact": "Contato"
+  },
+  "hero": {
+    "title": "Engenheiro de Software Sênior",
+    "subtitle": "Mais de 5 anos de experiência liderando o desenvolvimento de aplicações web e móveis de alto desempenho. Especialista em JavaScript, React e TypeScript, atuando full stack desde o frontend até serviços backend em Go e Node.js.",
+    "cta": "Meu Portfólio",
+    "downloadCv": "Baixar CV"
+  },
+  "skills": {
+    "title": "Tech Stack e Habilidades",
+    "items": [
+      { "name": "React / Next.js", "description": "Frontend UI & Frameworks" },
+      { "name": "TypeScript", "description": "JS Fortemente Tipado" },
+      { "name": "React Native", "description": "Desenvolvimento Mobile" },
+      { "name": "Node.js", "description": "Sistemas Server-side" },
+      { "name": "Go", "description": "Serviços Backend" },
+      { "name": "AWS / Docker", "description": "Cloud & DevOps" },
+      { "name": "SolidJS", "description": "UI Reativa" },
+      { "name": "PostgreSQL", "description": "Banco de Dados Relacional" }
+    ]
+  },
+  "projects": {
+    "title": "Projetos em Destaque",
+    "liveDemo": "Visitar website",
+    "viewCode": "Ver Código",
+    "items": [
+      {
+        "title": "Rick and Morty Explorer",
+        "description": "Um explorador da série animada seguindo as aventuras de um super cientista e seu neto, apresentando relacionamentos complexos de personagens e descobertas intergalácticas.",
+        "liveUrl": "https://rickandmorty-alb-dev.vercel.app/",
+        "githubUrl": "https://github.com/allbdev/rickandmorty",
+        "techStack": ["Next.js", "React", "TypeScript", "Tailwind CSS", "GraphQL"]
+      },
+      {
+        "title": "Vestra Gestão Financeira",
+        "description": "Uma plataforma completa de gestão financeira oferecendo controle de despesas, transações recorrentes, assistente de IA e dashboards analíticos para alcançar metas financeiras.",
+        "liveUrl": "https://www.vestra-financas.com.br/",
+        "githubUrl": "https://github.com/allbdev/vestra",
+        "techStack": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL", "MaterialUI"]
+      }
+    ]
+  },
+  "experience": {
+    "title": "Experiência Profissional",
+    "educationTitle": "Educação e Certificações",
+    "jobs": [
+      {
+        "company": "Bird",
+        "role": "Frontend Engineer",
+        "period": "Abr 2024 - Presente",
+        "description": "Trabalhando próximo aos designers em interfaces amigáveis e acessíveis. Expandindo expertise para backend em Go (Golang).",
+        "achievements": [
+          "Entreguei funcionalidades como gerenciamento de leads, oportunidades e contas.",
+          "Desenvolvi um sistema de dashboard personalizado onde o usuário pode selecionar métricas e criar seus próprios gráficos.",
+          "Desenvolvi uma feature de dashboard unificado com Malloy, SolidJS e gráficos Vega.",
+          "Criei dashboards de analytics interativos usando TanStack Table, Recharts, Chart.js e Radix UI.",
+          "Liderei o redesign da cloud de marketing, colaborando com designers usando Radix UI e Tailwind CSS.",
+          "Implementei estratégias de teste abrangentes com Vitest, React Testing Library e Cypress.",
+          "Mantive endpoints de API, introduzi novas features e resolvi bugs para melhorar a performance do sistema."
+        ]
+      },
+      {
+        "company": "MULTTI",
+        "role": "Engenheiro de Software Sênior",
+        "period": "Jan 2022 - Mar 2024",
+        "description": "Assumi um papel de liderança, guiando colegas e garantindo processos de desenvolvimento suaves. Também atuei no backend com PHP.",
+        "achievements": [
+          "Construí um sistema de chat com WebSockets e listas virtualizadas usando React e PusherJS.",
+          "Desenvolvi uma plataforma de streaming para o mercado financeiro usando React, Reactstrap e cookies.",
+          "Criei um app móvel para rastreamento de entregas com notificações push e mapas usando React Native.",
+          "Criei um sistema de gestão de leads usando React, MUI e Sass.",
+          "Otimizei processos de deploy com Docker, AWS e Bitbucket Pipelines.",
+          "Responsável pelo processo de publicação nas lojas Google e Apple."
+        ]
+      },
+      {
+        "company": "Solution4Apps",
+        "role": "Engenheiro de Software",
+        "period": "Jan 2020 - Jan 2022",
+        "description": "Papel chave liderando desenvolvimento mobile e web. Guidei o fluxo de desenvolvimento do início ao fim.",
+        "achievements": [
+          "Construí app mobile de localização com acesso à câmera em tempo real usando React Native e NativeWind.",
+          "Desenvolvi site governamental acessível e de alta performance usando Next.js e Tailwind.",
+          "Criei plataforma de mercado financeiro interativa com atualizações em tempo real usando Socket.io e React Spring.",
+          "Responsável pelo processo de publicação nas lojas Google e Apple."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "title": "Bacharelado em Sistemas de Informação",
+        "institution": "Universidade Vila Velha - UVV (Exp 2028)",
+        "description": "Foco em Sistemas Web."
+      },
+      {
+        "title": "Especializações",
+        "institution": "Rocketseat & Variados",
+        "description": "NextJS, ReactJS, React Native, TypeScript, Docker."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Vamos construir algo juntos",
+    "subtitle": "Entre em contato via Email, LinkedIn ou confira meu código no GitHub.",
+    "links": {
+      "email": "mailto:vini.alb13@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/albuquerque-vinicius",
+      "github": "https://github.com/allbdev"
+    },
+    "copyright": "© 2026 Vinicius Albuquerque. Todos os direitos reservados."
+  }
+}

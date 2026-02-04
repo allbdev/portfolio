@@ -1,0 +1,44 @@
+# Changes
+
+- Featured Projects
+    - Grep the web site content to get a description of the project
+    - I want to update this section, there's the projects we need to display:
+        - Rick and Morty website
+            - live url: https://rickandmorty-alb-dev.vercel.app/
+            - github: https://github.com/allbdev/rickandmorty
+            - Tech stack: Next.js, React, TypeScript, Tailwind CSS, GraphQL
+        - Vestra - financial management
+            - live url: https://www.vestra-financas.com.br/
+            - github: https://github.com/allbdev/vestra
+            - Tech stack: Next.js, React, TypeScript, Tailwind CSS, Prisma, PostgreSQL, MaterialUI
+- Work Experience
+    - I want more details about the jobs:
+        - Bird
+            - As a Frontend Engineer at Bird, I work closely with designers to deliver user-friendly and accessible interfaces. I have also expanded my expertise to backend development using Go (Golang).
+                - As part of the sales development team, I delivered features such as lead, opportunity, and account management.
+                - Developed a custom dashboard system where the user can select whatever metrics they need and build their own charts, used across the entire application.
+                - Developed a dashboard feature that includes charts, tables, and KPIs used across all applications, built with Malloy, SolidJS, and Vega charts.
+                - Developed interactive charts, tables, and analytics dashboards using libraries such as TanStack Table, Recharts, Chart.js, and Radix UI.
+                - Led the redesign of the marketing cloud, collaborating with the design team to create intuitive and visually appealing interfaces with Radix UI and Tailwind CSS.
+                - Implemented comprehensive testing strategies for new features using Vitest, React Testing Library, and Cypress to ensure reliability and maintainability.
+                - Maintained existing API endpoints, introduced new features, and resolved bugs to improve system performance and stability.
+        - MULTTI
+            - As a Senior Software Engineer at Multi, I took on a leadership role, guiding my teammates and ensuring smooth development processes. I also got hands-on with backend development using PHP.
+                - Built a chat system with WebSockets and a virtualized list for a smooth user experience, using React, React States, PusherJS, and Sass.
+                - Developed a streaming platform tailored to the Brazilian financial market, leveraging React, React States, Sass, cookies, and Reactstrap.
+                - Created a mobile app for tracking deliveries, integrating push notifications, maps, and custom styles using React Native.
+                - Created a lead management system to handle the entire lead process for a client, from the first contact to sale conversion, using React, Mui, and Sass.
+                - Streamlined deployment processes with Docker, AWS, and Bitbucket Pipelines to make releases faster and more reliable.
+                - Responsible for the deployment process in both Google and Apple stores.
+        - Solution4Apps
+            - As a Software Engineer at Solution4Apps, I played a key role in leading and guiding both mobile and web development. I was at the forefront of all projects, shaping the development flow from start to finish.
+                - Built a mobile app that lets users locate establishments on a map and access their cameras in real-time, using React Native, Push Notifications, Maps, and NativeWind.
+                - Developed a high-performance, accessible website for a government entity using Next.js and Tailwind.
+                - Created an interactive financial market platform featuring smooth animations and real-time updates, leveraging Next.js, Chakra UI, Socket.io, React Spring, Tailwind, and React.
+                - Responsible for the deployment process in both Google and Apple stores.
+- Let's build something together
+    - I dont want a form
+    - I want 3 cta button
+        - Email: mailto:vini.alb13@gmail.com
+        - LinkedIn: https://www.linkedin.com/in/albuquerque-vinicius
+        - GitHub: https://github.com/allbdev

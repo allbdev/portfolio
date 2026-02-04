@@ -1,0 +1,118 @@
+{
+  "navigation": {
+    "home": "Home",
+    "skills": "Skills",
+    "projects": "Projects",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Senior Software Engineer",
+    "subtitle": "5+ years of experience leading the development of high-performance web and mobile applications. Proficient in JavaScript, React, and TypeScript, spanning full stack from frontend to backend services in Go and Node.js.",
+    "cta": "My Portfolio",
+    "downloadCv": "Download CV"
+  },
+  "skills": {
+    "title": "Tech Stack & Skills",
+    "items": [
+      { "name": "React / Next.js", "description": "Frontend UI & Frameworks" },
+      { "name": "TypeScript", "description": "Strongly typed JS" },
+      { "name": "React Native", "description": "Mobile Development" },
+      { "name": "Node.js", "description": "Server-side Systems" },
+      { "name": "Go", "description": "Backend Services" },
+      { "name": "AWS / Docker", "description": "Cloud & DevOps" },
+      { "name": "SolidJS", "description": "Reactive UI" },
+      { "name": "PostgreSQL", "description": "Relational DB" }
+    ]
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "liveDemo": "Live Demo",
+    "viewCode": "View Code",
+    "items": [
+      {
+        "title": "Rick and Morty Explorer",
+        "description": "An animated series explorer following the adventures of a super scientist and his grandson, featuring complex character relationships and intergalactic discoveries.",
+        "liveUrl": "https://rickandmorty-alb-dev.vercel.app/",
+        "githubUrl": "https://github.com/allbdev/rickandmorty",
+        "techStack": ["Next.js", "React", "TypeScript", "Tailwind CSS", "GraphQL"]
+      },
+      {
+        "title": "Vestra Financial Management",
+        "description": "A comprehensive financial management platform offering expense tracking, recurring transactions, AI assistance, and dashboard analytics to help users achieve financial goals.",
+        "liveUrl": "https://www.vestra-financas.com.br/",
+        "githubUrl": "https://github.com/allbdev/vestra",
+        "techStack": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL", "MaterialUI"]
+      }
+    ]
+  },
+  "experience": {
+    "title": "Work Experience",
+    "educationTitle": "Education & Certifications",
+    "jobs": [
+      {
+        "company": "Bird",
+        "role": "Frontend Engineer",
+        "period": "Apr 2024 - Present",
+        "description": "Working closely with designers to deliver user-friendly and accessible interfaces. Expanded expertise to backend development using Go (Golang).",
+        "achievements": [
+          "Delivered features such as lead, opportunity, and account management.",
+          "Developed a custom dashboard system where the user can select whatever metrics they need and build their own charts, used across the entire application.",
+          "Developed a unified dashboard feature with Malloy, SolidJS, and Vega charts.",
+          "Developed interactive charts, tables, and analytics dashboards using libraries such as TanStack Table, Recharts, Chart.js, and Radix UI.",
+          "Led the redesign of the marketing cloud, collaborating with the design team to create intuitive and visually appealing interfaces with Radix UI and Tailwind CSS.",
+          "Implemented comprehensive testing strategies for new features using Vitest, React Testing Library, and Cypress to ensure reliability and maintainability.",
+          "Maintained existing API endpoints, introduced new features, and resolved bugs to improve system performance and stability."
+        ]
+      },
+      {
+        "company": "MULTTI",
+        "role": "Senior Software Engineer",
+        "period": "Jan 2022 - Mar 2024",
+        "description": "Took on a leadership role, guiding my teammates and ensuring smooth development processes. Also hands-on with backend development using PHP.",
+        "achievements": [
+          "Built a chat system with WebSockets and a virtualized list for a smooth user experience, using React, React States, PusherJS, and Sass.",
+          "Developed a streaming platform tailored to the Brazilian financial market, leveraging React, React States, Sass, cookies, and Reactstrap.",
+          "Created a mobile app for tracking deliveries, integrating push notifications, maps, and custom styles using React Native.",
+          "Created a lead management system to handle the entire lead process using React, MUI, and Sass.",
+          "Streamlined deployment processes with Docker, AWS, and Bitbucket Pipelines.",
+          "Responsible for the deployment process in both Google and Apple stores."
+        ]
+      },
+      {
+        "company": "Solution4Apps",
+        "role": "Software Engineer",
+        "period": "Jan 2020 - Jan 2022",
+        "description": "Played a key role in leading and guiding both mobile and web development. Shaped the development flow from start to finish.",
+        "achievements": [
+          "Built a mobile app that lets users locate establishments on a map and access their cameras in real-time, using React Native, Push Notifications, Maps, and NativeWind.",
+          "Developed a high-performance, accessible website for a government entity using Next.js and Tailwind.",
+          "Created an interactive financial market platform featuring smooth animations and real-time updates, leveraging Next.js, Chakra UI, and Socket.io.",
+          "Responsible for the deployment process in both Google and Apple stores."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "title": "Bachelor's In Information Systems",
+        "institution": "Universidade Vila Velha - UVV (Exp 2028)",
+        "description": "Focus on Web Systems."
+      },
+      {
+        "title": "Specializations",
+        "institution": "Rocketseat & Various",
+        "description": "NextJS, ReactJS, React Native, TypeScript, Docker."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Let's build something together",
+    "subtitle": "Reach out to connect via Email, LinkedIn, or check my code on GitHub.",
+    "links": {
+      "email": "mailto:vini.alb13@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/albuquerque-vinicius",
+      "github": "https://github.com/allbdev"
+    },
+    "copyright": "© 2026 Vinicius Albuquerque. All rights reserved."
+  }
+}
