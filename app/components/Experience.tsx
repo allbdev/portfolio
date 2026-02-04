@@ -44,7 +44,7 @@ export default function Experience({ dictionary }: { dictionary: Dictionary }) {
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 1 }}
                    >
                      <Paper elevation={0} sx={{ p: 2, bgcolor: 'background.default', mb: 2 }}>
                         <Typography paragraph>{job.description}</Typography>

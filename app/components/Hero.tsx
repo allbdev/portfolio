@@ -24,7 +24,7 @@ export default function Hero({ dictionary }: { dictionary: Dictionary }) {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 1 }}
         >
           <Typography
             component="h1"
@@ -47,7 +47,7 @@ export default function Hero({ dictionary }: { dictionary: Dictionary }) {
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 1, delay: 0.2 }}
         >
             <Typography variant="h5" color="text.secondary" paragraph sx={{ mb: 6, lineHeight: 1.6 }}>
             {dictionary.hero.subtitle}
@@ -57,7 +57,7 @@ export default function Hero({ dictionary }: { dictionary: Dictionary }) {
         <motion.div
              initial={{ opacity: 0, y: 20 }}
              animate={{ opacity: 1, y: 0 }}
-             transition={{ duration: 0.5, delay: 0.4 }}
+             transition={{ duration: 1, delay: 0.4 }}
         >
             <Box sx={{ display: 'flex', gap: 2 }}>
               <Button variant="contained" size="large" href="#projects" sx={{ py: 1.5, px: 4, fontSize: '1rem' }}>
