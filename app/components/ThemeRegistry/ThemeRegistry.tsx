@@ -5,15 +5,41 @@ import CssBaseline from '@mui/material/CssBaseline';
 import NextAppDirEmotionCacheProvider from './EmotionCache';
 import { getTheme } from '../../theme';
 
+const COLOR_MODE_STORAGE_KEY = 'portfolio-color-mode';
+
 export const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
+
+function readStoredColorMode(): 'light' | 'dark' | null {
+  if (typeof window === 'undefined') {
+    return null;
+  }
+  const stored = window.localStorage.getItem(COLOR_MODE_STORAGE_KEY);
+  if (stored === 'light' || stored === 'dark') {
+    return stored;
+  }
+  return null;
+}
 
 export default function ThemeRegistry({ children }: { children: React.ReactNode }) {
   const [mode, setMode] = React.useState<'light' | 'dark'>('light');
 
+  React.useEffect(() => {
+    const storedMode = readStoredColorMode();
+    if (storedMode) {
+      setMode(storedMode);
+    }
+  }, []);
+
   const colorMode = React.useMemo(
     () => ({
       toggleColorMode: () => {
-        setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+        setMode((previousMode) => {
+          const nextMode = previousMode === 'light' ? 'dark' : 'light';
+          if (typeof window !== 'undefined') {
+            window.localStorage.setItem(COLOR_MODE_STORAGE_KEY, nextMode);
+          }
+          return nextMode;
+        });
       },
     }),
     [],

@@ -14,6 +14,8 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
+import { motion } from 'framer-motion';
+import { headerBar } from './motion/variants';
 import { Dictionary } from '../get-dictionary';
 
 export default function Header({
@@ -46,7 +48,23 @@ export default function Header({
   };
 
   return (
-    <AppBar position="sticky" color="inherit" sx={{ bgcolor: 'background.default', backgroundImage: 'none', boxShadow: 'none', borderBottom: 1, borderColor: 'divider' }}>
+    <AppBar
+      position="sticky"
+      color="inherit"
+      component={motion.nav}
+      variants={headerBar}
+      initial="hidden"
+      animate="visible"
+      sx={{
+        bgcolor: (theme) =>
+          theme.palette.mode === 'light' ? 'rgba(248, 250, 252, 0.85)' : 'rgba(11, 18, 32, 0.88)',
+        backdropFilter: 'blur(12px)',
+        backgroundImage: 'none',
+        boxShadow: (theme) => `0 1px 0 ${theme.palette.divider}`,
+        borderBottom: 1,
+        borderColor: 'divider',
+      }}
+    >
       <Container maxWidth="lg">
         <Toolbar disableGutters>
           <Typography

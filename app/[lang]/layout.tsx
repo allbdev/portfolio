@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Vinicius Albuquerque',
-  description: 'Senior Software Engineer with 5+ years of experience specializing in high-performance web and mobile applications using Next.js, React, TypeScript, Node.js, and Go.',
+  description: 'Senior Software Engineer with 6+ years of experience specializing in high-performance web and mobile applications using Next.js, React, TypeScript, Node.js, and Go.',
 };
 
 export default async function RootLayout({

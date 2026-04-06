@@ -17,9 +17,9 @@ export interface Dictionary {
   };
   skills: {
     title: string;
-    items: {
-      name: string;
-      description: string;
+    categories: {
+      label: string;
+      items: string[];
     }[];
   };
   projects: {
@@ -30,7 +30,7 @@ export interface Dictionary {
       title: string;
       description: string;
       liveUrl: string;
-      githubUrl: string;
+      githubUrl?: string;
       techStack: string[];
     }[];
   };
@@ -67,5 +67,7 @@ const dictionaries = {
   pt: () => import('./dictionaries/pt.json').then((module) => module.default),
 };
 
-export const getDictionary = async (locale: Locale): Promise<Dictionary> => 
-  dictionaries[locale]?.() ?? dictionaries.en() as unknown as Promise<Dictionary>;
+export const getDictionary = async (locale: Locale): Promise<Dictionary> => {
+  const loadDictionary = dictionaries[locale] ?? dictionaries.en;
+  return loadDictionary() as Promise<Dictionary>;
+};

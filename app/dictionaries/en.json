@@ -8,28 +8,64 @@
   },
   "hero": {
     "title": "Senior Software Engineer",
-    "subtitle": "5+ years of experience leading the development of high-performance web and mobile applications. Proficient in JavaScript, React, and TypeScript, spanning full stack from frontend to backend services in Go and Node.js.",
+    "subtitle": "Senior software engineer with 6+ years of experience leading the development of high-performance web and mobile applications. Strong in JavaScript, React, and TypeScript across the full stack—from frontend (React Native, SolidJS) to backend (Go, Node.js).\n\nI excel at building complex features such as interactive dashboards and real-time chat systems. I mentor teams and manage end-to-end app store deployment. Motivated problem-solver, comfortable in fast-paced environments.",
     "cta": "My Portfolio",
     "downloadCv": "Download CV"
   },
   "skills": {
-    "title": "Tech Stack & Skills",
-    "items": [
-      { "name": "React / Next.js", "description": "Frontend UI & Frameworks" },
-      { "name": "TypeScript", "description": "Strongly typed JS" },
-      { "name": "React Native", "description": "Mobile Development" },
-      { "name": "Node.js", "description": "Server-side Systems" },
-      { "name": "Go", "description": "Backend Services" },
-      { "name": "AWS / Docker", "description": "Cloud & DevOps" },
-      { "name": "SolidJS", "description": "Reactive UI" },
-      { "name": "PostgreSQL", "description": "Relational DB" }
+    "title": "Tech stack & skills",
+    "categories": [
+      {
+        "label": "Languages & markup",
+        "items": ["JavaScript", "TypeScript", "HTML", "CSS", "Go"]
+      },
+      {
+        "label": "Frontend",
+        "items": ["React", "Next.js", "React Native", "SolidJS"]
+      },
+      {
+        "label": "Backend & realtime",
+        "items": ["Node.js", "NestJS", "Prisma", "PostgreSQL", "Redis"]
+      },
+      {
+        "label": "Platform & ops",
+        "items": ["Git", "Docker", "AWS", "GitHub Actions"]
+      },
+      {
+        "label": "Other",
+        "items": [
+          "REST APIs",
+          "Vitest",
+          "Jest",
+          "React Testing Library",
+          "Cypress",
+          "Playwright",
+          "Turborepo",
+          "pnpm"
+        ]
+      }
     ]
   },
   "projects": {
-    "title": "Featured Projects",
-    "liveDemo": "Live Demo",
-    "viewCode": "View Code",
+    "title": "Featured projects",
+    "liveDemo": "Live demo",
+    "viewCode": "View code",
     "items": [
+      {
+        "title": "Path Trader",
+        "description": "Premium full-stack SaaS for traders: journaling, performance analytics, risk context, subscriptions (Asaas), partner program with admin workflows, AI assist, PWA, and a TypeScript monorepo with multiple Next.js surfaces and a NestJS API.",
+        "liveUrl": "https://www.path-trader.com.br/",
+        "techStack": [
+          "Next.js",
+          "NestJS",
+          "TypeScript",
+          "Prisma",
+          "Turborepo",
+          "PostgreSQL",
+          "Redis",
+          "AWS"
+        ]
+      },
       {
         "title": "Rick and Morty Explorer",
         "description": "An animated series explorer following the adventures of a super scientist and his grandson, featuring complex character relationships and intergalactic discoveries.",
@@ -42,77 +78,115 @@
         "description": "A comprehensive financial management platform offering expense tracking, recurring transactions, AI assistance, and dashboard analytics to help users achieve financial goals.",
         "liveUrl": "https://www.vestra-financas.com.br/",
         "githubUrl": "https://github.com/allbdev/vestra",
-        "techStack": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL", "MaterialUI"]
+        "techStack": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL", "Material UI"]
       }
     ]
   },
   "experience": {
-    "title": "Work Experience",
-    "educationTitle": "Education & Certifications",
+    "title": "Work experience",
+    "educationTitle": "Education & certifications",
     "jobs": [
+      {
+        "company": "Path Trader",
+        "role": "Full-stack engineer",
+        "period": "Feb 2026 – Present",
+        "description": "As a full-stack engineer on Path Trader, I designed and built a TypeScript monorepo product for traders to journal trades, review performance, manage risk, and run a partner program, with a strong focus on polished UX and reliable integrations. I owned both the Next.js client applications and the NestJS API—from data modeling with Prisma through payments, file storage, realtime notifications, and production-oriented tooling.",
+        "achievements": [
+          "Architected a pnpm and Turborepo monorepo with a shared Prisma schema, internal UI packages (Radix-style primitives, Recharts), and multiple Next.js surfaces (main app, marketing site, admin, landing).",
+          "Delivered the trading journal (accounts, trades, tags, strategies, emotions) plus imports from common broker and export formats; built analytics and path-rank style performance views.",
+          "Implemented Lexical-based journal and documents with folders and document types; integrated Asaas billing and a partner program with an admin app for approvals.",
+          "Shipped an AI assistant (OpenAI) with usage-aware behavior; authentication with NextAuth.js on Next apps and JWT plus Passport on the API.",
+          "Connected Pusher notifications, AWS SES email, and S3 presigned uploads; NestJS backend with validation, throttling, schedules, and BullMQ on Redis.",
+          "Delivered a PWA with Serwist; observability with Sentry across Next.js and Node.",
+          "Implemented Jest, React Testing Library, and Playwright quality gates; GitHub Actions CI/CD with path-filtered deploys for API, web, site, admin, and landing.",
+          "Operational automation: scheduled database backups to S3 and a daily develop → main sync workflow with pull requests and checks before merge."
+        ]
+      },
       {
         "company": "Bird",
         "role": "Frontend Engineer",
-        "period": "Apr 2024 - Present",
-        "description": "Working closely with designers to deliver user-friendly and accessible interfaces. Expanded expertise to backend development using Go (Golang).",
+        "period": "Apr 2024 – Present",
+        "description": "As a frontend engineer at Bird, I work closely with designers to deliver user-friendly, accessible interfaces and have expanded into backend development with Go. On the sales development team, I delivered features for lead, opportunity, and account management.",
         "achievements": [
-          "Delivered features such as lead, opportunity, and account management.",
-          "Developed a custom dashboard system where the user can select whatever metrics they need and build their own charts, used across the entire application.",
-          "Developed a unified dashboard feature with Malloy, SolidJS, and Vega charts.",
-          "Developed interactive charts, tables, and analytics dashboards using libraries such as TanStack Table, Recharts, Chart.js, and Radix UI.",
-          "Led the redesign of the marketing cloud, collaborating with the design team to create intuitive and visually appealing interfaces with Radix UI and Tailwind CSS.",
-          "Implemented comprehensive testing strategies for new features using Vitest, React Testing Library, and Cypress to ensure reliability and maintainability.",
-          "Maintained existing API endpoints, introduced new features, and resolved bugs to improve system performance and stability."
+          "Work with designers to deliver accessible, user-friendly interfaces; expanded into backend work with Go on the sales development team (lead, opportunity, and account management).",
+          "Built a custom dashboard where users pick metrics and compose charts, used across the product.",
+          "Delivered a cross-app dashboard (charts, tables, KPIs) with Malloy, SolidJS, and Vega.",
+          "Implemented analytics UIs with TanStack Table, Recharts, Chart.js, and Radix UI.",
+          "Led the marketing cloud redesign with Radix UI and Tailwind CSS.",
+          "Established testing with Vitest, React Testing Library, and Cypress.",
+          "Maintained and extended API endpoints; shipped features and fixes for performance and stability."
         ]
       },
       {
         "company": "MULTTI",
         "role": "Senior Software Engineer",
-        "period": "Jan 2022 - Mar 2024",
-        "description": "Took on a leadership role, guiding my teammates and ensuring smooth development processes. Also hands-on with backend development using PHP.",
+        "period": "Jan 2022 – Mar 2024",
+        "description": "As a senior software engineer at MULTTI, I took on a leadership role—guiding teammates and keeping development processes smooth—and stayed hands-on with backend work in PHP.",
         "achievements": [
-          "Built a chat system with WebSockets and a virtualized list for a smooth user experience, using React, React States, PusherJS, and Sass.",
-          "Developed a streaming platform tailored to the Brazilian financial market, leveraging React, React States, Sass, cookies, and Reactstrap.",
-          "Created a mobile app for tracking deliveries, integrating push notifications, maps, and custom styles using React Native.",
-          "Created a lead management system to handle the entire lead process using React, MUI, and Sass.",
-          "Streamlined deployment processes with Docker, AWS, and Bitbucket Pipelines.",
-          "Responsible for the deployment process in both Google and Apple stores."
+          "Led teammates and development flow; hands-on backend with PHP where needed.",
+          "Built a chat system with WebSockets and a virtualized list (React, PusherJS, Sass).",
+          "Delivered a streaming product for the Brazilian financial market (React, Sass, cookies, Reactstrap).",
+          "Shipped a delivery-tracking mobile app with push notifications, maps, and custom UI (React Native).",
+          "Built a lead management system end-to-end (React, MUI, Sass).",
+          "Improved releases with Docker, AWS, and Bitbucket Pipelines.",
+          "Owned deployment to Google Play and the App Store."
         ]
       },
       {
-        "company": "Solution4Apps",
+        "company": "Solution4apps",
         "role": "Software Engineer",
-        "period": "Jan 2020 - Jan 2022",
-        "description": "Played a key role in leading and guiding both mobile and web development. Shaped the development flow from start to finish.",
+        "period": "Jan 2020 – Jan 2022",
+        "description": "As a software engineer at Solution4apps, I led and guided both mobile and web work, staying at the forefront of projects and shaping the development flow end to end.",
         "achievements": [
-          "Built a mobile app that lets users locate establishments on a map and access their cameras in real-time, using React Native, Push Notifications, Maps, and NativeWind.",
-          "Developed a high-performance, accessible website for a government entity using Next.js and Tailwind.",
-          "Created an interactive financial market platform featuring smooth animations and real-time updates, leveraging Next.js, Chakra UI, and Socket.io.",
-          "Responsible for the deployment process in both Google and Apple stores."
+          "Led mobile and web delivery across projects, from discovery through release.",
+          "Built a React Native app with map discovery, real-time camera flows, push notifications, Maps, and NativeWind.",
+          "Delivered an accessible public-sector site with Next.js and Tailwind.",
+          "Built an interactive financial markets product with real-time updates (Next.js, Chakra UI, Socket.io, React Spring, Tailwind).",
+          "Managed deployment to Google Play and the App Store."
         ]
       }
     ],
     "education": [
       {
-        "title": "Bachelor's In Information Systems",
-        "institution": "Universidade Vila Velha - UVV (Exp 2028)",
-        "description": "Focus on Web Systems."
+        "title": "Docker — Full Cycle",
+        "institution": "Full Cycle",
+        "description": "Docker course (credential 088ac69a-c05f-4aa4-bad8-1c3af72085f)."
       },
       {
-        "title": "Specializations",
-        "institution": "Rocketseat & Various",
-        "description": "NextJS, ReactJS, React Native, TypeScript, Docker."
+        "title": "Bachelor's in Information Systems",
+        "institution": "Universidade Vila Velha (UVV)",
+        "description": "Expected Jun 2028."
+      },
+      {
+        "title": "Specialization: Next.js, React, React Native, TypeScript",
+        "institution": "Rocketseat",
+        "description": "Aug 2021."
+      },
+      {
+        "title": "Specialization: React Native, React",
+        "institution": "Fábrica de aplicativos",
+        "description": "Aug 2021."
+      },
+      {
+        "title": "Specialization: HTML + CSS",
+        "institution": "UpInside Treinamentos",
+        "description": "Feb 2020."
+      },
+      {
+        "title": "High school diploma",
+        "institution": "Faculdade Projeção",
+        "description": "Dec 2016."
       }
     ]
   },
   "contact": {
     "title": "Let's build something together",
-    "subtitle": "Reach out to connect via Email, LinkedIn, or check my code on GitHub.",
+    "subtitle": "Reach out via email, LinkedIn, or GitHub.",
     "links": {
       "email": "mailto:vini.alb13@gmail.com",
       "linkedin": "https://www.linkedin.com/in/albuquerque-vinicius",
       "github": "https://github.com/allbdev"
     },
-    "copyright": "© 2026 Vinicius Albuquerque. All rights reserved."
+    "copyright": "© 2026 Vinícius Albuquerque. All rights reserved."
   }
 }

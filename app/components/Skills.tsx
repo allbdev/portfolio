@@ -1,40 +1,71 @@
 'use client';
+
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import Chip from '@mui/material/Chip';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
+import { cardHover, staggerContainer, staggerItem } from './motion/variants';
+import SectionHeading from './SectionHeading';
+import { Dictionary } from '../get-dictionary';
 
 const MotionCard = motion(Card);
 
-import { Dictionary } from '../get-dictionary';
-
 export default function Skills({ dictionary }: { dictionary: Dictionary }) {
   return (
-    <Box id="skills" component="section" sx={{ py: 10, bgcolor: 'background.paper' }}>
+    <Box
+      id="skills"
+      component="section"
+      sx={{
+        py: 10,
+        bgcolor: (theme) =>
+          theme.palette.mode === 'light' ? 'rgba(255,255,255,0.72)' : 'rgba(21, 31, 50, 0.65)',
+        backdropFilter: 'blur(12px)',
+      }}
+    >
       <Container maxWidth="lg">
-        <Typography variant="h3" component="h2" gutterBottom sx={{ mb: 6, fontWeight: 700 }}>
-          {dictionary.skills.title}
-        </Typography>
-        <Grid container spacing={4}>
-          {dictionary.skills.items.map((skill: Dictionary['skills']['items'][number], index: number) => (
-            <Grid key={skill.name} size={{ xs: 12, sm: 6, md: 4 }}>
+        <SectionHeading title={dictionary.skills.title} />
+        <Grid
+          container
+          spacing={3}
+          component={motion.div}
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-80px' }}
+        >
+          {dictionary.skills.categories.map((category: Dictionary['skills']['categories'][number]) => (
+            <Grid key={category.label} size={{ xs: 12, md: 6 }} component={motion.div} variants={staggerItem}>
               <MotionCard
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, delay: index * 0.1 }}
+                variants={cardHover}
+                initial="rest"
+                whileHover="hover"
+                whileTap="tap"
                 sx={{ height: '100%' }}
               >
                 <CardContent>
-                  <Typography variant="h6" component="h3" gutterBottom color="primary.main">
-                    {skill.name}
+                  <Typography
+                    variant="h6"
+                    component="h3"
+                    gutterBottom
+                    sx={{
+                      fontWeight: 700,
+                      background: (theme) =>
+                        `linear-gradient(90deg, ${theme.palette.secondary.main}, ${theme.palette.primary.main})`,
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                    }}
+                  >
+                    {category.label}
                   </Typography>
-                  <Typography variant="body1" color="text.secondary">
-                    {skill.description}
-                  </Typography>
+                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 2 }}>
+                    {category.items.map((item) => (
+                      <Chip key={item} label={item} size="small" color="secondary" variant="outlined" />
+                    ))}
+                  </Box>
                 </CardContent>
               </MotionCard>
             </Grid>
