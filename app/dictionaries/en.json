@@ -7,10 +7,10 @@
     "contact": "Contact"
   },
   "hero": {
-    "title": "Senior Software Engineer",
-    "subtitle": "Senior software engineer with 6+ years of experience leading the development of high-performance web and mobile applications. Strong in JavaScript, React, and TypeScript across the full stack—from frontend (React Native, SolidJS) to backend (Go, Node.js).\n\nI excel at building complex features such as interactive dashboards and real-time chat systems. I mentor teams and manage end-to-end app store deployment. Motivated problem-solver, comfortable in fast-paced environments.",
-    "cta": "My Portfolio",
-    "downloadCv": "Download CV"
+    "title": "Hello, I'm Vinícius",
+    "subtitle": "I'm a senior software engineer with 6+ years of experience leading the development of high-performance web and mobile applications. Strong in JavaScript, React, and TypeScript across the full stack—from frontend (React Native, SolidJS) to backend (Go, Node.js).\n\nI excel at building complex features such as interactive dashboards and real-time chat systems. I mentor teams and manage end-to-end app store deployment. Motivated problem-solver, comfortable in fast-paced environments.",
+    "cta": "Explore my projects",
+    "downloadCv": "Download resume"
   },
   "skills": {
     "title": "Tech stack & skills",

@@ -7,10 +7,10 @@
     "contact": "Contato"
   },
   "hero": {
-    "title": "Engenheiro de Software Sênior",
-    "subtitle": "Engenheiro de software sênior com mais de 6 anos de experiência liderando o desenvolvimento de aplicações web e móveis de alto desempenho. Forte em JavaScript, React e TypeScript em todo o stack—do frontend (React Native, SolidJS) ao backend (Go, Node.js).\n\nDestaco-me em funcionalidades complexas como dashboards interativos e sistemas de chat em tempo real. Faço mentoria de times e conduzo deploy ponta a ponta nas lojas de aplicativos. Perfil motivado e orientado a resolver problemas, à vontade em ambientes acelerados.",
-    "cta": "Meu portfólio",
-    "downloadCv": "Baixar CV"
+    "title": "Olá, sou o Vinícius",
+    "subtitle": "Sou um engenheiro de software sênior com mais de 6 anos de experiência liderando o desenvolvimento de aplicações web e móveis de alto desempenho. Forte em JavaScript, React e TypeScript em todo o stack—do frontend (React Native, SolidJS) ao backend (Go, Node.js).\n\nDestaco-me em funcionalidades complexas como dashboards interativos e sistemas de chat em tempo real. Faço mentoria de times e conduzo deploy ponta a ponta nas lojas de aplicativos. Perfil motivado e orientado a resolver problemas, à vontade em ambientes acelerados.",
+    "cta": "Conheça meus projetos",
+    "downloadCv": "Baixar currículo"
   },
   "skills": {
     "title": "Stack e habilidades",
