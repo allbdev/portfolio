@@ -17,24 +17,50 @@
     "categories": [
       {
         "label": "Linguagens e marcação",
-        "items": ["JavaScript", "TypeScript", "HTML", "CSS", "Go"]
+        "items": [
+          "JavaScript",
+          "TypeScript",
+          "HTML",
+          "CSS",
+          "Go"
+        ]
       },
       {
         "label": "Frontend",
-        "items": ["React", "Next.js", "React Native", "SolidJS"]
+        "items": [
+          "React",
+          "Next.js",
+          "React Native",
+          "SolidJS"
+        ]
       },
       {
         "label": "Backend e tempo real",
-        "items": ["Node.js", "NestJS", "Prisma", "PostgreSQL", "Redis"]
+        "items": [
+          "Node.js",
+          "NestJS",
+          "Prisma",
+          "PostgreSQL",
+          "Redis"
+        ]
       },
       {
         "label": "Plataforma e operações",
-        "items": ["Git", "Docker", "AWS", "GitHub Actions"]
+        "items": [
+          "Git",
+          "Docker",
+          "AWS",
+          "GitHub Actions",
+          "Vercel",
+          "Fly",
+          "Sentry"
+        ]
       },
       {
         "label": "Outros",
         "items": [
           "REST APIs",
+          "Desenvolvimento com IA (Cursor, Claude, Antigravity)",
           "Vitest",
           "Jest",
           "React Testing Library",
@@ -71,14 +97,28 @@
         "description": "Um explorador da série animada seguindo as aventuras de um super cientista e seu neto, com relacionamentos complexos de personagens e descobertas intergalácticas.",
         "liveUrl": "https://rickandmorty-alb-dev.vercel.app/",
         "githubUrl": "https://github.com/allbdev/rickandmorty",
-        "techStack": ["Next.js", "React", "TypeScript", "Tailwind CSS", "GraphQL"]
+        "techStack": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "GraphQL"
+        ]
       },
       {
         "title": "Vestra Gestão Financeira",
         "description": "Plataforma completa de gestão financeira com controle de despesas, transações recorrentes, assistente com IA e dashboards analíticos para metas financeiras.",
         "liveUrl": "https://www.vestra-financas.com.br/",
         "githubUrl": "https://github.com/allbdev/vestra",
-        "techStack": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL", "Material UI"]
+        "techStack": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "Prisma",
+          "PostgreSQL",
+          "Material UI"
+        ]
       }
     ]
   },
@@ -88,9 +128,9 @@
     "jobs": [
       {
         "company": "Path Trader",
-        "role": "Engenheiro full stack",
+        "role": "Co-fundador e Desenvolvedor Líder (Projeto Independente)",
         "period": "Fev 2026 – Presente",
-        "description": "Como engenheiro full stack no Path Trader, projetei e construí um produto em monorepo TypeScript para traders registrarem operações, analisarem desempenho, gerenciarem risco e operarem um programa de parceiros, com forte foco em UX refinada e integrações confiáveis. Fui responsável pelos clientes Next.js e pela API NestJS—do modelamento com Prisma a pagamentos, armazenamento de arquivos, notificações em tempo real e ferramentas orientadas à produção.",
+        "description": "Como co-fundador e desenvolvedor líder do Path Trader, uma plataforma independente bancada com recursos próprios, projetei e construí um monorepo TypeScript para traders registrarem operações, analisarem desempenho, gerenciarem risco e operarem um programa de parceiros. Desenvolvido principalmente no meu tempo livre, fui responsável tanto pelas aplicações clientes Next.js quanto pela API NestJS—da modelagem de dados com Prisma a pagamentos, armazenamento de arquivos, notificações em tempo real e ferramentas orientadas à produção.",
         "achievements": [
           "Arquitetei monorepo pnpm e Turborepo com schema Prisma compartilhado, pacotes de UI internos (primitivos estilo Radix, Recharts) e várias superfícies Next.js (app principal, site institucional, admin, landing).",
           "Entreguei o diário de trading (contas, operações, tags, estratégias, emoções) com importações de formatos comuns de corretoras e exportação; construí analytics e visões estilo path-rank.",
@@ -99,50 +139,47 @@
           "Conectei notificações Pusher, e-mail AWS SES e uploads com URLs pré-assinadas no S3; backend NestJS com validação, throttling, agendamentos e BullMQ no Redis.",
           "Entreguei PWA com Serwist; observabilidade com Sentry em Next.js e Node.",
           "Implementei qualidade com Jest, React Testing Library e Playwright; CI/CD no GitHub Actions com deploys filtrados por caminho para API, web, site, admin e landing.",
-          "Automação operacional: backups agendados do banco para S3 e fluxo diário develop → main com pull requests e checagens antes do merge."
+          "Automação operacional: backups agendados do banco para S3 e fluxo diário develop → main com pull requests e checagens antes do merge.",
+          "Acelerei fluxos de desenvolvimento com uso de ferramentas de IA (Cursor, Claude, Antigravity) para prototipar rapidamente, iterar e reduzir significativamente o time-to-market do projeto."
         ]
       },
       {
         "company": "Bird",
-        "role": "Engenheiro frontend",
+        "role": "Engenheiro Frontend",
         "period": "Abr 2024 – Presente",
-        "description": "Como engenheiro frontend na Bird, trabalho próximo a designers para entregar interfaces acessíveis e amigáveis e expandi para backend em Go. No time de desenvolvimento de vendas, entreguei funcionalidades de lead, oportunidade e gestão de contas.",
+        "description": "Como engenheiro frontend na Bird, colaboro estreitamente com designers para entregar interfaces altamente acessíveis enquanto expando meu impacto full-stack através do desenvolvimento backend em Go. Na equipe de desenvolvimento de vendas, conduzo a entrega ponta a ponta de recursos para gerenciamento de leads, oportunidades e contas.",
         "achievements": [
-          "Trabalho com designers para interfaces acessíveis; expandi para backend em Go no time de vendas (lead, oportunidade e gestão de contas).",
-          "Construí um dashboard customizável em que o usuário escolhe métricas e monta gráficos, usado em todo o produto.",
-          "Entreguei dashboard transversal (gráficos, tabelas, KPIs) com Malloy, SolidJS e Vega.",
-          "Implementei UIs analíticas com TanStack Table, Recharts, Chart.js e Radix UI.",
-          "Liderei o redesign da marketing cloud com Radix UI e Tailwind CSS.",
-          "Estabeleci testes com Vitest, React Testing Library e Cypress.",
-          "Mantive e ampliei endpoints de API; entreguei features e correções de performance e estabilidade."
+          "Desenvolvi e mantive endpoints de API em Go, gerenciando as regras de negócio centrais para a equipe de vendas e melhorando a estabilidade do sistema.",
+          "Arquitetei um motor de analytics customizado e um dashboard inter-app usando Malloy, SolidJS e Vega, permitindo aos usuários compor gráficos dinamicamente com base em métricas selecionadas.",
+          "Liderei o redesign frontend da marketing cloud, estabelecendo um sistema escalável de componentes com Radix UI e Tailwind CSS.",
+          "Implementei interfaces complexas de visualização de dados em todo o produto usando TanStack Table, Recharts e Chart.js.",
+          "Liderei as iniciativas de garantia de qualidade, estabelecendo fluxos rigorosos de testes automatizados com Vitest, React Testing Library e Playwright."
         ]
       },
       {
         "company": "MULTTI",
-        "role": "Engenheiro de software sênior",
+        "role": "Engenheiro de Software Sênior",
         "period": "Jan 2022 – Mar 2024",
-        "description": "Como engenheiro de software sênior na MULTTI, assumi liderança—orientando o time e mantendo o fluxo de desenvolvimento saudável—e continuei hands-on no backend em PHP.",
+        "description": "Como engenheiro de software sênior na MULTTI, assumi um papel de liderança técnica, orientando a equipe de engenharia, otimizando fluxos de trabalho e contribuindo de forma hands-on em toda a stack (frontends React/React Native e backends em PHP).",
         "achievements": [
-          "Liderei o time e o fluxo de desenvolvimento; backend em PHP quando necessário.",
-          "Construí chat com WebSockets e lista virtualizada (React, PusherJS, Sass).",
-          "Entreguei produto de streaming para o mercado financeiro brasileiro (React, Sass, cookies, Reactstrap).",
-          "Publiquei app de rastreamento de entregas com push, mapas e UI customizada (React Native).",
-          "Construí sistema de gestão de leads ponta a ponta (React, MUI, Sass).",
-          "Melhorei releases com Docker, AWS e Bitbucket Pipelines.",
-          "Responsável pela publicação na Google Play e na App Store."
+          "Fiz mentoria de engenheiros juniores e otimizei os fluxos ágeis de desenvolvimento para garantir uma entrega previsível de funcionalidades.",
+          "Arquitetei e construí um sistema de chat altamente interativo em tempo real usando React, PusherJS, WebSockets e listas virtualizadas para melhor performance.",
+          "Liderei o desenvolvimento ponta a ponta de um aplicativo móvel de rastreamento de entregas em React Native, com mapas ao vivo, notificações push e UI customizada.",
+          "Desenvolvi soluções full-stack completas, incluindo um sistema de gerenciamento de leads (React, MUI) e uma plataforma de streaming para o mercado financeiro.",
+          "Modernizei o pipeline de CI/CD e infraestrutura ao introduzir Docker, AWS e Bitbucket Pipelines, reduzindo consideravelmente a fricção nos deploys.",
+          "Gerenciei o ciclo de vida completo de aplicativos móveis, incluindo automação de deploys para o Google Play e App Store."
         ]
       },
       {
         "company": "Solution4apps",
-        "role": "Engenheiro de software",
+        "role": "Engenheiro de Software",
         "period": "Jan 2020 – Jan 2022",
-        "description": "Como engenheiro de software na Solution4apps, liderei e orientei mobile e web, na linha de frente dos projetos e moldando o fluxo de desenvolvimento de ponta a ponta.",
+        "description": "Como engenheiro de software na Solution4apps, conduzi a entrega técnica de diversos projetos web e mobile, assumindo total responsabilidade desde a concepção inicial até o deploy em produção.",
         "achievements": [
-          "Liderei entregas mobile e web, da descoberta ao release.",
-          "Construí app React Native com mapa, câmera em tempo real, push, mapas e NativeWind.",
-          "Entreguei site governamental acessível e performático com Next.js e Tailwind.",
-          "Construí plataforma de mercado financeiro em tempo real (Next.js, Chakra UI, Socket.io, React Spring, Tailwind).",
-          "Gerenciei publicação na Google Play e na App Store."
+          "Desenvolvi um aplicativo móvel React Native repleto de funcionalidades, integrando mapas interativos, processamento de câmera em tempo real, notificações push e NativeWind.",
+          "Construí uma plataforma responsiva de mercado financeiro em tempo real usando Next.js, Socket.io, Chakra UI e React Spring.",
+          "Entreguei uma aplicação web governamental com alta performance e grande foco em acessibilidade usando Next.js e Tailwind CSS.",
+          "Supervisionei a execução completa de projetos, configurando infraestrutura e gerenciando as submissões nas lojas de aplicativos (Google Play, App Store)."
         ]
       }
     ],

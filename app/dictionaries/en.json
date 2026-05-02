@@ -17,24 +17,50 @@
     "categories": [
       {
         "label": "Languages & markup",
-        "items": ["JavaScript", "TypeScript", "HTML", "CSS", "Go"]
+        "items": [
+          "JavaScript",
+          "TypeScript",
+          "HTML",
+          "CSS",
+          "Go"
+        ]
       },
       {
         "label": "Frontend",
-        "items": ["React", "Next.js", "React Native", "SolidJS"]
+        "items": [
+          "React",
+          "Next.js",
+          "React Native",
+          "SolidJS"
+        ]
       },
       {
         "label": "Backend & realtime",
-        "items": ["Node.js", "NestJS", "Prisma", "PostgreSQL", "Redis"]
+        "items": [
+          "Node.js",
+          "NestJS",
+          "Prisma",
+          "PostgreSQL",
+          "Redis"
+        ]
       },
       {
         "label": "Platform & ops",
-        "items": ["Git", "Docker", "AWS", "GitHub Actions"]
+        "items": [
+          "Git",
+          "Docker",
+          "AWS",
+          "GitHub Actions",
+          "Vercel",
+          "Fly",
+          "Sentry"
+        ]
       },
       {
         "label": "Other",
         "items": [
           "REST APIs",
+          "AI-assisted development (Cursor, Claude, Antigravity)",
           "Vitest",
           "Jest",
           "React Testing Library",
@@ -71,14 +97,28 @@
         "description": "An animated series explorer following the adventures of a super scientist and his grandson, featuring complex character relationships and intergalactic discoveries.",
         "liveUrl": "https://rickandmorty-alb-dev.vercel.app/",
         "githubUrl": "https://github.com/allbdev/rickandmorty",
-        "techStack": ["Next.js", "React", "TypeScript", "Tailwind CSS", "GraphQL"]
+        "techStack": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "GraphQL"
+        ]
       },
       {
         "title": "Vestra Financial Management",
         "description": "A comprehensive financial management platform offering expense tracking, recurring transactions, AI assistance, and dashboard analytics to help users achieve financial goals.",
         "liveUrl": "https://www.vestra-financas.com.br/",
         "githubUrl": "https://github.com/allbdev/vestra",
-        "techStack": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL", "Material UI"]
+        "techStack": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "Prisma",
+          "PostgreSQL",
+          "Material UI"
+        ]
       }
     ]
   },
@@ -88,9 +128,9 @@
     "jobs": [
       {
         "company": "Path Trader",
-        "role": "Full-stack engineer",
+        "role": "Co-founder & Lead Developer (Independent Project)",
         "period": "Feb 2026 – Present",
-        "description": "As a full-stack engineer on Path Trader, I designed and built a TypeScript monorepo product for traders to journal trades, review performance, manage risk, and run a partner program, with a strong focus on polished UX and reliable integrations. I owned both the Next.js client applications and the NestJS API—from data modeling with Prisma through payments, file storage, realtime notifications, and production-oriented tooling.",
+        "description": "As the co-founder and lead developer of Path Trader, an independent self-funded platform, I designed and built a TypeScript monorepo for traders to journal trades, review performance, manage risk, and run a partner program. Developed primarily in my free time, I owned both the Next.js client applications and the NestJS API—from data modeling with Prisma through payments, file storage, realtime notifications, and production-oriented tooling.",
         "achievements": [
           "Architected a pnpm and Turborepo monorepo with a shared Prisma schema, internal UI packages (Radix-style primitives, Recharts), and multiple Next.js surfaces (main app, marketing site, admin, landing).",
           "Delivered the trading journal (accounts, trades, tags, strategies, emotions) plus imports from common broker and export formats; built analytics and path-rank style performance views.",
@@ -99,50 +139,47 @@
           "Connected Pusher notifications, AWS SES email, and S3 presigned uploads; NestJS backend with validation, throttling, schedules, and BullMQ on Redis.",
           "Delivered a PWA with Serwist; observability with Sentry across Next.js and Node.",
           "Implemented Jest, React Testing Library, and Playwright quality gates; GitHub Actions CI/CD with path-filtered deploys for API, web, site, admin, and landing.",
-          "Operational automation: scheduled database backups to S3 and a daily develop → main sync workflow with pull requests and checks before merge."
+          "Operational automation: scheduled database backups to S3 and a daily develop → main sync workflow with pull requests and checks before merge.",
+          "Leveraged AI-driven development workflows using tools like Cursor, Claude, and Antigravity to rapidly prototype, iterate, and accelerate the project's time-to-market."
         ]
       },
       {
         "company": "Bird",
         "role": "Frontend Engineer",
         "period": "Apr 2024 – Present",
-        "description": "As a frontend engineer at Bird, I work closely with designers to deliver user-friendly, accessible interfaces and have expanded into backend development with Go. On the sales development team, I delivered features for lead, opportunity, and account management.",
+        "description": "As a frontend engineer at Bird, I collaborate closely with designers to deliver highly accessible interfaces while actively expanding my full-stack impact through backend development in Go. On the sales development team, I drive end-to-end feature delivery for lead, opportunity, and account management.",
         "achievements": [
-          "Work with designers to deliver accessible, user-friendly interfaces; expanded into backend work with Go on the sales development team (lead, opportunity, and account management).",
-          "Built a custom dashboard where users pick metrics and compose charts, used across the product.",
-          "Delivered a cross-app dashboard (charts, tables, KPIs) with Malloy, SolidJS, and Vega.",
-          "Implemented analytics UIs with TanStack Table, Recharts, Chart.js, and Radix UI.",
-          "Led the marketing cloud redesign with Radix UI and Tailwind CSS.",
-          "Established testing with Vitest, React Testing Library, and Cypress.",
-          "Maintained and extended API endpoints; shipped features and fixes for performance and stability."
+          "Developed and maintained Go-based API endpoints, handling core business logic for the sales development team and improving system stability.",
+          "Architected a custom analytics engine and cross-app dashboard using Malloy, SolidJS, and Vega, empowering users to dynamically compose charts based on selected metrics.",
+          "Led the frontend redesign of the marketing cloud, establishing a scalable component system with Radix UI and Tailwind CSS.",
+          "Implemented complex data visualization UIs across the product suite utilizing TanStack Table, Recharts, and Chart.js.",
+          "Championed quality assurance by establishing rigorous automated testing workflows with Vitest, React Testing Library, and Playwright."
         ]
       },
       {
         "company": "MULTTI",
         "role": "Senior Software Engineer",
         "period": "Jan 2022 – Mar 2024",
-        "description": "As a senior software engineer at MULTTI, I took on a leadership role—guiding teammates and keeping development processes smooth—and stayed hands-on with backend work in PHP.",
+        "description": "As a senior software engineer at MULTTI, I took on a technical leadership role, guiding the engineering team, streamlining workflows, and contributing hands-on across the stack (React/React Native frontends and PHP backends).",
         "achievements": [
-          "Led teammates and development flow; hands-on backend with PHP where needed.",
-          "Built a chat system with WebSockets and a virtualized list (React, PusherJS, Sass).",
-          "Delivered a streaming product for the Brazilian financial market (React, Sass, cookies, Reactstrap).",
-          "Shipped a delivery-tracking mobile app with push notifications, maps, and custom UI (React Native).",
-          "Built a lead management system end-to-end (React, MUI, Sass).",
-          "Improved releases with Docker, AWS, and Bitbucket Pipelines.",
-          "Owned deployment to Google Play and the App Store."
+          "Mentored junior engineers and optimized agile development workflows to ensure reliable feature delivery.",
+          "Architected and built a highly interactive real-time chat system using React, PusherJS, WebSockets, and virtualized lists for performance at scale.",
+          "Led the end-to-end development of a delivery-tracking React Native mobile app featuring live maps, push notifications, and custom UI.",
+          "Developed comprehensive full-stack solutions, including a lead management system (React, MUI) and a financial market streaming platform.",
+          "Modernized the CI/CD pipeline and infrastructure by introducing Docker, AWS, and Bitbucket Pipelines, reducing deployment friction.",
+          "Managed the full lifecycle of mobile applications, including automated deployments to Google Play and the App Store."
         ]
       },
       {
         "company": "Solution4apps",
         "role": "Software Engineer",
         "period": "Jan 2020 – Jan 2022",
-        "description": "As a software engineer at Solution4apps, I led and guided both mobile and web work, staying at the forefront of projects and shaping the development flow end to end.",
+        "description": "As a software engineer at Solution4apps, I led the technical delivery of multiple web and mobile projects, taking ownership from initial discovery through to production release.",
         "achievements": [
-          "Led mobile and web delivery across projects, from discovery through release.",
-          "Built a React Native app with map discovery, real-time camera flows, push notifications, Maps, and NativeWind.",
-          "Delivered an accessible public-sector site with Next.js and Tailwind.",
-          "Built an interactive financial markets product with real-time updates (Next.js, Chakra UI, Socket.io, React Spring, Tailwind).",
-          "Managed deployment to Google Play and the App Store."
+          "Engineered a feature-rich React Native mobile app incorporating interactive maps, real-time camera processing, push notifications, and NativeWind.",
+          "Built a responsive, real-time financial markets platform using Next.js, Socket.io, Chakra UI, and React Spring.",
+          "Delivered a highly performant and accessible public-sector web application leveraging Next.js and Tailwind CSS.",
+          "Oversaw end-to-end project execution, configuring infrastructure and managing app store deployments for mobile products."
         ]
       }
     ],
