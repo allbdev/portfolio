@@ -1,3 +1,5 @@
+'use client';
+
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
@@ -8,8 +10,9 @@ import StepLabel from '@mui/material/StepLabel';
 import StepContent from '@mui/material/StepContent';
 import { motion } from 'framer-motion';
 import Grid from '@mui/material/Grid';
-import { staggerContainer, staggerItem } from './motion/variants';
+import { blurFadeUp, slideFromLeft, staggerContainer, staggerItem } from './motion/variants';
 import SectionHeading from './SectionHeading';
+import TiltCard from './TiltCard';
 import { Dictionary } from '../get-dictionary';
 
 export default function Experience({ dictionary }: { dictionary: Dictionary }) {
@@ -29,28 +32,36 @@ export default function Experience({ dictionary }: { dictionary: Dictionary }) {
 
         <Box sx={{ maxWidth: 800, mx: 'auto' }}>
           <Stepper orientation="vertical">
-            {dictionary.experience.jobs.map((job: Dictionary['experience']['jobs'][number]) => (
+            {dictionary.experience.jobs.map((job: Dictionary['experience']['jobs'][number], jobIndex: number) => (
               <Step key={`${job.company}-${job.period}`} active>
                 <StepLabel
                   StepIconProps={{
                     sx: { color: 'secondary.main' },
                   }}
                 >
-                  <Box>
-                    <Typography variant="h6" fontWeight="bold" component="span">
-                      {job.role}
+                  <motion.div
+                    variants={slideFromLeft}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: '-40px' }}
+                    transition={{ delay: jobIndex * 0.08 } as never}
+                  >
+                    <Box>
+                      <Typography variant="h6" fontWeight="bold" component="span">
+                        {job.role}
+                      </Typography>
+                      <Typography variant="subtitle1" component="span" color="secondary" sx={{ ml: 1 }}>
+                        @ {job.company}
+                      </Typography>
+                    </Box>
+                    <Typography variant="caption" color="text.secondary" display="block">
+                      {job.period}
                     </Typography>
-                    <Typography variant="subtitle1" component="span" color="secondary" sx={{ ml: 1 }}>
-                      @ {job.company}
-                    </Typography>
-                  </Box>
-                  <Typography variant="caption" color="text.secondary" display="block">
-                    {job.period}
-                  </Typography>
+                  </motion.div>
                 </StepLabel>
                 <StepContent>
                   <motion.div
-                    variants={staggerItem}
+                    variants={blurFadeUp}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: '-40px' }}
@@ -103,24 +114,31 @@ export default function Experience({ dictionary }: { dictionary: Dictionary }) {
                 component={motion.div}
                 variants={staggerItem}
               >
-                <Paper
-                  elevation={0}
-                  sx={{
-                    p: 3,
-                    height: '100%',
-                    border: (theme) => `1px solid ${theme.palette.divider}`,
-                  }}
-                >
-                  <Typography variant="h6" gutterBottom>
-                    {edu.title}
-                  </Typography>
-                  <Typography variant="subtitle2" color="secondary" gutterBottom>
-                    {edu.institution}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {edu.description}
-                  </Typography>
-                </Paper>
+                <TiltCard maxTilt={4}>
+                  <Paper
+                    elevation={0}
+                    sx={{
+                      p: 3,
+                      height: '100%',
+                      border: (theme) => `1px solid ${theme.palette.divider}`,
+                      transition: 'border-color 0.25s, box-shadow 0.25s',
+                      '&:hover': {
+                        borderColor: 'secondary.main',
+                        boxShadow: (theme) => `0 4px 24px ${theme.palette.secondary.main}22`,
+                      },
+                    }}
+                  >
+                    <Typography variant="h6" gutterBottom>
+                      {edu.title}
+                    </Typography>
+                    <Typography variant="subtitle2" color="secondary" gutterBottom>
+                      {edu.institution}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {edu.description}
+                    </Typography>
+                  </Paper>
+                </TiltCard>
               </Grid>
             ))}
           </Grid>

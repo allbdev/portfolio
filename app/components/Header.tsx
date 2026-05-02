@@ -18,6 +18,8 @@ import { motion } from 'framer-motion';
 import { headerBar } from './motion/variants';
 import { Dictionary } from '../get-dictionary';
 
+const MotionBox = motion(Box);
+
 export default function Header({
   dictionary,
   toggleColorMode,
@@ -76,16 +78,48 @@ export default function Header({
             Vinícius Albuquerque
           </Typography>
 
-          <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2 }}>
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 0.5, alignItems: 'center' }}>
             {['home', 'skills', 'projects', 'experience', 'contact'].map((item) => (
-              <Button
+              <motion.div
                 key={item}
-                href={`#${item}`}
-                sx={{ color: 'text.primary', '&:hover': { bgcolor: 'action.hover' } }}
-                component={Link}
+                initial="rest"
+                whileHover="hover"
+                style={{ position: 'relative' }}
               >
-                {dictionary.navigation[item as keyof Dictionary['navigation']]}
-              </Button>
+                <Button
+                  href={`#${item}`}
+                  sx={{
+                    color: 'text.primary',
+                    '&:hover': { bgcolor: 'transparent', color: 'primary.main' },
+                    transition: 'color 0.2s ease',
+                    fontSize: '0.875rem',
+                  }}
+                  component={Link}
+                >
+                  {dictionary.navigation[item as keyof Dictionary['navigation']]}
+                </Button>
+                <MotionBox
+                  variants={{
+                    rest: { scaleX: 0, opacity: 0 },
+                    hover: {
+                      scaleX: 1,
+                      opacity: 1,
+                      transition: { duration: 0.22, ease: [0.22, 1, 0.36, 1] },
+                    },
+                  }}
+                  sx={{
+                    position: 'absolute',
+                    bottom: 4,
+                    left: 8,
+                    right: 8,
+                    height: '2px',
+                    borderRadius: 999,
+                    background: (theme) =>
+                      `linear-gradient(90deg, ${theme.palette.secondary.main}, ${theme.palette.primary.main})`,
+                    transformOrigin: 'left',
+                  }}
+                />
+              </motion.div>
             ))}
           </Box>
 

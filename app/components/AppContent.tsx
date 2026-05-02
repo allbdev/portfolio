@@ -8,6 +8,8 @@ import Projects from './Projects';
 import Experience from './Experience';
 import Contact from './Contact';
 import AmbientBackground from './AmbientBackground';
+import CursorGlow from './CursorGlow';
+import ScrollProgress from './ScrollProgress';
 import Box from '@mui/material/Box';
 import { useTheme } from '@mui/material/styles';
 import { ColorModeContext } from './ThemeRegistry/ThemeRegistry';
@@ -23,7 +25,9 @@ export default function AppContent({
 
   return (
     <Box sx={{ position: 'relative', minHeight: '100vh' }}>
+      <ScrollProgress />
       <AmbientBackground />
+      <CursorGlow />
       <Box
         sx={{
           position: 'relative',

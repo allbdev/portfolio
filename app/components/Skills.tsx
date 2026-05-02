@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
 import { cardHover, staggerContainer, staggerItem } from './motion/variants';
 import SectionHeading from './SectionHeading';
+import TiltCard from './TiltCard';
 import { Dictionary } from '../get-dictionary';
 
 const MotionCard = motion(Card);
@@ -39,35 +40,44 @@ export default function Skills({ dictionary }: { dictionary: Dictionary }) {
         >
           {dictionary.skills.categories.map((category: Dictionary['skills']['categories'][number]) => (
             <Grid key={category.label} size={{ xs: 12, md: 6 }} component={motion.div} variants={staggerItem}>
-              <MotionCard
-                variants={cardHover}
-                initial="rest"
-                whileHover="hover"
-                whileTap="tap"
-                sx={{ height: '100%' }}
-              >
-                <CardContent>
-                  <Typography
-                    variant="h6"
-                    component="h3"
-                    gutterBottom
-                    sx={{
-                      fontWeight: 700,
-                      background: (theme) =>
-                        `linear-gradient(90deg, ${theme.palette.secondary.main}, ${theme.palette.primary.main})`,
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                    }}
-                  >
-                    {category.label}
-                  </Typography>
-                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 2 }}>
-                    {category.items.map((item) => (
-                      <Chip key={item} label={item} size="small" color="secondary" variant="outlined" />
-                    ))}
-                  </Box>
-                </CardContent>
-              </MotionCard>
+              <TiltCard maxTilt={4}>
+                <MotionCard
+                  variants={cardHover}
+                  initial="rest"
+                  whileHover="hover"
+                  whileTap="tap"
+                  sx={{ height: '100%' }}
+                >
+                  <CardContent>
+                    <Typography
+                      variant="h6"
+                      component="h3"
+                      gutterBottom
+                      sx={{
+                        fontWeight: 700,
+                        background: (theme) =>
+                          `linear-gradient(90deg, ${theme.palette.secondary.main}, ${theme.palette.primary.main})`,
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                      }}
+                    >
+                      {category.label}
+                    </Typography>
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 2 }}>
+                      {category.items.map((item) => (
+                        <motion.div
+                          key={item}
+                          whileHover={{ scale: 1.12, y: -3 }}
+                          whileTap={{ scale: 0.95 }}
+                          transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                        >
+                          <Chip label={item} size="small" color="secondary" variant="outlined" />
+                        </motion.div>
+                      ))}
+                    </Box>
+                  </CardContent>
+                </MotionCard>
+              </TiltCard>
             </Grid>
           ))}
         </Grid>

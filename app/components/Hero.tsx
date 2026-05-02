@@ -1,16 +1,31 @@
 'use client';
 
+import { useRef } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { motion } from 'framer-motion';
-import { staggerContainer, staggerItem } from './motion/variants';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { staggerContainer, staggerItem, blurFadeUp } from './motion/variants';
 import { Dictionary } from '../get-dictionary';
 
+const MotionBox = motion(Box);
+
 export default function Hero({ dictionary }: { dictionary: Dictionary }) {
+  const heroRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+
+  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
+  const indicatorOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
+
   return (
     <Box
+      ref={heroRef}
       id="home"
       component="section"
       sx={{
@@ -19,6 +34,8 @@ export default function Hero({ dictionary }: { dictionary: Dictionary }) {
         display: 'flex',
         alignItems: 'center',
         minHeight: '80vh',
+        position: 'relative',
+        overflow: 'hidden',
       }}
     >
       <Container maxWidth="md">
@@ -26,8 +43,9 @@ export default function Hero({ dictionary }: { dictionary: Dictionary }) {
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
+          style={{ y: contentY }}
         >
-          <motion.div variants={staggerItem}>
+          <motion.div variants={blurFadeUp}>
             <Typography
               component="h1"
               variant="h2"
@@ -82,6 +100,24 @@ export default function Hero({ dictionary }: { dictionary: Dictionary }) {
                 </Button>
               </motion.div>
             </Box>
+          </motion.div>
+
+          <motion.div variants={staggerItem}>
+            <MotionBox
+              style={{ opacity: indicatorOpacity }}
+              sx={{ mt: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0.5 }}
+            >
+              <motion.div
+                animate={{ y: [0, 7, 0] }}
+                transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut', delay: 1.2 }}
+                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, opacity: 0.45 }}
+              >
+                <Typography variant="overline" sx={{ fontSize: '0.6rem', letterSpacing: 3 }}>
+                  scroll
+                </Typography>
+                <KeyboardArrowDownIcon sx={{ fontSize: 18 }} />
+              </motion.div>
+            </MotionBox>
           </motion.div>
         </motion.div>
       </Container>
