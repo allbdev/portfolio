@@ -107,17 +107,20 @@
       },
       {
         "title": "Vestra Gestão Financeira",
-        "description": "Plataforma completa de gestão financeira com controle de despesas, transações recorrentes, assistente com IA e dashboards analíticos para metas financeiras.",
+        "description": "PWA mobile-first de finanças pessoais, construído como monorepo TypeScript com dashboard em Vite + React 19, site institucional em Next.js 16 e API NestJS com Prisma sobre PostgreSQL. Workspaces multiusuário com permissões de dono/membro e clonagem profunda, transações recorrentes geradas por cron agendado, autenticação JWT com rotação de refresh token e gating de assinatura free/pro. Design system shadcn/ui + Tailwind 4 compartilhado entre os dois frontends. Deploy em Fly.io (API) e Vercel (web) com Postgres gerenciado na Neon.",
         "liveUrl": "https://www.vestra-financas.com.br/",
-        "githubUrl": "https://github.com/allbdev/vestra",
+        "githubUrl": "https://github.com/allbdev/vestra-v2",
         "techStack": [
+          "Turborepo",
+          "NestJS",
           "Next.js",
+          "Vite",
           "React",
           "TypeScript",
-          "Tailwind CSS",
           "Prisma",
           "PostgreSQL",
-          "Material UI"
+          "Tailwind CSS",
+          "shadcn/ui"
         ]
       }
     ]
