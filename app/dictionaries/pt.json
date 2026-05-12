@@ -95,19 +95,6 @@
         ]
       },
       {
-        "title": "Rick and Morty Explorer",
-        "description": "Um explorador da série animada seguindo as aventuras de um super cientista e seu neto, com relacionamentos complexos de personagens e descobertas intergalácticas.",
-        "liveUrl": "https://rickandmorty-alb-dev.vercel.app/",
-        "githubUrl": "https://github.com/allbdev/rickandmorty",
-        "techStack": [
-          "Next.js",
-          "React",
-          "TypeScript",
-          "Tailwind CSS",
-          "GraphQL"
-        ]
-      },
-      {
         "title": "Vestra Gestão Financeira",
         "description": "PWA mobile-first de finanças pessoais, construído como monorepo TypeScript com dashboard em Vite + React 19, site institucional em Next.js 16 e API NestJS com Prisma sobre PostgreSQL. Workspaces multiusuário com permissões de dono/membro e clonagem profunda, transações recorrentes geradas por cron agendado, autenticação JWT com rotação de refresh token e gating de assinatura free/pro. Design system shadcn/ui + Tailwind 4 compartilhado entre os dois frontends. Deploy em Fly.io (API) e Vercel (web) com Postgres gerenciado na Neon.",
         "liveUrl": "https://www.vestra-financas.com.br/",
@@ -123,6 +110,19 @@
           "PostgreSQL",
           "Tailwind CSS",
           "shadcn/ui"
+        ]
+      },
+      {
+        "title": "Rick and Morty Explorer",
+        "description": "Um explorador da série animada seguindo as aventuras de um super cientista e seu neto, com relacionamentos complexos de personagens e descobertas intergalácticas.",
+        "liveUrl": "https://rickandmorty-alb-dev.vercel.app/",
+        "githubUrl": "https://github.com/allbdev/rickandmorty",
+        "techStack": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "GraphQL"
         ]
       }
     ]
