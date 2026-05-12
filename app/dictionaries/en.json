@@ -79,7 +79,7 @@
     "items": [
       {
         "title": "Path Trader",
-        "description": "Premium full-stack SaaS for Brazilian traders: trade journaling, performance analytics, AI assistant, partner program with admin workflows, and Asaas subscriptions. TypeScript monorepo (pnpm + Turborepo) with five Next.js 16 surfaces (web app, marketing site, admin, landing page) and a NestJS 11 API on Prisma + PostgreSQL. Pusher realtime notifications, AWS S3/SES, pg-boss Postgres-backed queues, OpenAI-powered chat with usage tracking, NextAuth v5 on the web and JWT + Passport on the API, Lexical journal and documents, and a Serwist PWA. Sentry observability with GitHub Actions CI deploying to Vercel and Fly.",
+        "description": "Premium full-stack SaaS for Brazilian traders: trade journaling, performance analytics, AI assistant, partner program with admin workflows, and Asaas subscriptions. TypeScript monorepo (pnpm + Turborepo) with four Next.js 16 surfaces (web app, marketing site, admin, landing page) and a NestJS 11 API on Prisma + PostgreSQL. Pusher realtime notifications, AWS S3/SES, pg-boss Postgres-backed queues, OpenAI-powered chat with usage tracking, NextAuth v5 on the web and JWT + Passport on the API, Lexical journal and documents, and a Serwist PWA. Sentry observability with GitHub Actions CI deploying to Vercel and Fly.",
         "liveUrl": "https://www.path-trader.com.br/",
         "techStack": [
           "Turborepo",
