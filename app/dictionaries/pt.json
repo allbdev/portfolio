@@ -79,17 +79,19 @@
     "items": [
       {
         "title": "Path Trader",
-        "description": "SaaS full stack para traders: diário de operações, análises de desempenho, contexto de risco, assinaturas (Asaas), programa de parceiros com fluxos administrativos, assistente com IA, PWA e monorepo TypeScript com várias superfícies Next.js e API NestJS.",
+        "description": "SaaS full stack premium para traders brasileiros: diário de operações, análises de desempenho, assistente com IA, programa de parceiros com fluxos administrativos e assinaturas via Asaas. Monorepo TypeScript (pnpm + Turborepo) com cinco superfícies Next.js 16 (app web, site institucional, admin e landing page) e API NestJS 11 com Prisma sobre PostgreSQL. Notificações em tempo real via Pusher, AWS S3/SES, filas pg-boss baseadas em Postgres, chat com IA via OpenAI com controle de uso, NextAuth v5 no web e JWT + Passport na API, diário e documentos com Lexical e PWA com Serwist. Observabilidade com Sentry e CI no GitHub Actions com deploys em Vercel e Fly.",
         "liveUrl": "https://www.path-trader.com.br/",
         "techStack": [
+          "Turborepo",
           "Next.js",
           "NestJS",
+          "React",
           "TypeScript",
           "Prisma",
-          "Turborepo",
           "PostgreSQL",
-          "Redis",
-          "AWS"
+          "Tailwind CSS",
+          "AWS",
+          "OpenAI"
         ]
       },
       {
