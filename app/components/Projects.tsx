@@ -1,6 +1,7 @@
 'use client';
 
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
@@ -12,15 +13,22 @@ import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LanguageIcon from '@mui/icons-material/Language';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { cardHover, staggerContainer, staggerItem } from './motion/variants';
 import SectionHeading from './SectionHeading';
 import TiltCard from './TiltCard';
 import { Dictionary } from '../get-dictionary';
+import { i18n } from '../../i18n-config';
 
 const MotionCard = motion(Card);
 
 export default function Projects({ dictionary }: { dictionary: Dictionary }) {
+  const pathName = usePathname();
+  const lang = pathName?.split('/')[1] || i18n.defaultLocale;
+
   return (
     <Box id="projects" component="section" sx={{ py: 10 }}>
       <Container maxWidth="lg">
@@ -57,7 +65,7 @@ export default function Projects({ dictionary }: { dictionary: Dictionary }) {
                       ))}
                     </Box>
                   </CardContent>
-                  <CardActions sx={{ p: 2, pt: 0, gap: 0.5 }}>
+                  <CardActions sx={{ p: 2, pt: 0, gap: 0.5, alignItems: 'center' }}>
                     <Tooltip title={dictionary.projects.liveDemo}>
                       <IconButton color="primary" href={project.liveUrl} target="_blank" rel="noreferrer">
                         <LanguageIcon />
@@ -70,6 +78,17 @@ export default function Projects({ dictionary }: { dictionary: Dictionary }) {
                         </IconButton>
                       </Tooltip>
                     ) : null}
+                    <Button
+                      component={Link}
+                      href={`/${lang}/projeto/${project.slug}`}
+                      color="primary"
+                      variant="outlined"
+                      size="small"
+                      endIcon={<ArrowForwardIcon />}
+                      sx={{ ml: 'auto' }}
+                    >
+                      {dictionary.projects.viewDetails}
+                    </Button>
                   </CardActions>
                 </MotionCard>
               </TiltCard>

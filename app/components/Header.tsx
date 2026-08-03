@@ -17,6 +17,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { headerBar } from './motion/variants';
 import { Dictionary } from '../get-dictionary';
+import { i18n } from '../../i18n-config';
 
 const MotionBox = motion(Box);
 
@@ -32,6 +33,12 @@ export default function Header({
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const pathName = usePathname();
   const router = useRouter();
+
+  const lang = pathName?.split('/')[1] || i18n.defaultLocale;
+  // On the home route the path is exactly `/[lang]`; anywhere deeper we must
+  // navigate back to the home before scrolling to the section.
+  const isHome = pathName === `/${lang}`;
+  const sectionHref = (item: string) => (isHome ? `#${item}` : `/${lang}#${item}`);
 
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -87,7 +94,7 @@ export default function Header({
                 style={{ position: 'relative' }}
               >
                 <Button
-                  href={`#${item}`}
+                  href={sectionHref(item)}
                   sx={{
                     color: 'text.primary',
                     '&:hover': { bgcolor: 'transparent', color: 'primary.main' },

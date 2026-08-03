@@ -26,9 +26,21 @@ export interface Dictionary {
     title: string;
     liveDemo: string;
     viewCode: string;
+    viewDetails: string;
+    detail: {
+      overview: string;
+      highlights: string;
+      technologies: string;
+      backToHome: string;
+    };
     items: {
       title: string;
+      slug: string;
       description: string;
+      summary: string;
+      longDescription: string;
+      highlights: string[];
+      screenshots: { src: string; alt: string }[];
       liveUrl: string;
       githubUrl?: string;
       techStack: string[];
