@@ -79,7 +79,23 @@
     "items": [
       {
         "title": "Path Trader",
+        "slug": "path-trader",
         "description": "SaaS full stack premium para traders brasileiros: diário de operações, análises de desempenho, assistente com IA, programa de parceiros com fluxos administrativos e assinaturas via Asaas. Monorepo TypeScript (pnpm + Turborepo) com quatro superfícies Next.js 16 (app web, site institucional, admin e landing page) e API NestJS 11 com Prisma sobre PostgreSQL. Notificações em tempo real via Pusher, AWS S3/SES, filas pg-boss baseadas em Postgres, chat com IA via OpenAI com controle de uso, NextAuth v5 no web e JWT + Passport na API, diário e documentos com Lexical e PWA com Serwist. Observabilidade com Sentry e CI no GitHub Actions com deploys em Vercel e Fly.",
+        "summary": "SaaS full stack premium para traders brasileiros — diário, análises, assistente com IA e programa de parceiros.",
+        "longDescription": "O Path Trader é uma plataforma independente, bancada com recursos próprios, que ajuda traders a registrar operações, analisar desempenho, gerenciar risco e operar um programa de parceiros. É construído como um monorepo TypeScript (pnpm + Turborepo) com quatro superfícies Next.js 16 — o app web, o site institucional, o painel admin e a landing page — apoiado por uma API NestJS 11 com Prisma e PostgreSQL. O produto entrega notificações em tempo real com Pusher, AWS S3/SES para armazenamento e e-mail, filas pg-boss baseadas em Postgres e um assistente de chat com IA via OpenAI com controle de uso. A autenticação usa NextAuth v5 no web e JWT + Passport na API, enquanto o diário e os documentos são construídos com Lexical. É entregue como um PWA com Serwist, observabilidade com Sentry e CI no GitHub Actions com deploys em Vercel e Fly.",
+        "highlights": [
+          "Monorepo pnpm + Turborepo com schema Prisma compartilhado e quatro superfícies Next.js 16",
+          "Diário de operações com importações/exportações e análises estilo path-rank",
+          "Assistente com IA via OpenAI com comportamento consciente de uso e rastreamento",
+          "Assinaturas via Asaas e programa de parceiros com fluxos de aprovação no admin",
+          "Notificações em tempo real (Pusher), AWS S3/SES e filas pg-boss",
+          "PWA com Serwist, observabilidade com Sentry e CI/CD no GitHub Actions"
+        ],
+        "screenshots": [
+          { "src": "/projects/path-trader/screenshot-1.png", "alt": "Painel do Path Trader com análises de desempenho" },
+          { "src": "/projects/path-trader/screenshot-2.png", "alt": "Visão do diário de operações do Path Trader" },
+          { "src": "/projects/path-trader/screenshot-3.png", "alt": "Chat do assistente com IA do Path Trader" }
+        ],
         "liveUrl": "https://www.path-trader.com.br/",
         "techStack": [
           "Turborepo",
@@ -96,7 +112,23 @@
       },
       {
         "title": "Vestra Gestão Financeira",
+        "slug": "vestra-gestao-financeira",
         "description": "PWA mobile-first de finanças pessoais, construído como monorepo TypeScript com dashboard em Vite + React 19, site institucional em Next.js 16 e API NestJS com Prisma sobre PostgreSQL. Workspaces multiusuário com permissões de dono/membro e clonagem profunda, transações recorrentes geradas por cron agendado, autenticação JWT com rotação de refresh token e gating de assinatura free/pro. Design system shadcn/ui + Tailwind 4 compartilhado entre os dois frontends. Deploy em Fly.io (API) e Vercel (web) com Postgres gerenciado na Neon.",
+        "summary": "PWA mobile-first de finanças pessoais com workspaces multiusuário e transações recorrentes.",
+        "longDescription": "O Vestra é um PWA mobile-first de finanças pessoais, construído como um monorepo TypeScript que combina um dashboard em Vite + React 19, um site institucional em Next.js 16 e uma API NestJS com Prisma sobre PostgreSQL. Ele oferece workspaces multiusuário com permissões de dono/membro e clonagem profunda, transações recorrentes geradas por cron agendado, autenticação JWT com rotação de refresh token e gating de assinatura free/pro. Um design system shadcn/ui + Tailwind 4 compartilhado mantém os dois frontends consistentes. A stack é implantada em Fly.io (API) e Vercel (web) com um banco Postgres gerenciado na Neon.",
+        "highlights": [
+          "Workspaces multiusuário com permissões de dono/membro e clonagem profunda",
+          "Transações recorrentes geradas por cron agendado",
+          "Autenticação JWT com rotação de refresh token",
+          "Gating de assinatura free/pro",
+          "Design system shadcn/ui + Tailwind 4 compartilhado entre os dois frontends",
+          "Deploy em Fly.io e Vercel com Postgres gerenciado na Neon"
+        ],
+        "screenshots": [
+          { "src": "/projects/vestra-gestao-financeira/screenshot-1.png", "alt": "Visão geral do painel financeiro do Vestra" },
+          { "src": "/projects/vestra-gestao-financeira/screenshot-2.png", "alt": "Lista de transações do Vestra" },
+          { "src": "/projects/vestra-gestao-financeira/screenshot-3.png", "alt": "Gerenciamento de workspaces do Vestra" }
+        ],
         "liveUrl": "https://www.vestra-financas.com.br/",
         "githubUrl": "https://github.com/allbdev/vestra-v2",
         "techStack": [
@@ -114,7 +146,20 @@
       },
       {
         "title": "Rick and Morty Explorer",
+        "slug": "rick-and-morty-explorer",
         "description": "Um explorador da série animada seguindo as aventuras de um super cientista e seu neto, com relacionamentos complexos de personagens e descobertas intergalácticas.",
+        "summary": "Um explorador da série animada para personagens, episódios e locais, movido a GraphQL.",
+        "longDescription": "O Rick and Morty Explorer é um explorador da série animada que acompanha as aventuras de um super cientista e seu neto, revelando relacionamentos complexos de personagens e descobertas intergalácticas. Construído com Next.js e React sobre TypeScript, consome a API GraphQL pública de Rick and Morty para navegar por personagens, episódios e locais com uma interface responsiva em Tailwind CSS.",
+        "highlights": [
+          "Navegue por personagens, episódios e locais da série",
+          "Movido pela API GraphQL pública de Rick and Morty",
+          "Construído com Next.js, React e TypeScript",
+          "Interface responsiva estilizada com Tailwind CSS"
+        ],
+        "screenshots": [
+          { "src": "/projects/rick-and-morty-explorer/screenshot-1.png", "alt": "Grade de personagens do Rick and Morty Explorer" },
+          { "src": "/projects/rick-and-morty-explorer/screenshot-2.png", "alt": "Detalhe de personagem do Rick and Morty Explorer" }
+        ],
         "liveUrl": "https://rickandmorty-alb-dev.vercel.app/",
         "githubUrl": "https://github.com/allbdev/rickandmorty",
         "techStack": [
