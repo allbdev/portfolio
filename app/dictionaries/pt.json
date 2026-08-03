@@ -76,6 +76,12 @@
     "title": "Projetos em destaque",
     "liveDemo": "Ver site",
     "viewCode": "Ver código",
+    "detail": {
+      "overview": "Visão geral",
+      "highlights": "Destaques",
+      "technologies": "Tecnologias",
+      "backToHome": "Voltar para o início"
+    },
     "items": [
       {
         "title": "Path Trader",

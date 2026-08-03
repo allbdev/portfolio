@@ -26,6 +26,12 @@ export interface Dictionary {
     title: string;
     liveDemo: string;
     viewCode: string;
+    detail: {
+      overview: string;
+      highlights: string;
+      technologies: string;
+      backToHome: string;
+    };
     items: {
       title: string;
       slug: string;

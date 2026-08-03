@@ -1,11 +1,8 @@
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { i18n, type Locale } from '../../../../i18n-config';
 import { getDictionary } from '../../../get-dictionary';
 import ThemeRegistry from '../../../components/ThemeRegistry/ThemeRegistry';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
+import ProjectDetail from '../../../components/ProjectDetail';
 
 export async function generateStaticParams() {
   const params: { lang: Locale; projetoSlug: string }[] = [];
@@ -38,24 +35,7 @@ export default async function ProjectDetailPage({
 
   return (
     <ThemeRegistry>
-      <Box
-        component="main"
-        sx={{ minHeight: '100vh', color: 'text.primary', py: { xs: 6, md: 10 } }}
-      >
-        <Container maxWidth="md">
-          <Typography variant="body2" sx={{ color: 'primary.main' }}>
-            <Link href={`/${lang}`} style={{ color: 'inherit' }}>
-              ← {dictionary.navigation.home}
-            </Link>
-          </Typography>
-          <Typography variant="h3" component="h1" sx={{ mt: 3, fontWeight: 700 }}>
-            {project.title}
-          </Typography>
-          <Typography variant="body1" sx={{ mt: 3 }} color="text.secondary">
-            {project.longDescription}
-          </Typography>
-        </Container>
-      </Box>
+      <ProjectDetail project={project} dictionary={dictionary} lang={lang} />
     </ThemeRegistry>
   );
 }
