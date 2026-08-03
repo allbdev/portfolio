@@ -132,23 +132,6 @@
     "educationTitle": "Education & certifications",
     "jobs": [
       {
-        "company": "Path Trader",
-        "role": "Co-founder & Lead Developer (Independent Project)",
-        "period": "Feb 2026 – Present",
-        "description": "As the co-founder and lead developer of Path Trader, an independent self-funded platform, I designed and built a TypeScript monorepo for traders to journal trades, review performance, manage risk, and run a partner program. Developed primarily in my free time, I owned both the Next.js client applications and the NestJS API—from data modeling with Prisma through payments, file storage, realtime notifications, and production-oriented tooling.",
-        "achievements": [
-          "Architected a pnpm and Turborepo monorepo with a shared Prisma schema, internal UI packages (Radix-style primitives, Recharts), and multiple Next.js surfaces (main app, marketing site, admin, landing).",
-          "Delivered the trading journal (accounts, trades, tags, strategies, emotions) plus imports from common broker and export formats; built analytics and path-rank style performance views.",
-          "Implemented Lexical-based journal and documents with folders and document types; integrated Asaas billing and a partner program with an admin app for approvals.",
-          "Shipped an AI assistant (OpenAI) with usage-aware behavior; authentication with NextAuth.js on Next apps and JWT plus Passport on the API.",
-          "Connected Pusher notifications, AWS SES email, and S3 presigned uploads; NestJS backend with validation, throttling, schedules, and BullMQ on Redis.",
-          "Delivered a PWA with Serwist; observability with Sentry across Next.js and Node.",
-          "Implemented Jest, React Testing Library, and Playwright quality gates; GitHub Actions CI/CD with path-filtered deploys for API, web, site, admin, and landing.",
-          "Operational automation: scheduled database backups to S3 and a daily develop → main sync workflow with pull requests and checks before merge.",
-          "Leveraged AI-driven development workflows using tools like Cursor, Claude, and Antigravity to rapidly prototype, iterate, and accelerate the project's time-to-market."
-        ]
-      },
-      {
         "company": "Bird",
         "role": "Frontend Engineer",
         "period": "Apr 2024 – Jun 2026",

@@ -132,23 +132,6 @@
     "educationTitle": "Educação e certificações",
     "jobs": [
       {
-        "company": "Path Trader",
-        "role": "Co-fundador e Desenvolvedor Líder (Projeto Independente)",
-        "period": "Fev 2026 – Presente",
-        "description": "Como co-fundador e desenvolvedor líder do Path Trader, uma plataforma independente bancada com recursos próprios, projetei e construí um monorepo TypeScript para traders registrarem operações, analisarem desempenho, gerenciarem risco e operarem um programa de parceiros. Desenvolvido principalmente no meu tempo livre, fui responsável tanto pelas aplicações clientes Next.js quanto pela API NestJS—da modelagem de dados com Prisma a pagamentos, armazenamento de arquivos, notificações em tempo real e ferramentas orientadas à produção.",
-        "achievements": [
-          "Arquitetei monorepo pnpm e Turborepo com schema Prisma compartilhado, pacotes de UI internos (primitivos estilo Radix, Recharts) e várias superfícies Next.js (app principal, site institucional, admin, landing).",
-          "Entreguei o diário de trading (contas, operações, tags, estratégias, emoções) com importações de formatos comuns de corretoras e exportação; construí analytics e visões estilo path-rank.",
-          "Implementei diário e documentos com Lexical, pastas e tipos de documento; integrei cobrança Asaas e programa de parceiros com app admin para aprovações.",
-          "Entreguei assistente com IA (OpenAI) com uso consciente para SaaS; autenticação com NextAuth.js nos apps Next e JWT mais Passport na API.",
-          "Conectei notificações Pusher, e-mail AWS SES e uploads com URLs pré-assinadas no S3; backend NestJS com validação, throttling, agendamentos e BullMQ no Redis.",
-          "Entreguei PWA com Serwist; observabilidade com Sentry em Next.js e Node.",
-          "Implementei qualidade com Jest, React Testing Library e Playwright; CI/CD no GitHub Actions com deploys filtrados por caminho para API, web, site, admin e landing.",
-          "Automação operacional: backups agendados do banco para S3 e fluxo diário develop → main com pull requests e checagens antes do merge.",
-          "Acelerei fluxos de desenvolvimento com uso de ferramentas de IA (Cursor, Claude, Antigravity) para prototipar rapidamente, iterar e reduzir significativamente o time-to-market do projeto."
-        ]
-      },
-      {
         "company": "Bird",
         "role": "Engenheiro Frontend",
         "period": "Abr 2024 – Jun 2026",
