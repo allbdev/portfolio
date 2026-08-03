@@ -26,6 +26,7 @@ export interface Dictionary {
     title: string;
     liveDemo: string;
     viewCode: string;
+    viewDetails: string;
     items: {
       title: string;
       slug: string;
