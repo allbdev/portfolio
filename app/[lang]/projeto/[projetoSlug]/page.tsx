@@ -1,8 +1,49 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { i18n, type Locale } from '../../../../i18n-config';
 import { getDictionary } from '../../../get-dictionary';
 import ThemeRegistry from '../../../components/ThemeRegistry/ThemeRegistry';
 import ProjectDetail from '../../../components/ProjectDetail';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: Locale; projetoSlug: string }>;
+}): Promise<Metadata> {
+  const { lang, projetoSlug } = await params;
+  const dictionary = await getDictionary(lang);
+
+  const project = dictionary.projects.items.find(
+    (item) => item.slug === projetoSlug,
+  );
+
+  if (!project) {
+    return {};
+  }
+
+  const title = `${project.title} — Vinicius Albuquerque`;
+  const description = project.summary || project.description;
+  const firstScreenshot = project.screenshots?.[0];
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      ...(firstScreenshot
+        ? {
+            images: [
+              {
+                url: firstScreenshot.src,
+                alt: firstScreenshot.alt,
+              },
+            ],
+          }
+        : {}),
+    },
+  };
+}
 
 export async function generateStaticParams() {
   const params: { lang: Locale; projetoSlug: string }[] = [];
