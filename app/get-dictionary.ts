@@ -28,7 +28,12 @@ export interface Dictionary {
     viewCode: string;
     items: {
       title: string;
+      slug: string;
       description: string;
+      summary: string;
+      longDescription: string;
+      highlights: string[];
+      screenshots: { src: string; alt: string }[];
       liveUrl: string;
       githubUrl?: string;
       techStack: string[];
