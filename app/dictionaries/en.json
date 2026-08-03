@@ -99,9 +99,18 @@
           "Serwist PWA with Sentry observability and GitHub Actions CI/CD"
         ],
         "screenshots": [
-          { "src": "/projects/path-trader/screenshot-1.png", "alt": "Path Trader dashboard with performance analytics" },
-          { "src": "/projects/path-trader/screenshot-2.png", "alt": "Path Trader trade journal view" },
-          { "src": "/projects/path-trader/screenshot-3.png", "alt": "Path Trader AI assistant chat" }
+          {
+            "src": "/projects/path-trader/path-trader-analytics.avif",
+            "alt": "Path Trader dashboard with performance analytics"
+          },
+          {
+            "src": "/projects/path-trader/path-trader-dashboard.avif",
+            "alt": "Path Trader main dashboard view"
+          },
+          {
+            "src": "/projects/path-trader/path-trader-elliot-ai.avif",
+            "alt": "Path Trader AI assistant chat"
+          }
         ],
         "liveUrl": "https://www.path-trader.com.br/",
         "techStack": [
@@ -132,9 +141,18 @@
           "Deployed on Fly.io and Vercel with managed Neon Postgres"
         ],
         "screenshots": [
-          { "src": "/projects/vestra-gestao-financeira/screenshot-1.png", "alt": "Vestra finance dashboard overview" },
-          { "src": "/projects/vestra-gestao-financeira/screenshot-2.png", "alt": "Vestra transactions list" },
-          { "src": "/projects/vestra-gestao-financeira/screenshot-3.png", "alt": "Vestra workspace management" }
+          {
+            "src": "/projects/vestra-gestao-financeira/vestra-dahboard.png",
+            "alt": "Vestra finance dashboard overview"
+          },
+          {
+            "src": "/projects/vestra-gestao-financeira/vestra-lancamentos.png",
+            "alt": "Vestra transactions list"
+          },
+          {
+            "src": "/projects/vestra-gestao-financeira/vestra-notifications.png",
+            "alt": "Vestra notifications view"
+          }
         ],
         "liveUrl": "https://www.vestra-financas.com.br/",
         "githubUrl": "https://github.com/allbdev/vestra-v2",
@@ -164,8 +182,14 @@
           "Responsive interface styled with Tailwind CSS"
         ],
         "screenshots": [
-          { "src": "/projects/rick-and-morty-explorer/screenshot-1.png", "alt": "Rick and Morty Explorer character grid" },
-          { "src": "/projects/rick-and-morty-explorer/screenshot-2.png", "alt": "Rick and Morty Explorer character detail" }
+          {
+            "src": "/projects/rick-and-morty-explorer/rick-and-morty-character-view.png",
+            "alt": "Rick and Morty Explorer character detail"
+          },
+          {
+            "src": "/projects/rick-and-morty-explorer/rick-and-morty-overview.png",
+            "alt": "Rick and Morty Explorer home page"
+          }
         ],
         "liveUrl": "https://rickandmorty-alb-dev.vercel.app/",
         "githubUrl": "https://github.com/allbdev/rickandmorty",

@@ -99,9 +99,18 @@
           "PWA com Serwist, observabilidade com Sentry e CI/CD no GitHub Actions"
         ],
         "screenshots": [
-          { "src": "/projects/path-trader/screenshot-1.png", "alt": "Painel do Path Trader com análises de desempenho" },
-          { "src": "/projects/path-trader/screenshot-2.png", "alt": "Visão do diário de operações do Path Trader" },
-          { "src": "/projects/path-trader/screenshot-3.png", "alt": "Chat do assistente com IA do Path Trader" }
+          {
+            "src": "/projects/path-trader/path-trader-analytics.avif",
+            "alt": "Painel do Path Trader com análises de desempenho"
+          },
+          {
+            "src": "/projects/path-trader/path-trader-dashboard.avif",
+            "alt": "Visão do dashboard principal do Path Trader"
+          },
+          {
+            "src": "/projects/path-trader/path-trader-elliot-ai.avif",
+            "alt": "Chat do assistente com IA do Path Trader"
+          }
         ],
         "liveUrl": "https://www.path-trader.com.br/",
         "techStack": [
@@ -132,9 +141,18 @@
           "Deploy em Fly.io e Vercel com Postgres gerenciado na Neon"
         ],
         "screenshots": [
-          { "src": "/projects/vestra-gestao-financeira/screenshot-1.png", "alt": "Visão geral do painel financeiro do Vestra" },
-          { "src": "/projects/vestra-gestao-financeira/screenshot-2.png", "alt": "Lista de transações do Vestra" },
-          { "src": "/projects/vestra-gestao-financeira/screenshot-3.png", "alt": "Gerenciamento de workspaces do Vestra" }
+          {
+            "src": "/projects/vestra-gestao-financeira/vestra-dahboard.png",
+            "alt": "Visão geral do painel financeiro do Vestra"
+          },
+          {
+            "src": "/projects/vestra-gestao-financeira/vestra-lancamentos.png",
+            "alt": "Lista de transações do Vestra"
+          },
+          {
+            "src": "/projects/vestra-gestao-financeira/vestra-notifications.png",
+            "alt": "Lista de notificações do Vestra"
+          }
         ],
         "liveUrl": "https://www.vestra-financas.com.br/",
         "githubUrl": "https://github.com/allbdev/vestra-v2",
@@ -164,8 +182,14 @@
           "Interface responsiva estilizada com Tailwind CSS"
         ],
         "screenshots": [
-          { "src": "/projects/rick-and-morty-explorer/screenshot-1.png", "alt": "Grade de personagens do Rick and Morty Explorer" },
-          { "src": "/projects/rick-and-morty-explorer/screenshot-2.png", "alt": "Detalhe de personagem do Rick and Morty Explorer" }
+          {
+            "src": "/projects/rick-and-morty-explorer/rick-and-morty-character-view.png",
+            "alt": "Detalhe de personagem do Rick and Morty Explorer"
+          },
+          {
+            "src": "/projects/rick-and-morty-explorer/rick-and-morty-overview.png",
+            "alt": "Página principal do Rick and Morty Explorer"
+          }
         ],
         "liveUrl": "https://rickandmorty-alb-dev.vercel.app/",
         "githubUrl": "https://github.com/allbdev/rickandmorty",
