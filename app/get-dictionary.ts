@@ -4,16 +4,23 @@ import type { Locale } from '../i18n-config';
 export interface Dictionary {
   navigation: {
     home: string;
-    skills: string;
     projects: string;
     experience: string;
+    skills: string;
     contact: string;
   };
   hero: {
-    title: string;
+    /** Mono eyebrow above the name. */
+    eyebrow: string;
+    /** Short role label used in the sidebar. */
+    role: string;
+    /** Short lead paragraph shown under the name. */
+    intro: string;
+    /** Long-form bio, used as the page meta description. */
     subtitle: string;
     cta: string;
     downloadCv: string;
+    stats: { value: string; label: string }[];
   };
   skills: {
     title: string;
@@ -24,14 +31,19 @@ export interface Dictionary {
   };
   projects: {
     title: string;
+    /** Eyebrow on the featured card. */
+    featuredLabel: string;
     liveDemo: string;
     viewCode: string;
+    /** Short "Code" label used on the compact cards. */
+    code: string;
     viewDetails: string;
     detail: {
+      eyebrow: string;
+      back: string;
       overview: string;
       highlights: string;
       technologies: string;
-      backToHome: string;
     };
     items: {
       title: string;
@@ -64,12 +76,8 @@ export interface Dictionary {
   };
   contact: {
     title: string;
-    subtitle: string;
-    links: {
-      email: string;
-      linkedin: string;
-      github: string;
-    };
+    /** Right-hand footer line. */
+    location: string;
     copyright: string;
   };
 }

@@ -1,144 +1,95 @@
 'use client';
-import { alpha, createTheme } from '@mui/material/styles';
-import { Inter } from 'next/font/google';
+import { createTheme } from '@mui/material/styles';
+import { fontFamilies } from './fonts';
 
-const inter = Inter({
-  weight: ['300', '400', '500', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-});
+/** Single accent used for every emphasis in the design. */
+const ACCENT = '#34d399';
+const ACCENT_INK = '#071a10';
 
-const lightSecondary = '#10b981';
-const lightSecondaryContrast = '#042f2e';
-const darkSecondary = '#4ade80';
-const darkSecondaryContrast = '#052e16';
+const palettes = {
+  dark: {
+    bg: '#0a0e13',
+    panel: '#10151c',
+    panelAlt: '#131a22',
+    line: 'rgba(151, 166, 180, 0.14)',
+    text1: '#e9eef3',
+    text2: '#8fa0ae',
+    // The raw accent is legible on the dark background.
+    accentText: ACCENT,
+  },
+  light: {
+    bg: '#f2f4f6',
+    panel: '#ffffff',
+    panelAlt: '#e9edf1',
+    line: 'rgba(20, 32, 44, 0.13)',
+    text1: '#16202a',
+    text2: '#5b6b78',
+    // #34d399 only reaches ~1.9:1 on the light background, so small accent text
+    // uses a darker green (4.8:1) while fills and borders keep the raw accent.
+    accentText: '#067a55',
+  },
+} as const;
 
-export const getTheme = (mode: 'light' | 'dark') =>
-  createTheme({
+declare module '@mui/material/styles' {
+  interface Palette {
+    accent: { main: string; ink: string; text: string };
+    panelAlt: string;
+  }
+  interface PaletteOptions {
+    accent?: { main: string; ink: string; text: string };
+    panelAlt?: string;
+  }
+}
+
+export const getTheme = (mode: 'light' | 'dark') => {
+  const t = palettes[mode];
+
+  return createTheme({
+    shape: { borderRadius: 12 },
     palette: {
       mode,
-      ...(mode === 'light'
-        ? {
-            primary: {
-              main: '#2b8cee',
-              contrastText: '#ffffff',
-            },
-            secondary: {
-              main: lightSecondary,
-              contrastText: lightSecondaryContrast,
-              light: '#34d399',
-              dark: '#059669',
-            },
-            success: {
-              main: '#059669',
-              contrastText: '#ffffff',
-            },
-            background: {
-              default: '#f0f4f8',
-              paper: '#ffffff',
-            },
-            text: {
-              primary: '#1e293b',
-              secondary: '#64748b',
-            },
-          }
-        : {
-            primary: {
-              main: '#3b9eff',
-              contrastText: '#ffffff',
-            },
-            secondary: {
-              main: darkSecondary,
-              contrastText: darkSecondaryContrast,
-              light: '#86efac',
-              dark: '#22c55e',
-            },
-            success: {
-              main: '#22c55e',
-              contrastText: '#052e16',
-            },
-            background: {
-              default: '#0b1220',
-              paper: '#151f32',
-            },
-            text: {
-              primary: '#f8fafc',
-              secondary: '#94a3b8',
-            },
-          }),
+      primary: { main: ACCENT, contrastText: ACCENT_INK },
+      secondary: { main: ACCENT, contrastText: ACCENT_INK },
+      accent: { main: ACCENT, ink: ACCENT_INK, text: t.accentText },
+      panelAlt: t.panelAlt,
+      divider: t.line,
+      background: { default: t.bg, paper: t.panel },
+      text: { primary: t.text1, secondary: t.text2 },
     },
     typography: {
-      fontFamily: inter.style.fontFamily,
-      h1: {
-        fontWeight: 700,
-      },
-      h2: {
-        fontWeight: 600,
-      },
-      button: {
-        textTransform: 'none',
-        fontWeight: 600,
-      },
+      fontFamily: fontFamilies.body,
+      h1: { fontFamily: fontFamilies.display, fontWeight: 500, letterSpacing: '-0.03em' },
+      h2: { fontFamily: fontFamilies.display, fontWeight: 600, letterSpacing: '-0.02em' },
+      h3: { fontFamily: fontFamilies.display, fontWeight: 600, letterSpacing: '-0.02em' },
+      h4: { fontFamily: fontFamilies.display, fontWeight: 600, letterSpacing: '-0.02em' },
+      h5: { fontFamily: fontFamilies.display, fontWeight: 600, letterSpacing: '-0.01em' },
+      h6: { fontFamily: fontFamilies.display, fontWeight: 600, letterSpacing: '-0.01em' },
+      button: { textTransform: 'none', fontWeight: 600 },
+      overline: { fontFamily: fontFamilies.mono, letterSpacing: '0.18em' },
     },
     components: {
-      MuiButton: {
+      MuiCssBaseline: {
         styleOverrides: {
-          root: {
-            borderRadius: 8,
-            transition: 'box-shadow 0.2s ease, transform 0.2s ease',
+          body: {
+            backgroundColor: t.bg,
+            transition: 'background-color 0.3s ease, color 0.3s ease',
           },
-          containedPrimary: ({ theme }) => ({
-            boxShadow: `0 4px 18px ${alpha(theme.palette.secondary.main, mode === 'dark' ? 0.45 : 0.28)}`,
-            '&:hover': {
-              boxShadow: `0 6px 26px ${alpha(theme.palette.secondary.main, mode === 'dark' ? 0.55 : 0.38)}`,
-            },
-          }),
-        },
-      },
-      MuiCard: {
-        styleOverrides: {
-          root: ({ theme }) => ({
-            borderRadius: 16,
-            border: `1px solid ${alpha(theme.palette.primary.main, mode === 'light' ? 0.12 : 0.2)}`,
-            backgroundImage: 'none',
-            boxShadow:
-              mode === 'light'
-                ? `0 4px 6px -1px ${alpha('#000000', 0.08)}, 0 2px 4px -2px ${alpha('#000000', 0.06)}`
-                : `0 4px 6px -1px ${alpha('#000000', 0.45)}, 0 0 0 1px ${alpha(theme.palette.secondary.main, 0.06)}`,
-            transition: theme.transitions.create(['box-shadow', 'border-color', 'transform'], {
-              duration: theme.transitions.duration.shorter,
-            }),
-            '&:hover': {
-              borderColor: alpha(theme.palette.secondary.main, mode === 'light' ? 0.45 : 0.5),
-              boxShadow: `0 8px 32px ${alpha(theme.palette.secondary.main, mode === 'dark' ? 0.22 : 0.14)}, 0 0 0 1px ${alpha(theme.palette.secondary.main, 0.12)}`,
-            },
-          }),
-        },
-      },
-      MuiChip: {
-        styleOverrides: {
-          outlined: ({ theme }) => ({
-            borderColor: alpha(theme.palette.secondary.main, 0.45),
-            color: theme.palette.secondary.main,
-            '&:hover': {
-              backgroundColor: alpha(theme.palette.secondary.main, mode === 'light' ? 0.08 : 0.12),
-            },
-          }),
-          filled: ({ theme }) => ({
-            backgroundColor: alpha(theme.palette.secondary.main, mode === 'light' ? 0.14 : 0.2),
-            color: theme.palette.secondary.contrastText,
-            '&:hover': {
-              backgroundColor: alpha(theme.palette.secondary.main, mode === 'light' ? 0.22 : 0.28),
-            },
-          }),
+          '::selection': {
+            backgroundColor: `${ACCENT}59`,
+          },
+          a: { color: 'inherit', textDecoration: 'none' },
+          img: { maxWidth: '100%' },
         },
       },
       MuiPaper: {
+        styleOverrides: { root: { backgroundImage: 'none' } },
+      },
+      MuiButton: {
+        defaultProps: { disableElevation: true },
         styleOverrides: {
-          root: {
-            backgroundImage: 'none',
-          },
+          root: { borderRadius: 12 },
         },
       },
     },
   });
+};
