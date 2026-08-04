@@ -9,34 +9,40 @@ const COLOR_MODE_STORAGE_KEY = 'portfolio-color-mode';
 
 export const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
-function readStoredColorMode(): 'light' | 'dark' | null {
-  if (typeof window === 'undefined') {
-    return null;
-  }
-  const stored = window.localStorage.getItem(COLOR_MODE_STORAGE_KEY);
-  if (stored === 'light' || stored === 'dark') {
-    return stored;
-  }
-  return null;
-}
-
 export default function ThemeRegistry({ children }: { children: React.ReactNode }) {
-  const [mode, setMode] = React.useState<'light' | 'dark'>('light');
+  // Dark is the design's default; the inline script in the root layout resolves
+  // the stored/system preference onto <html data-mode> before first paint.
+  const [mode, setMode] = React.useState<'light' | 'dark'>('dark');
 
   React.useEffect(() => {
-    const storedMode = readStoredColorMode();
-    if (storedMode) {
-      setMode(storedMode);
+    let resolved: string | undefined;
+    try {
+      resolved = window.localStorage.getItem(COLOR_MODE_STORAGE_KEY) ?? undefined;
+    } catch {
+      // Storage can be unavailable (private mode).
+    }
+    // Falls back to what the inline script resolved from the system preference.
+    if (resolved !== 'light' && resolved !== 'dark') {
+      resolved = document.documentElement.dataset.mode;
+    }
+    if (resolved === 'light' || resolved === 'dark') {
+      setMode(resolved);
     }
   }, []);
+
+  React.useEffect(() => {
+    document.documentElement.dataset.mode = mode;
+  }, [mode]);
 
   const colorMode = React.useMemo(
     () => ({
       toggleColorMode: () => {
         setMode((previousMode) => {
           const nextMode = previousMode === 'light' ? 'dark' : 'light';
-          if (typeof window !== 'undefined') {
+          try {
             window.localStorage.setItem(COLOR_MODE_STORAGE_KEY, nextMode);
+          } catch {
+            // Storage can be unavailable (private mode); the toggle still works.
           }
           return nextMode;
         });

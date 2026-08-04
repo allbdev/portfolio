@@ -5,8 +5,10 @@ import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { alpha } from '@mui/material/styles';
 import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
+import { EASE } from './motion/variants';
 
 export type Screenshot = { src: string; alt: string };
 
@@ -19,23 +21,33 @@ type ScreenshotCarouselProps = {
 const swipeConfidenceThreshold = 60;
 
 const slideVariants = {
-  enter: (direction: number) => ({
-    opacity: 0,
-    x: direction > 0 ? 48 : -48,
-  }),
-  center: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] as const },
-  },
+  enter: (direction: number) => ({ opacity: 0, x: direction > 0 ? 48 : -48 }),
+  center: { opacity: 1, x: 0, transition: { duration: 0.45, ease: EASE } },
   exit: (direction: number) => ({
     opacity: 0,
     x: direction > 0 ? -48 : 48,
-    transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.3, ease: EASE },
   }),
 };
 
-export default function ScreenshotCarousel({ screenshots, label = 'Screenshots' }: ScreenshotCarouselProps) {
+const arrowSx = {
+  position: 'absolute',
+  top: '50%',
+  transform: 'translateY(-50%)',
+  width: 42,
+  height: 42,
+  border: 1,
+  borderColor: 'divider',
+  bgcolor: 'background.default',
+  color: 'text.primary',
+  transition: 'border-color 0.2s, color 0.2s',
+  '&:hover': { bgcolor: 'background.default', borderColor: 'accent.main', color: 'accent.text' },
+} as const;
+
+export default function ScreenshotCarousel({
+  screenshots,
+  label = 'Screenshots',
+}: ScreenshotCarouselProps) {
   // [index, direction] — direction drives the slide animation.
   const [[index, direction], setState] = useState<[number, number]>([0, 0]);
 
@@ -44,20 +56,14 @@ export default function ScreenshotCarousel({ screenshots, label = 'Screenshots' 
   const paginate = useCallback(
     (dir: number) => {
       if (total <= 1) return;
-      setState(([current]) => {
-        const next = (current + dir + total) % total;
-        return [next, dir];
-      });
+      setState(([current]) => [(current + dir + total) % total, dir]);
     },
     [total],
   );
 
-  const goTo = useCallback(
-    (target: number) => {
-      setState(([current]) => [target, target > current ? 1 : -1]);
-    },
-    [],
-  );
+  const goTo = useCallback((target: number) => {
+    setState(([current]) => [target, target > current ? 1 : -1]);
+  }, []);
 
   const handleKeyDown = useCallback(
     (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -87,22 +93,19 @@ export default function ScreenshotCarousel({ screenshots, label = 'Screenshots' 
       sx={{
         position: 'relative',
         width: '100%',
-        borderRadius: 3,
+        borderRadius: '20px',
         overflow: 'hidden',
+        border: 1,
+        borderColor: 'divider',
+        bgcolor: 'background.paper',
         outline: 'none',
         '&:focus-visible': {
-          boxShadow: (theme) => `0 0 0 3px ${theme.palette.primary.main}`,
+          borderColor: 'accent.main',
+          boxShadow: (theme) => `0 0 0 3px ${alpha(theme.palette.accent.main, 0.35)}`,
         },
       }}
     >
-      <Box
-        sx={{
-          position: 'relative',
-          width: '100%',
-          aspectRatio: '16 / 9',
-          bgcolor: 'action.hover',
-        }}
-      >
+      <Box sx={{ position: 'relative', width: '100%', aspectRatio: '16 / 9' }}>
         <AnimatePresence initial={false} custom={direction} mode="popLayout">
           <motion.div
             key={index}
@@ -115,11 +118,8 @@ export default function ScreenshotCarousel({ screenshots, label = 'Screenshots' 
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={0.6}
             onDragEnd={(_, info) => {
-              if (info.offset.x < -swipeConfidenceThreshold) {
-                paginate(1);
-              } else if (info.offset.x > swipeConfidenceThreshold) {
-                paginate(-1);
-              }
+              if (info.offset.x < -swipeConfidenceThreshold) paginate(1);
+              else if (info.offset.x > swipeConfidenceThreshold) paginate(-1);
             }}
             style={{ position: 'absolute', inset: 0 }}
             aria-roledescription="slide"
@@ -129,7 +129,7 @@ export default function ScreenshotCarousel({ screenshots, label = 'Screenshots' 
               src={current.src}
               alt={current.alt}
               fill
-              sizes="(max-width: 900px) 100vw, 900px"
+              sizes="(max-width: 1100px) 100vw, 1040px"
               style={{ objectFit: 'cover', pointerEvents: 'none' }}
               priority={index === 0}
               draggable={false}
@@ -143,38 +143,22 @@ export default function ScreenshotCarousel({ screenshots, label = 'Screenshots' 
           <IconButton
             aria-label="Previous screenshot"
             onClick={() => paginate(-1)}
-            sx={{
-              position: 'absolute',
-              top: '50%',
-              left: 8,
-              transform: 'translateY(-50%)',
-              bgcolor: 'background.paper',
-              boxShadow: 2,
-              '&:hover': { bgcolor: 'background.paper' },
-            }}
+            sx={{ ...arrowSx, left: 16 }}
           >
-            <ChevronLeftIcon />
+            <ChevronLeftIcon sx={{ fontSize: 22 }} />
           </IconButton>
           <IconButton
             aria-label="Next screenshot"
             onClick={() => paginate(1)}
-            sx={{
-              position: 'absolute',
-              top: '50%',
-              right: 8,
-              transform: 'translateY(-50%)',
-              bgcolor: 'background.paper',
-              boxShadow: 2,
-              '&:hover': { bgcolor: 'background.paper' },
-            }}
+            sx={{ ...arrowSx, right: 16 }}
           >
-            <ChevronRightIcon />
+            <ChevronRightIcon sx={{ fontSize: 22 }} />
           </IconButton>
 
           <Box
             sx={{
               position: 'absolute',
-              bottom: 12,
+              bottom: 16,
               left: 0,
               right: 0,
               display: 'flex',
@@ -191,14 +175,16 @@ export default function ScreenshotCarousel({ screenshots, label = 'Screenshots' 
                 aria-current={dotIndex === index}
                 onClick={() => goTo(dotIndex)}
                 sx={{
-                  width: dotIndex === index ? 24 : 10,
-                  height: 10,
+                  width: dotIndex === index ? 22 : 8,
+                  height: 8,
                   p: 0,
                   border: 'none',
                   cursor: 'pointer',
                   borderRadius: 999,
-                  bgcolor: dotIndex === index ? 'primary.main' : 'rgba(255,255,255,0.6)',
-                  boxShadow: 1,
+                  bgcolor: (theme) =>
+                    dotIndex === index
+                      ? theme.palette.accent.main
+                      : alpha(theme.palette.accent.main, 0.3),
                   transition: 'width 0.3s ease, background-color 0.3s ease',
                 }}
               />

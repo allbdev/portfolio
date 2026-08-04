@@ -1,19 +1,35 @@
 {
   "navigation": {
     "home": "Início",
-    "skills": "Habilidades",
     "projects": "Projetos",
     "experience": "Experiência",
+    "skills": "Stack",
     "contact": "Contato"
   },
   "hero": {
-    "title": "Olá, sou o Vinícius",
+    "eyebrow": "Engenheiro de Software Sênior · Desde 2020",
+    "role": "Eng. de Software Sênior",
+    "intro": "Projeto e entrego produtos web e mobile de alto desempenho — React e TypeScript na frente, Go e Node por trás. De dashboards interativos a chat em tempo real, ponta a ponta.",
     "subtitle": "Sou um engenheiro de software sênior com mais de 6 anos de experiência liderando o desenvolvimento de aplicações web e móveis de alto desempenho. Forte em JavaScript, React e TypeScript em todo o stack—do frontend (React Native, SolidJS) ao backend (Go, Node.js).\n\nDestaco-me em funcionalidades complexas como dashboards interativos e sistemas de chat em tempo real. Faço mentoria de times e conduzo deploy ponta a ponta nas lojas de aplicativos. Perfil motivado e orientado a resolver problemas, à vontade em ambientes acelerados.",
-    "cta": "Conheça meus projetos",
-    "downloadCv": "Baixar currículo"
+    "cta": "Ver projetos",
+    "downloadCv": "Baixar currículo",
+    "stats": [
+      {
+        "value": "6+",
+        "label": "Anos entregando"
+      },
+      {
+        "value": "3",
+        "label": "Produtos no ar"
+      },
+      {
+        "value": "2",
+        "label": "Lojas de apps"
+      }
+    ]
   },
   "skills": {
-    "title": "Stack e habilidades",
+    "title": "Stack",
     "categories": [
       {
         "label": "Linguagens e marcação",
@@ -73,15 +89,18 @@
     ]
   },
   "projects": {
-    "title": "Projetos em destaque",
+    "title": "Projetos selecionados",
+    "featuredLabel": "Destaque · SaaS independente",
     "liveDemo": "Ver site",
     "viewCode": "Ver código",
+    "code": "Código",
     "viewDetails": "Ver detalhes",
     "detail": {
+      "eyebrow": "Estudo de caso",
+      "back": "VOLTAR",
       "overview": "Visão geral",
       "highlights": "Destaques",
-      "technologies": "Tecnologias",
-      "backToHome": "Voltar para o início"
+      "technologies": "Tecnologias"
     },
     "items": [
       {
@@ -204,7 +223,7 @@
     ]
   },
   "experience": {
-    "title": "Experiência profissional",
+    "title": "Experiência",
     "educationTitle": "Educação e certificações",
     "jobs": [
       {
@@ -281,13 +300,8 @@
     ]
   },
   "contact": {
-    "title": "Vamos construir algo juntos",
-    "subtitle": "Fale comigo por e-mail, LinkedIn ou GitHub.",
-    "links": {
-      "email": "mailto:vini.alb13@gmail.com",
-      "linkedin": "https://www.linkedin.com/in/albuquerque-vinicius",
-      "github": "https://github.com/allbdev"
-    },
-    "copyright": "© 2026 Vinícius Albuquerque. Todos os direitos reservados."
+    "title": "Vamos construir algo grande.",
+    "location": "Vitória, BR — Remoto",
+    "copyright": "© 2026 Vinícius Albuquerque"
   }
 }

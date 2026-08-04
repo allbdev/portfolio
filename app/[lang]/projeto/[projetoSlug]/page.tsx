@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { i18n, type Locale } from '../../../../i18n-config';
 import { getDictionary } from '../../../get-dictionary';
-import ThemeRegistry from '../../../components/ThemeRegistry/ThemeRegistry';
 import ProjectDetail from '../../../components/ProjectDetail';
 
 export async function generateMetadata({
@@ -74,9 +73,5 @@ export default async function ProjectDetailPage({
     notFound();
   }
 
-  return (
-    <ThemeRegistry>
-      <ProjectDetail project={project} dictionary={dictionary} lang={lang} />
-    </ThemeRegistry>
-  );
+  return <ProjectDetail project={project} dictionary={dictionary} lang={lang} />;
 }

@@ -2,53 +2,41 @@
 
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import { alpha } from '@mui/material/styles';
-import { motion } from 'framer-motion';
-import { fadeUp, sectionTitleLine } from './motion/variants';
-
-const MotionBox = motion(Box);
+import { fontFamilies } from '../fonts';
 
 type SectionHeadingProps = {
+  /** Two-digit section number, e.g. "01". */
+  index: string;
   title: string;
-  align?: 'left' | 'center';
-  gutterBottomSpacing?: number;
+  mb?: number;
 };
 
-export default function SectionHeading({
-  title,
-  align = 'left',
-  gutterBottomSpacing = 6,
-}: SectionHeadingProps) {
+/** Mono section number, display title, and a rule that runs to the edge. */
+export default function SectionHeading({ index, title, mb = 7 }: SectionHeadingProps) {
   return (
-    <Box sx={{ mb: gutterBottomSpacing }}>
-      <motion.div
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-40px' }}
+    <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 2.5, mb }}>
+      <Box
+        component="span"
+        sx={{
+          fontFamily: fontFamilies.mono,
+          fontSize: '0.75rem',
+          color: 'accent.text',
+          flex: 'none',
+        }}
       >
-        <Typography variant="h3" component="h2" align={align} sx={{ fontWeight: 700 }}>
-          {title}
-        </Typography>
-        <MotionBox
-          variants={sectionTitleLine}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-40px' }}
-          sx={{
-            display: 'block',
-            height: 3,
-            width: align === 'center' ? 72 : 96,
-            mx: align === 'center' ? 'auto' : 0,
-            mt: 1.5,
-            borderRadius: 999,
-            background: (theme) =>
-              `linear-gradient(90deg, ${theme.palette.secondary.main}, ${theme.palette.primary.main})`,
-            transformOrigin: align === 'center' ? 'center' : 'left',
-            boxShadow: (theme) => `0 0 20px ${alpha(theme.palette.secondary.main, 0.45)}`,
-          }}
-        />
-      </motion.div>
+        {index}
+      </Box>
+      <Typography
+        component="h2"
+        variant="h2"
+        sx={{ m: 0, fontSize: { xs: '1.9rem', sm: '2.2rem', md: '2.6rem' } }}
+      >
+        {title}
+      </Typography>
+      <Box
+        aria-hidden
+        sx={{ flex: 1, height: '1px', bgcolor: 'divider', alignSelf: 'center', minWidth: 24 }}
+      />
     </Box>
   );
 }

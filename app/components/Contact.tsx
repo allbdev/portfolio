@@ -2,93 +2,140 @@
 
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { motion } from 'framer-motion';
-import { staggerContainer, staggerItem } from './motion/variants';
-import SectionHeading from './SectionHeading';
-import { Dictionary } from '../get-dictionary';
+import NorthEastIcon from '@mui/icons-material/NorthEast';
+import { alpha } from '@mui/material/styles';
+import Reveal from './Reveal';
+import { fontFamilies } from '../fonts';
+import { site } from '../site';
+import { useMagnetic } from '../hooks/useMagnetic';
+import type { Dictionary } from '../get-dictionary';
 
 export default function Contact({ dictionary }: { dictionary: Dictionary }) {
+  const { contact, navigation } = dictionary;
+  const emailRef = useMagnetic<HTMLAnchorElement>();
+  const linkedinRef = useMagnetic<HTMLAnchorElement>();
+  const githubRef = useMagnetic<HTMLAnchorElement>();
+
+  const outlinedSx = {
+    px: 3.5,
+    py: 1.75,
+    fontSize: '0.92rem',
+    color: 'text.primary',
+    borderColor: 'divider',
+    transition: 'border-color 0.25s, color 0.25s',
+    '&:hover': { borderColor: 'accent.main', color: 'accent.text' },
+  } as const;
+
   return (
-    <Box id="contact" component="section" sx={{ py: 10 }}>
-      <Container maxWidth="md">
-        <SectionHeading title={dictionary.contact.title} align="center" gutterBottomSpacing={2} />
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-40px' }}
+    <Box
+      id="contact"
+      component="section"
+      sx={{ px: { xs: 3, sm: 5, lg: 8 }, pt: { xs: 12, md: 17.5 }, textAlign: 'center' }}
+    >
+      <Box
+        sx={{
+          fontFamily: fontFamilies.mono,
+          fontSize: '0.72rem',
+          letterSpacing: '0.22em',
+          color: 'accent.text',
+          textTransform: 'uppercase',
+          mb: 3,
+        }}
+      >
+        04 — {navigation.contact}
+      </Box>
+
+      <Reveal>
+        <Typography
+          component="h2"
+          variant="h2"
+          sx={{
+            mx: 'auto',
+            maxWidth: 900,
+            fontSize: 'clamp(38px, 5.5vw, 76px)',
+            letterSpacing: '-0.03em',
+            lineHeight: 1.05,
+          }}
         >
-          <motion.div variants={staggerItem}>
-            <Typography variant="h6" align="center" color="text.secondary" paragraph sx={{ mb: 6 }}>
-              {dictionary.contact.subtitle}
-            </Typography>
-          </motion.div>
+          {contact.title}
+        </Typography>
+      </Reveal>
 
-          <motion.div variants={staggerItem}>
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: { xs: 'column', sm: 'row' },
-                gap: 3,
-                justifyContent: 'center',
-                flexWrap: 'wrap',
-              }}
-            >
-              {(
-                [
-                  {
-                    href: dictionary.contact.links.email,
-                    label: 'Email',
-                    variant: 'contained' as const,
-                    color: 'primary' as const,
-                  },
-                  {
-                    href: dictionary.contact.links.linkedin,
-                    label: 'LinkedIn',
-                    variant: 'outlined' as const,
-                    color: 'primary' as const,
-                    target: '_blank' as const,
-                  },
-                  {
-                    href: dictionary.contact.links.github,
-                    label: 'GitHub',
-                    variant: 'outlined' as const,
-                    color: 'secondary' as const,
-                    target: '_blank' as const,
-                  },
-                ] as const
-              ).map((link) => (
-                <motion.div key={link.label} whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.98 }}>
-                  <Button
-                    variant={link.variant}
-                    color={link.color}
-                    size="large"
-                    href={link.href}
-                    target={'target' in link ? link.target : undefined}
-                    rel={'target' in link ? 'noreferrer' : undefined}
-                    sx={{ px: 4, py: 1.5, minWidth: { xs: '100%', sm: 'auto' } }}
-                  >
-                    {link.label}
-                  </Button>
-                </motion.div>
-              ))}
-            </Box>
-          </motion.div>
+      <Box
+        sx={{
+          display: 'flex',
+          gap: 2,
+          justifyContent: 'center',
+          mt: 6,
+          flexWrap: 'wrap',
+        }}
+      >
+        <Button
+          ref={emailRef}
+          href={`mailto:${site.email}`}
+          variant="contained"
+          sx={{
+            px: 4,
+            py: 1.875,
+            fontFamily: fontFamilies.mono,
+            fontSize: '0.9rem',
+            fontWeight: 500,
+            bgcolor: 'accent.main',
+            color: 'accent.ink',
+            transition: 'box-shadow 0.3s',
+            '&:hover': {
+              bgcolor: 'accent.main',
+              boxShadow: (theme) => `0 8px 44px ${alpha(theme.palette.accent.main, 0.45)}`,
+            },
+          }}
+        >
+          {site.email}
+        </Button>
+        <Button
+          ref={linkedinRef}
+          href={site.linkedin}
+          target="_blank"
+          rel="noreferrer"
+          variant="outlined"
+          endIcon={<NorthEastIcon sx={{ fontSize: 15 }} />}
+          sx={outlinedSx}
+        >
+          LinkedIn
+        </Button>
+        <Button
+          ref={githubRef}
+          href={site.github}
+          target="_blank"
+          rel="noreferrer"
+          variant="outlined"
+          endIcon={<NorthEastIcon sx={{ fontSize: 15 }} />}
+          sx={outlinedSx}
+        >
+          GitHub
+        </Button>
+      </Box>
 
-          <motion.div variants={staggerItem}>
-            <Box
-              component="footer"
-              sx={{ mt: 10, textAlign: 'center', borderTop: 1, borderColor: 'divider', pt: 4 }}
-            >
-              <Typography variant="body2" color="text.secondary">
-                {dictionary.contact.copyright}
-              </Typography>
-            </Box>
-          </motion.div>
-        </motion.div>
-      </Container>
+      <Box
+        component="footer"
+        sx={{
+          mt: 15,
+          borderTop: 1,
+          borderColor: 'divider',
+          py: 3.5,
+          display: 'flex',
+          flexDirection: { xs: 'column', sm: 'row' },
+          gap: 1,
+          justifyContent: 'space-between',
+          fontFamily: fontFamilies.mono,
+          fontSize: '0.65rem',
+          letterSpacing: '0.1em',
+          color: 'text.secondary',
+        }}
+      >
+        <Box component="span">{contact.copyright}</Box>
+        <Box component="span">{contact.location}</Box>
+      </Box>
     </Box>
   );
 }

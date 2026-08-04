@@ -3,11 +3,12 @@
 import Box from '@mui/material/Box';
 import { motion, useScroll, useSpring } from 'framer-motion';
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
+/** Two-pixel accent rule pinned to the top edge, scaled by page progress. */
 export default function ScrollProgress() {
   const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
+  const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 30, restDelta: 0.001 });
 
   return (
     <MotionBox
@@ -17,11 +18,10 @@ export default function ScrollProgress() {
         top: 0,
         left: 0,
         right: 0,
-        height: '3px',
+        height: '2px',
         zIndex: 9999,
-        background: (theme) =>
-          `linear-gradient(90deg, ${theme.palette.secondary.main}, ${theme.palette.primary.main})`,
-        transformOrigin: '0%',
+        bgcolor: 'accent.main',
+        transformOrigin: '0% 50%',
         pointerEvents: 'none',
       }}
     />

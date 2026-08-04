@@ -1,87 +1,72 @@
 'use client';
 
 import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Chip from '@mui/material/Chip';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import { motion } from 'framer-motion';
-import { cardHover, staggerContainer, staggerItem } from './motion/variants';
+import { alpha } from '@mui/material/styles';
 import SectionHeading from './SectionHeading';
-import TiltCard from './TiltCard';
-import { Dictionary } from '../get-dictionary';
+import { fontFamilies } from '../fonts';
+import type { Dictionary } from '../get-dictionary';
 
-const MotionCard = motion(Card);
-
+/** One row per category: mono label on the left, pills on the right. */
 export default function Skills({ dictionary }: { dictionary: Dictionary }) {
   return (
     <Box
       id="skills"
       component="section"
-      sx={{
-        py: 10,
-        bgcolor: (theme) =>
-          theme.palette.mode === 'light' ? 'rgba(255,255,255,0.72)' : 'rgba(21, 31, 50, 0.65)',
-        backdropFilter: 'blur(12px)',
-      }}
+      sx={{ px: { xs: 3, sm: 5, lg: 8 }, pt: { xs: 10, md: 15 }, pb: 5 }}
     >
-      <Container maxWidth="lg">
-        <SectionHeading title={dictionary.skills.title} />
-        <Grid
-          container
-          spacing={3}
-          component={motion.div}
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+      <SectionHeading index="03" title={dictionary.skills.title} mb={3} />
+
+      {dictionary.skills.categories.map((category) => (
+        <Box
+          key={category.label}
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: { xs: '1fr', md: '240px 1fr' },
+            gap: { xs: 2, md: 4 },
+            py: 3.5,
+            borderTop: 1,
+            borderColor: 'divider',
+            alignItems: 'baseline',
+          }}
         >
-          {dictionary.skills.categories.map((category: Dictionary['skills']['categories'][number]) => (
-            <Grid key={category.label} size={{ xs: 12, md: 6 }} component={motion.div} variants={staggerItem}>
-              <TiltCard maxTilt={4}>
-                <MotionCard
-                  variants={cardHover}
-                  initial="rest"
-                  whileHover="hover"
-                  whileTap="tap"
-                  sx={{ height: '100%' }}
-                >
-                  <CardContent>
-                    <Typography
-                      variant="h6"
-                      component="h3"
-                      gutterBottom
-                      sx={{
-                        fontWeight: 700,
-                        background: (theme) =>
-                          `linear-gradient(90deg, ${theme.palette.secondary.main}, ${theme.palette.primary.main})`,
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                      }}
-                    >
-                      {category.label}
-                    </Typography>
-                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 2 }}>
-                      {category.items.map((item) => (
-                        <motion.div
-                          key={item}
-                          whileHover={{ scale: 1.12, y: -3 }}
-                          whileTap={{ scale: 0.95 }}
-                          transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-                        >
-                          <Chip label={item} size="small" color="secondary" variant="outlined" />
-                        </motion.div>
-                      ))}
-                    </Box>
-                  </CardContent>
-                </MotionCard>
-              </TiltCard>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
+          <Box
+            sx={{
+              fontFamily: fontFamilies.mono,
+              fontSize: '0.72rem',
+              letterSpacing: '0.14em',
+              color: 'text.secondary',
+              textTransform: 'uppercase',
+            }}
+          >
+            {category.label}
+          </Box>
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.25 }}>
+            {category.items.map((item) => (
+              <Box
+                key={item}
+                component="span"
+                sx={{
+                  fontSize: '0.88rem',
+                  fontWeight: 500,
+                  border: 1,
+                  borderColor: 'divider',
+                  borderRadius: 999,
+                  px: 2,
+                  py: 1,
+                  transition: 'border-color 0.2s, background-color 0.2s, transform 0.2s',
+                  '&:hover': {
+                    borderColor: 'accent.main',
+                    bgcolor: (theme) => alpha(theme.palette.accent.main, 0.09),
+                    transform: 'translateY(-2px)',
+                  },
+                }}
+              >
+                {item}
+              </Box>
+            ))}
+          </Box>
+        </Box>
+      ))}
     </Box>
   );
 }
