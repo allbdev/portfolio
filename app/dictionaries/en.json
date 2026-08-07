@@ -230,13 +230,19 @@
         "company": "Bird",
         "role": "Frontend Engineer",
         "period": "Apr 2024 – Jun 2026",
-        "description": "As a frontend engineer at Bird, I collaborate closely with designers to deliver highly accessible interfaces while actively expanding my full-stack impact through backend development in Go. On the sales development team, I drive end-to-end feature delivery for lead, opportunity, and account management.",
+        "description": "As a frontend engineer at Bird, I shipped across four major product areas — analytics, marketing cloud, sales, and the public website — working closely with designers to deliver accessible, high-performance interfaces while expanding my full-stack impact through backend development in Go.",
         "achievements": [
+          "Architected a no-code custom dashboard builder (Malloy, SolidJS, Vega) that lets users compose their own queries by adding and removing fields, then visualize them as line, bar, doughnut and funnel charts, tables, or KPIs — with drag-and-drop reordering plus inline edit, clone, and delete of every widget.",
+          "Optimized that dashboard to render datasets of 1M+ records for enterprise clients without sacrificing interactivity.",
+          "Built the sales suite end to end — lead boards, lead configuration, and opportunity and deal management — for the sales development team.",
+          "Designed a custom objects system allowing users to define their own attributes on leads and opportunities, including a dynamic form layer that renders masked, format-aware inputs (monetary, numeric, email, text, and more) from each field's configuration.",
+          "Led the frontend redesign of the marketing cloud, rebuilding tables, charts, KPIs, stepper wizards, tabs, lists, pagination, and entire pages against Figma specs on a scalable component system with Radix UI and Tailwind CSS.",
+          "Designed and delivered the analytics visualizations for Inbox Reports, translating a large set of inbox performance metrics into charts, tables, and KPI surfaces.",
+          "Implemented complex data visualization UIs across the product suite using TanStack Table, Recharts, and Chart.js.",
+          "Partnered with design to launch the new bird.com — a motion-rich marketing site — and drove SEO and LLM-discoverability work, shipping Markdown mirrors of the docs, llms-full.txt, and related structured-content improvements.",
           "Developed and maintained Go-based API endpoints, handling core business logic for the sales development team and improving system stability.",
-          "Architected a custom analytics engine and cross-app dashboard using Malloy, SolidJS, and Vega, empowering users to dynamically compose charts based on selected metrics.",
-          "Led the frontend redesign of the marketing cloud, establishing a scalable component system with Radix UI and Tailwind CSS.",
-          "Implemented complex data visualization UIs across the product suite utilizing TanStack Table, Recharts, and Chart.js.",
-          "Championed quality assurance by establishing rigorous automated testing workflows with Vitest, React Testing Library, and Playwright."
+          "Championed quality assurance by establishing rigorous automated testing workflows with Vitest, React Testing Library, and Playwright, covering features with both unit and end-to-end tests.",
+          "Accelerated delivery across all of the above with AI-assisted development workflows using Cursor, Claude, and Antigravity."
         ]
       },
       {

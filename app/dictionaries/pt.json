@@ -230,13 +230,19 @@
         "company": "Bird",
         "role": "Engenheiro Frontend",
         "period": "Abr 2024 – Jun 2026",
-        "description": "Como engenheiro frontend na Bird, colaboro estreitamente com designers para entregar interfaces altamente acessíveis enquanto expando meu impacto full-stack através do desenvolvimento backend em Go. Na equipe de desenvolvimento de vendas, conduzo a entrega ponta a ponta de recursos para gerenciamento de leads, oportunidades e contas.",
+        "description": "Como engenheiro frontend na Bird, atuei em quatro grandes áreas do produto — analytics, marketing cloud, vendas e o site público — colaborando estreitamente com designers para entregar interfaces acessíveis e de alta performance, enquanto expandia meu impacto full-stack através do desenvolvimento backend em Go.",
         "achievements": [
-          "Desenvolvi e mantive endpoints de API em Go, gerenciando as regras de negócio centrais para a equipe de vendas e melhorando a estabilidade do sistema.",
-          "Arquitetei um motor de analytics customizado e um dashboard inter-app usando Malloy, SolidJS e Vega, permitindo aos usuários compor gráficos dinamicamente com base em métricas selecionadas.",
-          "Liderei o redesign frontend da marketing cloud, estabelecendo um sistema escalável de componentes com Radix UI e Tailwind CSS.",
+          "Arquitetei um construtor de dashboards no-code (Malloy, SolidJS e Vega) que permite ao usuário montar suas próprias queries adicionando e removendo campos e visualizá-las como gráficos de linha, barra, rosca e funil, tabelas ou KPIs — com reordenação por drag and drop e edição, clonagem e remoção de cada widget.",
+          "Otimizei esse dashboard para renderizar bases de 1M+ registros para clientes enterprise sem perder interatividade.",
+          "Construí o módulo de vendas ponta a ponta — quadros de leads, configuração de leads e gestão de oportunidades e negócios — para a equipe de desenvolvimento de vendas.",
+          "Projetei um sistema de objetos customizados que permite ao usuário definir seus próprios atributos em leads e oportunidades, incluindo uma camada de formulário dinâmica que renderiza inputs mascarados e sensíveis ao formato (monetário, numérico, e-mail, texto e outros) a partir da configuração de cada campo.",
+          "Liderei o redesign frontend da marketing cloud, reconstruindo tabelas, gráficos, KPIs, wizards em etapas, abas, listas, paginação e páginas inteiras fiéis ao Figma, sobre um sistema escalável de componentes com Radix UI e Tailwind CSS.",
+          "Projetei e entreguei as visualizações de analytics do Inbox Reports, traduzindo um grande conjunto de métricas de performance do inbox em gráficos, tabelas e KPIs.",
           "Implementei interfaces complexas de visualização de dados em todo o produto usando TanStack Table, Recharts e Chart.js.",
-          "Liderei as iniciativas de garantia de qualidade, estabelecendo fluxos rigorosos de testes automatizados com Vitest, React Testing Library e Playwright."
+          "Trabalhei junto ao time de design no lançamento do novo bird.com — um site repleto de efeitos e movimento — e conduzi melhorias de SEO e de descoberta por LLMs, publicando espelhos em Markdown da documentação, llms-full.txt e outras melhorias de conteúdo estruturado.",
+          "Desenvolvi e mantive endpoints de API em Go, gerenciando as regras de negócio centrais para a equipe de vendas e melhorando a estabilidade do sistema.",
+          "Liderei as iniciativas de garantia de qualidade, estabelecendo fluxos rigorosos de testes automatizados com Vitest, React Testing Library e Playwright, cobrindo as funcionalidades com testes unitários e end-to-end.",
+          "Acelerei a entrega de todo esse trabalho com fluxos de desenvolvimento assistidos por IA usando Cursor, Claude e Antigravity."
         ]
       },
       {
