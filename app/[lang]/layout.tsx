@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { bodyFont, displayFont, monoFont } from '../fonts';
 import ThemeRegistry from '../components/ThemeRegistry/ThemeRegistry';
 import { i18n } from '../../i18n-config';
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
   title: 'Vinícius Albuquerque — Senior Software Engineer',
@@ -52,6 +53,7 @@ export default async function RootLayout({
         {/* Lives in the layout so the chosen colour mode survives navigation
             between the home page and the case-study pages. */}
         <ThemeRegistry>{children}</ThemeRegistry>
+        <Analytics />
       </body>
     </html>
   );
