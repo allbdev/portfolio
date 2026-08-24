@@ -1,14 +1,20 @@
 import type { Metadata } from 'next';
-import { type Locale } from '../../i18n-config';
+import { notFound } from 'next/navigation';
+import { isValidLocale } from '../../i18n-config';
 import { getDictionary } from '../get-dictionary';
 import AppContent from '../components/AppContent';
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ lang: Locale }>;
+  params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang } = await params;
+
+  if (!isValidLocale(lang)) {
+    return {};
+  }
+
   const dictionary = await getDictionary(lang);
 
   return {
@@ -19,9 +25,14 @@ export async function generateMetadata({
 export default async function IndexPage({
   params,
 }: {
-  params: Promise<{ lang: Locale }>;
+  params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
+
+  if (!isValidLocale(lang)) {
+    notFound();
+  }
+
   const dictionary = await getDictionary(lang);
 
   return <AppContent dictionary={dictionary} lang={lang} />;

@@ -2,7 +2,7 @@ import '../globals.css';
 import type { Metadata } from 'next';
 import { bodyFont, displayFont, monoFont } from '../fonts';
 import ThemeRegistry from '../components/ThemeRegistry/ThemeRegistry';
-import { i18n } from '../../i18n-config';
+import { i18n, isValidLocale } from '../../i18n-config';
 import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
@@ -42,7 +42,7 @@ export default async function RootLayout({
 
   return (
     <html
-      lang={lang || i18n.defaultLocale}
+      lang={isValidLocale(lang) ? lang : i18n.defaultLocale}
       className={`${bodyFont.variable} ${displayFont.variable} ${monoFont.variable}`}
       suppressHydrationWarning
     >

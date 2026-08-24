@@ -1,15 +1,20 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { i18n, type Locale } from '../../../../i18n-config';
+import { i18n, isValidLocale, type Locale } from '../../../../i18n-config';
 import { getDictionary } from '../../../get-dictionary';
 import ProjectDetail from '../../../components/ProjectDetail';
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ lang: Locale; projetoSlug: string }>;
+  params: Promise<{ lang: string; projetoSlug: string }>;
 }): Promise<Metadata> {
   const { lang, projetoSlug } = await params;
+
+  if (!isValidLocale(lang)) {
+    return {};
+  }
+
   const dictionary = await getDictionary(lang);
 
   const project = dictionary.projects.items.find(
@@ -60,9 +65,14 @@ export async function generateStaticParams() {
 export default async function ProjectDetailPage({
   params,
 }: {
-  params: Promise<{ lang: Locale; projetoSlug: string }>;
+  params: Promise<{ lang: string; projetoSlug: string }>;
 }) {
   const { lang, projetoSlug } = await params;
+
+  if (!isValidLocale(lang)) {
+    notFound();
+  }
+
   const dictionary = await getDictionary(lang);
 
   const project = dictionary.projects.items.find(
