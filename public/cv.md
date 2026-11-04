@@ -1,103 +1,67 @@
-## Vinícius Albuquerque
+# Vinícius Albuquerque
 
-vini.alb13@gmail.com · +55 27 99201-0432 · Vila Velha, Espírito Santo, Brazil [URL 🔗](mailto:vini.alb13@gmail.com)
+**Senior Full-stack Engineer**
 
-## Professional summary
+6+ years end to end · React, Next.js, TypeScript · Node.js, NestJS, Go, PHP · PostgreSQL, Docker, AWS · remote
 
-Senior software engineer with 6+ years of experience leading the development of high- performance web and mobile applications. Strong in JavaScript, React, and TypeScript across the full stack—from frontend (React Native, ReactJS, NextJS) to backend (Go, Node.js, PHP).
+[vini.alb13@gmail.com](mailto:vini.alb13@gmail.com) · [linkedin.com/in/albuquerque-vinicius](https://linkedin.com/in/albuquerque-vinicius) · [github.com/allbdev](https://github.com/allbdev) · [vinicius-albuquerque.com.br](https://www.vinicius-albuquerque.com.br/) · Vila Velha, Brazil
 
-I excel at building complex features such as interactive dashboards and real-time chat systems. I mentor teams and manage end-to-end app store deployment. Motivated problem-solver, comfortable in fast-paced environments.
+## Summary
 
-## Profiles
+Senior full-stack engineer with 6+ years taking features from database to UI, across product companies and client projects. Builds the React or Next.js frontend and the Go, NestJS or Laravel API behind it, and has run CI/CD and app releases. Designed, built and runs Path Trader alone, a SaaS now serving about 60 customers.
 
-- [LinkedIn](https://linkedin.com/in/albuquerque-vinicius)
+## Core skills
 
-- [Github](https://github.com/allbdev)
-
-- [vinicius-albuquerque.com.br](https://www.vinicius-albuquerque.com.br/)
-
-## Skills
-
-Languages & markup: JavaScript, TypeScript, HTML, CSS, Go Frontend: React, Next.js, React Native, SolidJS Backend & realtime: Node.js, NestJS, Prisma, PostgreSQL, Redis Platform & ops: Git, Docker, AWS, GitHub Actions Other: REST APIs, AI-assisted development (Cursor, Claude, Antigravity), testing (Vitest, Jest,
-
-React Testing Library, Cypress, Playwright), Turborepo, pnpm
+- **Frontend:** React, Next.js, TypeScript, JavaScript, SolidJS, Tailwind CSS, Radix UI
+- **Backend:** Node.js, NestJS, Go, PHP (Laravel), REST APIs, WebSockets, Socket.io, PusherJS
+- **Data:** PostgreSQL, Redis, Prisma, Malloy
+- **Testing:** Vitest, Jest, React Testing Library, Playwright, Cypress
+- **Tools:** Git, GitHub Actions, Bitbucket Pipelines, Docker, AWS, Vercel, Fly, Sentry, Turborepo, pnpm, Cursor, Claude
 
 ## Experience
 
-## Frontend Engineer — Bird
+### Frontend Engineer · Bird · Remote
 
-Apr 2024 – Jun 2026
+Apr 2024 - Jun 2026
 
+- Built the sales workflows end to end, lead boards, lead configuration and opportunity and deal management, and developed the Go API endpoints behind them for the sales development team.
+- Designed a custom objects system for user-defined lead and opportunity attributes, with a dynamic form layer of masked, format-aware inputs.
+- Architected a no-code dashboard builder with Malloy, SolidJS and Vega: users compose queries and see them as charts, tables or KPIs.
+- Optimized dashboard rendering for enterprise datasets of 1M+ records while keeping it interactive.
+- Core contributor to the marketing cloud redesign on a Radix UI and Tailwind CSS component system.
+- Established unit and end-to-end testing workflows with Vitest, React Testing Library and Playwright.
+- Used AI-assisted development with Cursor, Claude and Antigravity to support delivery.
 
-As a frontend engineer at Bird, I shipped across four major product areas — analytics, marketing cloud, sales, and the public website — working closely with designers to deliver accessible, high-performance interfaces while expanding my full-stack impact through backend development in Go.
+### Senior Software Engineer · MULTTI · Remote
 
-- Architected a no-code custom dashboard builder (Malloy, SolidJS, Vega) that lets users compose their own queries by adding and removing fields, then visualize them as line, bar, doughnut and funnel charts, tables, or KPIs — with drag-and-drop reordering plus inline edit, clone, and delete of every widget.
+Jan 2022 - Mar 2024
 
-- Optimized that dashboard to render datasets of 1M+ records for enterprise clients without sacrificing interactivity.
+- Mentored junior engineers, guided technical work and improved agile development workflows at a software outsourcing company.
+- Architected a real-time chat system using React, PusherJS, WebSockets and virtualized lists.
+- Led end-to-end development of a React Native delivery-tracking app with live maps, push notifications and custom UI.
+- Built a React and MUI lead management system and a financial-market streaming platform.
+- Worked across React and React Native frontends and PHP (Laravel) backends for client projects.
+- Modernized CI/CD and infrastructure by introducing Docker, AWS and Bitbucket Pipelines.
+- Managed mobile releases, including automated deployments to Google Play and the Apple App Store.
 
-- Built the sales suite end to end — lead boards, lead configuration, and opportunity and deal management — for the sales development team.
+### Software Engineer · Solution4apps · Brasília, hybrid
 
-- Designed a custom objects system allowing users to define their own attributes on leads and opportunities, including a dynamic form layer that renders masked, format-aware inputs (monetary, numeric, email, text, and more) from each field's configuration.
+Jan 2020 - Jan 2022
 
-- Led the frontend redesign of the marketing cloud, rebuilding tables, charts, KPIs, stepper wizards, tabs, lists, pagination, and entire pages against Figma specs on a scalable component system with Radix UI and Tailwind CSS.
+- Led technical delivery of web and mobile projects from discovery through production release.
+- Built a React Native app with interactive maps, real-time camera processing, push notifications and NativeWind.
+- Developed a responsive real-time financial markets platform using Next.js, Socket.io, Chakra UI and React Spring.
+- Delivered an accessible public-sector web application using Next.js and Tailwind CSS.
 
-- Designed and delivered the analytics visualizations for Inbox Reports, translating a large set of inbox performance metrics into charts, tables, and KPI surfaces.
+## Projects
 
-- Implemented complex data visualization UIs across the product suite using TanStack Table, Recharts, and Chart.js.
+- **Path Trader** · [path-trader.com.br](https://path-trader.com.br) · Jan 2026 to present. Self-funded SaaS for Brazilian traders with trade journaling, analytics, an AI assistant and a partner program. Built solo, the whole codebase, now serving about 60 customers. Turborepo, Next.js, NestJS, React, TypeScript, Prisma.
+- **Vestra** · [vestra-financas.com.br](https://vestra-financas.com.br) · [github.com/allbdev/vestra-v2](https://github.com/allbdev/vestra-v2). Mobile-first personal finance PWA with multi-user workspaces and recurring transactions. Turborepo, NestJS, Next.js, Vite, React.
 
-- Partnered with design to launch the new bird.com — a motion-rich marketing site — and drove SEO and LLM-discoverability work, shipping Markdown mirrors of the docs, `llms-full.txt`, and related structured-content improvements.
+## Speaking
 
-- Developed and maintained Go-based API endpoints, handling core business logic for the sales development team and improving system stability.
-
-- Championed quality assurance by establishing rigorous automated testing workflows with Vitest, React Testing Library, and Playwright, covering features with both unit and end-to-end tests.
-
-- Accelerated delivery across all of the above with AI-assisted development workflows using Cursor, Claude, and Antigravity.
-
-## Senior Software Engineer — MULTTI (Tecnologia e Integrações)
-
-Jan 2022 – Mar 2024
-
-As a senior software engineer at MULTTI, I took on a technical leadership role, guiding the engineering team, streamlining workflows, and contributing hands-on across the stack (React/ React Native frontends and PHP backends).
-
-- Mentored junior engineers and optimized agile development workflows to ensure reliable feature delivery.
-
-- Architected and built a highly interactive real-time chat system using React, PusherJS, WebSockets, and virtualized lists for performance at scale.
-
-- Led the end-to-end development of a delivery-tracking React Native mobile app featuring live maps, push notifications, and custom UI.
-
-- Developed comprehensive full-stack solutions, including a lead management system (React, MUI) and a financial market streaming platform.
-
-- Modernized the CI/CD pipeline and infrastructure by introducing Docker, AWS, and Bitbucket Pipelines, reducing deployment friction.
-
-- Managed the full lifecycle of mobile applications, including automated deployments to Google Play and the App Store.
-
-
-## Software Engineer — Solution4apps
-
-Jan 2020 – Jan 2022
-
-As a software engineer at Solution4apps, I led the technical delivery of multiple web and mobile projects, taking ownership from initial discovery through to production release.
-
-- Engineered a feature-rich React Native mobile app incorporating interactive maps, real-time camera processing, push notifications, and NativeWind.
-
-- Built a responsive, real-time financial markets platform using Next.js, Socket.io, Chakra UI, and React Spring.
-
-- Delivered a highly performant and accessible public-sector web application leveraging Next.js and Tailwind CSS.
-
-- Oversaw end-to-end project execution, configuring infrastructure and managing app store deployments for mobile products.
-
-## Certifications
-
-- Docker course — Full Cycle (088ac69a-c05f-4aa4-bad8-1c3af72085f)
+Portuguese (native), English (fluent)
 
 ## Education
 
-Expected Jun 2028 — Bachelor’s, Information Systems — Universidade Vila Velha (UVV)
-
-Aug 2021 — Specialization: Next.js, React, React Native, TypeScript — Rocketseat
-
-Aug 2021 — Specialization: React Native, React — Fábrica de aplicativos
-
-Feb 2020 — Specialization: HTML + CSS — UpInside Treinamentos
-
-Dec 2016 — High school diploma — Faculdade Projeção
+Bachelor's Degree in Information Systems (in progress), Universidade Vila Velha (UVV), expected Jun 2028

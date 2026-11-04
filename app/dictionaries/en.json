@@ -10,7 +10,7 @@
     "eyebrow": "Senior Software Engineer · Since 2020",
     "role": "Senior Software Engineer",
     "intro": "I design and ship high-performance web & mobile products — React and TypeScript up front, Go and Node behind. From interactive dashboards to real-time chat, end to end.",
-    "subtitle": "I'm a senior software engineer with 6+ years of experience leading the development of high-performance web and mobile applications. Strong in JavaScript, React, and TypeScript across the full stack—from frontend (React Native, SolidJS) to backend (Go, Node.js).\n\nI excel at building complex features such as interactive dashboards and real-time chat systems. I mentor teams and manage end-to-end app store deployment. Motivated problem-solver, comfortable in fast-paced environments.",
+    "subtitle": "I'm a senior full-stack engineer with 6+ years taking features from database to UI, across product companies and client projects. I build the React or Next.js frontend and the Go, NestJS or Laravel API behind it, and I've run CI/CD pipelines and app store releases.\n\nAt Bird I architected a no-code dashboard builder that handles enterprise datasets of 1M+ records. On my own, I designed, built and run Path Trader, a SaaS now serving about 60 customers.",
     "cta": "See the work",
     "downloadCv": "Download CV",
     "stats": [
@@ -38,7 +38,8 @@
           "TypeScript",
           "HTML",
           "CSS",
-          "Go"
+          "Go",
+          "PHP"
         ]
       },
       {
@@ -47,7 +48,20 @@
           "React",
           "Next.js",
           "React Native",
-          "SolidJS"
+          "SolidJS",
+          "Tailwind CSS",
+          "Radix UI",
+          "MUI"
+        ]
+      },
+      {
+        "label": "Data visualization",
+        "items": [
+          "Malloy",
+          "Vega",
+          "TanStack Table",
+          "Recharts",
+          "Chart.js"
         ]
       },
       {
@@ -55,9 +69,13 @@
         "items": [
           "Node.js",
           "NestJS",
+          "Laravel",
           "Prisma",
           "PostgreSQL",
-          "Redis"
+          "Redis",
+          "REST APIs",
+          "WebSockets",
+          "Socket.io"
         ]
       },
       {
@@ -67,23 +85,23 @@
           "Docker",
           "AWS",
           "GitHub Actions",
+          "Bitbucket Pipelines",
           "Vercel",
           "Fly",
           "Sentry"
         ]
       },
       {
-        "label": "Other",
+        "label": "Testing & tooling",
         "items": [
-          "REST APIs",
-          "AI-assisted development (Cursor, Claude, Antigravity)",
           "Vitest",
           "Jest",
           "React Testing Library",
           "Cypress",
           "Playwright",
           "Turborepo",
-          "pnpm"
+          "pnpm",
+          "AI-assisted development (Cursor, Claude, Antigravity)"
         ]
       }
     ]
@@ -107,7 +125,7 @@
         "title": "Path Trader",
         "slug": "path-trader",
         "description": "Premium full-stack SaaS for Brazilian traders: trade journaling, performance analytics, AI assistant, partner program with admin workflows, and Asaas subscriptions. TypeScript monorepo (pnpm + Turborepo) with four Next.js 16 surfaces (web app, marketing site, admin, landing page) and a NestJS 11 API on Prisma + PostgreSQL. Pusher realtime notifications, AWS S3/SES, pg-boss Postgres-backed queues, OpenAI-powered chat with usage tracking, NextAuth v5 on the web and JWT + Passport on the API, Lexical journal and documents, and a Serwist PWA. Sentry observability with GitHub Actions CI deploying to Vercel and Fly.",
-        "summary": "Premium full-stack SaaS for Brazilian traders — journaling, analytics, an AI assistant, and a partner program.",
+        "summary": "Self-funded SaaS for Brazilian traders — journaling, analytics, an AI assistant, and a partner program. Built solo, now serving about 60 customers.",
         "longDescription": "Path Trader is an independent, self-funded platform that helps traders journal their operations, review performance, manage risk, and run a partner program. It is built as a TypeScript monorepo (pnpm + Turborepo) with four Next.js 16 surfaces — the web app, the marketing site, the admin panel, and the landing page — backed by a NestJS 11 API on Prisma and PostgreSQL. The product ships realtime notifications with Pusher, AWS S3/SES for storage and email, pg-boss Postgres-backed queues, and an OpenAI-powered chat assistant with usage tracking. Authentication uses NextAuth v5 on the web and JWT + Passport on the API, while the journal and documents are powered by Lexical. It is delivered as a Serwist PWA with Sentry observability and GitHub Actions CI deploying to Vercel and Fly.",
         "highlights": [
           "pnpm + Turborepo monorepo with a shared Prisma schema and four Next.js 16 surfaces",
@@ -236,7 +254,7 @@
           "Optimized that dashboard to render datasets of 1M+ records for enterprise clients without sacrificing interactivity.",
           "Built the sales suite end to end — lead boards, lead configuration, and opportunity and deal management — for the sales development team.",
           "Designed a custom objects system allowing users to define their own attributes on leads and opportunities, including a dynamic form layer that renders masked, format-aware inputs (monetary, numeric, email, text, and more) from each field's configuration.",
-          "Led the frontend redesign of the marketing cloud, rebuilding tables, charts, KPIs, stepper wizards, tabs, lists, pagination, and entire pages against Figma specs on a scalable component system with Radix UI and Tailwind CSS.",
+          "Core contributor to the frontend redesign of the marketing cloud, rebuilding tables, charts, KPIs, stepper wizards, tabs, lists, pagination, and entire pages against Figma specs on a scalable component system with Radix UI and Tailwind CSS.",
           "Designed and delivered the analytics visualizations for Inbox Reports, translating a large set of inbox performance metrics into charts, tables, and KPI surfaces.",
           "Implemented complex data visualization UIs across the product suite using TanStack Table, Recharts, and Chart.js.",
           "Partnered with design to launch the new bird.com — a motion-rich marketing site — and drove SEO and LLM-discoverability work, shipping Markdown mirrors of the docs, llms-full.txt, and related structured-content improvements.",
@@ -307,7 +325,7 @@
   },
   "contact": {
     "title": "Let's build something great.",
-    "location": "Vitória, BR — Remote worldwide",
+    "location": "Vila Velha, BR — Remote worldwide",
     "copyright": "© 2026 Vinícius Albuquerque"
   }
 }

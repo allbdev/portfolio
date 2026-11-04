@@ -21,7 +21,6 @@ export const site = {
     'Prisma',
     'AWS',
     'Docker',
-    'GraphQL',
     'Tailwind CSS',
   ],
 } as const;

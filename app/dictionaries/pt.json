@@ -10,7 +10,7 @@
     "eyebrow": "Engenheiro de Software Sênior · Desde 2020",
     "role": "Eng. de Software Sênior",
     "intro": "Projeto e entrego produtos web e mobile de alto desempenho — React e TypeScript na frente, Go e Node por trás. De dashboards interativos a chat em tempo real, ponta a ponta.",
-    "subtitle": "Sou um engenheiro de software sênior com mais de 6 anos de experiência liderando o desenvolvimento de aplicações web e móveis de alto desempenho. Forte em JavaScript, React e TypeScript em todo o stack—do frontend (React Native, SolidJS) ao backend (Go, Node.js).\n\nDestaco-me em funcionalidades complexas como dashboards interativos e sistemas de chat em tempo real. Faço mentoria de times e conduzo deploy ponta a ponta nas lojas de aplicativos. Perfil motivado e orientado a resolver problemas, à vontade em ambientes acelerados.",
+    "subtitle": "Sou engenheiro de software full stack sênior, com mais de 6 anos levando funcionalidades do banco de dados à interface, em empresas de produto e projetos para clientes. Construo o frontend em React ou Next.js e a API em Go, NestJS ou Laravel por trás dele, e já cuidei de pipelines de CI/CD e de publicações nas lojas de aplicativos.\n\nNa Bird, arquitetei um construtor de dashboards no-code que lida com bases corporativas de mais de 1 milhão de registros. Por conta própria, projetei, construí e mantenho o Path Trader, um SaaS que hoje atende cerca de 60 clientes.",
     "cta": "Ver projetos",
     "downloadCv": "Baixar currículo",
     "stats": [
@@ -38,7 +38,8 @@
           "TypeScript",
           "HTML",
           "CSS",
-          "Go"
+          "Go",
+          "PHP"
         ]
       },
       {
@@ -47,7 +48,20 @@
           "React",
           "Next.js",
           "React Native",
-          "SolidJS"
+          "SolidJS",
+          "Tailwind CSS",
+          "Radix UI",
+          "MUI"
+        ]
+      },
+      {
+        "label": "Visualização de dados",
+        "items": [
+          "Malloy",
+          "Vega",
+          "TanStack Table",
+          "Recharts",
+          "Chart.js"
         ]
       },
       {
@@ -55,9 +69,13 @@
         "items": [
           "Node.js",
           "NestJS",
+          "Laravel",
           "Prisma",
           "PostgreSQL",
-          "Redis"
+          "Redis",
+          "REST APIs",
+          "WebSockets",
+          "Socket.io"
         ]
       },
       {
@@ -67,23 +85,23 @@
           "Docker",
           "AWS",
           "GitHub Actions",
+          "Bitbucket Pipelines",
           "Vercel",
           "Fly",
           "Sentry"
         ]
       },
       {
-        "label": "Outros",
+        "label": "Testes e ferramentas",
         "items": [
-          "REST APIs",
-          "Desenvolvimento com IA (Cursor, Claude, Antigravity)",
           "Vitest",
           "Jest",
           "React Testing Library",
           "Cypress",
           "Playwright",
           "Turborepo",
-          "pnpm"
+          "pnpm",
+          "Desenvolvimento com IA (Cursor, Claude, Antigravity)"
         ]
       }
     ]
@@ -107,7 +125,7 @@
         "title": "Path Trader",
         "slug": "path-trader",
         "description": "SaaS full stack premium para traders brasileiros: diário de operações, análises de desempenho, assistente com IA, programa de parceiros com fluxos administrativos e assinaturas via Asaas. Monorepo TypeScript (pnpm + Turborepo) com quatro superfícies Next.js 16 (app web, site institucional, admin e landing page) e API NestJS 11 com Prisma sobre PostgreSQL. Notificações em tempo real via Pusher, AWS S3/SES, filas pg-boss baseadas em Postgres, chat com IA via OpenAI com controle de uso, NextAuth v5 no web e JWT + Passport na API, diário e documentos com Lexical e PWA com Serwist. Observabilidade com Sentry e CI no GitHub Actions com deploys em Vercel e Fly.",
-        "summary": "SaaS full stack premium para traders brasileiros — diário, análises, assistente com IA e programa de parceiros.",
+        "summary": "SaaS autofinanciado para traders brasileiros — diário, análises, assistente com IA e programa de parceiros. Construído sozinho, hoje atende cerca de 60 clientes.",
         "longDescription": "O Path Trader é uma plataforma independente, bancada com recursos próprios, que ajuda traders a registrar operações, analisar desempenho, gerenciar risco e operar um programa de parceiros. É construído como um monorepo TypeScript (pnpm + Turborepo) com quatro superfícies Next.js 16 — o app web, o site institucional, o painel admin e a landing page — apoiado por uma API NestJS 11 com Prisma e PostgreSQL. O produto entrega notificações em tempo real com Pusher, AWS S3/SES para armazenamento e e-mail, filas pg-boss baseadas em Postgres e um assistente de chat com IA via OpenAI com controle de uso. A autenticação usa NextAuth v5 no web e JWT + Passport na API, enquanto o diário e os documentos são construídos com Lexical. É entregue como um PWA com Serwist, observabilidade com Sentry e CI no GitHub Actions com deploys em Vercel e Fly.",
         "highlights": [
           "Monorepo pnpm + Turborepo com schema Prisma compartilhado e quatro superfícies Next.js 16",
@@ -236,12 +254,12 @@
           "Otimizei esse dashboard para renderizar bases de 1M+ registros para clientes enterprise sem perder interatividade.",
           "Construí o módulo de vendas ponta a ponta — quadros de leads, configuração de leads e gestão de oportunidades e negócios — para a equipe de desenvolvimento de vendas.",
           "Projetei um sistema de objetos customizados que permite ao usuário definir seus próprios atributos em leads e oportunidades, incluindo uma camada de formulário dinâmica que renderiza inputs mascarados e sensíveis ao formato (monetário, numérico, e-mail, texto e outros) a partir da configuração de cada campo.",
-          "Liderei o redesign frontend da marketing cloud, reconstruindo tabelas, gráficos, KPIs, wizards em etapas, abas, listas, paginação e páginas inteiras fiéis ao Figma, sobre um sistema escalável de componentes com Radix UI e Tailwind CSS.",
+          "Contribuidor central do redesign frontend da marketing cloud, reconstruindo tabelas, gráficos, KPIs, wizards em etapas, abas, listas, paginação e páginas inteiras fiéis ao Figma, sobre um sistema escalável de componentes com Radix UI e Tailwind CSS.",
           "Projetei e entreguei as visualizações de analytics do Inbox Reports, traduzindo um grande conjunto de métricas de performance do inbox em gráficos, tabelas e KPIs.",
           "Implementei interfaces complexas de visualização de dados em todo o produto usando TanStack Table, Recharts e Chart.js.",
           "Trabalhei junto ao time de design no lançamento do novo bird.com — um site repleto de efeitos e movimento — e conduzi melhorias de SEO e de descoberta por LLMs, publicando espelhos em Markdown da documentação, llms-full.txt e outras melhorias de conteúdo estruturado.",
           "Desenvolvi e mantive endpoints de API em Go, gerenciando as regras de negócio centrais para a equipe de vendas e melhorando a estabilidade do sistema.",
-          "Liderei as iniciativas de garantia de qualidade, estabelecendo fluxos rigorosos de testes automatizados com Vitest, React Testing Library e Playwright, cobrindo as funcionalidades com testes unitários e end-to-end.",
+          "Estabeleci fluxos rigorosos de testes automatizados com Vitest, React Testing Library e Playwright, cobrindo as funcionalidades com testes unitários e end-to-end.",
           "Acelerei a entrega de todo esse trabalho com fluxos de desenvolvimento assistidos por IA usando Cursor, Claude e Antigravity."
         ]
       },
@@ -307,7 +325,7 @@
   },
   "contact": {
     "title": "Vamos construir algo grande.",
-    "location": "Vitória, BR — Remoto",
+    "location": "Vila Velha, BR — Remoto",
     "copyright": "© 2026 Vinícius Albuquerque"
   }
 }
