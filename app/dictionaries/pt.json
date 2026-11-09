@@ -131,6 +131,7 @@
         "contact         como falar comigo",
         "cv              baixar meu currículo",
         "theme           alternar claro / escuro",
+        "llms            o link do llms.txt para sua IA",
         "cd <seção>      ir para uma seção (about, projects, ...)",
         "clear           limpar a tela",
         "sudo hire-me    você sabe que quer"
@@ -153,6 +154,11 @@
           "vagas     engenheiro de software sênior: frontend, full stack, mobile ou backend",
           "formato   remoto · CLT ou PJ",
           "fuso      UTC-3 (confortável com times entre UTC-5 e UTC-1)"
+        ],
+        "llms": [
+          "# um perfil em texto para assistentes de IA",
+          "{url}",
+          "# pergunte ao seu: cole o prompt da seção \"Pergunte à sua IA\""
         ]
       },
       "openHint": "# tente: open path-trader",
@@ -533,6 +539,16 @@
       "title": "initial commit: primeiro código em produção"
     }
   },
+  "ai": {
+    "eyebrow": "Pergunte à sua IA",
+    "title": "Sem tempo para ler tudo? Pergunte ao seu assistente.",
+    "text": "Cole este prompt no ChatGPT, no Claude ou em qualquer agente. Ele aponta para o llms.txt, uma versão em texto deste portfólio feita para assistentes de IA, e você recebe um resumo preciso em segundos.",
+    "prompt": "Leia {url} e me explique quem é Vinícius Albuquerque: sua experiência, o que ele já construiu, seus pontos fortes e para que tipo de vaga ele seria uma ótima escolha.",
+    "copy": "Copiar prompt",
+    "copied": "Copiado!",
+    "open": "ou abra no",
+    "viewFile": "Ver llms.txt"
+  },
   "contact": {
     "title": "Vamos construir algo grande.",
     "location": "Vila Velha, BR · UTC-3 · Remoto",
@@ -557,7 +573,9 @@
       "downloadCv": "Baixar currículo",
       "toggleTheme": "Alternar tema",
       "switchLang": "Switch to English",
-      "sendEmail": "Enviar um e-mail"
+      "sendEmail": "Enviar um e-mail",
+      "copyPrompt": "Copiar o prompt para IA",
+      "promptCopied": "✓ Prompt copiado, cole no seu assistente"
     }
   }
 }

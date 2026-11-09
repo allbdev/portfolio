@@ -15,6 +15,7 @@ This application serves as my interactive curriculum vitae and project showcase.
 -   **3D Commit Skyline**: the hero renders a year of real commits as a rotatable three.js skyline (drag to spin, hover a day).
 -   **Interactive Terminal**: types out an intro when scrolled into view, then accepts commands (`help`, `skills`, `git log`, `sudo hire-me`, ...).
 -   **Command Palette**: `⌘K` / `Ctrl+K` to jump to sections, open case studies, copy the email, toggle theme or language.
+-   **llms.txt + Ask your AI**: `/llms.txt` is generated at build time from the English dictionary, and a section hands visitors a ready-made prompt (copy, or open in ChatGPT / Claude / Perplexity) that points their assistant at it.
 -   **Git-graph Experience**: career rendered as `git log --graph`, drawn as you scroll.
 -   **Modern Architecture**: built on Next.js 16 (App Router) with server-side rendering and optimized performance.
 

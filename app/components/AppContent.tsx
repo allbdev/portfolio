@@ -3,6 +3,7 @@
 import Box from '@mui/material/Box';
 import { MotionConfig } from 'framer-motion';
 import About from './About';
+import AskAI from './AskAI';
 import CommandPalette from './CommandPalette';
 import Contact from './Contact';
 import CustomCursor from './CustomCursor';
@@ -53,6 +54,7 @@ export default function AppContent({
             <Projects dictionary={dictionary} lang={lang} />
             <Experience dictionary={dictionary} />
             <Skills dictionary={dictionary} />
+            <AskAI dictionary={dictionary} />
             <Contact dictionary={dictionary} />
           </main>
         </Box>

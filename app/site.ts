@@ -2,6 +2,8 @@
 export const site = {
   firstName: 'Vinícius',
   lastName: 'Albuquerque',
+  /** Canonical origin (the apex domain redirects here). */
+  url: 'https://www.vinicius-albuquerque.com.br',
   email: 'vini.alb13@gmail.com',
   github: 'https://github.com/allbdev',
   linkedin: 'https://www.linkedin.com/in/albuquerque-vinicius',

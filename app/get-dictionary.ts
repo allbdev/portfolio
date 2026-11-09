@@ -47,7 +47,7 @@ export interface Dictionary {
       /** Typed out when the terminal first scrolls into view. Lines starting with # print dimmed. */
       script: { cmd: string; out: string[] }[];
       help: string[];
-      commands: { whoami: string[]; about: string[]; status: string[] };
+      commands: { whoami: string[]; about: string[]; status: string[]; llms: string[] };
       openHint: string;
       opening: string;
       notFound: string;
@@ -72,7 +72,20 @@ export interface Dictionary {
       toggleTheme: string;
       switchLang: string;
       sendEmail: string;
+      copyPrompt: string;
+      promptCopied: string;
     };
+  };
+  /** "Ask your AI" section. `{url}` in the prompt becomes the llms.txt link. */
+  ai: {
+    eyebrow: string;
+    title: string;
+    text: string;
+    prompt: string;
+    copy: string;
+    copied: string;
+    open: string;
+    viewFile: string;
   };
   skills: {
     title: string;

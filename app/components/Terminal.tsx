@@ -6,6 +6,7 @@ import { alpha, useTheme } from '@mui/material/styles';
 import { motion, useInView } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { ColorModeContext } from './ThemeRegistry/ThemeRegistry';
+import { LLMS_URL } from './AskAI';
 import commits from '../data/commits.json';
 import { fontFamilies } from '../fonts';
 import { site } from '../site';
@@ -106,6 +107,12 @@ export default function Terminal({ dictionary, lang }: { dictionary: Dictionary;
       case 'about':
       case 'status':
         t.commands[name].forEach((text) => out(text));
+        break;
+      case 'llms':
+      case 'llms.txt':
+        t.commands.llms.forEach((text) =>
+          out(text.replace('{url}', LLMS_URL), text.startsWith('#') ? 'dim' : 'accent'),
+        );
         break;
       case 'skills':
       case 'stack':

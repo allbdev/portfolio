@@ -6,6 +6,7 @@ import { alpha, useTheme } from '@mui/material/styles';
 import { AnimatePresence, motion } from 'framer-motion';
 import { usePathname, useRouter } from 'next/navigation';
 import { ColorModeContext } from './ThemeRegistry/ThemeRegistry';
+import { aiPrompt } from './AskAI';
 import { fontFamilies } from '../fonts';
 import { sections, site } from '../site';
 import { i18n, type Locale } from '../../i18n-config';
@@ -103,6 +104,18 @@ export default function CommandPalette({ dictionary, lang }: { dictionary: Dicti
           navigator.clipboard?.writeText(site.email).then(
             () => setFlash(t.actions.copied),
             () => setFlash(site.email),
+          );
+        },
+      },
+      {
+        id: 'copy-prompt',
+        group: t.groups.actions,
+        label: t.actions.copyPrompt,
+        hint: 'llms.txt',
+        run: () => {
+          navigator.clipboard?.writeText(aiPrompt(dictionary)).then(
+            () => setFlash(t.actions.promptCopied),
+            () => setFlash(aiPrompt(dictionary)),
           );
         },
       },

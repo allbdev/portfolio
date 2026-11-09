@@ -131,6 +131,7 @@
         "contact         how to reach me",
         "cv              download my CV",
         "theme           toggle light / dark",
+        "llms            the llms.txt link for your AI",
         "cd <section>    jump to a section (about, projects, ...)",
         "clear           clear the screen",
         "sudo hire-me    you know you want to"
@@ -153,6 +154,11 @@
           "roles     senior software engineer: frontend, full-stack, mobile or backend",
           "setup     remote · full-time or contract",
           "timezone  UTC-3 (comfortable with UTC-5 to UTC-1 teams)"
+        ],
+        "llms": [
+          "# a plain-text profile for AI assistants",
+          "{url}",
+          "# ask yours: paste the prompt from the \"Ask your AI\" section"
         ]
       },
       "openHint": "# try: open path-trader",
@@ -533,6 +539,16 @@
       "title": "initial commit: first production code"
     }
   },
+  "ai": {
+    "eyebrow": "Ask your AI",
+    "title": "Too busy to read all this? Ask your assistant.",
+    "text": "Paste this prompt into ChatGPT, Claude or any agent. It points at llms.txt, a plain-text version of this portfolio written for AI assistants, so you get an accurate summary in seconds.",
+    "prompt": "Read {url} and explain to me who Vinícius Albuquerque is: his experience, what he has built, his strongest skills, and what kind of role he would be a great fit for.",
+    "copy": "Copy prompt",
+    "copied": "Copied!",
+    "open": "or open in",
+    "viewFile": "View llms.txt"
+  },
   "contact": {
     "title": "Let's build something great.",
     "location": "Vila Velha, BR · UTC-3 · Remote worldwide",
@@ -557,7 +573,9 @@
       "downloadCv": "Download CV",
       "toggleTheme": "Toggle theme",
       "switchLang": "Mudar para português",
-      "sendEmail": "Send an email"
+      "sendEmail": "Send an email",
+      "copyPrompt": "Copy the AI prompt",
+      "promptCopied": "✓ Prompt copied, paste it into your assistant"
     }
   }
 }
