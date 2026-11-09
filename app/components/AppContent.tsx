@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import { MotionConfig } from 'framer-motion';
 import About from './About';
 import AskAI from './AskAI';
+import ChatWidget from './chat/ChatWidget';
 import CommandPalette from './CommandPalette';
 import Contact from './Contact';
 import CustomCursor from './CustomCursor';
@@ -37,6 +38,7 @@ export default function AppContent({
         <ScrollProgress />
         <CustomCursor />
         <CommandPalette dictionary={dictionary} lang={lang} />
+        <ChatWidget dictionary={dictionary} lang={lang} />
         <Sidebar dictionary={dictionary} lang={lang} />
 
         <Box
@@ -51,7 +53,7 @@ export default function AppContent({
             <Hero dictionary={dictionary} lang={lang} />
             <Marquee />
             <About dictionary={dictionary} lang={lang} />
-            <AskAI dictionary={dictionary} />
+            <AskAI dictionary={dictionary} lang={lang} />
             <Projects dictionary={dictionary} lang={lang} />
             <Experience dictionary={dictionary} />
             <Skills dictionary={dictionary} />

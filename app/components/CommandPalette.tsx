@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { usePathname, useRouter } from 'next/navigation';
 import { ColorModeContext } from './ThemeRegistry/ThemeRegistry';
 import { aiPrompt } from './AskAI';
+import { openChat } from './chat/events';
 import { fontFamilies } from '../fonts';
 import { sections, site } from '../site';
 import { i18n, type Locale } from '../../i18n-config';
@@ -86,6 +87,13 @@ export default function CommandPalette({ dictionary, lang }: { dictionary: Dicti
         hint: t.caseStudy,
         run: close(() => router.push(`/${lang}/projeto/${project.slug}`)),
       })),
+      {
+        id: 'ask-ai',
+        group: t.groups.actions,
+        label: t.actions.askAi,
+        hint: 'AI',
+        run: close(() => openChat()),
+      },
       {
         id: 'terminal',
         group: t.groups.actions,

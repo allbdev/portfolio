@@ -132,6 +132,7 @@
         "cv              download my CV",
         "theme           toggle light / dark",
         "llms            the llms.txt link for your AI",
+        "ask <question>  ask the AI about me (e.g. ask what has he built?)",
         "cd <section>    jump to a section (about, projects, ...)",
         "clear           clear the screen",
         "sudo hire-me    you know you want to"
@@ -171,7 +172,10 @@
         "✓ access granted",
         "→ taking you to contact…"
       ],
-      "exit": "nice try. there's no exit from a good portfolio."
+      "exit": "nice try. there's no exit from a good portfolio.",
+      "askUsage": "usage: ask <question>   e.g. ask what is his backend experience?",
+      "askThinking": "# thinking…",
+      "askFallback": "# the AI is unavailable right now. Try 'llms' and paste it into your own assistant."
     }
   },
   "skills": {
@@ -548,7 +552,36 @@
     "copy": "Copy prompt",
     "copied": "Copied!",
     "open": "or open in",
-    "viewFile": "View llms.txt"
+    "viewFile": "View llms.txt",
+    "chatHere": "Or ask right here"
+  },
+  "chat": {
+    "open": "Ask AI about me",
+    "title": "Ask about Vinícius",
+    "placeholder": "Ask about his experience, stack, availability…",
+    "greeting": "Hi! I'm an AI assistant that knows Vinícius's profile. Ask me anything about his work.",
+    "suggestions": [
+      "What has he built?",
+      "Is he a fit for a senior React role?",
+      "What backend experience does he have?",
+      "How do I contact him?"
+    ],
+    "send": "Send",
+    "stop": "Stop",
+    "clear": "Clear chat",
+    "close": "Close",
+    "engines": {
+      "device": "on-device · Gemini Nano",
+      "cloud": "Gemini · free tier"
+    },
+    "deviceNote": "Running in your browser with Chrome’s built-in AI. Nothing leaves your machine.",
+    "errors": {
+      "not_configured": "The chat is offline right now.",
+      "rate_limited": "The free AI quota is used up for the moment.",
+      "failed": "Something went wrong."
+    },
+    "fallback": "Copy a prompt for your own assistant instead",
+    "disclaimer": "AI answers can be wrong; the CV is the source of truth."
   },
   "contact": {
     "title": "Let's build something great.",
@@ -576,7 +609,8 @@
       "switchLang": "Mudar para português",
       "sendEmail": "Send an email",
       "copyPrompt": "Copy the AI prompt",
-      "promptCopied": "✓ Prompt copied, paste it into your assistant"
+      "promptCopied": "✓ Prompt copied, paste it into your assistant",
+      "askAi": "Ask the AI assistant"
     }
   }
 }

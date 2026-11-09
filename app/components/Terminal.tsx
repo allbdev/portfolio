@@ -7,6 +7,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { ColorModeContext } from './ThemeRegistry/ThemeRegistry';
 import { LLMS_URL } from './AskAI';
+import { ask, onDeviceReady } from './chat/engine';
 import commits from '../data/commits.json';
 import { fontFamilies } from '../fonts';
 import { site } from '../site';
@@ -36,6 +37,7 @@ export default function Terminal({ dictionary, lang }: { dictionary: Dictionary;
   const [typing, setTyping] = useState('');
   const [ready, setReady] = useState(false);
   const [input, setInput] = useState('');
+  const [asking, setAsking] = useState(false);
   const history = useRef<string[]>([]);
   const historyIndex = useRef(-1);
 
@@ -86,6 +88,38 @@ export default function Terminal({ dictionary, lang }: { dictionary: Dictionary;
     const body = bodyRef.current;
     if (body) body.scrollTop = body.scrollHeight;
   }, [lines, typing]);
+
+  // `ask <question>` streams an answer from the same engine as the chat widget.
+  const askAI = async (question: string) => {
+    setAsking(true);
+    push({ kind: 'dim', text: t.askThinking });
+    const replaceLast = (line: Line) => setLines((prev) => [...prev.slice(0, -1), line]);
+    let answer = '';
+    try {
+      const engine = await ask(
+        (await onDeviceReady(lang)) ? 'device' : 'cloud',
+        [{ role: 'user', content: question }],
+        lang,
+        (delta) => {
+          answer += delta;
+          replaceLast({
+            kind: 'out',
+            text: answer
+              .replace(/\*\*/g, '')
+              .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1 ($2)')
+              .trim(),
+          });
+        },
+        new AbortController().signal,
+      );
+      push({ kind: 'dim', text: `# ${dictionary.chat.engines[engine]}` });
+    } catch {
+      if (answer) push({ kind: 'err', text: '# …' });
+      else replaceLast({ kind: 'err', text: t.askFallback });
+    } finally {
+      setAsking(false);
+    }
+  };
 
   const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
@@ -181,6 +215,12 @@ export default function Terminal({ dictionary, lang }: { dictionary: Dictionary;
         else out(t.notFound.replace('{cmd}', cmd), 'err');
         break;
       }
+      case 'ask': {
+        const question = cmd.slice(name.length).trim();
+        if (question) askAI(question);
+        else out(t.askUsage, 'dim');
+        break;
+      }
       case 'date':
         out(new Date().toString());
         break;
@@ -209,6 +249,7 @@ export default function Terminal({ dictionary, lang }: { dictionary: Dictionary;
 
   const onKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
+      if (asking) return;
       run(input);
       setInput('');
     } else if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
@@ -270,9 +311,7 @@ export default function Terminal({ dictionary, lang }: { dictionary: Dictionary;
           {['#ff5f57', '#febc2e', '#28c840'].map((color) => (
             <Box key={color} sx={{ width: 11, height: 11, borderRadius: '50%', bgcolor: color }} />
           ))}
-          <Box sx={{ flex: 1, textAlign: 'center', fontSize: '0.7rem', color: '#8fa0ae', mr: 5 }}>
-            {t.title}
-          </Box>
+          <Box sx={{ flex: 1, textAlign: 'center', fontSize: '0.7rem', color: '#8fa0ae', mr: 5 }}>{t.title}</Box>
         </Box>
 
         <Box
@@ -287,10 +326,7 @@ export default function Terminal({ dictionary, lang }: { dictionary: Dictionary;
           }}
         >
           {lines.map((line, index) => (
-            <Box
-              key={index}
-              sx={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word', color: lineColor[line.kind] }}
-            >
+            <Box key={index} sx={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word', color: lineColor[line.kind] }}>
               {line.kind === 'cmd' && (
                 <Box component="span" sx={{ color: theme.palette.accent.main, mr: 1 }}>
                   {PROMPT}

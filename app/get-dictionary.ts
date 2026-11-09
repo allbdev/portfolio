@@ -55,6 +55,9 @@ export interface Dictionary {
       sudo: string;
       hire: string[];
       exit: string;
+      askUsage: string;
+      askThinking: string;
+      askFallback: string;
     };
   };
   palette: {
@@ -74,6 +77,7 @@ export interface Dictionary {
       sendEmail: string;
       copyPrompt: string;
       promptCopied: string;
+      askAi: string;
     };
   };
   /** "Ask your AI" section. `{url}` in the prompt becomes the llms.txt link. */
@@ -86,6 +90,24 @@ export interface Dictionary {
     copied: string;
     open: string;
     viewFile: string;
+    chatHere: string;
+  };
+  /** Floating AI chat (Gemini Nano on-device, else the /api/chat free tier). */
+  chat: {
+    open: string;
+    title: string;
+    placeholder: string;
+    greeting: string;
+    suggestions: string[];
+    send: string;
+    stop: string;
+    clear: string;
+    close: string;
+    engines: { device: string; cloud: string };
+    deviceNote: string;
+    errors: { not_configured: string; rate_limited: string; failed: string };
+    fallback: string;
+    disclaimer: string;
   };
   skills: {
     title: string;

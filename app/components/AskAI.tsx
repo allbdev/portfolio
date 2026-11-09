@@ -7,10 +7,14 @@ import Typography from '@mui/material/Typography';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import CheckIcon from '@mui/icons-material/Check';
 import NorthEastIcon from '@mui/icons-material/NorthEast';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import { alpha } from '@mui/material/styles';
 import { useInView } from 'framer-motion';
 import Reveal from './Reveal';
 import SpotlightCard from './SpotlightCard';
+import { openChat } from './chat/events';
+import { useChatAvailable } from './chat/engine';
+import type { Locale } from '../../i18n-config';
 import { fontFamilies } from '../fonts';
 import { site } from '../site';
 import type { Dictionary } from '../get-dictionary';
@@ -24,8 +28,9 @@ export const aiPrompt = (dictionary: Dictionary) => dictionary.ai.prompt.replace
  * "Ask your AI about me": a ready-made prompt pointing at /llms.txt, typed out
  * when it scrolls into view, with copy and open-in-assistant shortcuts.
  */
-export default function AskAI({ dictionary }: { dictionary: Dictionary }) {
+export default function AskAI({ dictionary, lang }: { dictionary: Dictionary; lang: Locale }) {
   const t = dictionary.ai;
+  const chatReady = useChatAvailable(lang);
   const prompt = aiPrompt(dictionary);
   const boxRef = useRef<HTMLDivElement>(null);
   const inView = useInView(boxRef, { once: true, margin: '0px 0px -20% 0px' });
@@ -74,14 +79,19 @@ export default function AskAI({ dictionary }: { dictionary: Dictionary }) {
   } as const;
 
   return (
-    <Box
-      id="ask-ai"
-      component="section"
-      sx={{ px: { xs: 3, sm: 5, lg: 8 }, pt: { xs: 10, md: 15 } }}
-    >
+    <Box id="ask-ai" component="section" sx={{ px: { xs: 3, sm: 5, lg: 8 }, pt: { xs: 10, md: 15 } }}>
       <Reveal>
         <SpotlightCard sx={{ p: { xs: 3, sm: 4.5, md: 6 } }}>
-          <Box sx={{ position: 'relative', zIndex: 2, display: 'grid', gridTemplateColumns: { xs: '1fr', lg: '0.9fr 1.1fr' }, gap: { xs: 4, lg: 7 }, alignItems: 'center' }}>
+          <Box
+            sx={{
+              position: 'relative',
+              zIndex: 2,
+              display: 'grid',
+              gridTemplateColumns: { xs: '1fr', lg: '0.9fr 1.1fr' },
+              gap: { xs: 4, lg: 7 },
+              alignItems: 'center',
+            }}
+          >
             <Box>
               <Box
                 sx={{
@@ -95,7 +105,11 @@ export default function AskAI({ dictionary }: { dictionary: Dictionary }) {
               >
                 {t.eyebrow}
               </Box>
-              <Typography component="h2" variant="h2" sx={{ fontSize: { xs: '1.8rem', md: '2.4rem' }, lineHeight: 1.1, mb: 2 }}>
+              <Typography
+                component="h2"
+                variant="h2"
+                sx={{ fontSize: { xs: '1.8rem', md: '2.4rem' }, lineHeight: 1.1, mb: 2 }}
+              >
                 {t.title}
               </Typography>
               <Typography sx={{ color: 'text.secondary', lineHeight: 1.7, maxWidth: 460 }}>{t.text}</Typography>
@@ -117,6 +131,18 @@ export default function AskAI({ dictionary }: { dictionary: Dictionary }) {
               >
                 {t.viewFile} <NorthEastIcon sx={{ fontSize: 14 }} />
               </Box>
+              {chatReady && (
+                <Box sx={{ mt: 3 }}>
+                  <Button
+                    onClick={() => openChat()}
+                    variant="outlined"
+                    startIcon={<AutoAwesomeIcon sx={{ fontSize: 16 }} />}
+                    sx={{ ...linkSx, borderColor: 'accent.main', color: 'accent.text' }}
+                  >
+                    {t.chatHere}
+                  </Button>
+                </Box>
+              )}
             </Box>
 
             <Box>
@@ -162,7 +188,10 @@ export default function AskAI({ dictionary }: { dictionary: Dictionary }) {
                     border: '1px solid rgba(255,255,255,0.12)',
                     color: copied ? theme.palette.accent.main : '#a9b7c3',
                     transition: 'border-color 0.2s, color 0.2s',
-                    '&:hover, &:focus-visible': { borderColor: theme.palette.accent.main, color: theme.palette.accent.main },
+                    '&:hover, &:focus-visible': {
+                      borderColor: theme.palette.accent.main,
+                      color: theme.palette.accent.main,
+                    },
                   })}
                 >
                   {copied ? <CheckIcon sx={{ fontSize: 18 }} /> : <ContentCopyIcon sx={{ fontSize: 16 }} />}
@@ -180,12 +209,17 @@ export default function AskAI({ dictionary }: { dictionary: Dictionary }) {
                     fontSize: '0.85rem',
                     bgcolor: 'accent.main',
                     color: 'accent.ink',
-                    '&:hover': { bgcolor: 'accent.main', boxShadow: (theme) => `0 8px 30px ${alpha(theme.palette.accent.main, 0.4)}` },
+                    '&:hover': {
+                      bgcolor: 'accent.main',
+                      boxShadow: (theme) => `0 8px 30px ${alpha(theme.palette.accent.main, 0.4)}`,
+                    },
                   }}
                 >
                   {copied ? t.copied : t.copy}
                 </Button>
-                <Box sx={{ fontFamily: fontFamilies.mono, fontSize: '0.68rem', color: 'text.secondary', mx: 0.5 }}>{t.open}</Box>
+                <Box sx={{ fontFamily: fontFamilies.mono, fontSize: '0.68rem', color: 'text.secondary', mx: 0.5 }}>
+                  {t.open}
+                </Box>
                 {assistants.map((assistant) => (
                   <Button
                     key={assistant.label}

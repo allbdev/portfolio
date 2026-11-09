@@ -132,6 +132,7 @@
         "cv              baixar meu currículo",
         "theme           alternar claro / escuro",
         "llms            o link do llms.txt para sua IA",
+        "ask <pergunta>  pergunte à IA sobre mim (ex.: ask o que ele já construiu?)",
         "cd <seção>      ir para uma seção (about, projects, ...)",
         "clear           limpar a tela",
         "sudo hire-me    você sabe que quer"
@@ -171,7 +172,10 @@
         "✓ acesso concedido",
         "→ levando você ao contato…"
       ],
-      "exit": "boa tentativa. não tem saída de um bom portfólio."
+      "exit": "boa tentativa. não tem saída de um bom portfólio.",
+      "askUsage": "uso: ask <pergunta>   ex.: ask qual a experiência dele com backend?",
+      "askThinking": "# pensando…",
+      "askFallback": "# a IA está indisponível agora. Tente 'llms' e cole no seu próprio assistente."
     }
   },
   "skills": {
@@ -548,7 +552,36 @@
     "copy": "Copiar prompt",
     "copied": "Copiado!",
     "open": "ou abra no",
-    "viewFile": "Ver llms.txt"
+    "viewFile": "Ver llms.txt",
+    "chatHere": "Ou pergunte aqui mesmo"
+  },
+  "chat": {
+    "open": "Pergunte à IA sobre mim",
+    "title": "Pergunte sobre o Vinícius",
+    "placeholder": "Pergunte sobre experiência, stack, disponibilidade…",
+    "greeting": "Oi! Sou um assistente de IA que conhece o perfil do Vinícius. Pergunte qualquer coisa sobre o trabalho dele.",
+    "suggestions": [
+      "O que ele já construiu?",
+      "Ele serve para uma vaga sênior de React?",
+      "Qual a experiência dele com backend?",
+      "Como falo com ele?"
+    ],
+    "send": "Enviar",
+    "stop": "Parar",
+    "clear": "Limpar conversa",
+    "close": "Fechar",
+    "engines": {
+      "device": "no dispositivo · Gemini Nano",
+      "cloud": "Gemini · plano gratuito"
+    },
+    "deviceNote": "Rodando no seu navegador com a IA embutida do Chrome. Nada sai da sua máquina.",
+    "errors": {
+      "not_configured": "O chat está fora do ar agora.",
+      "rate_limited": "A cota gratuita de IA acabou por enquanto.",
+      "failed": "Algo deu errado."
+    },
+    "fallback": "Copie um prompt para o seu próprio assistente",
+    "disclaimer": "Respostas de IA podem errar; o currículo é a fonte oficial."
   },
   "contact": {
     "title": "Vamos construir algo grande.",
@@ -576,7 +609,8 @@
       "switchLang": "Switch to English",
       "sendEmail": "Enviar um e-mail",
       "copyPrompt": "Copiar o prompt para IA",
-      "promptCopied": "✓ Prompt copiado, cole no seu assistente"
+      "promptCopied": "✓ Prompt copiado, cole no seu assistente",
+      "askAi": "Perguntar ao assistente de IA"
     }
   }
 }
