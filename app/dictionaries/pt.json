@@ -541,7 +541,7 @@
   },
   "ai": {
     "eyebrow": "Pergunte à sua IA",
-    "title": "Sem tempo para ler tudo? Pergunte ao seu assistente.",
+    "title": "Sem tempo para continuar? Pergunte ao seu assistente.",
     "text": "Cole este prompt no ChatGPT, no Claude ou em qualquer agente. Ele aponta para o llms.txt, uma versão em texto deste portfólio feita para assistentes de IA, e você recebe um resumo preciso em segundos.",
     "prompt": "Leia {url} e me explique quem é Vinícius Albuquerque: sua experiência, o que ele já construiu, seus pontos fortes e para que tipo de vaga ele seria uma ótima escolha.",
     "copy": "Copiar prompt",

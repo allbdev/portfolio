@@ -51,10 +51,10 @@ export default function AppContent({
             <Hero dictionary={dictionary} lang={lang} />
             <Marquee />
             <About dictionary={dictionary} lang={lang} />
+            <AskAI dictionary={dictionary} />
             <Projects dictionary={dictionary} lang={lang} />
             <Experience dictionary={dictionary} />
             <Skills dictionary={dictionary} />
-            <AskAI dictionary={dictionary} />
             <Contact dictionary={dictionary} />
           </main>
         </Box>
