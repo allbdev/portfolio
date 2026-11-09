@@ -109,6 +109,8 @@ export interface Dictionary {
       overview: string;
       highlights: string;
       technologies: string;
+      /** Link to the case study's Markdown version. */
+      markdown: string;
     };
     items: {
       title: string;

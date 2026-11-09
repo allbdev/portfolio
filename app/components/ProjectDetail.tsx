@@ -197,6 +197,24 @@ export default function ProjectDetail({
                 {viewCode}
               </Button>
             ) : null}
+            <Box
+              component="a"
+              href={`/${lang}/projeto/${project.slug}.md`}
+              target="_blank"
+              rel="alternate"
+              type="text/markdown"
+              sx={{
+                alignSelf: 'center',
+                ml: { sm: 1 },
+                fontFamily: fontFamilies.mono,
+                fontSize: '0.75rem',
+                color: 'text.secondary',
+                transition: 'color 0.2s',
+                '&:hover': { color: 'accent.text' },
+              }}
+            >
+              {detail.markdown} ↗
+            </Box>
           </Box>
 
           {project.screenshots.length > 0 ? (

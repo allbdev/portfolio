@@ -1,6 +1,7 @@
 import commits from '../data/commits.json';
 import { getDictionary } from '../get-dictionary';
 import { site } from '../site';
+import { caseStudyMarkdownPath } from '../case-study-markdown';
 
 // Built once at deploy time from the same dictionary the site renders, so the
 // file can never drift from what the page says. https://llmstxt.org
@@ -49,7 +50,7 @@ ${list(project.highlights)}
 
 - Stack: ${project.techStack.join(', ')}
 - Live: ${project.liveUrl}${project.githubUrl ? `\n- Code: ${project.githubUrl}` : ''}
-- Case study: ${site.url}/en/projeto/${project.slug}`,
+- Case study (Markdown): ${site.url}${caseStudyMarkdownPath('en', project.slug)} (Portuguese: ${site.url}${caseStudyMarkdownPath('pt', project.slug)})`,
   )
   .join('\n\n')}
 

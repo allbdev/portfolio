@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { i18n, isValidLocale, type Locale } from '../../../../i18n-config';
 import { getDictionary } from '../../../get-dictionary';
 import ProjectDetail from '../../../components/ProjectDetail';
+import { caseStudyMarkdownPath } from '../../../case-study-markdown';
 
 export async function generateMetadata({
   params,
@@ -32,6 +33,9 @@ export async function generateMetadata({
   return {
     title,
     description,
+    alternates: {
+      types: { 'text/markdown': caseStudyMarkdownPath(lang, project.slug) },
+    },
     openGraph: {
       title,
       description,
