@@ -4,6 +4,7 @@ import type { Locale } from '../i18n-config';
 export interface Dictionary {
   navigation: {
     home: string;
+    about: string;
     projects: string;
     experience: string;
     skills: string;
@@ -20,7 +21,58 @@ export interface Dictionary {
     subtitle: string;
     cta: string;
     downloadCv: string;
+    /** Availability line next to the CTAs. */
+    status: string;
     stats: { value: string; label: string }[];
+    /** Labels for the 3D commit skyline. `{n}` is replaced with a number. */
+    skyline: {
+      caption: string;
+      commit: string;
+      commits: string;
+      noCommits: string;
+      streak: string;
+      activeDays: string;
+      dragHint: string;
+      less: string;
+      more: string;
+    };
+  };
+  about: {
+    title: string;
+    lead: string[];
+    facts: { label: string; value: string; live?: boolean }[];
+    terminal: {
+      title: string;
+      hint: string;
+      /** Typed out when the terminal first scrolls into view. Lines starting with # print dimmed. */
+      script: { cmd: string; out: string[] }[];
+      help: string[];
+      commands: { whoami: string[]; about: string[]; status: string[] };
+      openHint: string;
+      opening: string;
+      notFound: string;
+      themeSwitched: string;
+      sudo: string;
+      hire: string[];
+      exit: string;
+    };
+  };
+  palette: {
+    trigger: string;
+    placeholder: string;
+    empty: string;
+    footer: string;
+    caseStudy: string;
+    groups: { navigate: string; projects: string; actions: string; links: string };
+    actions: {
+      terminal: string;
+      copyEmail: string;
+      copied: string;
+      downloadCv: string;
+      toggleTheme: string;
+      switchLang: string;
+      sendEmail: string;
+    };
   };
   skills: {
     title: string;
@@ -61,10 +113,20 @@ export interface Dictionary {
   experience: {
     title: string;
     educationTitle: string;
+    /** "+ {n} more" toggle under long achievement lists. */
+    showMore: string;
+    showLess: string;
+    /** Top of the git graph: current status. */
+    head: { branch: string; date: string; title: string; text: string };
+    /** Bottom of the git graph: where it all started. */
+    root: { date: string; title: string };
     jobs: {
       company: string;
+      /** Branch label on the git graph. */
+      branch: string;
       role: string;
       period: string;
+      stack: string[];
       description: string;
       achievements: string[];
     }[];

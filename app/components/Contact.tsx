@@ -43,7 +43,7 @@ export default function Contact({ dictionary }: { dictionary: Dictionary }) {
           mb: 3,
         }}
       >
-        04 — {navigation.contact}
+        05 — {navigation.contact}
       </Box>
 
       <Reveal>

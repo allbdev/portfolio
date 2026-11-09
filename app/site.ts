@@ -14,6 +14,7 @@ export const site = {
     'Go',
     'Next.js',
     'React Native',
+    'Expo',
     'Node.js',
     'NestJS',
     'SolidJS',
@@ -22,14 +23,17 @@ export const site = {
     'AWS',
     'Docker',
     'Tailwind CSS',
+    'Vega',
+    'Malloy',
   ],
 } as const;
 
 /** Section ids in page order, paired with the dictionary key that labels them. */
 export const sections = [
   { id: 'home', key: 'home', index: '00' },
-  { id: 'projects', key: 'projects', index: '01' },
-  { id: 'experience', key: 'experience', index: '02' },
-  { id: 'skills', key: 'skills', index: '03' },
-  { id: 'contact', key: 'contact', index: '04' },
+  { id: 'about', key: 'about', index: '01' },
+  { id: 'projects', key: 'projects', index: '02' },
+  { id: 'experience', key: 'experience', index: '03' },
+  { id: 'skills', key: 'skills', index: '04' },
+  { id: 'contact', key: 'contact', index: '05' },
 ] as const;

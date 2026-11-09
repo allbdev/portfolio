@@ -14,7 +14,7 @@ export default function Skills({ dictionary }: { dictionary: Dictionary }) {
       component="section"
       sx={{ px: { xs: 3, sm: 5, lg: 8 }, pt: { xs: 10, md: 15 }, pb: 5 }}
     >
-      <SectionHeading index="03" title={dictionary.skills.title} mb={3} />
+      <SectionHeading index="04" title={dictionary.skills.title} mb={3} />
 
       {dictionary.skills.categories.map((category) => (
         <Box

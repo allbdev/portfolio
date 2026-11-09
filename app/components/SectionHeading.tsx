@@ -2,6 +2,7 @@
 
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import ScrambleText from './ScrambleText';
 import { fontFamilies } from '../fonts';
 
 type SectionHeadingProps = {
@@ -31,7 +32,7 @@ export default function SectionHeading({ index, title, mb = 7 }: SectionHeadingP
         variant="h2"
         sx={{ m: 0, fontSize: { xs: '1.9rem', sm: '2.2rem', md: '2.6rem' } }}
       >
-        {title}
+        <ScrambleText text={title} />
       </Typography>
       <Box
         aria-hidden

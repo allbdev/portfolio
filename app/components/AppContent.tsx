@@ -2,6 +2,8 @@
 
 import Box from '@mui/material/Box';
 import { MotionConfig } from 'framer-motion';
+import About from './About';
+import CommandPalette from './CommandPalette';
 import Contact from './Contact';
 import CustomCursor from './CustomCursor';
 import Experience from './Experience';
@@ -33,6 +35,7 @@ export default function AppContent({
       >
         <ScrollProgress />
         <CustomCursor />
+        <CommandPalette dictionary={dictionary} lang={lang} />
         <Sidebar dictionary={dictionary} lang={lang} />
 
         <Box
@@ -44,8 +47,9 @@ export default function AppContent({
           }}
         >
           <main>
-            <Hero dictionary={dictionary} />
+            <Hero dictionary={dictionary} lang={lang} />
             <Marquee />
+            <About dictionary={dictionary} lang={lang} />
             <Projects dictionary={dictionary} lang={lang} />
             <Experience dictionary={dictionary} />
             <Skills dictionary={dictionary} />

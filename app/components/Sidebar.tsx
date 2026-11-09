@@ -9,6 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { alpha } from '@mui/material/styles';
 import SocialLinks from './SocialLinks';
 import ThemeControls from './ThemeControls';
+import { OPEN_PALETTE_EVENT, kbdSx } from './CommandPalette';
 import { fontFamilies } from '../fonts';
 import { sections, site } from '../site';
 import { useActiveSection } from '../hooks/useActiveSection';
@@ -111,6 +112,43 @@ function NavLinks({
   );
 }
 
+function PaletteTrigger({ label, onOpen }: { label: string; onOpen?: () => void }) {
+  return (
+    <Box
+      component="button"
+      type="button"
+      onClick={() => {
+        onOpen?.();
+        window.dispatchEvent(new Event(OPEN_PALETTE_EVENT));
+      }}
+      sx={{
+        all: 'unset',
+        boxSizing: 'border-box',
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        gap: 1,
+        px: 1.5,
+        py: 1,
+        border: 1,
+        borderColor: 'divider',
+        borderRadius: '10px',
+        fontSize: '0.8rem',
+        color: 'text.secondary',
+        cursor: 'pointer',
+        transition: 'border-color 0.2s, color 0.2s',
+        '&:hover, &:focus-visible': { borderColor: 'accent.main', color: 'text.primary' },
+      }}
+    >
+      <span>{label}</span>
+      <Box component="span" sx={kbdSx}>
+        ⌘K
+      </Box>
+    </Box>
+  );
+}
+
 /**
  * Fixed left rail on large screens; a blurred top bar with a slide-in drawer
  * below the `lg` breakpoint.
@@ -149,6 +187,9 @@ export default function Sidebar({
         <Wordmark role={dictionary.hero.role} />
         <Box sx={{ mt: 7 }}>
           <NavLinks dictionary={dictionary} active={active} />
+        </Box>
+        <Box sx={{ mt: 4 }}>
+          <PaletteTrigger label={dictionary.palette.trigger} />
         </Box>
         <Box sx={{ flex: 1 }} />
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
@@ -239,6 +280,9 @@ export default function Sidebar({
         </Box>
         <Box sx={{ mt: 5 }}>
           <NavLinks dictionary={dictionary} active={active} onNavigate={() => setOpen(false)} />
+        </Box>
+        <Box sx={{ mt: 3 }}>
+          <PaletteTrigger label={dictionary.palette.trigger} onOpen={() => setOpen(false)} />
         </Box>
         <Box sx={{ flex: 1 }} />
         <Box sx={{ mt: 5 }}>

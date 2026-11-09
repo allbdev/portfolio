@@ -247,7 +247,7 @@ export default function Projects({
       component="section"
       sx={{ px: { xs: 3, sm: 5, lg: 8 }, pt: { xs: 10, md: 15 }, pb: 5 }}
     >
-      <SectionHeading index="01" title={dictionary.projects.title} />
+      <SectionHeading index="02" title={dictionary.projects.title} />
 
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
         {featured ? (

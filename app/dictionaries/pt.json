@@ -1,15 +1,16 @@
 {
   "navigation": {
     "home": "Início",
+    "about": "Sobre",
     "projects": "Projetos",
     "experience": "Experiência",
     "skills": "Stack",
     "contact": "Contato"
   },
   "hero": {
-    "eyebrow": "Engenheiro de Software Sênior · Desde 2020",
+    "eyebrow": "Engenheiro de Software Sênior · Disponível",
     "role": "Eng. de Software Sênior",
-    "intro": "Projeto e entrego produtos web e mobile de alto desempenho — React e TypeScript na frente, Go e Node por trás. De dashboards interativos a chat em tempo real, ponta a ponta.",
+    "intro": "Projeto e entrego produtos web e mobile rápidos: React e TypeScript na frente, Go e Node por trás. De dashboards no-code sobre mais de 1 milhão de registros a chat em tempo real, ponta a ponta.",
     "subtitle": "Sou engenheiro de software full stack sênior, com mais de 6 anos levando funcionalidades do banco de dados à interface, em empresas de produto e projetos para clientes. Construo o frontend em React ou Next.js e a API em Go, NestJS ou Laravel por trás dele, e já cuidei de pipelines de CI/CD e de publicações nas lojas de aplicativos.\n\nNa Bird, arquitetei um construtor de dashboards no-code que lida com bases corporativas de mais de 1 milhão de registros. Por conta própria, projetei, construí e mantenho o Path Trader, um SaaS que hoje atende cerca de 60 clientes.",
     "cta": "Ver projetos",
     "downloadCv": "Baixar currículo",
@@ -19,14 +20,153 @@
         "label": "Anos entregando"
       },
       {
-        "value": "3",
-        "label": "Produtos no ar"
+        "value": "1M+",
+        "label": "Registros por dashboard"
+      },
+      {
+        "value": "~60",
+        "label": "Clientes no Path Trader"
       },
       {
         "value": "2",
-        "label": "Lojas de apps"
+        "label": "Lojas de apps publicadas"
       }
-    ]
+    ],
+    "status": "Aberto a vagas remotas · UTC-3",
+    "skyline": {
+      "caption": "commits nos últimos 12 meses",
+      "commit": "commit",
+      "commits": "commits",
+      "noCommits": "Nenhum commit",
+      "streak": "maior sequência: {n} dias",
+      "activeDays": "{n} dias ativos",
+      "dragHint": "arraste para girar · passe o mouse num dia",
+      "less": "menos",
+      "more": "mais"
+    }
+  },
+  "about": {
+    "title": "Sobre",
+    "lead": [
+      "Engenheiro de software sênior com mais de 6 anos entregando apps web e mobile em produção, em empresas de produto e em consultorias desenvolvendo para clientes.",
+      "Na Bird, arquitetei um construtor de dashboards no-code com Malloy, SolidJS e Vega que se mantém interativo sobre bases corporativas de mais de 1 milhão de registros, e construí os fluxos de vendas de ponta a ponta, incluindo os endpoints em Go. Antes, na MULTTI, fui mentor de engenheiros juniores e liderei apps React Native até a Google Play e a App Store.",
+      "Por conta própria, projetei, construí e mantenho o Path Trader, um SaaS para traders brasileiros que hoje atende cerca de 60 clientes. Escrevi todo o código."
+    ],
+    "facts": [
+      {
+        "label": "Status",
+        "value": "Disponível para novas oportunidades",
+        "live": true
+      },
+      {
+        "label": "Buscando",
+        "value": "Vagas de Engenheiro de Software Sênior"
+      },
+      {
+        "label": "Localização",
+        "value": "Vila Velha, Brasil · UTC-3"
+      },
+      {
+        "label": "Formato",
+        "value": "Remoto · CLT ou PJ"
+      },
+      {
+        "label": "Idiomas",
+        "value": "Português (nativo) · Inglês (fluente)"
+      },
+      {
+        "label": "Experiência",
+        "value": "6+ anos · desde jan 2020"
+      },
+      {
+        "label": "Construindo",
+        "value": "Path Trader · ~60 clientes"
+      },
+      {
+        "label": "Formação",
+        "value": "Sistemas de Informação, UVV (2028)"
+      }
+    ],
+    "terminal": {
+      "title": "vinicius@portfolio: ~ (zsh)",
+      "hint": "# digite 'help' e pressione enter",
+      "script": [
+        {
+          "cmd": "whoami",
+          "out": [
+            "Vinícius Albuquerque · Engenheiro de Software Sênior",
+            "# 6+ anos · React, TypeScript, Next.js, React Native, Node.js, Go"
+          ]
+        },
+        {
+          "cmd": "cat profile.json",
+          "out": [
+            "{",
+            "  \"local\": \"Vila Velha, Brasil (UTC-3)\",",
+            "  \"status\": \"disponível\",",
+            "  \"remoto\": true,",
+            "  \"idiomas\": [\"pt-BR\", \"en\"],",
+            "  \"construindo\": \"Path Trader (~60 clientes)\"",
+            "}"
+          ]
+        },
+        {
+          "cmd": "git log --oneline -4",
+          "out": [
+            "a91f3c2 feat: lança o Path Trader, SaaS solo (~60 clientes)",
+            "7c2e9b1 feat(bird): construtor de dashboards no-code com 1M+ registros",
+            "3d8a0f4 feat(multti): apps React Native na Google Play e App Store",
+            "e1b47d9 init: primeiro app em produção (2020)"
+          ]
+        }
+      ],
+      "help": [
+        "whoami          quem sou eu",
+        "about           a versão longa",
+        "status          disponibilidade",
+        "skills          a stack",
+        "experience      onde trabalhei",
+        "projects        o que construí (open <slug>)",
+        "git log         estatísticas reais por trás do skyline 3D",
+        "contact         como falar comigo",
+        "cv              baixar meu currículo",
+        "theme           alternar claro / escuro",
+        "cd <seção>      ir para uma seção (about, projects, ...)",
+        "clear           limpar a tela",
+        "sudo hire-me    você sabe que quer"
+      ],
+      "commands": {
+        "whoami": [
+          "Vinícius Albuquerque",
+          "Engenheiro de Software Sênior · Vila Velha, Brasil"
+        ],
+        "about": [
+          "6+ anos entregando apps web e mobile em produção.",
+          "Bird: construtor de dashboards no-code (Malloy, SolidJS, Vega) com 1M+ registros,",
+          "      fluxos de vendas de ponta a ponta e os endpoints em Go por trás.",
+          "MULTTI: mentoria de juniores, apps React Native nas duas lojas, chat em tempo real.",
+          "Solution4apps: liderei entregas web e mobile da descoberta ao lançamento.",
+          "Paralelo: Path Trader, SaaS solo, ~60 clientes."
+        ],
+        "status": [
+          "● disponível",
+          "vagas     engenheiro de software sênior: frontend, full stack, mobile ou backend",
+          "formato   remoto · CLT ou PJ",
+          "fuso      UTC-3 (confortável com times entre UTC-5 e UTC-1)"
+        ]
+      },
+      "openHint": "# tente: open path-trader",
+      "opening": "abrindo {x}…",
+      "notFound": "zsh: comando não encontrado: {cmd}. Tente 'help'.",
+      "themeSwitched": "tema alterado ✓",
+      "sudo": "Permissão negada. Você quis dizer 'sudo hire-me'?",
+      "hire": [
+        "[sudo] senha para recrutador: ********",
+        "✓ acesso concedido",
+        "→ levando você ao contato…"
+      ],
+      "exit": "boa tentativa. não tem saída de um bom portfólio."
+    }
   },
   "skills": {
     "title": "Stack",
@@ -34,12 +174,12 @@
       {
         "label": "Linguagens e marcação",
         "items": [
-          "JavaScript",
           "TypeScript",
-          "HTML",
-          "CSS",
+          "JavaScript",
           "Go",
-          "PHP"
+          "PHP",
+          "HTML",
+          "CSS"
         ]
       },
       {
@@ -47,11 +187,25 @@
         "items": [
           "React",
           "Next.js",
-          "React Native",
           "SolidJS",
+          "TanStack Query",
           "Tailwind CSS",
           "Radix UI",
-          "MUI"
+          "MUI",
+          "Chakra UI",
+          "React Spring"
+        ]
+      },
+      {
+        "label": "Mobile",
+        "items": [
+          "React Native",
+          "Expo",
+          "NativeWind",
+          "Push notifications",
+          "Mapas",
+          "Google Play",
+          "App Store"
         ]
       },
       {
@@ -73,9 +227,10 @@
           "Prisma",
           "PostgreSQL",
           "Redis",
-          "REST APIs",
+          "APIs REST",
           "WebSockets",
-          "Socket.io"
+          "Socket.io",
+          "PusherJS"
         ]
       },
       {
@@ -97,18 +252,20 @@
           "Vitest",
           "Jest",
           "React Testing Library",
-          "Cypress",
           "Playwright",
+          "Cypress",
           "Turborepo",
           "pnpm",
-          "Desenvolvimento com IA (Cursor, Claude, Antigravity)"
+          "Cursor",
+          "Claude",
+          "Antigravity"
         ]
       }
     ]
   },
   "projects": {
     "title": "Projetos selecionados",
-    "featuredLabel": "Destaque · SaaS independente",
+    "featuredLabel": "Destaque · SaaS independente · No ar desde jan 2026",
     "liveDemo": "Ver site",
     "viewCode": "Ver código",
     "code": "Código",
@@ -125,7 +282,7 @@
         "title": "Path Trader",
         "slug": "path-trader",
         "description": "SaaS full stack premium para traders brasileiros: diário de operações, análises de desempenho, assistente com IA, programa de parceiros com fluxos administrativos e assinaturas via Asaas. Monorepo TypeScript (pnpm + Turborepo) com quatro superfícies Next.js 16 (app web, site institucional, admin e landing page) e API NestJS 11 com Prisma sobre PostgreSQL. Notificações em tempo real via Pusher, AWS S3/SES, filas pg-boss baseadas em Postgres, chat com IA via OpenAI com controle de uso, NextAuth v5 no web e JWT + Passport na API, diário e documentos com Lexical e PWA com Serwist. Observabilidade com Sentry e CI no GitHub Actions com deploys em Vercel e Fly.",
-        "summary": "SaaS autofinanciado para traders brasileiros — diário, análises, assistente com IA e programa de parceiros. Construído sozinho, hoje atende cerca de 60 clientes.",
+        "summary": "SaaS independente para traders brasileiros: diário de operações, análises, assistente de IA e programa de parceiros. Construído sozinho, todo o código, hoje com cerca de 60 clientes.",
         "longDescription": "O Path Trader é uma plataforma independente, bancada com recursos próprios, que ajuda traders a registrar operações, analisar desempenho, gerenciar risco e operar um programa de parceiros. É construído como um monorepo TypeScript (pnpm + Turborepo) com quatro superfícies Next.js 16 — o app web, o site institucional, o painel admin e a landing page — apoiado por uma API NestJS 11 com Prisma e PostgreSQL. O produto entrega notificações em tempo real com Pusher, AWS S3/SES para armazenamento e e-mail, filas pg-boss baseadas em Postgres e um assistente de chat com IA via OpenAI com controle de uso. A autenticação usa NextAuth v5 no web e JWT + Passport na API, enquanto o diário e os documentos são construídos com Lexical. É entregue como um PWA com Serwist, observabilidade com Sentry e CI no GitHub Actions com deploys em Vercel e Fly.",
         "highlights": [
           "Monorepo pnpm + Turborepo com schema Prisma compartilhado e quatro superfícies Next.js 16",
@@ -209,12 +366,12 @@
       {
         "title": "Rick and Morty Explorer",
         "slug": "rick-and-morty-explorer",
-        "description": "Um explorador da série animada seguindo as aventuras de um super cientista e seu neto, com relacionamentos complexos de personagens e descobertas intergalácticas.",
-        "summary": "Um explorador da série animada para personagens, episódios e locais, movido a GraphQL.",
-        "longDescription": "O Rick and Morty Explorer é um explorador da série animada que acompanha as aventuras de um super cientista e seu neto, revelando relacionamentos complexos de personagens e descobertas intergalácticas. Construído com Next.js e React sobre TypeScript, consome a API GraphQL pública de Rick and Morty para navegar por personagens, episódios e locais com uma interface responsiva em Tailwind CSS.",
+        "description": "Projeto de estudo: um explorador em Next.js dos personagens, episódios e locais da série, construído sobre a API GraphQL pública de Rick and Morty com Apollo Client.",
+        "summary": "Projeto de estudo: navegue por personagens, episódios e locais via GraphQL e Apollo Client.",
+        "longDescription": "Rick and Morty Explorer é um projeto de estudo que construí para praticar GraphQL. É um app Next.js e React em TypeScript que consome a API GraphQL pública de Rick and Morty via Apollo Client para navegar por personagens, episódios e locais, com uma interface responsiva em Tailwind CSS.",
         "highlights": [
           "Navegue por personagens, episódios e locais da série",
-          "Movido pela API GraphQL pública de Rick and Morty",
+          "Consultas GraphQL via Apollo Client na API pública de Rick and Morty",
           "Construído com Next.js, React e TypeScript",
           "Interface responsiva estilizada com Tailwind CSS"
         ],
@@ -235,7 +392,8 @@
           "React",
           "TypeScript",
           "Tailwind CSS",
-          "GraphQL"
+          "GraphQL",
+          "Apollo Client"
         ]
       }
     ]
@@ -246,60 +404,100 @@
     "jobs": [
       {
         "company": "Bird",
+        "branch": "bird",
         "role": "Engenheiro Frontend",
         "period": "Abr 2024 – Jun 2026",
-        "description": "Como engenheiro frontend na Bird, atuei em quatro grandes áreas do produto — analytics, marketing cloud, vendas e o site público — colaborando estreitamente com designers para entregar interfaces acessíveis e de alta performance, enquanto expandia meu impacto full-stack através do desenvolvimento backend em Go.",
+        "stack": [
+          "TypeScript",
+          "SolidJS",
+          "React",
+          "Malloy",
+          "Vega",
+          "Radix UI",
+          "Tailwind CSS",
+          "TanStack Query",
+          "Go",
+          "Playwright"
+        ],
+        "description": "A Bird é uma plataforma de comunicação em nuvem (SMS, WhatsApp, e-mail, marketing, vendas e pagamentos) com sede em Amsterdã. Entreguei em quatro áreas do produto, analytics, marketing cloud, vendas e o site público, trabalhando junto com o design e cuidando dos endpoints em Go por trás das minhas funcionalidades de vendas.",
         "achievements": [
-          "Arquitetei um construtor de dashboards no-code (Malloy, SolidJS e Vega) que permite ao usuário montar suas próprias queries adicionando e removendo campos e visualizá-las como gráficos de linha, barra, rosca e funil, tabelas ou KPIs — com reordenação por drag and drop e edição, clonagem e remoção de cada widget.",
-          "Otimizei esse dashboard para renderizar bases de 1M+ registros para clientes enterprise sem perder interatividade.",
-          "Construí o módulo de vendas ponta a ponta — quadros de leads, configuração de leads e gestão de oportunidades e negócios — para a equipe de desenvolvimento de vendas.",
-          "Projetei um sistema de objetos customizados que permite ao usuário definir seus próprios atributos em leads e oportunidades, incluindo uma camada de formulário dinâmica que renderiza inputs mascarados e sensíveis ao formato (monetário, numérico, e-mail, texto e outros) a partir da configuração de cada campo.",
-          "Contribuidor central do redesign frontend da marketing cloud, reconstruindo tabelas, gráficos, KPIs, wizards em etapas, abas, listas, paginação e páginas inteiras fiéis ao Figma, sobre um sistema escalável de componentes com Radix UI e Tailwind CSS.",
-          "Projetei e entreguei as visualizações de analytics do Inbox Reports, traduzindo um grande conjunto de métricas de performance do inbox em gráficos, tabelas e KPIs.",
-          "Implementei interfaces complexas de visualização de dados em todo o produto usando TanStack Table, Recharts e Chart.js.",
-          "Trabalhei junto ao time de design no lançamento do novo bird.com — um site repleto de efeitos e movimento — e conduzi melhorias de SEO e de descoberta por LLMs, publicando espelhos em Markdown da documentação, llms-full.txt e outras melhorias de conteúdo estruturado.",
-          "Desenvolvi e mantive endpoints de API em Go, gerenciando as regras de negócio centrais para a equipe de vendas e melhorando a estabilidade do sistema.",
-          "Estabeleci fluxos rigorosos de testes automatizados com Vitest, React Testing Library e Playwright, cobrindo as funcionalidades com testes unitários e end-to-end.",
-          "Acelerei a entrega de todo esse trabalho com fluxos de desenvolvimento assistidos por IA usando Cursor, Claude e Antigravity."
+          "Arquitetei um construtor de dashboards no-code (Malloy, SolidJS, Vega): o usuário monta as próprias consultas adicionando e removendo campos e as visualiza como gráficos de linha, barra, rosca e funil, tabelas ou KPIs, com reordenação por arrastar e soltar e edição, clonagem e exclusão de cada widget.",
+          "Otimizei esse dashboard para renderizar bases corporativas de mais de 1 milhão de registros sem perder interatividade.",
+          "Construí os fluxos de vendas de ponta a ponta (quadros de leads, configuração de leads e gestão de oportunidades e negócios) e desenvolvi os endpoints em Go por trás deles para o time de desenvolvimento de vendas.",
+          "Projetei um sistema de objetos customizados para atributos definidos pelo usuário em leads e oportunidades, com uma camada de formulários dinâmicos que renderiza inputs com máscara e formato (monetário, numérico, e-mail, texto e outros) a partir da configuração de cada campo.",
+          "Contribuidor central do redesign do frontend da marketing cloud, reconstruindo tabelas, gráficos, KPIs, wizards, abas, listas e paginação a partir do Figma, sobre um sistema de componentes com Radix UI e Tailwind CSS.",
+          "Projetei as visualizações analíticas do Inbox Reports, transformando um grande conjunto de métricas de desempenho em gráficos, tabelas e KPIs.",
+          "Implementei interfaces com muitos dados com TanStack Table, Recharts e Chart.js, usando TanStack Query como principal camada de estado de servidor do dashboard.",
+          "Entreguei todo código novo atrás das feature flags da Bird, por organização: deploy em produção desligado, testes no workspace do próprio time e liberação gradual para os clientes.",
+          "Fiz parceria com o design no lançamento do novo bird.com e conduzi o trabalho de SEO e descoberta por LLMs: espelhos em Markdown da documentação, llms-full.txt e melhorias de conteúdo estruturado.",
+          "Estabeleci fluxos de testes automatizados unitários e end-to-end com Vitest, React Testing Library e Playwright.",
+          "Usei fluxos de desenvolvimento assistido por IA (Cursor, Claude, Antigravity) para apoiar as entregas."
         ]
       },
       {
         "company": "MULTTI",
+        "branch": "multti",
         "role": "Engenheiro de Software Sênior",
         "period": "Jan 2022 – Mar 2024",
-        "description": "Como engenheiro de software sênior na MULTTI, assumi um papel de liderança técnica, orientando a equipe de engenharia, otimizando fluxos de trabalho e contribuindo de forma hands-on em toda a stack (frontends React/React Native e backends em PHP).",
+        "stack": [
+          "React",
+          "React Native",
+          "Expo",
+          "TypeScript",
+          "PHP",
+          "Laravel",
+          "PusherJS",
+          "MUI",
+          "Docker",
+          "AWS"
+        ],
+        "description": "A MULTTI é uma consultoria de software que desenvolve dashboards, apps mobile e aplicações web para empresas clientes. Como engenheiro sênior, fui mentor do time, melhorei nossos processos e atuei na prática em frontends React e React Native e backends Laravel.",
         "achievements": [
-          "Fiz mentoria de engenheiros juniores e otimizei os fluxos ágeis de desenvolvimento para garantir uma entrega previsível de funcionalidades.",
-          "Arquitetei e construí um sistema de chat altamente interativo em tempo real usando React, PusherJS, WebSockets e listas virtualizadas para melhor performance.",
-          "Liderei o desenvolvimento ponta a ponta de um aplicativo móvel de rastreamento de entregas em React Native, com mapas ao vivo, notificações push e UI customizada.",
-          "Desenvolvi soluções full-stack completas, incluindo um sistema de gerenciamento de leads (React, MUI) e uma plataforma de streaming para o mercado financeiro.",
-          "Modernizei o pipeline de CI/CD e infraestrutura ao introduzir Docker, AWS e Bitbucket Pipelines, reduzindo consideravelmente a fricção nos deploys.",
-          "Gerenciei o ciclo de vida completo de aplicativos móveis, incluindo automação de deploys para o Google Play e App Store."
+          "Fui mentor de engenheiros juniores, orientei o trabalho técnico e melhorei os fluxos de desenvolvimento ágil.",
+          "Arquitetei um sistema de chat em tempo real com React, PusherJS, WebSockets e listas virtualizadas.",
+          "Liderei de ponta a ponta o desenvolvimento de um app React Native com Expo para rastreamento de entregas, com mapas ao vivo, notificações push e UI customizada.",
+          "Construí um sistema de gestão de leads com React e MUI e uma plataforma de streaming do mercado financeiro.",
+          "Atuei em frontends React e React Native e backends PHP (Laravel) para projetos de clientes.",
+          "Modernizei CI/CD e infraestrutura introduzindo Docker, AWS e Bitbucket Pipelines.",
+          "Gerenciei as publicações mobile, incluindo deploys automatizados na Google Play e na App Store."
         ]
       },
       {
         "company": "Solution4apps",
+        "branch": "solution4apps",
         "role": "Engenheiro de Software",
         "period": "Jan 2020 – Jan 2022",
-        "description": "Como engenheiro de software na Solution4apps, conduzi a entrega técnica de diversos projetos web e mobile, assumindo total responsabilidade desde a concepção inicial até o deploy em produção.",
+        "stack": [
+          "React Native",
+          "Expo",
+          "NativeWind",
+          "Next.js",
+          "React",
+          "Socket.io",
+          "Chakra UI",
+          "React Spring",
+          "Tailwind CSS"
+        ],
+        "description": "A Solution4apps é uma consultoria de software. Atendendo principalmente um cliente, liderei a entrega técnica de projetos web e mobile da descoberta ao lançamento em produção.",
         "achievements": [
-          "Desenvolvi um aplicativo móvel React Native repleto de funcionalidades, integrando mapas interativos, processamento de câmera em tempo real, notificações push e NativeWind.",
-          "Construí uma plataforma responsiva de mercado financeiro em tempo real usando Next.js, Socket.io, Chakra UI e React Spring.",
-          "Entreguei uma aplicação web governamental com alta performance e grande foco em acessibilidade usando Next.js e Tailwind CSS.",
-          "Supervisionei a execução completa de projetos, configurando infraestrutura e gerenciando as submissões nas lojas de aplicativos (Google Play, App Store)."
+          "Liderei a entrega técnica de projetos web e mobile da descoberta ao lançamento em produção.",
+          "Construí um app React Native com Expo com mapas interativos, processamento de câmera em tempo real, notificações push e NativeWind.",
+          "Desenvolvi uma plataforma responsiva do mercado financeiro em tempo real com Next.js, Socket.io, Chakra UI e React Spring.",
+          "Entreguei uma aplicação web acessível e performática para o setor público com Next.js e Tailwind CSS.",
+          "Configurei infraestrutura e gerenciei publicações nas lojas para produtos mobile."
         ]
       }
     ],
     "education": [
       {
-        "title": "Docker — Full Cycle",
-        "institution": "Full Cycle",
-        "description": "Curso de Docker (credencial 088ac69a-c05f-4aa4-bad8-1c3af72085f)."
-      },
-      {
         "title": "Bacharelado em Sistemas de Informação",
         "institution": "Universidade Vila Velha (UVV)",
         "description": "Previsão: jun 2028."
+      },
+      {
+        "title": "Docker — Full Cycle",
+        "institution": "Full Cycle",
+        "description": "Curso de Docker (credencial 088ac69a-c05f-4aa4-bad8-1c3af72085f)."
       },
       {
         "title": "Especialização: Next.js, React, React Native, TypeScript",
@@ -321,11 +519,45 @@
         "institution": "Faculdade Projeção",
         "description": "Dez 2016."
       }
-    ]
+    ],
+    "showMore": "+ {n} commits",
+    "showLess": "− recolher",
+    "head": {
+      "branch": "HEAD -> open-to-work",
+      "date": "Agora",
+      "title": "Aberto a vagas de Engenheiro de Software Sênior",
+      "text": "Remoto do Brasil (UTC-3), CLT ou PJ. Enquanto isso, sigo evoluindo o Path Trader, um SaaS solo com cerca de 60 clientes."
+    },
+    "root": {
+      "date": "Jan 2020",
+      "title": "initial commit: primeiro código em produção"
+    }
   },
   "contact": {
     "title": "Vamos construir algo grande.",
-    "location": "Vila Velha, BR — Remoto",
+    "location": "Vila Velha, BR · UTC-3 · Remoto",
     "copyright": "© 2026 Vinícius Albuquerque"
+  },
+  "palette": {
+    "trigger": "Ações rápidas",
+    "placeholder": "Digite um comando ou busque…",
+    "empty": "Nenhum resultado.",
+    "footer": "↑↓ navegar · ↵ selecionar · esc fechar",
+    "caseStudy": "estudo de caso",
+    "groups": {
+      "navigate": "Navegar",
+      "projects": "Projetos",
+      "actions": "Ações",
+      "links": "Links"
+    },
+    "actions": {
+      "terminal": "Abrir o terminal",
+      "copyEmail": "Copiar e-mail",
+      "copied": "✓ E-mail copiado",
+      "downloadCv": "Baixar currículo",
+      "toggleTheme": "Alternar tema",
+      "switchLang": "Switch to English",
+      "sendEmail": "Enviar um e-mail"
+    }
   }
 }

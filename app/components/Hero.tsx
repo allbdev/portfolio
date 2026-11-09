@@ -6,15 +6,17 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import DownloadIcon from '@mui/icons-material/Download';
-import SouthIcon from '@mui/icons-material/South';
 import { alpha } from '@mui/material/styles';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import CommitSkyline from './skyline/CommitSkyline';
+import CountUp from './CountUp';
 import { EASE } from './motion/variants';
 import { fontFamilies } from '../fonts';
 import { site } from '../site';
 import { useFineMotion } from '../hooks/useFineMotion';
 import { useMagnetic } from '../hooks/useMagnetic';
 import type { Dictionary } from '../get-dictionary';
+import type { Locale } from '../../i18n-config';
 
 const MotionBox = motion.create(Box);
 
@@ -44,9 +46,10 @@ function heroItem(delay: number) {
   };
 }
 
-export default function Hero({ dictionary }: { dictionary: Dictionary }) {
+export default function Hero({ dictionary, lang }: { dictionary: Dictionary; lang: Locale }) {
   const { hero } = dictionary;
   const nameRef = useRef<HTMLHeadingElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const fineMotion = useFineMotion();
   const primaryRef = useMagnetic<HTMLAnchorElement>();
   const secondaryRef = useMagnetic<HTMLAnchorElement>();
@@ -100,23 +103,57 @@ export default function Hero({ dictionary }: { dictionary: Dictionary }) {
     };
   }, [fineMotion]);
 
+  const onPointerMove = (event: React.PointerEvent<HTMLElement>) => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    el.style.setProperty('--gx', `${event.clientX - rect.left}px`);
+    el.style.setProperty('--gy', `${event.clientY - rect.top}px`);
+  };
+
   return (
     <Box
+      ref={sectionRef}
       id="home"
       component="section"
+      onPointerMove={onPointerMove}
       sx={{
         minHeight: { xs: 'auto', md: '100vh' },
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         px: { xs: 3, sm: 5, lg: 8 },
-        pt: { xs: 14, md: 12 },
-        pb: { xs: 10, md: 8 },
+        pt: { xs: 10, md: 10 },
+        pb: { xs: 6, md: 4 },
         position: 'relative',
         overflow: 'hidden',
         boxSizing: 'border-box',
       }}
     >
+      {/* Dotted grid: faint everywhere, lit up around the pointer. */}
+      <Box
+        aria-hidden
+        sx={(theme) => {
+          const dot = `radial-gradient(${alpha(theme.palette.text.primary, 0.13)} 1px, transparent 1.2px)`;
+          return {
+            position: 'absolute',
+            inset: 0,
+            backgroundImage: dot,
+            backgroundSize: '26px 26px',
+            maskImage: 'radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 85%)',
+            pointerEvents: 'none',
+            '&::after': {
+              content: '""',
+              position: 'absolute',
+              inset: 0,
+              backgroundImage: `radial-gradient(${theme.palette.accent.main} 1.2px, transparent 1.4px)`,
+              backgroundSize: '26px 26px',
+              maskImage: 'radial-gradient(220px circle at var(--gx, -999px) var(--gy, -999px), #000, transparent 75%)',
+              opacity: 0.7,
+            },
+          };
+        }}
+      />
       <MotionBox
         aria-hidden
         style={{ y: glowA }}
@@ -152,60 +189,76 @@ export default function Hero({ dictionary }: { dictionary: Dictionary }) {
         })}
       />
 
-      <Box sx={{ position: 'relative' }}>
-        <motion.div {...heroItem(0)}>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.75, mb: 4.5 }}>
-            <Box aria-hidden sx={{ width: 40, height: '1px', bgcolor: 'accent.main' }} />
-            <Box
-              component="span"
-              sx={{
-                fontFamily: fontFamilies.mono,
-                fontSize: { xs: '0.62rem', sm: '0.72rem' },
-                letterSpacing: { xs: '0.16em', sm: '0.22em' },
-                color: 'accent.text',
-                textTransform: 'uppercase',
-              }}
-            >
-              {hero.eyebrow}
-            </Box>
-          </Box>
-        </motion.div>
+      <Box
+        sx={{
+          position: 'relative',
+          display: 'grid',
+          // Stacked: name, skyline, then the pitch. Desktop: text left, skyline right.
+          gridTemplateColumns: { xs: '1fr', lg: '1.05fr 1fr' },
+          gridTemplateRows: { lg: '1fr auto auto 1fr' },
+          gridTemplateAreas: {
+            xs: '"head" "stage" "body"',
+            lg: '". stage" "head stage" "body stage" ". stage"',
+          },
+          columnGap: { lg: 4 },
+          flex: 1,
+          // Text sits above the canvas but lets pointer events through to it.
+          '& > .hero-text': {
+            position: 'relative',
+            zIndex: 2,
+            pointerEvents: 'none',
+            '& a, & button': { pointerEvents: 'auto' },
+          },
+        }}
+      >
+        <Box className="hero-text" sx={{ gridArea: 'head' }}>
+            <motion.div {...heroItem(0)}>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.75, mb: { xs: 3.5, md: 4 } }}>
+                <Box aria-hidden sx={{ width: 40, height: '1px', bgcolor: 'accent.main' }} />
+                <Box
+                  component="span"
+                  sx={{
+                    fontFamily: fontFamilies.mono,
+                    fontSize: { xs: '0.62rem', sm: '0.72rem' },
+                    letterSpacing: { xs: '0.16em', sm: '0.22em' },
+                    color: 'accent.text',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  {hero.eyebrow}
+                </Box>
+              </Box>
+            </motion.div>
 
-        <motion.div {...heroItem(0.08)}>
-          <Typography
-            ref={nameRef}
-            component="h1"
-            variant="h1"
-            sx={{
-              m: 0,
-              // Scales off the viewport so "ALBUQUERQUE" stays on one line
-              // down to the narrowest phones.
-              fontSize: 'clamp(34px, 10.5vw, 124px)',
-              lineHeight: 0.95,
-              textTransform: 'uppercase',
-            }}
-          >
-            <KineticWord word={site.firstName} />
-            <KineticWord word={site.lastName} accent />
-          </Typography>
-        </motion.div>
+            <motion.div {...heroItem(0.08)}>
+              <Typography
+                ref={nameRef}
+                component="h1"
+                variant="h1"
+                sx={{
+                  m: 0,
+                  // Scales off the viewport so "ALBUQUERQUE" stays on one line
+                  // down to the narrowest phones, and beside the skyline on desktop.
+                  fontSize: { xs: 'clamp(34px, 10.5vw, 96px)', lg: 'clamp(48px, 5.2vw, 96px)' },
+                  lineHeight: 0.95,
+                  textTransform: 'uppercase',
+                }}
+              >
+                <KineticWord word={site.firstName} />
+                <KineticWord word={site.lastName} accent />
+              </Typography>
+            </motion.div>
+        </Box>
 
-        <motion.div {...heroItem(0.16)}>
-          <Typography
-            sx={{
-              mt: 5,
-              maxWidth: 560,
-              fontSize: '1.125rem',
-              lineHeight: 1.7,
-              color: 'text.secondary',
-            }}
-          >
-            {hero.intro}
-          </Typography>
-        </motion.div>
+        <Box className="hero-text" sx={{ gridArea: 'body' }}>
+          <motion.div {...heroItem(0.16)}>
+            <Typography sx={{ mt: { xs: 3.5, md: 4 }, maxWidth: 520, fontSize: '1.1rem', lineHeight: 1.7, color: 'text.secondary' }}>
+              {hero.intro}
+            </Typography>
+          </motion.div>
 
-        <motion.div {...heroItem(0.24)}>
-          <Box sx={{ display: 'flex', gap: 2, mt: 5.5, flexWrap: 'wrap' }}>
+          <motion.div {...heroItem(0.24)}>
+            <Box sx={{ display: 'flex', gap: 2, mt: 4, flexWrap: 'wrap', alignItems: 'center' }}>
             <Button
               ref={primaryRef}
               href="#projects"
@@ -245,75 +298,87 @@ export default function Hero({ dictionary }: { dictionary: Dictionary }) {
             >
               {hero.downloadCv}
             </Button>
-          </Box>
-        </motion.div>
+            </Box>
+            <Box
+              sx={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 1,
+                mt: 2.5,
+                fontFamily: fontFamilies.mono,
+                fontSize: '0.68rem',
+                color: 'text.secondary',
+              }}
+            >
+              <Box component="span" className="live-dot" aria-hidden />
+              {hero.status}
+            </Box>
+          </motion.div>
+        </Box>
 
-        <motion.div {...heroItem(0.32)}>
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', mt: 9 }}>
-            {hero.stats.map((stat, index) => (
-              <Box
-                key={stat.label}
-                sx={{
-                  pl: index === 0 ? 0 : { xs: 2.5, sm: 5 },
-                  pr: { xs: 2.5, sm: 5 },
-                  py: { xs: 1, sm: 0 },
-                  borderLeft: index === 0 ? 0 : 1,
-                  borderColor: 'divider',
-                }}
-              >
-                <Box
-                  sx={{
-                    fontFamily: fontFamilies.display,
-                    fontSize: '2rem',
-                    fontWeight: 600,
-                    letterSpacing: '-0.02em',
-                  }}
-                >
-                  {stat.value}
-                </Box>
-                <Box
-                  sx={{
-                    fontFamily: fontFamilies.mono,
-                    fontSize: '0.65rem',
-                    letterSpacing: '0.14em',
-                    color: 'text.secondary',
-                    textTransform: 'uppercase',
-                    mt: 0.75,
-                  }}
-                >
-                  {stat.label}
-                </Box>
-              </Box>
-            ))}
-          </Box>
-        </motion.div>
-      </Box>
-
-      <Box
-        aria-hidden
-        sx={{
-          position: 'absolute',
-          bottom: 28,
-          left: { xs: 24, sm: 40, lg: 64 },
-          display: { xs: 'none', md: 'flex' },
-          alignItems: 'center',
-          gap: 1.25,
-          animation: 'scroll-cue 2s ease-in-out infinite',
-        }}
-      >
-        <SouthIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
+        {/* The 3D commit skyline. */}
         <Box
-          component="span"
           sx={{
-            fontFamily: fontFamilies.mono,
-            fontSize: '0.6rem',
-            letterSpacing: '0.2em',
-            color: 'text.secondary',
+            gridArea: 'stage',
+            alignSelf: 'center',
+            position: 'relative',
+            height: { xs: 300, sm: 380, lg: 'min(620px, 66vh)' },
+            my: { xs: 2, lg: 0 },
+            mx: { xs: -1, sm: 0 },
+            // Bleeds left under the text column (which lets pointer events
+            // through) so the slab has room to breathe.
+            ml: { lg: '-30%' },
+            mr: { lg: -4 },
+            zIndex: 1,
           }}
         >
-          SCROLL
+          <CommitSkyline dictionary={dictionary} lang={lang} />
         </Box>
       </Box>
+
+      <motion.div {...heroItem(0.36)}>
+        <Box
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: { xs: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' },
+            mt: { xs: 5, lg: 3 },
+            borderTop: 1,
+            borderColor: 'divider',
+          }}
+        >
+          {hero.stats.map((stat, index) => (
+            <Box
+              key={stat.label}
+              sx={{
+                py: { xs: 2.25, md: 2.75 },
+                pl: { xs: index % 2 === 0 ? 0 : 2.5, md: index === 0 ? 0 : 3 },
+                // Longhands: a responsive `borderLeft` shorthand would reset the colour.
+                borderStyle: 'solid',
+                borderWidth: 0,
+                borderLeftWidth: { xs: index % 2 === 0 ? 0 : 1, md: index === 0 ? 0 : 1 },
+                borderTopWidth: { xs: index > 1 ? 1 : 0, md: 0 },
+                borderColor: 'divider',
+              }}
+            >
+              <Box sx={{ fontFamily: fontFamilies.display, fontSize: { xs: '1.6rem', sm: '2rem' }, fontWeight: 600, letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+                <CountUp value={stat.value} />
+              </Box>
+              <Box
+                sx={{
+                  fontFamily: fontFamilies.mono,
+                  fontSize: '0.62rem',
+                  letterSpacing: '0.14em',
+                  color: 'text.secondary',
+                  textTransform: 'uppercase',
+                  mt: 0.75,
+                }}
+              >
+                {stat.label}
+              </Box>
+            </Box>
+          ))}
+        </Box>
+      </motion.div>
     </Box>
   );
 }
