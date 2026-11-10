@@ -10,6 +10,9 @@ import { useFineMotion } from '../hooks/useFineMotion';
  * and swells over links and buttons. Only mounts for precise pointers when the
  * user has not requested reduced motion.
  */
+// The native cursor is hidden, so this must sit above every overlay (palette, chat, MUI modals).
+const CURSOR_Z = 2147483647;
+
 export default function CustomCursor() {
   const active = useFineMotion();
   const dotRef = useRef<HTMLDivElement>(null);
@@ -78,7 +81,7 @@ export default function CustomCursor() {
           height: 8,
           borderRadius: '50%',
           bgcolor: 'accent.main',
-          zIndex: 9998,
+          zIndex: CURSOR_Z,
           transform: 'translate(-100px, -100px)',
         }}
       />
@@ -92,7 +95,7 @@ export default function CustomCursor() {
           height: 36,
           borderRadius: '50%',
           border: (theme) => `1px solid ${alpha(theme.palette.accent.main, 0.6)}`,
-          zIndex: 9998,
+          zIndex: CURSOR_Z,
           transform: 'translate(-100px, -100px)',
         }}
       />
