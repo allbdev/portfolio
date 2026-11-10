@@ -49,7 +49,7 @@ ${project.summary}
 ${list(project.highlights)}
 
 - Stack: ${project.techStack.join(', ')}
-- Live: ${project.liveUrl}${project.githubUrl ? `\n- Code: ${project.githubUrl}` : ''}
+${project.liveUrl ? `- Live: ${project.liveUrl}` : `- Status: ${project.status ?? 'In development'} (not public yet)`}${project.githubUrl ? `\n- Code: ${project.githubUrl}` : ''}
 - Case study (Markdown): ${site.url}${caseStudyMarkdownPath('en', project.slug)} (Portuguese: ${site.url}${caseStudyMarkdownPath('pt', project.slug)})`,
   )
   .join('\n\n')}

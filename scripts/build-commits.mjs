@@ -32,6 +32,7 @@ const PUBLIC_REPOS = {
   vestra: 'Vestra',
   portfolio: 'portfolio',
   'job-hunt-kit-template': 'job-hunt-kit',
+  seguros: 'Bem Coberto',
 };
 const PRIVATE_LABEL = 'client work';
 

@@ -13,6 +13,7 @@ import Reveal from './Reveal';
 import ScreenshotCarousel from './ScreenshotCarousel';
 import ScrollProgress from './ScrollProgress';
 import ThemeControls from './ThemeControls';
+import { StatusBadge } from './Projects';
 import { fontFamilies } from '../fonts';
 import { useMagnetic } from '../hooks/useMagnetic';
 import type { Dictionary } from '../get-dictionary';
@@ -154,6 +155,7 @@ export default function ProjectDetail({
           </Typography>
 
           <Box sx={{ display: 'flex', gap: 2, mt: 4.5, mb: 7, flexWrap: 'wrap' }}>
+            {project.liveUrl ? (
             <Button
               ref={liveRef}
               href={project.liveUrl}
@@ -176,6 +178,9 @@ export default function ProjectDetail({
             >
               {liveDemo}
             </Button>
+            ) : (
+              <StatusBadge label={project.status ?? ''} size="lg" />
+            )}
             {project.githubUrl ? (
               <Button
                 ref={codeRef}

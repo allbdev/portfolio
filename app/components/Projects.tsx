@@ -41,6 +41,53 @@ const inlineLinkSx = {
   '&:hover': { color: 'accent.text' },
 } as const;
 
+/** "In development" badge, shown where the live link would be. */
+export function StatusBadge({ label, size = 'sm' }: { label: string; size?: 'sm' | 'lg' }) {
+  return (
+    <Box
+      component="span"
+      sx={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: 1,
+        fontFamily: fontFamilies.mono,
+        fontSize: size === 'lg' ? '0.8rem' : '0.7rem',
+        letterSpacing: '0.08em',
+        textTransform: 'uppercase',
+        color: 'warning.main',
+        border: 1,
+        borderColor: (theme) => alpha(theme.palette.warning.main, 0.4),
+        bgcolor: (theme) => alpha(theme.palette.warning.main, 0.08),
+        borderRadius: 999,
+        px: size === 'lg' ? 2 : 1.5,
+        py: size === 'lg' ? 1.25 : 0.75,
+      }}
+    >
+      <Box
+        component="span"
+        sx={{
+          width: 7,
+          height: 7,
+          borderRadius: '50%',
+          bgcolor: 'warning.main',
+          animation: 'soft-blink 1.6s ease-in-out infinite',
+        }}
+      />
+      {label}
+    </Box>
+  );
+}
+
+function LiveOrStatus({ project, label }: { project: Project; label: string }) {
+  if (!project.liveUrl) return <StatusBadge label={project.status ?? ''} />;
+  return (
+    <Box component="a" href={project.liveUrl} target="_blank" rel="noreferrer" sx={inlineLinkSx}>
+      {label}
+      <NorthEastIcon sx={{ fontSize: 15 }} />
+    </Box>
+  );
+}
+
 function TechChips({ items }: { items: string[] }) {
   return (
     <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
@@ -57,10 +104,12 @@ function FeaturedProject({
   project,
   dictionary,
   lang,
+  priority,
 }: {
   project: Project;
   dictionary: Dictionary;
   lang: Locale;
+  priority?: boolean;
 }) {
   const ctaRef = useMagnetic<HTMLAnchorElement>();
   const shot = project.screenshots[0];
@@ -88,7 +137,7 @@ function FeaturedProject({
             mb: 2.25,
           }}
         >
-          {dictionary.projects.featuredLabel}
+          {project.eyebrow}
         </Box>
         <Typography component="h3" variant="h3" sx={{ mb: 1.75, fontSize: { xs: '1.7rem', md: '2.1rem' } }}>
           {project.title}
@@ -122,10 +171,7 @@ function FeaturedProject({
           >
             {dictionary.projects.viewDetails}
           </Button>
-          <Box component="a" href={project.liveUrl} target="_blank" rel="noreferrer" sx={inlineLinkSx}>
-            {dictionary.projects.liveDemo}
-            <NorthEastIcon sx={{ fontSize: 15 }} />
-          </Box>
+          <LiveOrStatus project={project} label={dictionary.projects.liveDemo} />
         </Box>
       </Box>
 
@@ -144,7 +190,7 @@ function FeaturedProject({
           src={shot.src}
           alt={shot.alt}
           fill
-          priority
+          priority={priority}
           sizes="(max-width: 900px) 100vw, 55vw"
           style={{ objectFit: 'cover', objectPosition: 'left top' }}
         />
@@ -216,10 +262,7 @@ function SecondaryProject({
             {dictionary.projects.viewDetails}
             <ArrowForwardIcon sx={{ fontSize: 15 }} />
           </Box>
-          <Box component="a" href={project.liveUrl} target="_blank" rel="noreferrer" sx={inlineLinkSx}>
-            {dictionary.projects.liveDemo}
-            <NorthEastIcon sx={{ fontSize: 15 }} />
-          </Box>
+          <LiveOrStatus project={project} label={dictionary.projects.liveDemo} />
           {project.githubUrl ? (
             <Box component="a" href={project.githubUrl} target="_blank" rel="noreferrer" sx={inlineLinkSx}>
               {dictionary.projects.code}
@@ -239,7 +282,8 @@ export default function Projects({
   dictionary: Dictionary;
   lang: Locale;
 }) {
-  const [featured, ...secondary] = dictionary.projects.items;
+  const featured = dictionary.projects.items.filter((project) => project.eyebrow);
+  const secondary = dictionary.projects.items.filter((project) => !project.eyebrow);
 
   return (
     <Box
@@ -250,11 +294,11 @@ export default function Projects({
       <SectionHeading index="02" title={dictionary.projects.title} />
 
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-        {featured ? (
-          <Reveal>
-            <FeaturedProject project={featured} dictionary={dictionary} lang={lang} />
+        {featured.map((project, index) => (
+          <Reveal key={project.slug}>
+            <FeaturedProject project={project} dictionary={dictionary} lang={lang} priority={index === 0} />
           </Reveal>
-        ) : null}
+        ))}
 
         <Box
           sx={{

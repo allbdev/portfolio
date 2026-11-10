@@ -118,8 +118,6 @@ export interface Dictionary {
   };
   projects: {
     title: string;
-    /** Eyebrow on the featured card. */
-    featuredLabel: string;
     liveDemo: string;
     viewCode: string;
     /** Short "Code" label used on the compact cards. */
@@ -137,12 +135,16 @@ export interface Dictionary {
     items: {
       title: string;
       slug: string;
+      /** Set on featured projects: the eyebrow on their large card. */
+      eyebrow?: string;
+      /** Shown instead of the live link while a project is not public yet. */
+      status?: string;
       description: string;
       summary: string;
       longDescription: string;
       highlights: string[];
       screenshots: { src: string; alt: string }[];
-      liveUrl: string;
+      liveUrl?: string;
       githubUrl?: string;
       techStack: string[];
     }[];

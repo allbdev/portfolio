@@ -15,7 +15,7 @@ export function caseStudyMarkdown(project: Project, dictionary: Dictionary, lang
   const page = `${site.url}/${lang}/projeto/${project.slug}`;
 
   const links = [
-    `- ${liveDemo}: ${project.liveUrl}`,
+    project.liveUrl ? `- ${liveDemo}: ${project.liveUrl}` : `- Status: ${project.status}`,
     project.githubUrl ? `- ${viewCode}: ${project.githubUrl}` : null,
     `- ${detail.eyebrow} (HTML): ${page}`,
   ].filter(Boolean);

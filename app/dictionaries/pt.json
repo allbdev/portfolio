@@ -275,7 +275,6 @@
   },
   "projects": {
     "title": "Projetos selecionados",
-    "featuredLabel": "Destaque · SaaS independente · No ar desde jan 2026",
     "liveDemo": "Ver site",
     "viewCode": "Ver código",
     "code": "Código",
@@ -292,16 +291,17 @@
       {
         "title": "Path Trader",
         "slug": "path-trader",
-        "description": "SaaS full stack premium para traders brasileiros: diário de operações, análises de desempenho, assistente com IA, programa de parceiros com fluxos administrativos e assinaturas via Asaas. Monorepo TypeScript (pnpm + Turborepo) com quatro superfícies Next.js 16 (app web, site institucional, admin e landing page) e API NestJS 11 com Prisma sobre PostgreSQL. Notificações em tempo real via Pusher, AWS S3/SES, filas pg-boss baseadas em Postgres, chat com IA via OpenAI com controle de uso, NextAuth v5 no web e JWT + Passport na API, diário e documentos com Lexical e PWA com Serwist. Observabilidade com Sentry e CI no GitHub Actions com deploys em Vercel e Fly.",
-        "summary": "SaaS independente para traders brasileiros: diário de operações, análises, assistente de IA e programa de parceiros. Construído sozinho, todo o código, hoje com cerca de 60 clientes.",
-        "longDescription": "O Path Trader é uma plataforma independente, bancada com recursos próprios, que ajuda traders a registrar operações, analisar desempenho, gerenciar risco e operar um programa de parceiros. É construído como um monorepo TypeScript (pnpm + Turborepo) com quatro superfícies Next.js 16 — o app web, o site institucional, o painel admin e a landing page — apoiado por uma API NestJS 11 com Prisma e PostgreSQL. O produto entrega notificações em tempo real com Pusher, AWS S3/SES para armazenamento e e-mail, filas pg-boss baseadas em Postgres e um assistente de chat com IA via OpenAI com controle de uso. A autenticação usa NextAuth v5 no web e JWT + Passport na API, enquanto o diário e os documentos são construídos com Lexical. É entregue como um PWA com Serwist, observabilidade com Sentry e CI no GitHub Actions com deploys em Vercel e Fly.",
+        "eyebrow": "Destaque · SaaS independente · No ar desde jan 2026",
+        "description": "SaaS independente para traders brasileiros, construído sozinho e com cerca de 60 clientes. Monorepo pnpm + Turborepo com quatro apps Next.js 16 (app web, site institucional, admin e landing page) e uma API NestJS 11 com 56 módulos sobre um schema Prisma/PostgreSQL de 74 modelos. Assistente de IA com roteador multiagente, tool calling e RAG em pgvector, rodando em OpenAI ou AWS Bedrock com orçamento mensal de custo por plano, além de um servidor MCP protegido por OAuth. Assinaturas Asaas com webhooks idempotentes, filas pg-boss, Pusher, AWS S3/SES, PWA com Serwist, cerca de 500 arquivos de testes unitários e e2e, e 16 workflows do GitHub Actions com deploy na Vercel e no Fly.",
+        "summary": "SaaS independente para traders brasileiros: diário, análises, importação de corretoras e um assistente de IA com RAG e servidor MCP. Construído sozinho, o código inteiro, hoje com cerca de 60 clientes.",
+        "longDescription": "Path Trader é uma plataforma independente que ajuda traders brasileiros a registrar operações, analisar desempenho e gerenciar risco. Construí o código inteiro sozinho, e hoje ela atende cerca de 60 clientes pagantes. É um monorepo pnpm + Turborepo com quatro apps Next.js 16 (o app web, o site institucional, o painel admin e uma landing page) e uma API NestJS 11, compartilhando onze pacotes internos e um único schema Prisma de 74 modelos no PostgreSQL, distribuído em 56 módulos de API. As operações entram por oito parsers de importação específicos de corretoras e plataformas (MetaTrader 4/5, Profit, TradingView e outras). O assistente de IA é um roteador de chat multiagente com tool calling e busca em um corpus no pgvector; roda em OpenAI ou AWS Bedrock atrás de uma abstração de provedor, calcula o custo de cada requisição pelos tokens e aplica um orçamento mensal por plano. Um servidor MCP protegido por OAuth permite que o trader consulte o próprio diário pelo Claude e outros clientes MCP. A cobrança roda em assinaturas Asaas: os webhooks são autenticados e processados de forma assíncrona por handlers idempotentes, um job diário reconcilia eventos perdidos, e as notas fiscais de serviço (NFS-e) são emitidas automaticamente. Trabalho demorado, como turnos de IA, importações e notificações, passa por filas pg-boss no Postgres, com atualizações em tempo real via Pusher e armazenamento e e-mail na AWS S3/SES. O app web é um PWA com Serwist, a API é protegida com helmet e rate limiting global, o Sentry cobre a API e os apps públicos, e cerca de 500 arquivos de testes Jest e Playwright rodam em 16 workflows do GitHub Actions que fazem release e deploy na Vercel e no Fly.",
         "highlights": [
-          "Monorepo pnpm + Turborepo com schema Prisma compartilhado e quatro superfícies Next.js 16",
-          "Diário de operações com importações/exportações e análises estilo path-rank",
-          "Assistente com IA via OpenAI com comportamento consciente de uso e rastreamento",
-          "Assinaturas via Asaas e programa de parceiros com fluxos de aprovação no admin",
-          "Notificações em tempo real (Pusher), AWS S3/SES e filas pg-boss",
-          "PWA com Serwist, observabilidade com Sentry e CI/CD no GitHub Actions"
+          "Monorepo pnpm + Turborepo: quatro apps Next.js 16 e uma API NestJS 11 (56 módulos) compartilhando 11 pacotes e um schema Prisma de 74 modelos",
+          "Assistente de IA: roteador multiagente com tool calling e RAG em pgvector, em OpenAI ou AWS Bedrock, com orçamento mensal de custo por plano",
+          "Servidor MCP protegido por OAuth para o trader usar o diário pelo Claude e outros clientes MCP",
+          "Cobrança Asaas com webhooks autenticados e idempotentes, reconciliação diária e emissão automática de NFS-e",
+          "Oito parsers de importação de corretoras e filas pg-boss para IA, importações e notificações, com Pusher em tempo real e AWS S3/SES",
+          "Cerca de 500 arquivos de testes Jest e Playwright e 16 workflows do GitHub Actions: testes, suítes e2e, releases automáticos, backups e deploy na Vercel e no Fly"
         ],
         "screenshots": [
           {
@@ -322,28 +322,75 @@
           "Turborepo",
           "Next.js",
           "NestJS",
-          "React",
           "TypeScript",
-          "Prisma",
           "PostgreSQL",
-          "Tailwind CSS",
+          "Prisma",
+          "pgvector",
+          "OpenAI",
           "AWS",
-          "OpenAI"
+          "Playwright"
+        ]
+      },
+      {
+        "title": "Bem Coberto",
+        "slug": "bem-coberto",
+        "eyebrow": "Destaque · Em desenvolvimento · Marketplace de seguro viagem",
+        "status": "Em desenvolvimento",
+        "description": "Marketplace brasileiro de seguro viagem em desenvolvimento: uma busca cota várias seguradoras em paralelo, cada plano é normalizado num formato comparável e o cliente paga com Pix ou cartão. Monorepo TypeScript strict (pnpm + Turborepo) com app web em Next.js App Router, API NestJS sobre Fastify, adaptadores de seguradoras atrás de uma interface TravelInsuranceProvider, outbox transacional com worker BullMQ para a emissão, PostgreSQL, Redis e AWS.",
+        "summary": "Marketplace de seguro viagem para brasileiros: cote várias seguradoras numa busca, compare todos os planos no mesmo formato e pague com Pix ou cartão. Construído em torno de adaptadores de seguradoras, uma máquina de estados de pedido segura para pagamentos e um worker guiado por outbox.",
+        "longDescription": "Bem Coberto é um marketplace de seguro viagem para brasileiros, em desenvolvimento. Uma busca cota várias seguradoras em paralelo, cada plano é normalizado num formato comparável, e o cliente paga com Pix ou cartão e recebe a apólice por e-mail e na sua conta. A parte difícil é dinheiro e apólices circulando entre sistemas que não compartilham transações, então a arquitetura gira em torno de algumas regras firmes. Cada seguradora fica atrás de um único adaptador TravelInsuranceProvider (cotar, emitir, buscar emitidas, cancelar, saúde): o código de domínio nunca vê os tipos de uma seguradora, e adicionar uma nova é escrever um adaptador. As cotações rodam em paralelo com timeout por seguradora, ficam em cache no Redis e caem para resultados parciais quando uma seguradora falha. O pagamento segue o modelo cobrar e depois emitir: o webhook de pagamento marca o pedido como pago e grava uma linha de outbox na mesma transação do banco, e um worker BullMQ emite a apólice, guarda os arquivos e envia o e-mail. Os pedidos passam por uma máquina de estados explícita, dona do pacote de domínio, toda transição é registrada, e uma emissão que estoura o timeout nunca é repetida às cegas; ela é reconciliada com a seguradora, para que ninguém seja cobrado sem apólice ou reembolso. A stack é um monorepo TypeScript strict com pnpm e Turborepo: Next.js App Router para a loja e o back office, NestJS sobre Fastify para a API, PostgreSQL com Prisma, Redis, S3 e SES na AWS, com cada decisão registrada num build spec e em ADRs.",
+        "highlights": [
+          "Adaptadores de seguradoras atrás de uma interface TravelInsuranceProvider: o domínio nunca importa tipos de uma seguradora, e adicionar uma nova nunca mexe no checkout",
+          "Cotação em paralelo com timeout por seguradora, cache no Redis e resultados parciais quando uma seguradora cai, com meta de menos de 8 s no p95",
+          "Emissão segura para pagamentos: outbox transacional, worker BullMQ e reconciliação em vez de retentativas às cegas, para ninguém ser cobrado sem apólice ou reembolso",
+          "Máquina de estados do pedido num pacote de domínio puro, junto com dinheiro em centavos inteiros, preço no Pix e no cartão com parcelamento e um ranking de custo-benefício que checa o mínimo de €30 mil do Schengen",
+          "Um contrato Zod compartilhado entre API e web: requisições validadas, toda resposta validada em runtime, OpenAPI 3.1 gerado dos mesmos schemas",
+          "Portões de qualidade no CI: lint, typecheck, Vitest, testes end-to-end com Playwright e checagens de acessibilidade (axe), e orçamento de 200 KB de JS nos resultados"
+        ],
+        "screenshots": [
+          {
+            "src": "/projects/bem-coberto/bem-coberto-home.avif",
+            "alt": "Home do Bem Coberto com a busca da viagem"
+          },
+          {
+            "src": "/projects/bem-coberto/bem-coberto-results.avif",
+            "alt": "Página de resultados com três planos recomendados e filtros"
+          },
+          {
+            "src": "/projects/bem-coberto/bem-coberto-compare.avif",
+            "alt": "Comparação lado a lado de dois planos"
+          },
+          {
+            "src": "/projects/bem-coberto/bem-coberto-coverage.avif",
+            "alt": "Detalhe do plano com cada cobertura explicada"
+          }
+        ],
+        "techStack": [
+          "Turborepo",
+          "Next.js",
+          "NestJS",
+          "TypeScript",
+          "PostgreSQL",
+          "Redis",
+          "BullMQ",
+          "Zod",
+          "AWS",
+          "Playwright"
         ]
       },
       {
         "title": "Vestra Gestão Financeira",
         "slug": "vestra-gestao-financeira",
-        "description": "PWA mobile-first de finanças pessoais, construído como monorepo TypeScript com dashboard em Vite + React 19, site institucional em Next.js 16 e API NestJS com Prisma sobre PostgreSQL. Workspaces multiusuário com permissões de dono/membro e clonagem profunda, transações recorrentes geradas por cron agendado, autenticação JWT com rotação de refresh token e gating de assinatura free/pro. Design system shadcn/ui + Tailwind 4 compartilhado entre os dois frontends. Deploy em Fly.io (API) e Vercel (web) com Postgres gerenciado na Neon.",
-        "summary": "PWA mobile-first de finanças pessoais com workspaces multiusuário e transações recorrentes.",
-        "longDescription": "O Vestra é um PWA mobile-first de finanças pessoais, construído como um monorepo TypeScript que combina um dashboard em Vite + React 19, um site institucional em Next.js 16 e uma API NestJS com Prisma sobre PostgreSQL. Ele oferece workspaces multiusuário com permissões de dono/membro e clonagem profunda, transações recorrentes geradas por cron agendado, autenticação JWT com rotação de refresh token e gating de assinatura free/pro. Um design system shadcn/ui + Tailwind 4 compartilhado mantém os dois frontends consistentes. A stack é implantada em Fly.io (API) e Vercel (web) com um banco Postgres gerenciado na Neon.",
+        "description": "PWA mobile-first de finanças pessoais num monorepo pnpm + Turborepo: dashboard Vite + React 19 com service worker Workbox, site institucional em Next.js 16 e API NestJS 11 com Prisma e PostgreSQL (17 modelos, dinheiro em Decimal). Autenticação JWT global com rotação de refresh token, guards de dono e membro do workspace, clonagem transacional de workspaces, transações recorrentes agendadas, notificações via Pusher e Web Push, e limites dos planos free e pro. Deploy no Fly.io e na Vercel com Neon Postgres.",
+        "summary": "PWA mobile-first de finanças pessoais: workspaces compartilhados com papéis de dono e membro, transações recorrentes e lembretes por push. Turborepo com dashboard React 19, site em Next.js e API NestJS.",
+        "longDescription": "Vestra é um PWA mobile-first de finanças pessoais em que várias pessoas podem compartilhar um workspace. É um monorepo pnpm + Turborepo com três apps e quatro pacotes compartilhados: um dashboard Vite + React 19 instalável como PWA com um service worker Workbox próprio, um site institucional em Next.js 16 e uma API NestJS 11 com Prisma e PostgreSQL. A API é dividida em 14 módulos de domínio sobre um schema de 17 modelos, com dinheiro guardado em Decimal em vez de float. A autenticação é global por padrão: um guard JWT protege toda rota que não for marcada explicitamente como pública, o refresh token é rotacionado a cada uso num cookie httpOnly, e guards de dono e membro do workspace controlam quem pode ver e alterar o quê. Workspaces podem ser clonados por completo numa única transação do banco que remapeia todas as chaves estrangeiras. Um job agendado gera transações recorrentes e lembretes de pagamento, entregues em tempo real via Pusher e como notificações Web Push com deduplicação por usuário. Os planos free e pro são validados no servidor. Os dois frontends compartilham uma biblioteca de componentes no estilo shadcn sobre Tailwind 4, e a stack roda no Fly.io e na Vercel com Neon Postgres, aplicando migrações no release com deploys graduais.",
         "highlights": [
-          "Workspaces multiusuário com permissões de dono/membro e clonagem profunda",
-          "Transações recorrentes geradas por cron agendado",
-          "Autenticação JWT com rotação de refresh token",
-          "Gating de assinatura free/pro",
-          "Design system shadcn/ui + Tailwind 4 compartilhado entre os dois frontends",
-          "Deploy em Fly.io e Vercel com Postgres gerenciado na Neon"
+          "Monorepo pnpm + Turborepo: dashboard React 19, site Next.js 16 e API NestJS 11 compartilhando pacotes de UI, tipos e configuração de lint e tsconfig",
+          "Seguro por padrão: guard JWT global com opt-out público explícito, rotação de refresh token em cookies httpOnly e guards de dono e membro do workspace",
+          "Clonagem completa de workspace numa única transação do banco, remapeando todas as chaves estrangeiras",
+          "Schema Prisma de 17 modelos no PostgreSQL, com dinheiro em Decimal, nunca float",
+          "Transações recorrentes e lembretes de pagamento agendados, entregues via Pusher e Web Push com deduplicação por usuário",
+          "PWA instalável (service worker Workbox) na Vercel, API no Fly.io com migrações no release, deploys graduais e Neon Postgres"
         ],
         "screenshots": [
           {
@@ -377,14 +424,14 @@
       {
         "title": "Rick and Morty Explorer",
         "slug": "rick-and-morty-explorer",
-        "description": "Projeto de estudo: um explorador em Next.js dos personagens, episódios e locais da série, construído sobre a API GraphQL pública de Rick and Morty com Apollo Client.",
-        "summary": "Projeto de estudo: navegue por personagens, episódios e locais via GraphQL e Apollo Client.",
-        "longDescription": "Rick and Morty Explorer é um projeto de estudo que construí para praticar GraphQL. É um app Next.js e React em TypeScript que consome a API GraphQL pública de Rick and Morty via Apollo Client para navegar por personagens, episódios e locais, com uma interface responsiva em Tailwind CSS.",
+        "description": "Projeto de estudo para praticar GraphQL com o App Router do Next.js: a primeira página de dados é buscada em React Server Components via Apollo (revalidada a cada 30 s), e depois um cliente Apollo no navegador cuida do scroll infinito e da busca por nome com debounce. Navegue por personagens e locais, com a origem, o local e os episódios de cada personagem. Next.js, React, TypeScript e Tailwind CSS.",
+        "summary": "Projeto de estudo de GraphQL: páginas renderizadas no servidor com Apollo em React Server Components, além de scroll infinito e busca com debounce no cliente, sobre a API pública de Rick and Morty.",
+        "longDescription": "Rick and Morty Explorer é um projeto de estudo que fiz para praticar GraphQL com o App Router do Next.js. As páginas buscam o primeiro lote de dados em React Server Components com Apollo Client (via registerApolloClient), então chegam renderizadas no servidor e são revalidadas a cada 30 segundos. Daí em diante, um cliente Apollo no navegador assume o scroll infinito e a busca por nome com debounce na lista de personagens. É possível navegar por personagens e locais, e a página de cada personagem mostra a origem, o local atual e todos os episódios em que aparece. Escrito em TypeScript, com interface responsiva em Tailwind CSS.",
         "highlights": [
-          "Navegue por personagens, episódios e locais da série",
-          "Consultas GraphQL via Apollo Client na API pública de Rick and Morty",
-          "Construído com Next.js, React e TypeScript",
-          "Interface responsiva estilizada com Tailwind CSS"
+          "Apollo Client dentro de React Server Components: páginas renderizadas no servidor e revalidadas a cada 30 s",
+          "Apollo no cliente para scroll infinito e busca por nome com debounce na lista de personagens",
+          "Queries GraphQL tipadas para personagens, locais e detalhes do personagem com origem, local e episódios",
+          "App Router do Next.js, React e TypeScript, com interface responsiva em Tailwind CSS"
         ],
         "screenshots": [
           {
