@@ -33,6 +33,8 @@ const PUBLIC_REPOS = {
   portfolio: 'portfolio',
   'job-hunt-kit-template': 'job-hunt-kit',
   seguros: 'Bem Coberto',
+  'pocket-helper': 'Tavi',
+  'dig-to-japan': 'Dig to Japan',
 };
 const PRIVATE_LABEL = 'client work';
 

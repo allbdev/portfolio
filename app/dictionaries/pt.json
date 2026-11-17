@@ -379,6 +379,89 @@
         ]
       },
       {
+        "title": "Tavi",
+        "slug": "tavi",
+        "status": "Em desenvolvimento",
+        "description": "Assistente pessoal com IA para o dia a dia, em desenvolvimento: registre água, refeições, treinos, peso, tarefas e dinheiro só conversando, no app ou pelo Claude via MCP. App React Native offline-first (Expo SDK 58) sobre SQLite local sincronizado com Postgres por um PowerSync auto-hospedado, API NestJS 12 com Drizzle, um agente Claude com respostas em streaming que confirma na tela toda mudança, um servidor MCP com servidor de autorização OAuth 2.1 próprio, finanças guardadas só no celular num banco SQLCipher e assinaturas nas lojas via RevenueCat.",
+        "summary": "Assistente pessoal com IA: registre água, refeições, treinos, tarefas e dinheiro só conversando, no app ou pelo Claude via MCP. App React Native offline-first com PowerSync, API NestJS e um agente Claude que pede confirmação antes de mudar qualquer coisa.",
+        "longDescription": "Tavi é um assistente pessoal para o dia a dia, em desenvolvimento: água, refeições, treinos, peso, listas de tarefas e finanças pessoais, registrados só dizendo \"bebi 500 ml, fiz 5 rounds de manopla, peso 84,2\". O núcleo do app é um CRUD simples e rápido que funciona sem IA; o assistente é uma camada por cima. O app é React Native com Expo SDK 58 e Expo Router, e é offline-first: toda tela lê um SQLite local que sincroniza com o Postgres por um serviço PowerSync auto-hospedado. Os aparelhos escrevem por um único endpoint de upload com allow-list explícita de tabelas e colunas, campos controlados pelo servidor, checagem de dono em toda referência e um savepoint por operação, então uma escrita inválida volta como recusada sem travar a fila do aparelho. Um useQuery próprio só re-renderiza quando as linhas mudam de fato, e escritas recusadas ficam guardadas com seus dados para tentar de novo. A API NestJS 12 com Drizzle e Postgres 18 roda o assistente no Claude Haiku 5.5: as respostas chegam por server-sent events com o resumo do raciocínio do modelo e cada passo de ferramenta, e o agente pode ler e mudar qualquer coisa do app, mas toda mudança ou exclusão é ensaiada pelo motor de sync numa transação desfeita, guardada como operações exatas e mostrada num cartão de confirmação montado a partir das linhas reais, nunca do texto do modelo. Um único conjunto de schemas Zod define a validação da API e as ferramentas, então as mesmas ferramentas são servidas ao Claude, ao ChatGPT e a outros assistentes por um servidor MCP, protegido por um servidor de autorização OAuth 2.1 escrito na própria API (PKCE, registro dinâmico de clientes, tokens opacos com rotação). As finanças nunca chegam ao backend: ficam num banco SQLCipher por usuário no celular, com backup criptografado por senha no Google Drive, e o assistente acessa esses dados por ferramentas que rodam no aparelho. O custo de IA tem teto por usuário e global, checado antes de cada chamada, um conjunto de 30 casos de avaliação protege o prompt, e as assinaturas Pro vêm das lojas via RevenueCat.",
+        "highlights": [
+          "Offline-first: React Native (Expo SDK 58) sobre SQLite local, sincronizado com Postgres por PowerSync auto-hospedado, com contrato de upload por allow-list e savepoint por operação",
+          "Agente Claude com respostas em streaming, resumo do raciocínio e passos de ferramenta; toda mudança é simulada pelo motor de sync e confirmada num cartão montado a partir das linhas reais",
+          "Uma camada de ferramentas em Zod para o agente do app e um servidor MCP, atrás de um servidor de autorização OAuth 2.1 dentro da API (PKCE, registro dinâmico de clientes, tokens opacos com rotação)",
+          "Finanças ficam no celular: banco SQLCipher por usuário fora do sync, backup no Google Drive criptografado por senha e ferramentas do assistente que rodam no aparelho",
+          "Controle de custo de IA antes de cada chamada (kill switch global, orçamento mensal por usuário, rate limit) e 30 casos de avaliação a cerca de US$ 0,00024 por mensagem",
+          "API NestJS 12 com Drizzle e Postgres 18, ~160 testes unitários e e2e com Vitest, notificação nativa de treino ao vivo e Live Activity no iOS, e assinaturas via RevenueCat"
+        ],
+        "screenshots": [
+          {
+            "src": "/projects/tavi/tavi-today.avif",
+            "alt": "Tela Hoje do Tavi, painel do assistente e plano Pro"
+          },
+          {
+            "src": "/projects/tavi/tavi-finance.avif",
+            "alt": "Painel de finanças, gráficos de progresso e listas de tarefas do Tavi"
+          }
+        ],
+        "techStack": [
+          "React Native",
+          "Expo",
+          "NestJS",
+          "TypeScript",
+          "PostgreSQL",
+          "Drizzle",
+          "PowerSync",
+          "SQLCipher",
+          "Claude API",
+          "MCP"
+        ]
+      },
+      {
+        "title": "Cavar até o Japão com uma Colher",
+        "slug": "dig-to-japan",
+        "status": "Em desenvolvimento",
+        "description": "Jogo 2D absurdo para a Steam, em desenvolvimento: cave do quintal no Brasil até a cozinha de uma família no Japão com uma colher de chá, depois volte pra casa com hashis. Feito em Godot 4 com GDScript: lógica de jogo separada da renderização e coberta por 522 testes GUT no GitHub Actions, todo o conteúdo como dados (16 camadas na ida, 17 na volta, 25 conquistas, 28 easter eggs), um simulador de balanceamento que mantém as metas de ritmo na suíte de testes, e sprites, screenshots e trailer gerados por scripts.",
+        "summary": "Jogo 2D em Godot para a Steam: cave do Brasil até o Japão com uma colher, depois volte com hashis. Conteúdo guiado por dados, lógica separada da renderização, 522 testes no CI e um simulador de balanceamento que segura o ritmo.",
+        "longDescription": "Cavar até o Japão com uma Colher é um jogo curto, single-player e propositalmente bobo para a Steam, em desenvolvimento. Um cara no quintal de casa decide cavar até o Japão com uma colher de chá, atravessando todas as camadas da Terra, enquanto uma toupeira de óculos escuros julga cada colherada e o vizinho filma tudo para o grupo da rua; quando ele finalmente fura o outro lado, cai no meio do jantar de uma família japonesa, e o segundo jogo é a volta com hashis. É feito em Godot 4 com GDScript. A lógica de jogo fica em scripts sem renderização (estado da escavação, progressão, loja, saves, configurações, conquistas) e é testada com GUT, enquanto as cenas só desenham e reagem; 522 testes rodam headless no GitHub Actions a cada push, com um binário do Godot verificado por SHA-512. Todo o conteúdo é dado: camadas, colheres, vantagens, itens da loja, falas e easter eggs são resources do Godot, com 16 camadas até o Japão e 17 na volta, 25 conquistas e 28 tesouros enterrados. Os saves são JSON com autosave nos marcos e ao sair, e um save corrompido é posto de lado em vez de derrubar o jogo. Um simulador de balanceamento joga os dois jogos como um jogador eficiente e um teste mantém as metas (Japão entre 55 e 100 minutos, a volta entre 20 e 60, nenhuma camada arrastada). A pixel art é escrita como mapas de texto e renderizada em sprites por um script, a música e os sons provisórios são gerados proceduralmente, e as screenshots e o trailer da loja são capturados por scripts headless. Builds de release para Windows e Linux já são exportadas, com testes garantindo que pastas de desenvolvimento fiquem de fora, e uma ponte com a Steam já está pronta para as conquistas.",
+        "highlights": [
+          "Godot 4 e GDScript, com a lógica de jogo separada da renderização para testar estado, loja, saves e conquistas",
+          "522 testes GUT rodando headless no GitHub Actions a cada push, com binário do Godot verificado por SHA-512",
+          "Conteúdo guiado por dados como resources do Godot: 16 camadas até o Japão, 17 na volta, 25 conquistas e 28 easter eggs",
+          "Simulador de balanceamento que joga os dois jogos e um teste que segura as metas de ritmo (Japão entre 55 e 100 minutos)",
+          "Pixel art como mapas de texto renderizados por script, áudio provisório procedural, e screenshots e trailer capturados headless",
+          "Builds de release para Windows e Linux com presets de exportação testados, recuperação de save corrompido e ponte com a Steam para conquistas"
+        ],
+        "screenshots": [
+          {
+            "src": "/projects/dig-to-japan/dig-title.avif",
+            "alt": "Tela de título: um quintal no Brasil ao pôr do sol"
+          },
+          {
+            "src": "/projects/dig-to-japan/dig-outer-core.avif",
+            "alt": "Cavando no núcleo externo com o HUD de profundidade"
+          },
+          {
+            "src": "/projects/dig-to-japan/dig-shop.avif",
+            "alt": "Loja do Moleque com colheres e vantagens"
+          },
+          {
+            "src": "/projects/dig-to-japan/dig-to-scale.avif",
+            "alt": "Piada do zoom: o buraco em escala real"
+          },
+          {
+            "src": "/projects/dig-to-japan/dig-chopsticks.avif",
+            "alt": "Jogo 2: cavando de volta ao Brasil com hashis"
+          }
+        ],
+        "techStack": [
+          "Godot 4",
+          "GDScript",
+          "GUT",
+          "GitHub Actions",
+          "Pixel art"
+        ]
+      },
+      {
         "title": "Vestra Gestão Financeira",
         "slug": "vestra-gestao-financeira",
         "description": "PWA mobile-first de finanças pessoais num monorepo pnpm + Turborepo: dashboard Vite + React 19 com service worker Workbox, site institucional em Next.js 16 e API NestJS 11 com Prisma e PostgreSQL (17 modelos, dinheiro em Decimal). Autenticação JWT global com rotação de refresh token, guards de dono e membro do workspace, clonagem transacional de workspaces, transações recorrentes agendadas, notificações via Pusher e Web Push, e limites dos planos free e pro. Deploy no Fly.io e na Vercel com Neon Postgres.",
