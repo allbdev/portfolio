@@ -8,10 +8,10 @@
     "contact": "Contato"
   },
   "hero": {
-    "eyebrow": "Engenheiro de Software Sênior · Disponível",
-    "role": "Eng. de Software Sênior",
-    "intro": "Projeto e entrego produtos web e mobile rápidos: React e TypeScript na frente, Go e Node por trás. De dashboards no-code sobre mais de 1 milhão de registros a chat em tempo real, ponta a ponta.",
-    "subtitle": "Sou engenheiro de software full stack sênior, com mais de 6 anos levando funcionalidades do banco de dados à interface, em empresas de produto e projetos para clientes. Construo o frontend em React ou Next.js e a API em Go, NestJS ou Laravel por trás dele, e já cuidei de pipelines de CI/CD e de publicações nas lojas de aplicativos.\n\nNa Bird, arquitetei um construtor de dashboards no-code que lida com bases corporativas de mais de 1 milhão de registros. Por conta própria, projetei, construí e mantenho o Path Trader, um SaaS que hoje atende cerca de 60 clientes.",
+    "eyebrow": "Engenheiro Full-stack Sênior · Disponível",
+    "role": "Eng. Full-stack Sênior",
+    "intro": "Projeto e entrego produtos web e mobile rápidos.",
+    "subtitle": "Sou engenheiro de software full stack sênior, com mais de 6 anos levando funcionalidades do banco de dados à interface, em empresas de produto e projetos para clientes. Construo o frontend em React ou Next.js e a API em Node.js, NestJS ou Go por trás dele, e já cuidei de pipelines de CI/CD e de publicações nas lojas de aplicativos.\n\nNa Bird, arquitetei um construtor de dashboards no-code que lida com bases corporativas de mais de 1 milhão de registros. Também sou cofundador técnico e único engenheiro do Path Trader, um SaaS que hoje atende cerca de 70 clientes.",
     "cta": "Ver projetos",
     "downloadCv": "Baixar currículo",
     "stats": [
@@ -24,7 +24,7 @@
         "label": "Registros por dashboard"
       },
       {
-        "value": "~60",
+        "value": "~70",
         "label": "Clientes no Path Trader"
       },
       {
@@ -43,14 +43,17 @@
       "dragHint": "arraste para girar · passe o mouse num dia",
       "less": "menos",
       "more": "mais"
-    }
+    },
+    "tagline": "Engenheiro full-stack sênior. React e Next.js na frente, Node.js, NestJS e Go por trás, fluxo de trabalho AI-first.",
+    "hiring": "Contratando para uma vaga full-stack remota?",
+    "emailCta": "Me mande um e-mail"
   },
   "about": {
     "title": "Sobre",
     "lead": [
-      "Engenheiro de software sênior com mais de 6 anos entregando apps web e mobile em produção, em empresas de produto e em consultorias desenvolvendo para clientes.",
-      "Na Bird, arquitetei um construtor de dashboards no-code com Malloy, SolidJS e Vega que se mantém interativo sobre bases corporativas de mais de 1 milhão de registros, e construí os fluxos de vendas de ponta a ponta, incluindo os endpoints em Go. Antes, na MULTTI, fui mentor de engenheiros juniores e liderei apps React Native até a Google Play e a App Store.",
-      "Por conta própria, projetei, construí e mantenho o Path Trader, um SaaS para traders brasileiros que hoje atende cerca de 60 clientes. Escrevi todo o código."
+      "Engenheiro full-stack sênior com mais de 6 anos entregando apps web e mobile em produção, em empresas de produto e em consultorias desenvolvendo para clientes. Trabalho AI-first, com Claude e MCP no meu dia a dia, e cuido para que o código escrito com IA seja seguro de colocar em produção.",
+      "Na Bird, arquitetei um construtor de dashboards no-code com Malloy, SolidJS e Vega, usado por clientes corporativos em bases de mais de 1 milhão de registros, e construí a suíte de vendas de ponta a ponta, incluindo os endpoints em Go. Antes, na MULTTI, coloquei de volta nos prazos um time que vivia atrasando, fui mentor de engenheiros juniores e liderei apps React Native até a Google Play e a App Store.",
+      "Sou cofundador técnico do Path Trader, um SaaS para traders brasileiros que hoje atende cerca de 70 clientes. Meu sócio trouxe a ideia e cuida do marketing; eu cuido de toda a tecnologia, como único engenheiro."
     ],
     "facts": [
       {
@@ -60,7 +63,7 @@
       },
       {
         "label": "Buscando",
-        "value": "Vagas de Engenheiro de Software Sênior"
+        "value": "Vagas full-stack sênior"
       },
       {
         "label": "Localização",
@@ -80,7 +83,7 @@
       },
       {
         "label": "Construindo",
-        "value": "Path Trader · ~60 clientes"
+        "value": "Path Trader · ~70 clientes"
       },
       {
         "label": "Formação",
@@ -94,7 +97,7 @@
         {
           "cmd": "whoami",
           "out": [
-            "Vinícius Albuquerque · Engenheiro de Software Sênior",
+            "Vinícius Albuquerque · Engenheiro Full-stack Sênior",
             "# 6+ anos · React, TypeScript, Next.js, React Native, Node.js, Go"
           ]
         },
@@ -106,14 +109,14 @@
             "  \"status\": \"disponível\",",
             "  \"remoto\": true,",
             "  \"idiomas\": [\"pt-BR\", \"en\"],",
-            "  \"construindo\": \"Path Trader (~60 clientes)\"",
+            "  \"construindo\": \"Path Trader (~70 clientes)\"",
             "}"
           ]
         },
         {
           "cmd": "git log --oneline -4",
           "out": [
-            "a91f3c2 feat: lança o Path Trader, SaaS solo (~60 clientes)",
+            "a91f3c2 feat: cofunda o Path Trader, único engenheiro (~70 clientes)",
             "7c2e9b1 feat(bird): construtor de dashboards no-code com 1M+ registros",
             "3d8a0f4 feat(multti): apps React Native na Google Play e App Store",
             "e1b47d9 init: primeiro app em produção (2020)"
@@ -140,7 +143,7 @@
       "commands": {
         "whoami": [
           "Vinícius Albuquerque",
-          "Engenheiro de Software Sênior · Vila Velha, Brasil"
+          "Engenheiro Full-stack Sênior · Vila Velha, Brasil"
         ],
         "about": [
           "6+ anos entregando apps web e mobile em produção.",
@@ -148,11 +151,11 @@
           "      fluxos de vendas de ponta a ponta e os endpoints em Go por trás.",
           "MULTTI: mentoria de juniores, apps React Native nas duas lojas, chat em tempo real.",
           "Solution4apps: liderei entregas web e mobile da descoberta ao lançamento.",
-          "Paralelo: Path Trader, SaaS solo, ~60 clientes."
+          "Agora: Path Trader, cofundador técnico, ~70 clientes."
         ],
         "status": [
           "● disponível",
-          "vagas     engenheiro de software sênior: frontend, full stack, mobile ou backend",
+          "vagas     engenheiro full-stack sênior (também frontend ou product engineer)",
           "formato   remoto · CLT ou PJ",
           "fuso      UTC-3 (confortável com times entre UTC-5 e UTC-1)"
         ],
@@ -207,40 +210,28 @@
         ]
       },
       {
-        "label": "Mobile",
-        "items": [
-          "React Native",
-          "Expo",
-          "NativeWind",
-          "Push notifications",
-          "Mapas",
-          "Google Play",
-          "App Store"
-        ]
-      },
-      {
-        "label": "Visualização de dados",
-        "items": [
-          "Malloy",
-          "Vega",
-          "TanStack Table",
-          "Recharts",
-          "Chart.js"
-        ]
-      },
-      {
         "label": "Backend e tempo real",
         "items": [
           "Node.js",
           "NestJS",
           "Laravel",
-          "Prisma",
-          "PostgreSQL",
-          "Redis",
-          "APIs REST",
+          "REST APIs",
           "WebSockets",
           "Socket.io",
           "PusherJS"
+        ]
+      },
+      {
+        "label": "Dados e visualização",
+        "items": [
+          "PostgreSQL",
+          "Redis",
+          "Prisma",
+          "Malloy",
+          "Vega",
+          "TanStack Table",
+          "Recharts",
+          "Chart.js"
         ]
       },
       {
@@ -253,7 +244,20 @@
           "Bitbucket Pipelines",
           "Vercel",
           "Fly",
-          "Sentry"
+          "Sentry",
+          "Datadog"
+        ]
+      },
+      {
+        "label": "Mobile",
+        "items": [
+          "React Native",
+          "Expo",
+          "NativeWind",
+          "Push notifications",
+          "Mapas",
+          "Google Play",
+          "App Store"
         ]
       },
       {
@@ -266,9 +270,8 @@
           "Cypress",
           "Turborepo",
           "pnpm",
-          "Cursor",
           "Claude",
-          "Antigravity"
+          "MCP"
         ]
       }
     ]
@@ -285,16 +288,94 @@
       "overview": "Visão geral",
       "highlights": "Destaques",
       "technologies": "Tecnologias",
-      "markdown": "Ver em Markdown"
+      "markdown": "Ver em Markdown",
+      "problem": "Problema",
+      "built": "O que construí",
+      "hardPart": "A parte difícil",
+      "result": "Resultado",
+      "architecture": "Arquitetura"
     },
     "items": [
+      {
+        "title": "Bird · Construtor de dashboards no-code",
+        "slug": "bird-dashboard-builder",
+        "eyebrow": "Destaque · Bird · Analytics corporativo · 2024-2026",
+        "status": "Em produção na Bird",
+        "shipped": true,
+        "description": "Construtor de dashboards analíticos no-code que arquitetei na Bird, plataforma de comunicação em nuvem com sede em Amsterdã. O usuário monta consultas campo a campo no Malloy e as renderiza com Vega como gráficos de linha, barra, rosca e funil, tabelas ou KPIs, num layout de arrastar e soltar com edição, clonagem e exclusão. Interface em SolidJS com TanStack Query como camada de estado de servidor, lançado desligado atrás de feature flags por organização e usado em produção por clientes corporativos em bases de mais de 1 milhão de registros.",
+        "summary": "Analytics em que o cliente escolhe as próprias métricas: monte uma consulta campo a campo, renderize como gráfico, tabela ou KPI e organize arrastando. Em produção para clientes corporativos em bases de mais de 1 milhão de registros.",
+        "longDescription": "A Bird é uma plataforma de comunicação em nuvem (SMS, WhatsApp, e-mail, marketing e vendas) com sede em Amsterdã. No produto de analytics, arquitetei o construtor de dashboards no-code. O usuário monta uma consulta adicionando e removendo campos e a renderiza como gráfico de linha, barra, rosca ou funil, tabela ou KPI. Os widgets ficam num layout de arrastar e soltar e podem ser editados no lugar, clonados ou excluídos. Cada widget é uma consulta Malloy cujo resultado alimenta uma especificação Vega; a interface é SolidJS, com TanStack Query como camada de estado de servidor. Tudo foi para produção desligado atrás de feature flags por organização, testado no workspace do próprio time e liberado aos poucos, com cobertura de Vitest, React Testing Library e Playwright. A interface da Bird está sob NDA, então esta página mostra a arquitetura em vez de capturas de tela.",
+        "highlights": [
+          "Composição de consultas campo a campo no Malloy: o usuário adiciona e remove campos em vez de escrever consultas ou abrir um pedido para a engenharia",
+          "Um único caminho de renderização do resultado Malloy para uma especificação Vega, cobrindo gráficos de linha, barra, rosca e funil, tabelas e KPIs",
+          "Layout de arrastar e soltar com edição, clonagem e exclusão de cada widget",
+          "TanStack Query como camada de estado de servidor, com cache e deduplicação das consultas dos widgets",
+          "Lançado desligado atrás de feature flags por organização e liberado aos poucos, com cobertura de Vitest, React Testing Library e Playwright"
+        ],
+        "caseStudy": {
+          "problem": "Os clientes da Bird queriam analytics sobre os próprios dados, e cada gráfico novo virava um pedido para a engenharia. A solução precisava ser self-service e continuar usável para contas corporativas com bases de mais de 1 milhão de registros.",
+          "hardPart": {
+            "title": "Continuar interativo com mais de 1 milhão de registros",
+            "text": "O construtor nunca manda linhas brutas para o navegador. Cada widget é uma consulta Malloy, então filtros e agregações rodam no banco e o cliente recebe só o pequeno resultado de que o gráfico, a tabela ou o KPI precisa. O TanStack Query fica entre os widgets e a API como camada de estado de servidor: os resultados ficam em cache por consulta, então reorganizar o layout não busca de novo o que já está na tela."
+          },
+          "result": "Em produção para clientes corporativos em bases de mais de 1 milhão de registros. O cliente monta o dashboard de que precisa sem esperar por um engenheiro, e cada versão chegou a ele aos poucos, atrás de feature flags."
+        },
+        "architecture": {
+          "nodes": [
+            {
+              "label": "Seletor de campos",
+              "items": [
+                "Adiciona e remove campos"
+              ]
+            },
+            {
+              "label": "Consulta Malloy",
+              "items": [
+                "Agregada no banco"
+              ]
+            },
+            {
+              "label": "TanStack Query",
+              "items": [
+                "Estado de servidor em cache"
+              ]
+            },
+            {
+              "label": "Spec Vega",
+              "items": [
+                "Linha, barra, rosca, funil"
+              ]
+            },
+            {
+              "label": "Widget",
+              "items": [
+                "Gráfico, tabela ou KPI",
+                "Grade de arrastar e soltar"
+              ]
+            }
+          ],
+          "note": "Interface em SolidJS · lançado desligado atrás de feature flags por organização"
+        },
+        "screenshots": [],
+        "techStack": [
+          "SolidJS",
+          "Malloy",
+          "Vega",
+          "TanStack Query",
+          "TypeScript",
+          "Radix UI",
+          "Tailwind CSS",
+          "Vitest",
+          "Playwright"
+        ]
+      },
       {
         "title": "Path Trader",
         "slug": "path-trader",
         "eyebrow": "Destaque · SaaS independente · No ar desde jan 2026",
-        "description": "SaaS independente para traders brasileiros, construído sozinho e com cerca de 60 clientes. Monorepo pnpm + Turborepo com quatro apps Next.js 16 (app web, site institucional, admin e landing page) e uma API NestJS 11 com 56 módulos sobre um schema Prisma/PostgreSQL de 74 modelos. Assistente de IA com roteador multiagente, tool calling e RAG em pgvector, rodando em OpenAI ou AWS Bedrock com orçamento mensal de custo por plano, além de um servidor MCP protegido por OAuth. Assinaturas Asaas com webhooks idempotentes, filas pg-boss, Pusher, AWS S3/SES, PWA com Serwist, cerca de 500 arquivos de testes unitários e e2e, e 16 workflows do GitHub Actions com deploy na Vercel e no Fly.",
-        "summary": "SaaS independente para traders brasileiros: diário, análises, importação de corretoras e um assistente de IA com RAG e servidor MCP. Construído sozinho, o código inteiro, hoje com cerca de 60 clientes.",
-        "longDescription": "Path Trader é uma plataforma independente que ajuda traders brasileiros a registrar operações, analisar desempenho e gerenciar risco. Construí o código inteiro sozinho, e hoje ela atende cerca de 60 clientes pagantes. É um monorepo pnpm + Turborepo com quatro apps Next.js 16 (o app web, o site institucional, o painel admin e uma landing page) e uma API NestJS 11, compartilhando onze pacotes internos e um único schema Prisma de 74 modelos no PostgreSQL, distribuído em 56 módulos de API. As operações entram por oito parsers de importação específicos de corretoras e plataformas (MetaTrader 4/5, Profit, TradingView e outras). O assistente de IA é um roteador de chat multiagente com tool calling e busca em um corpus no pgvector; roda em OpenAI ou AWS Bedrock atrás de uma abstração de provedor, calcula o custo de cada requisição pelos tokens e aplica um orçamento mensal por plano. Um servidor MCP protegido por OAuth permite que o trader consulte o próprio diário pelo Claude e outros clientes MCP. A cobrança roda em assinaturas Asaas: os webhooks são autenticados e processados de forma assíncrona por handlers idempotentes, um job diário reconcilia eventos perdidos, e as notas fiscais de serviço (NFS-e) são emitidas automaticamente. Trabalho demorado, como turnos de IA, importações e notificações, passa por filas pg-boss no Postgres, com atualizações em tempo real via Pusher e armazenamento e e-mail na AWS S3/SES. O app web é um PWA com Serwist, a API é protegida com helmet e rate limiting global, o Sentry cobre a API e os apps públicos, e cerca de 500 arquivos de testes Jest e Playwright rodam em 16 workflows do GitHub Actions que fazem release e deploy na Vercel e no Fly.",
+        "description": "SaaS independente para traders brasileiros, do qual sou cofundador técnico e único engenheiro, com cerca de 70 clientes. Monorepo pnpm + Turborepo com quatro apps Next.js 16 (app web, site institucional, admin e landing page) e uma API NestJS 11 com 56 módulos sobre um schema Prisma/PostgreSQL de 74 modelos. Assistente de IA com roteador multiagente, tool calling e RAG em pgvector, rodando em OpenAI ou AWS Bedrock com orçamento mensal de custo por plano, além de um servidor MCP protegido por OAuth. Assinaturas Asaas com webhooks idempotentes, filas pg-boss, Pusher, AWS S3/SES, PWA com Serwist, cerca de 500 arquivos de testes unitários e e2e, e 16 workflows do GitHub Actions com deploy na Vercel e no Fly.",
+        "summary": "SaaS independente para traders brasileiros: diário, análises, importação de corretoras e um assistente de IA com RAG e servidor MCP. Cofundador técnico e único engenheiro, hoje com cerca de 70 clientes.",
+        "longDescription": "Path Trader é uma plataforma independente que ajuda traders brasileiros a registrar operações, analisar desempenho e gerenciar risco. Cofundei o projeto com um sócio que trouxe a ideia e cuida do marketing; como único engenheiro, sou responsável por toda a tecnologia, e hoje ela atende cerca de 70 clientes. É um monorepo pnpm + Turborepo com quatro apps Next.js 16 (o app web, o site institucional, o painel admin e uma landing page) e uma API NestJS 11, compartilhando onze pacotes internos e um único schema Prisma de 74 modelos no PostgreSQL, distribuído em 56 módulos de API. As operações entram por oito parsers de importação específicos de corretoras e plataformas (MetaTrader 4/5, Profit, TradingView e outras). O assistente de IA é um roteador de chat multiagente com tool calling e busca em um corpus no pgvector; roda em OpenAI ou AWS Bedrock atrás de uma abstração de provedor, calcula o custo de cada requisição pelos tokens e aplica um orçamento mensal por plano. Um servidor MCP protegido por OAuth permite que o trader consulte o próprio diário pelo Claude e outros clientes MCP. A cobrança roda em assinaturas Asaas: os webhooks são autenticados e processados de forma assíncrona por handlers idempotentes, um job diário reconcilia eventos perdidos, e as notas fiscais de serviço (NFS-e) são emitidas automaticamente. Trabalho demorado, como turnos de IA, importações e notificações, passa por filas pg-boss no Postgres, com atualizações em tempo real via Pusher e armazenamento e e-mail na AWS S3/SES. O app web é um PWA com Serwist, a API é protegida com helmet e rate limiting global, o Sentry cobre a API e os apps públicos, e cerca de 500 arquivos de testes Jest e Playwright rodam em 16 workflows do GitHub Actions que fazem release e deploy na Vercel e no Fly.",
         "highlights": [
           "Monorepo pnpm + Turborepo: quatro apps Next.js 16 e uma API NestJS 11 (56 módulos) compartilhando 11 pacotes e um schema Prisma de 74 modelos",
           "Assistente de IA: roteador multiagente com tool calling e RAG em pgvector, em OpenAI ou AWS Bedrock, com orçamento mensal de custo por plano",
@@ -329,12 +410,90 @@
           "OpenAI",
           "AWS",
           "Playwright"
+        ],
+        "caseStudy": {
+          "problem": "Traders brasileiros registram as operações em planilhas, quando registram, e não enxergam os próprios padrões: quais setups dão resultado, quando operam demais, quanto risco realmente correm. O Path Trader transforma operações importadas em diário e análises, com um assistente de IA que responde perguntas sobre os dados do próprio trader.",
+          "hardPart": {
+            "title": "Cobrança que nunca perde um evento",
+            "text": "As assinaturas rodam no Asaas, e um webhook de pagamento perdido ou entregue duas vezes significa um cliente sem acesso ou cobrado errado. Os webhooks são autenticados e processados de forma assíncrona por handlers idempotentes, então uma nova tentativa não tem efeito; um job diário concilia com o Asaas para pegar o que escapou, e as notas fiscais de serviço (NFS-e) são emitidas automaticamente. O assistente de IA recebe o mesmo cuidado com custo: cada requisição é precificada pelos tokens e checada contra um orçamento mensal por plano."
+          },
+          "result": "Cerca de 70 clientes, 540 pull requests mergeados e cerca de 56 deploys em produção, cada um protegido por GitHub Actions com checagem de tipos, testes unitários e end-to-end. Construído e operado por mim como único engenheiro e cofundador técnico; meu sócio trouxe a ideia e cuida do marketing."
+        },
+        "architecture": {
+          "nodes": [
+            {
+              "label": "Apps Next.js",
+              "items": [
+                "Web app (PWA)",
+                "Admin",
+                "Site de marketing"
+              ]
+            },
+            {
+              "label": "API NestJS",
+              "items": [
+                "56 módulos",
+                "Rate limiting"
+              ]
+            },
+            {
+              "label": "Serviços",
+              "items": [
+                "PostgreSQL + pgvector",
+                "Jobs com pg-boss",
+                "Cobrança no Asaas",
+                "OpenAI / Bedrock",
+                "S3, SES, Pusher"
+              ]
+            }
+          ],
+          "note": "Sentry na API e nos apps públicos · 16 workflows do GitHub Actions fazem deploy na Vercel e na Fly"
+        }
+      },
+      {
+        "title": "Tavi",
+        "slug": "tavi",
+        "status": "Em desenvolvimento",
+        "description": "Assistente pessoal com IA para o dia a dia: registre água, refeições, treinos, peso, tarefas e dinheiro só conversando, no app ou pelo Claude via MCP. O site está no ar em oitavi.com.br e a API roda em produção na AWS; os apps de iOS e Android ainda não estão nas lojas. App React Native offline-first (Expo SDK 58) sobre SQLite local sincronizado com Postgres por um PowerSync auto-hospedado, widgets nativos na tela inicial, API NestJS 12 com um agente Claude em streaming que confirma na tela toda mudança, servidor MCP com OAuth 2.1 próprio, finanças guardadas só no celular, infraestrutura em AWS CDK e um site Next.js feito para buscadores e mecanismos de resposta com IA.",
+        "summary": "Converse com ele pelo Claude ou pelo ChatGPT: um assistente pessoal AI-first com servidor MCP próprio. Registre água, refeições, treinos, tarefas e dinheiro conversando, num app offline-first ou pela sua IA. Site no ar, API na AWS, apps ainda fora das lojas.",
+        "longDescription": "Tavi (antes Pocket Helper) é um assistente pessoal para o dia a dia: água, refeições, treinos, peso, listas de tarefas e finanças pessoais, registrados só dizendo \"bebi 500 ml, fiz 5 rounds de manopla, peso 84,2\". O site está no ar em oitavi.com.br e o backend está em produção, enquanto os apps de iOS e Android ainda estão a caminho das lojas. O núcleo do app é um CRUD simples e rápido que funciona sem IA; o assistente é uma camada por cima. O app é React Native com Expo SDK 58 e é offline-first: toda tela lê um SQLite local que sincroniza com o Postgres por um serviço PowerSync auto-hospedado, e os aparelhos escrevem por um único endpoint de upload com allow-list de tabelas e colunas, checagem de dono e um savepoint por operação, então uma escrita inválida é recusada sem travar a fila do aparelho. Widgets nativos na tela inicial (SwiftUI no iOS, RemoteViews no Android, por um módulo Expo local) mostram o dia a partir de um snapshot que o app grava: a água contra a meta com um botão de +250 ml, as próximas tarefas para marcar e, durante um treino, o timer de descanso com os mesmos botões da notificação ao vivo e da Live Activity do iOS. Os toques entram numa fila nativa e funcionam com o app fechado. A API NestJS 12 com Drizzle e Postgres 18 roda o assistente no Claude Haiku 5.5: as respostas chegam por server-sent events com o resumo do raciocínio e cada passo de ferramenta, e toda mudança que o agente propõe é ensaiada pelo motor de sync numa transação desfeita e mostrada num cartão de confirmação montado a partir das linhas reais. Um único conjunto de schemas Zod define a validação da API e as ferramentas, então Claude, ChatGPT e outros assistentes recebem as mesmas ferramentas de leitura, criação e mudança confirmada por um servidor MCP, atrás de um servidor de autorização OAuth 2.1 escrito na própria API, com as confirmações do app e do MCP em canais separados. As finanças nunca chegam ao backend: ficam num banco SQLCipher por usuário no celular, com backup automático no Google Drive criptografado por senha. A produção roda numa instância EC2 em São Paulo definida em AWS CDK: Caddy, a API, Postgres e PowerSync em Docker, sem SSH (só Session Manager), sem NAT gateway, um disco de dados separado com snapshots diários, segredos no Parameter Store e um script de deploy que gera a imagem ARM, envia ao ECR e reinicia a stack. O site é Next.js 16 com Tailwind 4 e Motion, em português e inglês, estilizado com os design tokens do próprio app e feito para ser encontrado por buscadores e mecanismos de resposta com IA: JSON-LD, hreflang, uma imagem Open Graph por página e idioma, llms.txt e IndexNow. As assinaturas Pro passam pelo RevenueCat, e o custo de IA tem teto por usuário e global, checado antes de cada chamada.",
+        "highlights": [
+          "Site no ar em oitavi.com.br: Next.js 16, Tailwind 4 e Motion, em pt-BR e inglês, feito com os design tokens do app, com JSON-LD, imagens Open Graph por página, llms.txt e IndexNow para buscadores e respostas de IA",
+          "Produção na AWS definida em CDK: uma instância EC2 com Caddy, a API, Postgres 18 e PowerSync em Docker, sem SSH nem NAT gateway, disco de dados separado com snapshots diários e segredos no Parameter Store",
+          "React Native offline-first (Expo SDK 58) sobre SQLite local, sincronizado com Postgres por PowerSync auto-hospedado, com contrato de upload por allow-list e savepoint por operação",
+          "Widgets nativos na tela inicial no iOS e no Android: água, tarefas para marcar e o timer de descanso do treino ao vivo, com toques numa fila nativa que funcionam com o app fechado",
+          "Agente Claude com respostas em streaming e passos de ferramenta; toda mudança é simulada pelo motor de sync e confirmada num cartão, e as mesmas ferramentas chegam ao Claude e ao ChatGPT por um servidor MCP com OAuth 2.1",
+          "Finanças ficam no celular num banco SQLCipher por usuário, com backup automático no Google Drive criptografado por senha; assinaturas via RevenueCat e limites de custo de IA checados antes de cada chamada"
+        ],
+        "screenshots": [
+          {
+            "src": "/projects/tavi/tavi-today.avif",
+            "alt": "Tela Hoje do Tavi, painel do assistente e plano Pro"
+          },
+          {
+            "src": "/projects/tavi/tavi-finance.avif",
+            "alt": "Painel de finanças, gráficos de progresso e listas de tarefas do Tavi"
+          }
+        ],
+        "liveUrl": "https://www.oitavi.com.br/",
+        "techStack": [
+          "Expo",
+          "NestJS",
+          "MCP",
+          "Claude API",
+          "PowerSync",
+          "Drizzle",
+          "PostgreSQL",
+          "React Native",
+          "TypeScript",
+          "SQLCipher",
+          "Next.js",
+          "AWS CDK"
         ]
       },
       {
         "title": "Bem Coberto",
         "slug": "bem-coberto",
-        "eyebrow": "Destaque · Em desenvolvimento · Marketplace de seguro viagem",
         "status": "Em desenvolvimento",
         "description": "Marketplace brasileiro de seguro viagem em desenvolvimento: uma busca cota várias seguradoras em paralelo, cada plano é normalizado num formato comparável e o cliente paga com Pix ou cartão. Monorepo TypeScript strict (pnpm + Turborepo) com app web em Next.js App Router, API NestJS sobre Fastify, adaptadores de seguradoras atrás de uma interface TravelInsuranceProvider, outbox transacional com worker BullMQ para a emissão, PostgreSQL, Redis e AWS.",
         "summary": "Marketplace de seguro viagem para brasileiros: cote várias seguradoras numa busca, compare todos os planos no mesmo formato e pague com Pix ou cartão. Construído em torno de adaptadores de seguradoras, uma máquina de estados de pedido segura para pagamentos e um worker guiado por outbox.",
@@ -376,48 +535,81 @@
           "Zod",
           "AWS",
           "Playwright"
-        ]
+        ],
+        "architecture": {
+          "onCard": true,
+          "nodes": [
+            {
+              "label": "Loja",
+              "items": [
+                "Next.js App Router"
+              ]
+            },
+            {
+              "label": "API NestJS",
+              "items": [
+                "Cotação em paralelo nos adaptadores"
+              ]
+            },
+            {
+              "label": "Webhook de pagamento",
+              "items": [
+                "Linha no outbox, mesma transação"
+              ]
+            },
+            {
+              "label": "Worker BullMQ",
+              "items": [
+                "Emite apólice, guarda arquivos, envia e-mail"
+              ]
+            }
+          ],
+          "note": "Conciliado com a seguradora, nunca repetido às cegas"
+        }
       },
       {
-        "title": "Tavi",
-        "slug": "tavi",
-        "status": "Em desenvolvimento",
-        "description": "Assistente pessoal com IA para o dia a dia: registre água, refeições, treinos, peso, tarefas e dinheiro só conversando, no app ou pelo Claude via MCP. O site está no ar em oitavi.com.br e a API roda em produção na AWS; os apps de iOS e Android ainda não estão nas lojas. App React Native offline-first (Expo SDK 58) sobre SQLite local sincronizado com Postgres por um PowerSync auto-hospedado, widgets nativos na tela inicial, API NestJS 12 com um agente Claude em streaming que confirma na tela toda mudança, servidor MCP com OAuth 2.1 próprio, finanças guardadas só no celular, infraestrutura em AWS CDK e um site Next.js feito para buscadores e mecanismos de resposta com IA.",
-        "summary": "Assistente pessoal com IA: registre água, refeições, treinos, tarefas e dinheiro só conversando, no app ou pelo Claude via MCP. Site no ar, API na AWS, apps ainda fora das lojas.",
-        "longDescription": "Tavi (antes Pocket Helper) é um assistente pessoal para o dia a dia: água, refeições, treinos, peso, listas de tarefas e finanças pessoais, registrados só dizendo \"bebi 500 ml, fiz 5 rounds de manopla, peso 84,2\". O site está no ar em oitavi.com.br e o backend está em produção, enquanto os apps de iOS e Android ainda estão a caminho das lojas. O núcleo do app é um CRUD simples e rápido que funciona sem IA; o assistente é uma camada por cima. O app é React Native com Expo SDK 58 e é offline-first: toda tela lê um SQLite local que sincroniza com o Postgres por um serviço PowerSync auto-hospedado, e os aparelhos escrevem por um único endpoint de upload com allow-list de tabelas e colunas, checagem de dono e um savepoint por operação, então uma escrita inválida é recusada sem travar a fila do aparelho. Widgets nativos na tela inicial (SwiftUI no iOS, RemoteViews no Android, por um módulo Expo local) mostram o dia a partir de um snapshot que o app grava: a água contra a meta com um botão de +250 ml, as próximas tarefas para marcar e, durante um treino, o timer de descanso com os mesmos botões da notificação ao vivo e da Live Activity do iOS. Os toques entram numa fila nativa e funcionam com o app fechado. A API NestJS 12 com Drizzle e Postgres 18 roda o assistente no Claude Haiku 5.5: as respostas chegam por server-sent events com o resumo do raciocínio e cada passo de ferramenta, e toda mudança que o agente propõe é ensaiada pelo motor de sync numa transação desfeita e mostrada num cartão de confirmação montado a partir das linhas reais. Um único conjunto de schemas Zod define a validação da API e as ferramentas, então Claude, ChatGPT e outros assistentes recebem as mesmas ferramentas de leitura, criação e mudança confirmada por um servidor MCP, atrás de um servidor de autorização OAuth 2.1 escrito na própria API, com as confirmações do app e do MCP em canais separados. As finanças nunca chegam ao backend: ficam num banco SQLCipher por usuário no celular, com backup automático no Google Drive criptografado por senha. A produção roda numa instância EC2 em São Paulo definida em AWS CDK: Caddy, a API, Postgres e PowerSync em Docker, sem SSH (só Session Manager), sem NAT gateway, um disco de dados separado com snapshots diários, segredos no Parameter Store e um script de deploy que gera a imagem ARM, envia ao ECR e reinicia a stack. O site é Next.js 16 com Tailwind 4 e Motion, em português e inglês, estilizado com os design tokens do próprio app e feito para ser encontrado por buscadores e mecanismos de resposta com IA: JSON-LD, hreflang, uma imagem Open Graph por página e idioma, llms.txt e IndexNow. As assinaturas Pro passam pelo RevenueCat, e o custo de IA tem teto por usuário e global, checado antes de cada chamada.",
+        "title": "Vestra Gestão Financeira",
+        "slug": "vestra-gestao-financeira",
+        "description": "PWA mobile-first de finanças pessoais num monorepo pnpm + Turborepo: dashboard Vite + React 19 com service worker Workbox, site institucional em Next.js 16 e API NestJS 11 com Prisma e PostgreSQL (17 modelos, dinheiro em Decimal). Autenticação JWT global com rotação de refresh token, guards de dono e membro do workspace, clonagem transacional de workspaces, transações recorrentes agendadas, notificações via Pusher e Web Push, e limites dos planos free e pro. Deploy no Fly.io e na Vercel com Neon Postgres.",
+        "summary": "PWA mobile-first de finanças pessoais: workspaces compartilhados com papéis de dono e membro, transações recorrentes e lembretes por push. Turborepo com dashboard React 19, site em Next.js e API NestJS.",
+        "longDescription": "Vestra é um PWA mobile-first de finanças pessoais em que várias pessoas podem compartilhar um workspace. É um monorepo pnpm + Turborepo com três apps e quatro pacotes compartilhados: um dashboard Vite + React 19 instalável como PWA com um service worker Workbox próprio, um site institucional em Next.js 16 e uma API NestJS 11 com Prisma e PostgreSQL. A API é dividida em 14 módulos de domínio sobre um schema de 17 modelos, com dinheiro guardado em Decimal em vez de float. A autenticação é global por padrão: um guard JWT protege toda rota que não for marcada explicitamente como pública, o refresh token é rotacionado a cada uso num cookie httpOnly, e guards de dono e membro do workspace controlam quem pode ver e alterar o quê. Workspaces podem ser clonados por completo numa única transação do banco que remapeia todas as chaves estrangeiras. Um job agendado gera transações recorrentes e lembretes de pagamento, entregues em tempo real via Pusher e como notificações Web Push com deduplicação por usuário. Os planos free e pro são validados no servidor. Os dois frontends compartilham uma biblioteca de componentes no estilo shadcn sobre Tailwind 4, e a stack roda no Fly.io e na Vercel com Neon Postgres, aplicando migrações no release com deploys graduais.",
         "highlights": [
-          "Site no ar em oitavi.com.br: Next.js 16, Tailwind 4 e Motion, em pt-BR e inglês, feito com os design tokens do app, com JSON-LD, imagens Open Graph por página, llms.txt e IndexNow para buscadores e respostas de IA",
-          "Produção na AWS definida em CDK: uma instância EC2 com Caddy, a API, Postgres 18 e PowerSync em Docker, sem SSH nem NAT gateway, disco de dados separado com snapshots diários e segredos no Parameter Store",
-          "React Native offline-first (Expo SDK 58) sobre SQLite local, sincronizado com Postgres por PowerSync auto-hospedado, com contrato de upload por allow-list e savepoint por operação",
-          "Widgets nativos na tela inicial no iOS e no Android: água, tarefas para marcar e o timer de descanso do treino ao vivo, com toques numa fila nativa que funcionam com o app fechado",
-          "Agente Claude com respostas em streaming e passos de ferramenta; toda mudança é simulada pelo motor de sync e confirmada num cartão, e as mesmas ferramentas chegam ao Claude e ao ChatGPT por um servidor MCP com OAuth 2.1",
-          "Finanças ficam no celular num banco SQLCipher por usuário, com backup automático no Google Drive criptografado por senha; assinaturas via RevenueCat e limites de custo de IA checados antes de cada chamada"
+          "Monorepo pnpm + Turborepo: dashboard React 19, site Next.js 16 e API NestJS 11 compartilhando pacotes de UI, tipos e configuração de lint e tsconfig",
+          "Seguro por padrão: guard JWT global com opt-out público explícito, rotação de refresh token em cookies httpOnly e guards de dono e membro do workspace",
+          "Clonagem completa de workspace numa única transação do banco, remapeando todas as chaves estrangeiras",
+          "Schema Prisma de 17 modelos no PostgreSQL, com dinheiro em Decimal, nunca float",
+          "Transações recorrentes e lembretes de pagamento agendados, entregues via Pusher e Web Push com deduplicação por usuário",
+          "PWA instalável (service worker Workbox) na Vercel, API no Fly.io com migrações no release, deploys graduais e Neon Postgres"
         ],
         "screenshots": [
           {
-            "src": "/projects/tavi/tavi-today.avif",
-            "alt": "Tela Hoje do Tavi, painel do assistente e plano Pro"
+            "src": "/projects/vestra-gestao-financeira/vestra-dahboard.png",
+            "alt": "Visão geral do painel financeiro do Vestra"
           },
           {
-            "src": "/projects/tavi/tavi-finance.avif",
-            "alt": "Painel de finanças, gráficos de progresso e listas de tarefas do Tavi"
+            "src": "/projects/vestra-gestao-financeira/vestra-lancamentos.png",
+            "alt": "Lista de transações do Vestra"
+          },
+          {
+            "src": "/projects/vestra-gestao-financeira/vestra-notifications.png",
+            "alt": "Lista de notificações do Vestra"
           }
         ],
-        "liveUrl": "https://www.oitavi.com.br/",
+        "liveUrl": "https://www.vestra-financas.com.br/",
+        "githubUrl": "https://github.com/allbdev/vestra-v2",
         "techStack": [
-          "React Native",
-          "Expo",
+          "Turborepo",
           "NestJS",
-          "TypeScript",
-          "PostgreSQL",
-          "Drizzle",
-          "PowerSync",
-          "SQLCipher",
-          "Claude API",
-          "MCP",
           "Next.js",
-          "AWS CDK"
-        ]
+          "Vite",
+          "React",
+          "TypeScript",
+          "Prisma",
+          "PostgreSQL",
+          "Tailwind CSS",
+          "shadcn/ui"
+        ],
+        "lab": true
       },
       {
         "title": "Cavar até o Japão com uma Colher",
@@ -467,7 +659,8 @@
           "GitHub Actions",
           "Shaders",
           "GodotSteam"
-        ]
+        ],
+        "lab": true
       },
       {
         "title": "Raspa a Capivara",
@@ -517,90 +710,45 @@
           "GitHub Actions",
           "Shaders",
           "GodotSteam"
-        ]
-      },
-      {
-        "title": "Vestra Gestão Financeira",
-        "slug": "vestra-gestao-financeira",
-        "description": "PWA mobile-first de finanças pessoais num monorepo pnpm + Turborepo: dashboard Vite + React 19 com service worker Workbox, site institucional em Next.js 16 e API NestJS 11 com Prisma e PostgreSQL (17 modelos, dinheiro em Decimal). Autenticação JWT global com rotação de refresh token, guards de dono e membro do workspace, clonagem transacional de workspaces, transações recorrentes agendadas, notificações via Pusher e Web Push, e limites dos planos free e pro. Deploy no Fly.io e na Vercel com Neon Postgres.",
-        "summary": "PWA mobile-first de finanças pessoais: workspaces compartilhados com papéis de dono e membro, transações recorrentes e lembretes por push. Turborepo com dashboard React 19, site em Next.js e API NestJS.",
-        "longDescription": "Vestra é um PWA mobile-first de finanças pessoais em que várias pessoas podem compartilhar um workspace. É um monorepo pnpm + Turborepo com três apps e quatro pacotes compartilhados: um dashboard Vite + React 19 instalável como PWA com um service worker Workbox próprio, um site institucional em Next.js 16 e uma API NestJS 11 com Prisma e PostgreSQL. A API é dividida em 14 módulos de domínio sobre um schema de 17 modelos, com dinheiro guardado em Decimal em vez de float. A autenticação é global por padrão: um guard JWT protege toda rota que não for marcada explicitamente como pública, o refresh token é rotacionado a cada uso num cookie httpOnly, e guards de dono e membro do workspace controlam quem pode ver e alterar o quê. Workspaces podem ser clonados por completo numa única transação do banco que remapeia todas as chaves estrangeiras. Um job agendado gera transações recorrentes e lembretes de pagamento, entregues em tempo real via Pusher e como notificações Web Push com deduplicação por usuário. Os planos free e pro são validados no servidor. Os dois frontends compartilham uma biblioteca de componentes no estilo shadcn sobre Tailwind 4, e a stack roda no Fly.io e na Vercel com Neon Postgres, aplicando migrações no release com deploys graduais.",
-        "highlights": [
-          "Monorepo pnpm + Turborepo: dashboard React 19, site Next.js 16 e API NestJS 11 compartilhando pacotes de UI, tipos e configuração de lint e tsconfig",
-          "Seguro por padrão: guard JWT global com opt-out público explícito, rotação de refresh token em cookies httpOnly e guards de dono e membro do workspace",
-          "Clonagem completa de workspace numa única transação do banco, remapeando todas as chaves estrangeiras",
-          "Schema Prisma de 17 modelos no PostgreSQL, com dinheiro em Decimal, nunca float",
-          "Transações recorrentes e lembretes de pagamento agendados, entregues via Pusher e Web Push com deduplicação por usuário",
-          "PWA instalável (service worker Workbox) na Vercel, API no Fly.io com migrações no release, deploys graduais e Neon Postgres"
         ],
-        "screenshots": [
-          {
-            "src": "/projects/vestra-gestao-financeira/vestra-dahboard.png",
-            "alt": "Visão geral do painel financeiro do Vestra"
-          },
-          {
-            "src": "/projects/vestra-gestao-financeira/vestra-lancamentos.png",
-            "alt": "Lista de transações do Vestra"
-          },
-          {
-            "src": "/projects/vestra-gestao-financeira/vestra-notifications.png",
-            "alt": "Lista de notificações do Vestra"
-          }
-        ],
-        "liveUrl": "https://www.vestra-financas.com.br/",
-        "githubUrl": "https://github.com/allbdev/vestra-v2",
-        "techStack": [
-          "Turborepo",
-          "NestJS",
-          "Next.js",
-          "Vite",
-          "React",
-          "TypeScript",
-          "Prisma",
-          "PostgreSQL",
-          "Tailwind CSS",
-          "shadcn/ui"
-        ]
-      },
-      {
-        "title": "Rick and Morty Explorer",
-        "slug": "rick-and-morty-explorer",
-        "description": "Projeto de estudo para praticar GraphQL com o App Router do Next.js: a primeira página de dados é buscada em React Server Components via Apollo (revalidada a cada 30 s), e depois um cliente Apollo no navegador cuida do scroll infinito e da busca por nome com debounce. Navegue por personagens e locais, com a origem, o local e os episódios de cada personagem. Next.js, React, TypeScript e Tailwind CSS.",
-        "summary": "Projeto de estudo de GraphQL: páginas renderizadas no servidor com Apollo em React Server Components, além de scroll infinito e busca com debounce no cliente, sobre a API pública de Rick and Morty.",
-        "longDescription": "Rick and Morty Explorer é um projeto de estudo que fiz para praticar GraphQL com o App Router do Next.js. As páginas buscam o primeiro lote de dados em React Server Components com Apollo Client (via registerApolloClient), então chegam renderizadas no servidor e são revalidadas a cada 30 segundos. Daí em diante, um cliente Apollo no navegador assume o scroll infinito e a busca por nome com debounce na lista de personagens. É possível navegar por personagens e locais, e a página de cada personagem mostra a origem, o local atual e todos os episódios em que aparece. Escrito em TypeScript, com interface responsiva em Tailwind CSS.",
-        "highlights": [
-          "Apollo Client dentro de React Server Components: páginas renderizadas no servidor e revalidadas a cada 30 s",
-          "Apollo no cliente para scroll infinito e busca por nome com debounce na lista de personagens",
-          "Queries GraphQL tipadas para personagens, locais e detalhes do personagem com origem, local e episódios",
-          "App Router do Next.js, React e TypeScript, com interface responsiva em Tailwind CSS"
-        ],
-        "screenshots": [
-          {
-            "src": "/projects/rick-and-morty-explorer/rick-and-morty-character-view.png",
-            "alt": "Detalhe de personagem do Rick and Morty Explorer"
-          },
-          {
-            "src": "/projects/rick-and-morty-explorer/rick-and-morty-overview.png",
-            "alt": "Página principal do Rick and Morty Explorer"
-          }
-        ],
-        "liveUrl": "https://rickandmorty-alb-dev.vercel.app/",
-        "githubUrl": "https://github.com/allbdev/rickandmorty",
-        "techStack": [
-          "Next.js",
-          "React",
-          "TypeScript",
-          "Tailwind CSS",
-          "GraphQL",
-          "Apollo Client"
-        ]
+        "lab": true
       }
-    ]
+    ],
+    "lab": {
+      "title": "Lab",
+      "text": "Projetos paralelos onde testo coisas fora do trabalho: jogos, finanças pessoais, stacks novas."
+    }
   },
   "experience": {
     "title": "Experiência",
     "educationTitle": "Educação e certificações",
     "jobs": [
+      {
+        "company": "Path Trader",
+        "branch": "path-trader",
+        "role": "Cofundador Técnico",
+        "period": "Jan 2026 – Atual",
+        "stack": [
+          "TypeScript",
+          "Next.js",
+          "NestJS",
+          "Prisma",
+          "PostgreSQL",
+          "Turborepo",
+          "GitHub Actions",
+          "Asaas",
+          "OpenAI",
+          "Sentry"
+        ],
+        "description": "SaaS independente para traders brasileiros: diário de operações, análises, um assistente de IA e um programa de parceiros. Cofundado com um sócio que trouxe a ideia e cuida do marketing; sou responsável por toda a tecnologia, da arquitetura à produção.",
+        "achievements": [
+          "Cresci até cerca de 70 clientes numa plataforma que arquitetei, construí e opero como único engenheiro.",
+          "Construí a stack completa num monorepo Turborepo: frontend em Next.js e React, API NestJS, Prisma sobre PostgreSQL, jobs em segundo plano, pagamentos no Asaas e e-mail na AWS SES.",
+          "Mergeei 540 pull requests e fiz cerca de 56 deploys em produção, cada um protegido por GitHub Actions com checagem de tipos, testes unitários e end-to-end.",
+          "Construí um assistente de IA no produto com OpenAI GPT-5 mini sobre o diário e as análises de cada trader.",
+          "Cuido da observabilidade em produção com Sentry, conectado ao Claude via MCP para triagem de erros."
+        ]
+      },
       {
         "company": "Bird",
         "branch": "bird",
@@ -616,21 +764,22 @@
           "Tailwind CSS",
           "TanStack Query",
           "Go",
-          "Playwright"
+          "Playwright",
+          "Datadog"
         ],
-        "description": "A Bird é uma plataforma de comunicação em nuvem (SMS, WhatsApp, e-mail, marketing, vendas e pagamentos) com sede em Amsterdã. Entreguei em quatro áreas do produto, analytics, marketing cloud, vendas e o site público, trabalhando junto com o design e cuidando dos endpoints em Go por trás das minhas funcionalidades de vendas.",
+        "description": "A Bird é uma plataforma de comunicação em nuvem (SMS, WhatsApp, e-mail, marketing e vendas) com sede em Amsterdã. Entreguei em quatro áreas do produto, analytics, marketing cloud, vendas e o site público, trabalhando junto com o design e cuidando dos endpoints em Go por trás das minhas funcionalidades de vendas.",
         "achievements": [
           "Arquitetei um construtor de dashboards no-code (Malloy, SolidJS, Vega): o usuário monta as próprias consultas adicionando e removendo campos e as visualiza como gráficos de linha, barra, rosca e funil, tabelas ou KPIs, com reordenação por arrastar e soltar e edição, clonagem e exclusão de cada widget.",
-          "Otimizei esse dashboard para renderizar bases corporativas de mais de 1 milhão de registros sem perder interatividade.",
+          "Mantive os dashboards interativos em bases corporativas de mais de 1 milhão de registros, usados em produção por clientes corporativos, com TanStack Query como camada de estado de servidor.",
           "Construí os fluxos de vendas de ponta a ponta (quadros de leads, configuração de leads e gestão de oportunidades e negócios) e desenvolvi os endpoints em Go por trás deles para o time de desenvolvimento de vendas.",
           "Projetei um sistema de objetos customizados para atributos definidos pelo usuário em leads e oportunidades, com uma camada de formulários dinâmicos que renderiza inputs com máscara e formato (monetário, numérico, e-mail, texto e outros) a partir da configuração de cada campo.",
-          "Contribuidor central do redesign do frontend da marketing cloud, reconstruindo tabelas, gráficos, KPIs, wizards, abas, listas e paginação a partir do Figma, sobre um sistema de componentes com Radix UI e Tailwind CSS.",
+          "Contribuidor central do redesign da marketing cloud: reconstruí cerca de 20 páginas (tabelas, gráficos, KPIs, wizards em etapas) a partir do Figma, sobre um sistema de componentes compartilhado com Radix UI e Tailwind CSS.",
           "Projetei as visualizações analíticas do Inbox Reports, transformando um grande conjunto de métricas de desempenho em gráficos, tabelas e KPIs.",
-          "Implementei interfaces com muitos dados com TanStack Table, Recharts e Chart.js, usando TanStack Query como principal camada de estado de servidor do dashboard.",
+          "Implementei interfaces com muitos dados em todo o produto com TanStack Table, Recharts e Chart.js.",
           "Entreguei todo código novo atrás das feature flags da Bird, por organização: deploy em produção desligado, testes no workspace do próprio time e liberação gradual para os clientes.",
           "Fiz parceria com o design no lançamento do novo bird.com e conduzi o trabalho de SEO e descoberta por LLMs: espelhos em Markdown da documentação, llms-full.txt e melhorias de conteúdo estruturado.",
           "Estabeleci fluxos de testes automatizados unitários e end-to-end com Vitest, React Testing Library e Playwright.",
-          "Usei fluxos de desenvolvimento assistido por IA (Cursor, Claude, Antigravity) para apoiar as entregas."
+          "Trabalhei AI-first com Claude para acelerar as entregas, mantendo cada mudança revisada e testada."
         ]
       },
       {
@@ -652,8 +801,9 @@
         ],
         "description": "A MULTTI é uma consultoria de software que desenvolve dashboards, apps mobile e aplicações web para empresas clientes. Como engenheiro sênior, fui mentor do time, melhorei nossos processos e atuei na prática em frontends React e React Native e backends Laravel.",
         "achievements": [
+          "Salvei a conta de um cliente em risco reorganizando um time que vivia perdendo prazos: conduzi as dailies, acompanhei o progresso de cada desenvolvedor e ajudei a definir requisitos e escopo, voltando a entregar no prazo em cerca de 3 meses.",
           "Fui mentor de engenheiros juniores, orientei o trabalho técnico e melhorei os fluxos de desenvolvimento ágil.",
-          "Arquitetei um sistema de chat em tempo real com React, PusherJS, WebSockets e listas virtualizadas.",
+          "Arquitetei um chat em tempo real para cerca de 100 participantes simultâneos e mais de 1 mil mensagens com React, PusherJS, WebSockets e listas virtualizadas.",
           "Liderei de ponta a ponta o desenvolvimento de um app React Native com Expo para rastreamento de entregas, com mapas ao vivo, notificações push e UI customizada.",
           "Construí um sistema de gestão de leads com React e MUI e uma plataforma de streaming do mercado financeiro.",
           "Atuei em frontends React e React Native e backends PHP (Laravel) para projetos de clientes.",
@@ -724,8 +874,8 @@
     "head": {
       "branch": "HEAD -> open-to-work",
       "date": "Agora",
-      "title": "Aberto a vagas de Engenheiro de Software Sênior",
-      "text": "Remoto do Brasil (UTC-3), CLT ou PJ. Enquanto isso, sigo evoluindo o Path Trader, um SaaS solo com cerca de 60 clientes."
+      "title": "Aberto a vagas de Engenheiro Full-stack Sênior",
+      "text": "Remoto do Brasil (UTC-3), CLT ou PJ, com sobreposição diária com horários de EST e CET. Enquanto isso, cuido da tecnologia do Path Trader, o SaaS que cofundei, com cerca de 70 clientes."
     },
     "root": {
       "date": "Jan 2020",
@@ -774,7 +924,8 @@
   "contact": {
     "title": "Vamos construir algo grande.",
     "location": "Vila Velha, BR · UTC-3 · Remoto",
-    "copyright": "© 2026 Vinícius Albuquerque"
+    "copyright": "© 2026 Vinícius Albuquerque",
+    "hiring": "Contratando para uma vaga full-stack remota?"
   },
   "palette": {
     "trigger": "Ações rápidas",

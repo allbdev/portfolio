@@ -15,7 +15,6 @@ Screenshot assets for the project detail pages (`/[lang]/projeto/[slug]`).
 | --------------------------- | --------------------------------------- |
 | `path-trader`               | `screenshot-1.png` … `screenshot-3.png` |
 | `vestra-gestao-financeira`  | `screenshot-1.png` … `screenshot-3.png` |
-| `rick-and-morty-explorer`   | `screenshot-1.png` … `screenshot-3.png` |
 
 > The current images are branded 16:9 placeholders. Replace them with real captures when
 > available, keeping the same filenames/paths (or update `screenshots[].src` in

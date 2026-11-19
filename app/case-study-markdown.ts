@@ -15,10 +15,47 @@ export function caseStudyMarkdown(project: Project, dictionary: Dictionary, lang
   const page = `${site.url}/${lang}/projeto/${project.slug}`;
 
   const links = [
-    project.liveUrl ? `- ${liveDemo}: ${project.liveUrl}` : `- Status: ${project.status}`,
+    project.liveUrl ? `- ${liveDemo}: ${project.liveUrl}` : project.status ? `- Status: ${project.status}` : null,
     project.githubUrl ? `- ${viewCode}: ${project.githubUrl}` : null,
     `- ${detail.eyebrow} (HTML): ${page}`,
   ].filter(Boolean);
+
+  const cs = project.caseStudy;
+  const bullets = (items: string[]) => items.map((item) => `- ${item}`).join('\n');
+  const architecture = project.architecture
+    ? `\n## ${detail.architecture}\n\n${project.architecture.nodes
+        .map((node) => `${node.label} (${node.items.join('; ')})`)
+        .join(' → ')}${project.architecture.note ? `\n\n${project.architecture.note}` : ''}\n`
+    : '';
+
+  const body = cs
+    ? `## ${detail.problem}
+
+${cs.problem}
+
+## ${detail.built}
+
+${bullets(project.highlights)}
+
+## ${detail.hardPart}: ${cs.hardPart.title}
+
+${cs.hardPart.text}
+
+## ${detail.result}
+
+${cs.result}
+${architecture}
+## ${detail.overview}
+
+${project.longDescription}`
+    : `## ${detail.overview}
+
+${project.longDescription}
+
+## ${detail.highlights}
+
+${bullets(project.highlights)}
+${architecture}`;
 
   const screenshots = project.screenshots.map((shot) => `![${shot.alt}](${site.url}${shot.src})`);
 
@@ -30,13 +67,7 @@ ${detail.eyebrow} · ${name} · ${site.url}/${lang}
 
 ${links.join('\n')}
 
-## ${detail.overview}
-
-${project.longDescription}
-
-## ${detail.highlights}
-
-${project.highlights.map((item) => `- ${item}`).join('\n')}
+${body}
 
 ## ${detail.technologies}
 

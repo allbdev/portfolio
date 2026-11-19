@@ -26,7 +26,7 @@ export async function generateMetadata({
     return {};
   }
 
-  const title = `${project.title} — Vinicius Albuquerque`;
+  const title = `${project.title} · Vinícius Albuquerque`;
   const description = project.summary || project.description;
   const firstScreenshot = project.screenshots?.[0];
 
@@ -34,21 +34,23 @@ export async function generateMetadata({
     title,
     description,
     alternates: {
+      canonical: `/${lang}/projeto/${project.slug}`,
+      languages: {
+        en: `/en/projeto/${project.slug}`,
+        'pt-BR': `/pt/projeto/${project.slug}`,
+        'x-default': `/en/projeto/${project.slug}`,
+      },
       types: { 'text/markdown': caseStudyMarkdownPath(lang, project.slug) },
     },
     openGraph: {
       title,
       description,
-      ...(firstScreenshot
-        ? {
-            images: [
-              {
-                url: firstScreenshot.src,
-                alt: firstScreenshot.alt,
-              },
-            ],
-          }
-        : {}),
+      // Work under NDA has no screenshots: fall back to the site's social card.
+      images: [
+        firstScreenshot
+          ? { url: firstScreenshot.src, alt: firstScreenshot.alt }
+          : { url: `/${lang}/opengraph-image`, width: 1200, height: 630, alt: title },
+      ],
     },
   };
 }

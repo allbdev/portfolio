@@ -8,6 +8,7 @@ import NorthEastIcon from '@mui/icons-material/NorthEast';
 import { alpha } from '@mui/material/styles';
 import Image from 'next/image';
 import Link from 'next/link';
+import ArchitectureFlow from './ArchitectureFlow';
 import Reveal from './Reveal';
 import SectionHeading from './SectionHeading';
 import SpotlightCard from './SpotlightCard';
@@ -42,7 +43,17 @@ const inlineLinkSx = {
 } as const;
 
 /** "In development" badge, shown where the live link would be. */
-export function StatusBadge({ label, size = 'sm' }: { label: string; size?: 'sm' | 'lg' }) {
+export function StatusBadge({
+  label,
+  size = 'sm',
+  shipped = false,
+}: {
+  label: string;
+  size?: 'sm' | 'lg';
+  /** Calm, non-blinking accent badge for work that is live but not public. */
+  shipped?: boolean;
+}) {
+  const tone = shipped ? 'accent.text' : 'warning.main';
   return (
     <Box
       component="span"
@@ -54,10 +65,10 @@ export function StatusBadge({ label, size = 'sm' }: { label: string; size?: 'sm'
         fontSize: size === 'lg' ? '0.8rem' : '0.7rem',
         letterSpacing: '0.08em',
         textTransform: 'uppercase',
-        color: 'warning.main',
+        color: tone,
         border: 1,
-        borderColor: (theme) => alpha(theme.palette.warning.main, 0.4),
-        bgcolor: (theme) => alpha(theme.palette.warning.main, 0.08),
+        borderColor: (theme) => alpha(shipped ? theme.palette.accent.main : theme.palette.warning.main, 0.4),
+        bgcolor: (theme) => alpha(shipped ? theme.palette.accent.main : theme.palette.warning.main, 0.08),
         borderRadius: 999,
         px: size === 'lg' ? 2 : 1.5,
         py: size === 'lg' ? 1.25 : 0.75,
@@ -69,8 +80,8 @@ export function StatusBadge({ label, size = 'sm' }: { label: string; size?: 'sm'
           width: 7,
           height: 7,
           borderRadius: '50%',
-          bgcolor: 'warning.main',
-          animation: 'soft-blink 1.6s ease-in-out infinite',
+          bgcolor: tone,
+          animation: shipped ? 'none' : 'soft-blink 1.6s ease-in-out infinite',
         }}
       />
       {label}
@@ -79,7 +90,9 @@ export function StatusBadge({ label, size = 'sm' }: { label: string; size?: 'sm'
 }
 
 function LiveOrStatus({ project, label }: { project: Project; label: string }) {
-  if (!project.liveUrl) return <StatusBadge label={project.status ?? ''} />;
+  if (!project.liveUrl) {
+    return project.status ? <StatusBadge label={project.status} shipped={project.shipped} /> : null;
+  }
   return (
     <Box component="a" href={project.liveUrl} target="_blank" rel="noreferrer" sx={inlineLinkSx}>
       {label}
@@ -100,6 +113,54 @@ function TechChips({ items }: { items: string[] }) {
   );
 }
 
+/** The card's picture: the first screenshot, or the architecture when there is none (or it is preferred). */
+function CardVisual({
+  project,
+  sizes,
+  position,
+  priority,
+}: {
+  project: Project;
+  sizes: string;
+  position: string;
+  priority?: boolean;
+}) {
+  const shot = project.screenshots[0];
+  if (project.architecture && (!shot || project.architecture.onCard)) {
+    return (
+      <Box
+        sx={(theme) => ({
+          // In flow (not absolute) so a tall diagram grows the card instead of clipping.
+          position: 'relative',
+          width: '100%',
+          boxSizing: 'border-box',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          p: { xs: 3, md: 4 },
+          backgroundImage: `radial-gradient(${alpha(theme.palette.text.primary, 0.1)} 1px, transparent 1.2px)`,
+          backgroundSize: '22px 22px',
+        })}
+      >
+        <Box sx={{ width: '100%', maxWidth: 360 }}>
+          <ArchitectureFlow architecture={project.architecture} compact />
+        </Box>
+      </Box>
+    );
+  }
+  if (!shot) return null;
+  return (
+    <Image
+      src={shot.src}
+      alt={shot.alt}
+      fill
+      priority={priority}
+      sizes={sizes}
+      style={{ objectFit: 'cover', objectPosition: position }}
+    />
+  );
+}
+
 function FeaturedProject({
   project,
   dictionary,
@@ -112,7 +173,6 @@ function FeaturedProject({
   priority?: boolean;
 }) {
   const ctaRef = useMagnetic<HTMLAnchorElement>();
-  const shot = project.screenshots[0];
 
   return (
     <SpotlightCard
@@ -178,21 +238,20 @@ function FeaturedProject({
       <Box
         className="shot"
         sx={{
+          display: 'flex',
           position: 'relative',
           overflow: 'hidden',
-          minHeight: { xs: 240, sm: 320, md: 420 },
+          minHeight: { xs: project.screenshots.length ? 240 : 460, sm: 320, md: 420 },
           borderLeft: { md: 1 },
           borderTop: { xs: 1, md: 0 },
           borderColor: { xs: 'divider', md: 'divider' },
         }}
       >
-        <Image
-          src={shot.src}
-          alt={shot.alt}
-          fill
+        <CardVisual
+          project={project}
           priority={priority}
           sizes="(max-width: 900px) 100vw, 55vw"
-          style={{ objectFit: 'cover', objectPosition: 'left top' }}
+          position="left top"
         />
       </Box>
     </SpotlightCard>
@@ -208,8 +267,6 @@ function SecondaryProject({
   dictionary: Dictionary;
   lang: Locale;
 }) {
-  const shot = project.screenshots[0];
-
   return (
     <SpotlightCard
       glow={420}
@@ -218,20 +275,16 @@ function SecondaryProject({
       <Box
         className="shot"
         sx={{
+          display: 'flex',
           position: 'relative',
           overflow: 'hidden',
-          aspectRatio: '16 / 9',
+          aspectRatio: project.architecture?.onCard ? undefined : '16 / 9',
+          minHeight: project.architecture?.onCard ? { xs: 400, sm: 300 } : undefined,
           borderBottom: 1,
           borderColor: 'divider',
         }}
       >
-        <Image
-          src={shot.src}
-          alt={shot.alt}
-          fill
-          sizes="(max-width: 900px) 100vw, 45vw"
-          style={{ objectFit: 'cover', objectPosition: 'center top' }}
-        />
+        <CardVisual project={project} sizes="(max-width: 900px) 100vw, 45vw" position="center top" />
       </Box>
       <Box
         sx={{
@@ -275,6 +328,50 @@ function SecondaryProject({
   );
 }
 
+/** Compact card for the Lab strip. */
+function LabProject({
+  project,
+  dictionary,
+  lang,
+}: {
+  project: Project;
+  dictionary: Dictionary;
+  lang: Locale;
+}) {
+  return (
+    <SpotlightCard glow={300} sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+      <Box
+        className="shot"
+        sx={{ position: 'relative', overflow: 'hidden', aspectRatio: '16 / 9', borderBottom: 1, borderColor: 'divider' }}
+      >
+        <CardVisual project={project} sizes="(max-width: 900px) 100vw, 30vw" position="center top" />
+      </Box>
+      <Box sx={{ p: 2.75, display: 'flex', flexDirection: 'column', flex: 1, position: 'relative', zIndex: 2 }}>
+        <Typography component="h4" variant="h5" sx={{ mb: 1, fontSize: '1.1rem' }}>
+          {project.title}
+        </Typography>
+        <Typography sx={{ m: 0, fontSize: '0.86rem', lineHeight: 1.55, color: 'text.secondary' }}>
+          {project.summary}
+        </Typography>
+        <Box sx={{ flex: 1, minHeight: 16 }} />
+        <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', flexWrap: 'wrap', mt: 2.25 }}>
+          <Box component={Link} href={`/${lang}/projeto/${project.slug}`} sx={{ ...inlineLinkSx, color: 'text.primary' }}>
+            {dictionary.projects.viewDetails}
+            <ArrowForwardIcon sx={{ fontSize: 15 }} />
+          </Box>
+          <LiveOrStatus project={project} label={dictionary.projects.liveDemo} />
+          {project.githubUrl ? (
+            <Box component="a" href={project.githubUrl} target="_blank" rel="noreferrer" sx={inlineLinkSx}>
+              {dictionary.projects.code}
+              <NorthEastIcon sx={{ fontSize: 15 }} />
+            </Box>
+          ) : null}
+        </Box>
+      </Box>
+    </SpotlightCard>
+  );
+}
+
 export default function Projects({
   dictionary,
   lang,
@@ -282,8 +379,10 @@ export default function Projects({
   dictionary: Dictionary;
   lang: Locale;
 }) {
-  const featured = dictionary.projects.items.filter((project) => project.eyebrow);
-  const secondary = dictionary.projects.items.filter((project) => !project.eyebrow);
+  const { items, lab } = dictionary.projects;
+  const featured = items.filter((project) => project.eyebrow && !project.lab);
+  const secondary = items.filter((project) => !project.eyebrow && !project.lab);
+  const labItems = items.filter((project) => project.lab);
 
   return (
     <Box
@@ -313,6 +412,30 @@ export default function Projects({
             </Reveal>
           ))}
         </Box>
+
+        {labItems.length > 0 ? (
+          <Box sx={{ mt: { xs: 4, md: 6 } }}>
+            <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 2, flexWrap: 'wrap', mb: 3 }}>
+              <Typography component="h3" variant="h4" sx={{ fontSize: '1.35rem' }}>
+                {lab.title}
+              </Typography>
+              <Typography sx={{ m: 0, fontSize: '0.92rem', color: 'text.secondary' }}>{lab.text}</Typography>
+            </Box>
+            <Box
+              sx={{
+                display: 'grid',
+                gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', lg: 'repeat(3, 1fr)' },
+                gap: 3,
+              }}
+            >
+              {labItems.map((project, index) => (
+                <Reveal key={project.slug} delay={index * 0.06} fullHeight>
+                  <LabProject project={project} dictionary={dictionary} lang={lang} />
+                </Reveal>
+              ))}
+            </Box>
+          </Box>
+        ) : null}
       </Box>
     </Box>
   );

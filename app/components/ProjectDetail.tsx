@@ -8,6 +8,7 @@ import WestIcon from '@mui/icons-material/West';
 import { alpha } from '@mui/material/styles';
 import { MotionConfig } from 'framer-motion';
 import Link from 'next/link';
+import ArchitectureFlow from './ArchitectureFlow';
 import CustomCursor from './CustomCursor';
 import Reveal from './Reveal';
 import ScreenshotCarousel from './ScreenshotCarousel';
@@ -20,6 +21,8 @@ import type { Dictionary } from '../get-dictionary';
 import type { Locale } from '../../i18n-config';
 
 type Project = Dictionary['projects']['items'][number];
+
+const proseSx = { m: 0, fontSize: '1.05rem', lineHeight: 1.8, color: 'text.secondary' } as const;
 
 /** Label column + content column, the layout the design uses for every detail block. */
 function DetailRow({
@@ -71,6 +74,12 @@ export default function ProjectDetail({
   const backRef = useMagnetic<HTMLAnchorElement>();
   const liveRef = useMagnetic<HTMLAnchorElement>();
   const codeRef = useMagnetic<HTMLAnchorElement>();
+  const { caseStudy } = project;
+  const overview = (
+    <DetailRow label={detail.overview}>
+      <Typography sx={proseSx}>{project.longDescription}</Typography>
+    </DetailRow>
+  );
 
   return (
     <MotionConfig reducedMotion="user">
@@ -178,9 +187,9 @@ export default function ProjectDetail({
             >
               {liveDemo}
             </Button>
-            ) : (
-              <StatusBadge label={project.status ?? ''} size="lg" />
-            )}
+            ) : project.status ? (
+              <StatusBadge label={project.status} size="lg" shipped={project.shipped} />
+            ) : null}
             {project.githubUrl ? (
               <Button
                 ref={codeRef}
@@ -226,19 +235,26 @@ export default function ProjectDetail({
             <Reveal>
               <ScreenshotCarousel screenshots={project.screenshots} label={project.title} />
             </Reveal>
+          ) : project.architecture ? (
+            // No screenshots to show (e.g. work under NDA): the diagram takes their place.
+            <Reveal>
+              <Box sx={{ border: 1, borderColor: 'divider', borderRadius: '16px', p: { xs: 2.5, md: 4 } }}>
+                <ArchitectureFlow architecture={project.architecture} />
+              </Box>
+            </Reveal>
           ) : null}
 
           <Box sx={{ mt: 5 }}>
-            <DetailRow label={detail.overview}>
-              <Typography
-                sx={{ m: 0, fontSize: '1.05rem', lineHeight: 1.8, color: 'text.secondary' }}
-              >
-                {project.longDescription}
-              </Typography>
-            </DetailRow>
+            {caseStudy ? (
+              <DetailRow label={detail.problem}>
+                <Typography sx={proseSx}>{caseStudy.problem}</Typography>
+              </DetailRow>
+            ) : (
+              overview
+            )}
 
             {project.highlights.length > 0 ? (
-              <DetailRow label={detail.highlights}>
+              <DetailRow label={caseStudy ? detail.built : detail.highlights}>
                 <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                   {project.highlights.map((highlight) => (
                     <Box
@@ -265,6 +281,28 @@ export default function ProjectDetail({
                 </Box>
               </DetailRow>
             ) : null}
+
+            {caseStudy ? (
+              <>
+                <DetailRow label={detail.hardPart}>
+                  <Typography component="h2" sx={{ m: 0, mb: 1.5, fontSize: '1.25rem', fontWeight: 600 }}>
+                    {caseStudy.hardPart.title}
+                  </Typography>
+                  <Typography sx={proseSx}>{caseStudy.hardPart.text}</Typography>
+                </DetailRow>
+                <DetailRow label={detail.result}>
+                  <Typography sx={{ ...proseSx, color: 'text.primary' }}>{caseStudy.result}</Typography>
+                </DetailRow>
+              </>
+            ) : null}
+
+            {project.architecture && project.screenshots.length > 0 ? (
+              <DetailRow label={detail.architecture}>
+                <ArchitectureFlow architecture={project.architecture} />
+              </DetailRow>
+            ) : null}
+
+            {caseStudy ? overview : null}
 
             {project.techStack.length > 0 ? (
               <DetailRow label={detail.technologies} divider={false}>

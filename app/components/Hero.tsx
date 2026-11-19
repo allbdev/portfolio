@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import DownloadIcon from '@mui/icons-material/Download';
 import { alpha } from '@mui/material/styles';
 import { motion, useScroll, useTransform } from 'framer-motion';
@@ -255,15 +255,30 @@ export default function Hero({ dictionary, lang }: { dictionary: Dictionary; lan
             <Typography sx={{ mt: { xs: 3.5, md: 4 }, maxWidth: 520, fontSize: '1.1rem', lineHeight: 1.7, color: 'text.secondary' }}>
               {hero.intro}
             </Typography>
+            <Typography sx={{ mt: 1.5, maxWidth: 520, fontSize: '1rem', lineHeight: 1.65, color: 'text.primary', fontWeight: 500 }}>
+              {hero.tagline}
+            </Typography>
           </motion.div>
 
           <motion.div {...heroItem(0.24)}>
-            <Box sx={{ display: 'flex', gap: 2, mt: 4, flexWrap: 'wrap', alignItems: 'center' }}>
+            <Typography
+              sx={{
+                mt: 4,
+                mb: 1.5,
+                fontFamily: fontFamilies.mono,
+                fontSize: '0.75rem',
+                letterSpacing: '0.04em',
+                color: 'text.secondary',
+              }}
+            >
+              {hero.hiring}
+            </Typography>
+            <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', alignItems: 'center' }}>
             <Button
               ref={primaryRef}
-              href="#projects"
+              href={`mailto:${site.email}`}
               variant="contained"
-              endIcon={<ArrowDownwardIcon sx={{ fontSize: 18 }} />}
+              endIcon={<MailOutlineIcon sx={{ fontSize: 18 }} />}
               sx={{
                 px: 3.75,
                 py: 1.75,
@@ -277,7 +292,7 @@ export default function Hero({ dictionary, lang }: { dictionary: Dictionary; lan
                 },
               }}
             >
-              {hero.cta}
+              {hero.emailCta}
             </Button>
             <Button
               ref={secondaryRef}

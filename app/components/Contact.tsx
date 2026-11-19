@@ -3,6 +3,7 @@
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import DownloadIcon from '@mui/icons-material/Download';
 import NorthEastIcon from '@mui/icons-material/NorthEast';
 import { alpha } from '@mui/material/styles';
 import Reveal from './Reveal';
@@ -12,10 +13,11 @@ import { useMagnetic } from '../hooks/useMagnetic';
 import type { Dictionary } from '../get-dictionary';
 
 export default function Contact({ dictionary }: { dictionary: Dictionary }) {
-  const { contact, navigation } = dictionary;
+  const { contact, navigation, hero } = dictionary;
   const emailRef = useMagnetic<HTMLAnchorElement>();
   const linkedinRef = useMagnetic<HTMLAnchorElement>();
   const githubRef = useMagnetic<HTMLAnchorElement>();
+  const cvRef = useMagnetic<HTMLAnchorElement>();
 
   const outlinedSx = {
     px: 3.5,
@@ -60,6 +62,7 @@ export default function Contact({ dictionary }: { dictionary: Dictionary }) {
         >
           {contact.title}
         </Typography>
+        <Typography sx={{ mt: 3, fontSize: '1.1rem', color: 'text.secondary' }}>{contact.hiring}</Typography>
       </Reveal>
 
       <Box
@@ -67,7 +70,7 @@ export default function Contact({ dictionary }: { dictionary: Dictionary }) {
           display: 'flex',
           gap: 2,
           justifyContent: 'center',
-          mt: 6,
+          mt: 4,
           flexWrap: 'wrap',
         }}
       >
@@ -113,6 +116,17 @@ export default function Contact({ dictionary }: { dictionary: Dictionary }) {
           sx={outlinedSx}
         >
           GitHub
+        </Button>
+        <Button
+          ref={cvRef}
+          href={site.cv}
+          download
+          target="_blank"
+          variant="outlined"
+          endIcon={<DownloadIcon sx={{ fontSize: 15 }} />}
+          sx={outlinedSx}
+        >
+          {hero.downloadCv}
         </Button>
       </Box>
 

@@ -1,6 +1,14 @@
 import 'server-only';
 import type { Locale } from '../i18n-config';
 
+/** A left-to-right flow of boxes, drawn on case studies and some cards. */
+export interface Architecture {
+  nodes: { label: string; items: string[] }[];
+  note?: string;
+  /** Show the diagram on the project card instead of the first screenshot. */
+  onCard?: boolean;
+}
+
 export interface Dictionary {
   navigation: {
     home: string;
@@ -17,6 +25,11 @@ export interface Dictionary {
     role: string;
     /** Short lead paragraph shown under the name. */
     intro: string;
+    /** One-line positioning under the intro. */
+    tagline: string;
+    /** Question above the primary email CTA. */
+    hiring: string;
+    emailCta: string;
     /** Long-form bio, used as the page meta description. */
     subtitle: string;
     cta: string;
@@ -131,7 +144,14 @@ export interface Dictionary {
       technologies: string;
       /** Link to the case study's Markdown version. */
       markdown: string;
+      problem: string;
+      built: string;
+      hardPart: string;
+      result: string;
+      architecture: string;
     };
+    /** Strip of side projects under the selected work. */
+    lab: { title: string; text: string };
     items: {
       title: string;
       slug: string;
@@ -139,6 +159,17 @@ export interface Dictionary {
       eyebrow?: string;
       /** Shown instead of the live link while a project is not public yet. */
       status?: string;
+      /** The status badge reads as shipped (e.g. built at an employer) rather than in development. */
+      shipped?: boolean;
+      /** Listed in the Lab strip instead of the main grid. */
+      lab?: boolean;
+      /** Problem / hard part / result blocks of a full case study. */
+      caseStudy?: {
+        problem: string;
+        hardPart: { title: string; text: string };
+        result: string;
+      };
+      architecture?: Architecture;
       description: string;
       summary: string;
       longDescription: string;
@@ -177,6 +208,7 @@ export interface Dictionary {
   };
   contact: {
     title: string;
+    hiring: string;
     /** Right-hand footer line. */
     location: string;
     copyright: string;

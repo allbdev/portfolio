@@ -4,11 +4,14 @@ import { bodyFont, displayFont, monoFont } from '../fonts';
 import ThemeRegistry from '../components/ThemeRegistry/ThemeRegistry';
 import { i18n, isValidLocale } from '../../i18n-config';
 import { Analytics } from '@vercel/analytics/next';
+import { site } from '../site';
 
 export const metadata: Metadata = {
-  title: 'Vinícius Albuquerque — Senior Software Engineer',
+  metadataBase: new URL(site.url),
+  title: `${site.firstName} ${site.lastName} · Senior Full-stack Engineer`,
   description:
-    'Senior Software Engineer with 6+ years of experience specializing in high-performance web and mobile applications using Next.js, React, TypeScript, Node.js, and Go.',
+    'Senior full-stack engineer with 6+ years shipping web and mobile products: React, Next.js and TypeScript on the front, Node.js, NestJS and Go on the back. Built a no-code analytics dashboard builder for enterprise datasets of 1M+ records and is the technical co-founder and only engineer of Path Trader, a SaaS with about 70 customers.',
+  twitter: { card: 'summary_large_image' },
 };
 
 // Resolves the colour mode before first paint so the page never flashes the
