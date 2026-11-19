@@ -382,16 +382,16 @@
         "title": "Tavi",
         "slug": "tavi",
         "status": "In development",
-        "description": "AI-first personal assistant for daily life, in development: log water, meals, workouts, weight, tasks and money by talking to it, in the app or from Claude through MCP. Offline-first React Native app (Expo SDK 58) on local SQLite synced to Postgres through self-hosted PowerSync, a NestJS 12 API on Drizzle, a streamed Claude agent whose every change is confirmed on screen, an MCP server with its own OAuth 2.1 authorization server, finances kept only on the phone in a SQLCipher database, and store subscriptions through RevenueCat.",
-        "summary": "AI-first personal assistant: log water, meals, workouts, tasks and money by talking to it, in the app or from Claude through MCP. Offline-first React Native app with PowerSync, a NestJS API and a Claude agent that asks before changing anything.",
-        "longDescription": "Tavi is a personal assistant for daily life, currently in development: water, meals, workouts, weight, task lists and personal finances, logged by just saying \"drank 500 ml, did 5 rounds of pads, weigh 84.2\". The core app is plain, fast CRUD that works without AI; the assistant is a layer on top. The mobile app is React Native on Expo SDK 58 and Expo Router, and it is offline-first: every screen reads a local SQLite database that syncs with Postgres through a self-hosted PowerSync service. Devices write through one upload endpoint with an explicit allow-list of tables and columns, server-owned fields, ownership checks on every reference and a savepoint per operation, so a bad write is reported back without blocking the device's queue. A custom useQuery re-renders only when rows actually change, and refused writes are kept with their data for retry. The NestJS 12 API on Drizzle and Postgres 18 runs the assistant on Claude Haiku 5.5: replies stream over server-sent events with the model's thinking summary and each tool step, and the agent can read and change anything in the app, but every change or deletion is rehearsed by the sync engine in a rolled-back transaction, stored as exact operations and shown as a confirmation card built from the real rows, never from the model's text. One set of Zod schemas defines both the API validation and the tool definitions, so the same tools are served to Claude, ChatGPT and other assistants through an MCP server, protected by an OAuth 2.1 authorization server written into the API (PKCE, dynamic client registration, rotating opaque tokens). Finances never reach the backend: they live in a per-user SQLCipher database on the phone, with password-encrypted backups to Google Drive, and the assistant reaches them through tools that run on the device. AI costs are capped per user and globally before each call, a 30-case eval set guards the prompt, and Pro subscriptions come from the app stores through RevenueCat.",
+        "description": "AI-first personal assistant for daily life: log water, meals, workouts, weight, tasks and money by talking to it, in the app or from Claude through MCP. The marketing site is live at oitavi.com.br and the API runs in production on AWS; the iOS and Android apps are not in the stores yet. Offline-first React Native app (Expo SDK 58) on local SQLite synced to Postgres through self-hosted PowerSync, native home screen widgets, a NestJS 12 API with a streamed Claude agent that confirms every change on screen, an MCP server behind its own OAuth 2.1, finances kept only on the phone, infrastructure as AWS CDK and a Next.js site built for search and AI answer engines.",
+        "summary": "AI-first personal assistant: log water, meals, workouts, tasks and money by talking to it, in the app or from Claude through MCP. Site live, API on AWS, apps not in the stores yet.",
+        "longDescription": "Tavi (formerly Pocket Helper) is a personal assistant for daily life: water, meals, workouts, weight, task lists and personal finances, logged by just saying \"drank 500 ml, did 5 rounds of pads, weigh 84.2\". The website is live at oitavi.com.br and the backend is in production, while the iOS and Android apps are still on their way to the stores. The core app is plain, fast CRUD that works without AI; the assistant is a layer on top. The mobile app is React Native on Expo SDK 58 and it is offline-first: every screen reads a local SQLite database that syncs with Postgres through a self-hosted PowerSync service, and devices write through one upload endpoint with an allow-list of tables and columns, ownership checks and a savepoint per operation, so a bad write is refused without blocking the device's queue. Native home screen widgets (SwiftUI on iOS, RemoteViews on Android, through a local Expo module) show the day from a snapshot the app writes: water against the goal with a +250 ml button, the next tasks to tick off and, during a workout, the rest timer with the same buttons as the live notification and iOS Live Activity. Presses are queued natively and work with the app closed. The NestJS 12 API on Drizzle and Postgres 18 runs the assistant on Claude Haiku 5.5: replies stream over server-sent events with the thinking summary and each tool step, and every change the agent proposes is rehearsed by the sync engine in a rolled-back transaction and shown as a confirmation card built from the real rows. One set of Zod schemas defines the API validation and the tools, so Claude, ChatGPT and other assistants get the same read, add and confirmed-change tools through an MCP server, behind an OAuth 2.1 authorization server written into the API, with app and MCP confirmations kept on separate channels. Finances never reach the backend: they live in a per-user SQLCipher database on the phone with automatic, password-encrypted Google Drive backups. Production runs on one EC2 instance in São Paulo defined in AWS CDK: Caddy, the API, Postgres and PowerSync in Docker, no SSH (Session Manager only), no NAT gateway, a separate data disk with daily snapshots, secrets in Parameter Store, and a deploy script that builds the ARM image, pushes it to ECR and restarts the stack. The marketing site is Next.js 16 with Tailwind 4 and Motion, in Portuguese and English, styled from the app's own design tokens and built to be found by search engines and AI answer engines: JSON-LD, hreflang, an Open Graph image per page and language, llms.txt and IndexNow. Pro subscriptions go through RevenueCat, and AI costs are capped per user and globally before each call.",
         "highlights": [
-          "Offline-first: React Native (Expo SDK 58) on local SQLite, synced to Postgres through self-hosted PowerSync with an allow-listed upload contract and per-operation savepoints",
-          "Claude agent with streamed replies, thinking summary and tool steps; every change is dry-run by the sync engine and confirmed on a card built from the real rows",
-          "One Zod tool layer for the in-app agent and an MCP server, behind an OAuth 2.1 authorization server built into the API (PKCE, dynamic client registration, rotating opaque tokens)",
-          "Finances stay on the phone: a per-user SQLCipher database outside sync, password-encrypted Google Drive backups, and assistant tools that run on the device",
-          "AI cost controls checked before every call (global kill switch, per-user monthly budgets, rate limits) and a 30-case eval set at about US$0.00024 per message",
-          "NestJS 12 API on Drizzle and Postgres 18 with ~160 Vitest unit and e2e tests, a native live-workout notification and iOS Live Activity, and RevenueCat subscriptions"
+          "Website live at oitavi.com.br: Next.js 16, Tailwind 4 and Motion, pt-BR and English, built from the app's design tokens, with JSON-LD, per-page Open Graph images, llms.txt and IndexNow for search and AI answer engines",
+          "Production on AWS defined in CDK: one EC2 instance running Caddy, the API, Postgres 18 and PowerSync in Docker, no SSH or NAT gateway, a separate data disk with daily snapshots and secrets in Parameter Store",
+          "Offline-first React Native (Expo SDK 58) on local SQLite, synced to Postgres through self-hosted PowerSync with an allow-listed upload contract and per-operation savepoints",
+          "Native home screen widgets on iOS and Android: water, tasks to tick off and the live workout's rest timer, with presses queued natively so they work with the app closed",
+          "Claude agent with streamed replies and tool steps; every change is dry-run by the sync engine and confirmed on a card, and the same tools reach Claude and ChatGPT through an MCP server behind OAuth 2.1",
+          "Finances stay on the phone in a per-user SQLCipher database with automatic, password-encrypted Google Drive backups; RevenueCat subscriptions and AI cost limits checked before every call"
         ],
         "screenshots": [
           {
@@ -403,6 +403,7 @@
             "alt": "Tavi finances dashboard, progress charts and task lists"
           }
         ],
+        "liveUrl": "https://www.oitavi.com.br/en",
         "techStack": [
           "React Native",
           "Expo",
@@ -413,40 +414,46 @@
           "PowerSync",
           "SQLCipher",
           "Claude API",
-          "MCP"
+          "MCP",
+          "Next.js",
+          "AWS CDK"
         ]
       },
       {
         "title": "Dig to Japan with a Spoon",
         "slug": "dig-to-japan",
         "status": "In development",
-        "description": "Absurd 2D game for Steam, in development: dig from a Brazilian backyard to a family's kitchen in Japan with a teaspoon, then dig back home with chopsticks. Built in Godot 4 with GDScript: game logic separated from rendering and covered by 522 GUT tests in GitHub Actions, all content as data resources (16 layers there, 17 back, 25 achievements, 28 easter eggs), a balance simulator that keeps pacing targets in the test suite, and sprites, screenshots and the trailer generated by scripts.",
-        "summary": "A 2D Godot game for Steam: dig from Brazil to Japan with a spoon, then back with chopsticks. Data-driven content, game logic split from rendering, 522 tests in CI and a balance simulator that keeps the pacing honest.",
-        "longDescription": "Dig to Japan with a Spoon (Cavar até o Japão com uma Colher) is a short, deliberately silly single-player game for Steam, currently in development. A guy in a Brazilian backyard digs to Japan with a teaspoon, through every layer of the Earth, while a mole in sunglasses judges him and the neighbour films it for the street's group chat; when he breaks through he lands in the middle of a Japanese family's dinner, and the second game is the trip back with chopsticks. It is built in Godot 4 with GDScript. Game logic lives in scripts with no rendering (dig state, progression, shop, save system, settings, achievements) and is unit tested with GUT, while scenes only draw and react; 522 tests run headless in GitHub Actions on every push, against a Godot binary verified by its SHA-512. All content is data: layers, spoons, perks, shop items, character lines and easter eggs are Godot resources, 16 layers to Japan and 17 back, 25 achievements and 28 buried treasures. Saves are JSON with autosave on milestones and quit, and a damaged save is set aside instead of crashing the game. A balance simulator plays both games as an efficient player and a test keeps the targets (Japan in 55 to 100 minutes, the way back in 20 to 60, no layer that drags). The pixel art is written as text maps and rendered to sprites by a script, the placeholder music and sound are generated procedurally, and the store screenshots and trailer are captured by headless scripts. Windows and Linux release builds are exported, with tests checking that dev folders stay out, and a Steam bridge is already in place for achievements.",
+        "description": "Absurd 3D game for Steam, in development: dig from a Brazilian backyard to a family's kitchen in Japan with a teaspoon, then dig back home with chopsticks, with a third-person camera inside the hole. A 3D remake of my own 2D version in Godot 4: the game logic, content and tests were carried over unchanged and only the views were rebuilt, so 768 GUT tests in GitHub Actions prove it still plays like the original. Every model is built from primitives in code, and the store screenshots, Steam capsules, trailer and shorts are rendered from the game itself.",
+        "summary": "A 3D Godot game for Steam: dig from Brazil to Japan with a spoon, then back with chopsticks, from inside the hole. Rebuilt from my 2D version with the logic and tests kept intact, and every model built in code.",
+        "longDescription": "Dig to Japan with a Spoon (Cavar até o Japão com uma Colher) is a short, deliberately silly single-player game for Steam, currently in development and playable start to finish. A guy in a Brazilian backyard digs to Japan with a teaspoon, through every layer of the Earth, while a mole in sunglasses judges him and the neighbour films it for the street's group chat; the second game is the trip back with chopsticks. It started as a 2D game, and this is its 3D remake in Godot 4 with GDScript, with a third-person camera inside the shaft that you orbit to find treasures in the walls. The 2D game stays the source of truth: its game logic (dig state, progression, shop, saves, achievements), its content as Godot resources and its logic tests were ported unchanged, and only the views were rebuilt, so if the ported tests pass and the balance simulator's report matches, the 3D game plays like the 2D one. 768 GUT tests run headless in GitHub Actions on every push, against a SHA-512-verified Godot binary. Depth is still just a number: the shaft is a short tube of wall that scrolls and changes its shader material per layer, with fog and a real lamp on the helmet, so deeper means darker for free. There are no imported meshes: the Digger, the cast, the props, the tools and the treasures are built from rounded primitives in code, in a soft vinyl toy style with expressive faces. The set pieces are scripted in 3D, from a cut-open Earth for the zoom-out gag to chopsticks that hold rocks as physics bodies that really drop. The store screenshots, Steam capsules in every size, a dubbed trailer and vertical shorts are staged and rendered from the game by scripts, and a scripted dive through both games produces a performance report. Windows, Linux and macOS builds are exported with GodotSteam for achievements and rich presence; what is left is playtesting, a Steam Deck check and the launch.",
         "highlights": [
-          "Godot 4 and GDScript, with game logic separated from rendering so state, shop, saves and achievements are unit tested",
-          "522 GUT tests running headless in GitHub Actions on every push, against a SHA-512-verified Godot binary",
-          "Data-driven content as Godot resources: 16 layers to Japan, 17 back, 25 achievements and 28 easter eggs",
-          "Balance simulator that plays both games and a test that holds the pacing targets (Japan in 55 to 100 minutes)",
-          "Pixel art as text maps rendered by a script, procedural placeholder audio, and screenshots and trailer captured headless",
-          "Windows and Linux release builds with tested export presets, corrupt-save recovery and a Steam bridge for achievements"
+          "3D remake of my 2D game in Godot 4: logic, content and tests carried over unchanged and only the views rebuilt, so the ported tests and balance report prove it plays the same",
+          "768 GUT tests running headless in GitHub Actions on every push, against a SHA-512-verified Godot binary",
+          "Every model built from rounded primitives in code, in a soft vinyl toy style, with no imported meshes",
+          "Third-person camera inside a looping shaft whose shader material changes per layer, with fog and a real helmet lamp",
+          "Scripted 3D set pieces: a cut-open Earth for the zoom-out gag and chopsticks that hold rocks as physics bodies",
+          "Store screenshots, Steam capsules, a dubbed trailer and shorts rendered from the game by scripts; Windows, Linux and macOS builds with GodotSteam"
         ],
         "screenshots": [
           {
             "src": "/projects/dig-to-japan/dig-title.avif",
-            "alt": "Title screen: a backyard in Brazil at sunset"
+            "alt": "Title screen: the backyard in Brazil at sunset"
           },
           {
-            "src": "/projects/dig-to-japan/dig-outer-core.avif",
-            "alt": "Digging through the outer core with the depth HUD"
+            "src": "/projects/dig-to-japan/dig-fossils.avif",
+            "alt": "Third-person camera in the shaft, a T-Rex skull in the wall"
           },
           {
             "src": "/projects/dig-to-japan/dig-shop.avif",
-            "alt": "Moleque's shop with spoons and perks"
+            "alt": "Moleque's shop in his cave, with spoons and perks"
           },
           {
             "src": "/projects/dig-to-japan/dig-to-scale.avif",
-            "alt": "Zoom-out gag showing the hole to scale"
+            "alt": "Zoom-out gag: the hole to scale in a cut-open Earth"
+          },
+          {
+            "src": "/projects/dig-to-japan/dig-outer-core.avif",
+            "alt": "Digging through the outer core, the walls glowing"
           },
           {
             "src": "/projects/dig-to-japan/dig-chopsticks.avif",
@@ -458,7 +465,58 @@
           "GDScript",
           "GUT",
           "GitHub Actions",
-          "Pixel art"
+          "Shaders",
+          "GodotSteam"
+        ]
+      },
+      {
+        "title": "Shave the Capybara",
+        "slug": "shave-the-capybara",
+        "status": "In development",
+        "description": "Silly 3D game for Steam, in development: climb a sleeping, neighbourhood-sized capybara and shave her to 100% with one disposable razor without waking her up, then glue it all back on in the second game. Built in Godot 4: you walk on her curved body with gravity toward her surface, her parts are generated ellipsoid meshes whose UVs are the shave grid, and the fur mixes instanced tufts near the camera with a shell shader further away, both thinned by the shave mask. Data-driven content, 365 GUT tests in CI including a full-playthrough test, and a balance simulator holding the pacing at about 5 hours plus 2.",
+        "summary": "A 3D Godot game for Steam: shave a giant sleeping capybara without waking her, then glue the fur back on. Walking on a curved body, fur that reacts to every pass of the razor, and 365 tests in CI.",
+        "longDescription": "Shave the Capybara (Raspa a Capivara) is the follow-up to Dig to Japan with a Spoon, a single-player 3D game for Steam currently in development. A capybara the size of a neighbourhood is asleep in the Pantanal, and a retired barber bet his whole town he could shave her with one disposable razor. You climb her and shave her strip by strip across eight body zones, dealing with knots, burrs, a tick village with a mayor and an election, twelve animal guests to relocate and a dark ear cave, while keeping her asleep with lullabies and managing the razor's edge, skin irritation and the cold. When she wakes up bald, the second game is gluing it all back on. It is built in Godot 4 with GDScript, with the same architecture as Dig to Japan: game logic in scripts with no rendering, unit tested with GUT, and content as Godot resources (8 zones, 20 problems, 6 razors, 40 lost items, 6 lullabies, 38 achievements). Walking on her is pure vector math in a testable SurfaceWalker: gravity points into her surface and the camera's heading is carried from one \"up\" to the next without spinning. Her body is built from ellipsoid meshes generated in code whose UVs are the shave grid's coordinates, so the shave mask texture maps straight onto her. The fur combines MultiMesh tufts near the camera with a shell shader for the soft look further away, both driven by that mask, with a quality setting, a benchmark tool and incremental rebuilds that only touch what the razor changed. 365 tests run in GitHub Actions on every push, including a full-playthrough test that proves every problem can be solved, every collectible reached and both endings unlocked, and a balance simulator that holds the main game at about 5 hours and the second at about 2. It is ready for the Steam Deck by design: it pauses when the window loses focus or a controller disconnects, saves and settings are written atomically, and a test keeps all text at 14 px or more at Deck resolution. Windows, Linux and macOS builds, GodotSteam achievements, store screenshots, a trailer and shorts are already done.",
+        "highlights": [
+          "Walking on a giant curved body: gravity toward her surface and a camera heading carried between \"up\" directions, as pure, unit-tested math",
+          "Body built from ellipsoid meshes generated in code whose UVs are the shave grid, so the shave mask maps straight onto her",
+          "Fur that mixes MultiMesh tufts near the camera with a shell shader further away, thinned by the shave mask, with quality settings and incremental rebuilds",
+          "365 GUT tests in GitHub Actions, including a full-playthrough test that proves every problem is solvable and both endings are reachable",
+          "Data-driven content (8 zones, 20 problems, 40 lost items, 38 achievements) and a balance simulator holding the pacing at about 5 hours plus 2",
+          "Steam Deck readiness: pause on focus loss and controller disconnect, atomic saves and a 14 px text floor test; Windows, Linux and macOS builds with GodotSteam"
+        ],
+        "screenshots": [
+          {
+            "src": "/projects/shave-the-capybara/capybara-title.avif",
+            "alt": "Title screen: Bolota asleep in the Pantanal"
+          },
+          {
+            "src": "/projects/shave-the-capybara/capybara-shaving.avif",
+            "alt": "Shaving a lane across her back, with the sleep meter on top"
+          },
+          {
+            "src": "/projects/shave-the-capybara/capybara-knot.avif",
+            "alt": "Fur knot puzzle: comb in the direction of the fur"
+          },
+          {
+            "src": "/projects/shave-the-capybara/capybara-map.avif",
+            "alt": "Body map with each zone's progress and what it needs"
+          },
+          {
+            "src": "/projects/shave-the-capybara/capybara-village.avif",
+            "alt": "The tick village on her skin and its mayor"
+          },
+          {
+            "src": "/projects/shave-the-capybara/capybara-camp.avif",
+            "alt": "Camp: crafting gear from the fur"
+          }
+        ],
+        "techStack": [
+          "Godot 4",
+          "GDScript",
+          "GUT",
+          "GitHub Actions",
+          "Shaders",
+          "GodotSteam"
         ]
       },
       {

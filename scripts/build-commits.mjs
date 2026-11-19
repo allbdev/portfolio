@@ -35,6 +35,8 @@ const PUBLIC_REPOS = {
   seguros: 'Bem Coberto',
   'pocket-helper': 'Tavi',
   'dig-to-japan': 'Dig to Japan',
+  'dig-to-japan-3d': 'Dig to Japan',
+  'shave-the-capybara': 'Shave the Capybara',
 };
 const PRIVATE_LABEL = 'client work';
 

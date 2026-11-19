@@ -382,16 +382,16 @@
         "title": "Tavi",
         "slug": "tavi",
         "status": "Em desenvolvimento",
-        "description": "Assistente pessoal com IA para o dia a dia, em desenvolvimento: registre água, refeições, treinos, peso, tarefas e dinheiro só conversando, no app ou pelo Claude via MCP. App React Native offline-first (Expo SDK 58) sobre SQLite local sincronizado com Postgres por um PowerSync auto-hospedado, API NestJS 12 com Drizzle, um agente Claude com respostas em streaming que confirma na tela toda mudança, um servidor MCP com servidor de autorização OAuth 2.1 próprio, finanças guardadas só no celular num banco SQLCipher e assinaturas nas lojas via RevenueCat.",
-        "summary": "Assistente pessoal com IA: registre água, refeições, treinos, tarefas e dinheiro só conversando, no app ou pelo Claude via MCP. App React Native offline-first com PowerSync, API NestJS e um agente Claude que pede confirmação antes de mudar qualquer coisa.",
-        "longDescription": "Tavi é um assistente pessoal para o dia a dia, em desenvolvimento: água, refeições, treinos, peso, listas de tarefas e finanças pessoais, registrados só dizendo \"bebi 500 ml, fiz 5 rounds de manopla, peso 84,2\". O núcleo do app é um CRUD simples e rápido que funciona sem IA; o assistente é uma camada por cima. O app é React Native com Expo SDK 58 e Expo Router, e é offline-first: toda tela lê um SQLite local que sincroniza com o Postgres por um serviço PowerSync auto-hospedado. Os aparelhos escrevem por um único endpoint de upload com allow-list explícita de tabelas e colunas, campos controlados pelo servidor, checagem de dono em toda referência e um savepoint por operação, então uma escrita inválida volta como recusada sem travar a fila do aparelho. Um useQuery próprio só re-renderiza quando as linhas mudam de fato, e escritas recusadas ficam guardadas com seus dados para tentar de novo. A API NestJS 12 com Drizzle e Postgres 18 roda o assistente no Claude Haiku 5.5: as respostas chegam por server-sent events com o resumo do raciocínio do modelo e cada passo de ferramenta, e o agente pode ler e mudar qualquer coisa do app, mas toda mudança ou exclusão é ensaiada pelo motor de sync numa transação desfeita, guardada como operações exatas e mostrada num cartão de confirmação montado a partir das linhas reais, nunca do texto do modelo. Um único conjunto de schemas Zod define a validação da API e as ferramentas, então as mesmas ferramentas são servidas ao Claude, ao ChatGPT e a outros assistentes por um servidor MCP, protegido por um servidor de autorização OAuth 2.1 escrito na própria API (PKCE, registro dinâmico de clientes, tokens opacos com rotação). As finanças nunca chegam ao backend: ficam num banco SQLCipher por usuário no celular, com backup criptografado por senha no Google Drive, e o assistente acessa esses dados por ferramentas que rodam no aparelho. O custo de IA tem teto por usuário e global, checado antes de cada chamada, um conjunto de 30 casos de avaliação protege o prompt, e as assinaturas Pro vêm das lojas via RevenueCat.",
+        "description": "Assistente pessoal com IA para o dia a dia: registre água, refeições, treinos, peso, tarefas e dinheiro só conversando, no app ou pelo Claude via MCP. O site está no ar em oitavi.com.br e a API roda em produção na AWS; os apps de iOS e Android ainda não estão nas lojas. App React Native offline-first (Expo SDK 58) sobre SQLite local sincronizado com Postgres por um PowerSync auto-hospedado, widgets nativos na tela inicial, API NestJS 12 com um agente Claude em streaming que confirma na tela toda mudança, servidor MCP com OAuth 2.1 próprio, finanças guardadas só no celular, infraestrutura em AWS CDK e um site Next.js feito para buscadores e mecanismos de resposta com IA.",
+        "summary": "Assistente pessoal com IA: registre água, refeições, treinos, tarefas e dinheiro só conversando, no app ou pelo Claude via MCP. Site no ar, API na AWS, apps ainda fora das lojas.",
+        "longDescription": "Tavi (antes Pocket Helper) é um assistente pessoal para o dia a dia: água, refeições, treinos, peso, listas de tarefas e finanças pessoais, registrados só dizendo \"bebi 500 ml, fiz 5 rounds de manopla, peso 84,2\". O site está no ar em oitavi.com.br e o backend está em produção, enquanto os apps de iOS e Android ainda estão a caminho das lojas. O núcleo do app é um CRUD simples e rápido que funciona sem IA; o assistente é uma camada por cima. O app é React Native com Expo SDK 58 e é offline-first: toda tela lê um SQLite local que sincroniza com o Postgres por um serviço PowerSync auto-hospedado, e os aparelhos escrevem por um único endpoint de upload com allow-list de tabelas e colunas, checagem de dono e um savepoint por operação, então uma escrita inválida é recusada sem travar a fila do aparelho. Widgets nativos na tela inicial (SwiftUI no iOS, RemoteViews no Android, por um módulo Expo local) mostram o dia a partir de um snapshot que o app grava: a água contra a meta com um botão de +250 ml, as próximas tarefas para marcar e, durante um treino, o timer de descanso com os mesmos botões da notificação ao vivo e da Live Activity do iOS. Os toques entram numa fila nativa e funcionam com o app fechado. A API NestJS 12 com Drizzle e Postgres 18 roda o assistente no Claude Haiku 5.5: as respostas chegam por server-sent events com o resumo do raciocínio e cada passo de ferramenta, e toda mudança que o agente propõe é ensaiada pelo motor de sync numa transação desfeita e mostrada num cartão de confirmação montado a partir das linhas reais. Um único conjunto de schemas Zod define a validação da API e as ferramentas, então Claude, ChatGPT e outros assistentes recebem as mesmas ferramentas de leitura, criação e mudança confirmada por um servidor MCP, atrás de um servidor de autorização OAuth 2.1 escrito na própria API, com as confirmações do app e do MCP em canais separados. As finanças nunca chegam ao backend: ficam num banco SQLCipher por usuário no celular, com backup automático no Google Drive criptografado por senha. A produção roda numa instância EC2 em São Paulo definida em AWS CDK: Caddy, a API, Postgres e PowerSync em Docker, sem SSH (só Session Manager), sem NAT gateway, um disco de dados separado com snapshots diários, segredos no Parameter Store e um script de deploy que gera a imagem ARM, envia ao ECR e reinicia a stack. O site é Next.js 16 com Tailwind 4 e Motion, em português e inglês, estilizado com os design tokens do próprio app e feito para ser encontrado por buscadores e mecanismos de resposta com IA: JSON-LD, hreflang, uma imagem Open Graph por página e idioma, llms.txt e IndexNow. As assinaturas Pro passam pelo RevenueCat, e o custo de IA tem teto por usuário e global, checado antes de cada chamada.",
         "highlights": [
-          "Offline-first: React Native (Expo SDK 58) sobre SQLite local, sincronizado com Postgres por PowerSync auto-hospedado, com contrato de upload por allow-list e savepoint por operação",
-          "Agente Claude com respostas em streaming, resumo do raciocínio e passos de ferramenta; toda mudança é simulada pelo motor de sync e confirmada num cartão montado a partir das linhas reais",
-          "Uma camada de ferramentas em Zod para o agente do app e um servidor MCP, atrás de um servidor de autorização OAuth 2.1 dentro da API (PKCE, registro dinâmico de clientes, tokens opacos com rotação)",
-          "Finanças ficam no celular: banco SQLCipher por usuário fora do sync, backup no Google Drive criptografado por senha e ferramentas do assistente que rodam no aparelho",
-          "Controle de custo de IA antes de cada chamada (kill switch global, orçamento mensal por usuário, rate limit) e 30 casos de avaliação a cerca de US$ 0,00024 por mensagem",
-          "API NestJS 12 com Drizzle e Postgres 18, ~160 testes unitários e e2e com Vitest, notificação nativa de treino ao vivo e Live Activity no iOS, e assinaturas via RevenueCat"
+          "Site no ar em oitavi.com.br: Next.js 16, Tailwind 4 e Motion, em pt-BR e inglês, feito com os design tokens do app, com JSON-LD, imagens Open Graph por página, llms.txt e IndexNow para buscadores e respostas de IA",
+          "Produção na AWS definida em CDK: uma instância EC2 com Caddy, a API, Postgres 18 e PowerSync em Docker, sem SSH nem NAT gateway, disco de dados separado com snapshots diários e segredos no Parameter Store",
+          "React Native offline-first (Expo SDK 58) sobre SQLite local, sincronizado com Postgres por PowerSync auto-hospedado, com contrato de upload por allow-list e savepoint por operação",
+          "Widgets nativos na tela inicial no iOS e no Android: água, tarefas para marcar e o timer de descanso do treino ao vivo, com toques numa fila nativa que funcionam com o app fechado",
+          "Agente Claude com respostas em streaming e passos de ferramenta; toda mudança é simulada pelo motor de sync e confirmada num cartão, e as mesmas ferramentas chegam ao Claude e ao ChatGPT por um servidor MCP com OAuth 2.1",
+          "Finanças ficam no celular num banco SQLCipher por usuário, com backup automático no Google Drive criptografado por senha; assinaturas via RevenueCat e limites de custo de IA checados antes de cada chamada"
         ],
         "screenshots": [
           {
@@ -403,6 +403,7 @@
             "alt": "Painel de finanças, gráficos de progresso e listas de tarefas do Tavi"
           }
         ],
+        "liveUrl": "https://www.oitavi.com.br/",
         "techStack": [
           "React Native",
           "Expo",
@@ -413,40 +414,46 @@
           "PowerSync",
           "SQLCipher",
           "Claude API",
-          "MCP"
+          "MCP",
+          "Next.js",
+          "AWS CDK"
         ]
       },
       {
         "title": "Cavar até o Japão com uma Colher",
         "slug": "dig-to-japan",
         "status": "Em desenvolvimento",
-        "description": "Jogo 2D absurdo para a Steam, em desenvolvimento: cave do quintal no Brasil até a cozinha de uma família no Japão com uma colher de chá, depois volte pra casa com hashis. Feito em Godot 4 com GDScript: lógica de jogo separada da renderização e coberta por 522 testes GUT no GitHub Actions, todo o conteúdo como dados (16 camadas na ida, 17 na volta, 25 conquistas, 28 easter eggs), um simulador de balanceamento que mantém as metas de ritmo na suíte de testes, e sprites, screenshots e trailer gerados por scripts.",
-        "summary": "Jogo 2D em Godot para a Steam: cave do Brasil até o Japão com uma colher, depois volte com hashis. Conteúdo guiado por dados, lógica separada da renderização, 522 testes no CI e um simulador de balanceamento que segura o ritmo.",
-        "longDescription": "Cavar até o Japão com uma Colher é um jogo curto, single-player e propositalmente bobo para a Steam, em desenvolvimento. Um cara no quintal de casa decide cavar até o Japão com uma colher de chá, atravessando todas as camadas da Terra, enquanto uma toupeira de óculos escuros julga cada colherada e o vizinho filma tudo para o grupo da rua; quando ele finalmente fura o outro lado, cai no meio do jantar de uma família japonesa, e o segundo jogo é a volta com hashis. É feito em Godot 4 com GDScript. A lógica de jogo fica em scripts sem renderização (estado da escavação, progressão, loja, saves, configurações, conquistas) e é testada com GUT, enquanto as cenas só desenham e reagem; 522 testes rodam headless no GitHub Actions a cada push, com um binário do Godot verificado por SHA-512. Todo o conteúdo é dado: camadas, colheres, vantagens, itens da loja, falas e easter eggs são resources do Godot, com 16 camadas até o Japão e 17 na volta, 25 conquistas e 28 tesouros enterrados. Os saves são JSON com autosave nos marcos e ao sair, e um save corrompido é posto de lado em vez de derrubar o jogo. Um simulador de balanceamento joga os dois jogos como um jogador eficiente e um teste mantém as metas (Japão entre 55 e 100 minutos, a volta entre 20 e 60, nenhuma camada arrastada). A pixel art é escrita como mapas de texto e renderizada em sprites por um script, a música e os sons provisórios são gerados proceduralmente, e as screenshots e o trailer da loja são capturados por scripts headless. Builds de release para Windows e Linux já são exportadas, com testes garantindo que pastas de desenvolvimento fiquem de fora, e uma ponte com a Steam já está pronta para as conquistas.",
+        "description": "Jogo 3D absurdo para a Steam, em desenvolvimento: cave de um quintal no Brasil até a cozinha de uma família no Japão com uma colher de chá, depois cave de volta com hashis, com câmera em terceira pessoa dentro do buraco. Um remake 3D da minha versão 2D em Godot 4: a lógica do jogo, o conteúdo e os testes vieram sem mudanças e só as views foram refeitas, então 768 testes GUT no GitHub Actions provam que ele continua jogando como o original. Todo modelo é construído com primitivas em código, e as screenshots da loja, as cápsulas da Steam, o trailer e os shorts são renderizados a partir do próprio jogo.",
+        "summary": "Um jogo 3D em Godot para a Steam: cave do Brasil ao Japão com uma colher e volte com hashis, de dentro do buraco. Refeito a partir da minha versão 2D com a lógica e os testes intactos, e todo modelo construído em código.",
+        "longDescription": "Cavar até o Japão com uma Colher (Dig to Japan with a Spoon) é um jogo curto e propositalmente bobo, single-player, para a Steam, em desenvolvimento e jogável do começo ao fim. Um cara no quintal de casa no Brasil cava até o Japão com uma colher de chá, atravessando todas as camadas da Terra, enquanto uma toupeira de óculos escuros julga cada colherada e o vizinho filma tudo para o grupo da rua; o segundo jogo é a volta com hashis. Ele começou como um jogo 2D, e este é o remake 3D em Godot 4 com GDScript, com câmera em terceira pessoa dentro do buraco que você gira para achar tesouros nas paredes. O jogo 2D continua sendo a fonte da verdade: a lógica (estado da escavação, progressão, loja, saves, conquistas), o conteúdo como recursos do Godot e os testes de lógica vieram sem mudanças, e só as views foram refeitas, então se os testes portados passam e o relatório do simulador de balanceamento bate, o jogo 3D joga como o 2D. 768 testes GUT rodam headless no GitHub Actions a cada push, contra um binário do Godot verificado por SHA-512. A profundidade continua sendo só um número: o buraco é um tubo curto de parede que rola e troca o material do shader a cada camada, com neblina e uma lanterna de verdade no capacete, então quanto mais fundo, mais escuro, de graça. Não há malhas importadas: o Cavador, o elenco, os objetos, as ferramentas e os tesouros são construídos com primitivas arredondadas em código, num estilo de brinquedo de vinil com rostos expressivos. As cenas especiais são roteirizadas em 3D, de uma Terra cortada ao meio para a piada do zoom a hashis que seguram pedras como corpos físicos que caem de verdade. As screenshots da loja, as cápsulas da Steam em todos os tamanhos, um trailer dublado e shorts verticais são montados e renderizados a partir do jogo por scripts, e um mergulho roteirizado pelos dois jogos gera um relatório de desempenho. Builds de Windows, Linux e macOS são exportados com GodotSteam para conquistas e rich presence; o que falta é playtest, um teste no Steam Deck e o lançamento.",
         "highlights": [
-          "Godot 4 e GDScript, com a lógica de jogo separada da renderização para testar estado, loja, saves e conquistas",
-          "522 testes GUT rodando headless no GitHub Actions a cada push, com binário do Godot verificado por SHA-512",
-          "Conteúdo guiado por dados como resources do Godot: 16 camadas até o Japão, 17 na volta, 25 conquistas e 28 easter eggs",
-          "Simulador de balanceamento que joga os dois jogos e um teste que segura as metas de ritmo (Japão entre 55 e 100 minutos)",
-          "Pixel art como mapas de texto renderizados por script, áudio provisório procedural, e screenshots e trailer capturados headless",
-          "Builds de release para Windows e Linux com presets de exportação testados, recuperação de save corrompido e ponte com a Steam para conquistas"
+          "Remake 3D do meu jogo 2D em Godot 4: lógica, conteúdo e testes vieram sem mudanças e só as views foram refeitas, então os testes portados e o relatório de balanceamento provam que ele joga igual",
+          "768 testes GUT rodando headless no GitHub Actions a cada push, contra um binário do Godot verificado por SHA-512",
+          "Todo modelo construído com primitivas arredondadas em código, num estilo de brinquedo de vinil, sem nenhuma malha importada",
+          "Câmera em terceira pessoa dentro de um buraco em loop cujo material de shader muda a cada camada, com neblina e uma lanterna de verdade no capacete",
+          "Cenas especiais roteirizadas em 3D: uma Terra cortada ao meio para a piada do zoom e hashis que seguram pedras como corpos físicos",
+          "Screenshots da loja, cápsulas da Steam, trailer dublado e shorts renderizados a partir do jogo por scripts; builds de Windows, Linux e macOS com GodotSteam"
         ],
         "screenshots": [
           {
             "src": "/projects/dig-to-japan/dig-title.avif",
-            "alt": "Tela de título: um quintal no Brasil ao pôr do sol"
+            "alt": "Tela inicial: o quintal no Brasil ao pôr do sol"
           },
           {
-            "src": "/projects/dig-to-japan/dig-outer-core.avif",
-            "alt": "Cavando no núcleo externo com o HUD de profundidade"
+            "src": "/projects/dig-to-japan/dig-fossils.avif",
+            "alt": "Câmera em terceira pessoa no buraco, um crânio de T-Rex na parede"
           },
           {
             "src": "/projects/dig-to-japan/dig-shop.avif",
-            "alt": "Loja do Moleque com colheres e vantagens"
+            "alt": "A loja do Moleque na caverna dele, com colheres e vantagens"
           },
           {
             "src": "/projects/dig-to-japan/dig-to-scale.avif",
-            "alt": "Piada do zoom: o buraco em escala real"
+            "alt": "Piada do zoom: o buraco em escala numa Terra cortada ao meio"
+          },
+          {
+            "src": "/projects/dig-to-japan/dig-outer-core.avif",
+            "alt": "Cavando o núcleo externo, com as paredes brilhando"
           },
           {
             "src": "/projects/dig-to-japan/dig-chopsticks.avif",
@@ -458,7 +465,58 @@
           "GDScript",
           "GUT",
           "GitHub Actions",
-          "Pixel art"
+          "Shaders",
+          "GodotSteam"
+        ]
+      },
+      {
+        "title": "Raspa a Capivara",
+        "slug": "shave-the-capybara",
+        "status": "Em desenvolvimento",
+        "description": "Jogo 3D bobo para a Steam, em desenvolvimento: suba numa capivara do tamanho de um bairro que está dormindo e raspe ela até 100% com uma gilete descartável sem acordá-la, depois cole tudo de volta no segundo jogo. Feito em Godot 4: você anda no corpo curvo dela com a gravidade apontando para a superfície, as partes do corpo são elipsoides gerados em código cujas UVs são a grade de raspagem, e o pelo mistura tufos instanciados perto da câmera com um shader de camadas mais longe, os dois afinados pela máscara de raspagem. Conteúdo orientado a dados, 365 testes GUT no CI incluindo um teste de partida completa, e um simulador de balanceamento segurando o ritmo em cerca de 5 horas mais 2.",
+        "summary": "Um jogo 3D em Godot para a Steam: raspe uma capivara gigante dormindo sem acordá-la, depois cole o pelo de volta. Andar num corpo curvo, pelo que reage a cada passada da gilete e 365 testes no CI.",
+        "longDescription": "Raspa a Capivara (Shave the Capybara) é o sucessor de Cavar até o Japão com uma Colher, um jogo 3D single-player para a Steam, em desenvolvimento. Uma capivara do tamanho de um bairro dorme no Pantanal, e um barbeiro aposentado apostou com a cidade inteira que raspava ela com uma gilete descartável. Você sobe nela e raspa faixa por faixa em oito zonas do corpo, resolvendo nós, carrapichos, uma vila de carrapatos com prefeito e eleição, doze bichos hóspedes para realocar e uma caverna escura na orelha, enquanto mantém ela dormindo com cantigas e cuida do fio da gilete, da irritação da pele e do frio. Quando ela acorda pelada, o segundo jogo é colar tudo de volta. É feito em Godot 4 com GDScript, com a mesma arquitetura de Cavar até o Japão: lógica do jogo em scripts sem renderização, testada com GUT, e conteúdo como recursos do Godot (8 zonas, 20 problemas, 6 lâminas, 40 itens perdidos, 6 cantigas, 38 conquistas). Andar nela é matemática vetorial pura num SurfaceWalker testável: a gravidade aponta para dentro da superfície dela e a direção da câmera é levada de um \"cima\" para o próximo sem girar. O corpo é feito de elipsoides gerados em código cujas UVs são as coordenadas da grade de raspagem, então a textura da máscara de raspagem encaixa direto nela. O pelo combina tufos em MultiMesh perto da câmera com um shader de camadas para o visual macio mais longe, os dois guiados por essa máscara, com ajuste de qualidade, uma ferramenta de benchmark e reconstrução incremental que só mexe no que a gilete mudou. 365 testes rodam no GitHub Actions a cada push, incluindo um teste de partida completa que prova que todo problema pode ser resolvido, todo colecionável alcançado e os dois finais desbloqueados, e um simulador de balanceamento que segura o jogo principal em cerca de 5 horas e o segundo em cerca de 2. Ele foi pensado para o Steam Deck: pausa quando a janela perde o foco ou um controle desconecta, saves e configurações são gravados de forma atômica, e um teste mantém todo texto com 14 px ou mais na resolução do Deck. Builds de Windows, Linux e macOS, conquistas via GodotSteam, screenshots da loja, trailer e shorts já estão prontos.",
+        "highlights": [
+          "Andar num corpo gigante e curvo: gravidade apontando para a superfície e direção da câmera levada entre direções de \"cima\", como matemática pura e testada",
+          "Corpo feito de elipsoides gerados em código cujas UVs são a grade de raspagem, então a máscara de raspagem encaixa direto nela",
+          "Pelo que mistura tufos em MultiMesh perto da câmera com um shader de camadas mais longe, afinado pela máscara de raspagem, com ajuste de qualidade e reconstrução incremental",
+          "365 testes GUT no GitHub Actions, incluindo um teste de partida completa que prova que todo problema tem solução e os dois finais são alcançáveis",
+          "Conteúdo orientado a dados (8 zonas, 20 problemas, 40 itens perdidos, 38 conquistas) e um simulador de balanceamento segurando o ritmo em cerca de 5 horas mais 2",
+          "Pronto para o Steam Deck: pausa ao perder o foco ou desconectar o controle, saves atômicos e um teste de texto mínimo de 14 px; builds de Windows, Linux e macOS com GodotSteam"
+        ],
+        "screenshots": [
+          {
+            "src": "/projects/shave-the-capybara/capybara-title.avif",
+            "alt": "Tela inicial: a Bolota dormindo no Pantanal"
+          },
+          {
+            "src": "/projects/shave-the-capybara/capybara-shaving.avif",
+            "alt": "Raspando uma faixa nas costas dela, com o medidor de sono no alto"
+          },
+          {
+            "src": "/projects/shave-the-capybara/capybara-knot.avif",
+            "alt": "Puzzle do nó de pelo: pentear na direção do pelo"
+          },
+          {
+            "src": "/projects/shave-the-capybara/capybara-map.avif",
+            "alt": "Mapa do corpo com o progresso de cada zona e o que ela pede"
+          },
+          {
+            "src": "/projects/shave-the-capybara/capybara-village.avif",
+            "alt": "A vila dos carrapatos na pele dela e o prefeito"
+          },
+          {
+            "src": "/projects/shave-the-capybara/capybara-camp.avif",
+            "alt": "Acampamento: fabricando equipamento com o pelo"
+          }
+        ],
+        "techStack": [
+          "Godot 4",
+          "GDScript",
+          "GUT",
+          "GitHub Actions",
+          "Shaders",
+          "GodotSteam"
         ]
       },
       {
