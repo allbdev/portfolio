@@ -23,12 +23,14 @@ const MotionBox = motion.create(Box);
 /** Splits a word into per-letter spans so each glyph can carry its own weight. */
 function KineticWord({ word, accent = false }: { word: string; accent?: boolean }) {
   return (
-    <Box component="div" sx={accent ? { color: 'accent.text' } : undefined}>
+    // nowrap: the letters are inline-blocks, which would otherwise break mid-word.
+    <Box component="div" sx={{ whiteSpace: 'nowrap', ...(accent ? { color: 'accent.text' } : null) }}>
       {Array.from(word).map((letter, index) => (
         <Box
           key={`${letter}-${index}`}
           component="span"
           className="kinetic-letter"
+          aria-hidden
           sx={{ display: 'inline-block' }}
         >
           {letter}
@@ -195,10 +197,12 @@ export default function Hero({ dictionary, lang }: { dictionary: Dictionary; lan
           display: 'grid',
           // Stacked: name, skyline, then the pitch. Desktop: text left, skyline right.
           gridTemplateColumns: { xs: '1fr', lg: '1.05fr 1fr' },
-          gridTemplateRows: { lg: '1fr auto auto 1fr' },
+          gridTemplateRows: { lg: '1fr auto auto 1fr auto' },
+          // Phones: name, pitch, CTAs and stats come before the 3D skyline, so a
+          // recruiter gets the screening facts on the first screen.
           gridTemplateAreas: {
-            xs: '"head" "stage" "body"',
-            lg: '". stage" "head stage" "body stage" ". stage"',
+            xs: '"head" "body" "stats" "stage"',
+            lg: '". stage" "head stage" "body stage" ". stage" "stats stats"',
           },
           columnGap: { lg: 4 },
           flex: 1,
@@ -212,34 +216,17 @@ export default function Hero({ dictionary, lang }: { dictionary: Dictionary; lan
         }}
       >
         <Box className="hero-text" sx={{ gridArea: 'head' }}>
-            <motion.div {...heroItem(0)}>
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.75, mb: { xs: 3.5, md: 4 } }}>
-                <Box aria-hidden sx={{ width: 40, height: '1px', bgcolor: 'accent.main' }} />
-                <Box
-                  component="span"
-                  sx={{
-                    fontFamily: fontFamilies.mono,
-                    fontSize: { xs: '0.62rem', sm: '0.72rem' },
-                    letterSpacing: { xs: '0.16em', sm: '0.22em' },
-                    color: 'accent.text',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  {hero.eyebrow}
-                </Box>
-              </Box>
-            </motion.div>
-
             <motion.div {...heroItem(0.08)}>
               <Typography
                 ref={nameRef}
                 component="h1"
                 variant="h1"
+                aria-label={`${site.firstName} ${site.lastName}`}
                 sx={{
                   m: 0,
                   // Scales off the viewport so "ALBUQUERQUE" stays on one line
                   // down to the narrowest phones, and beside the skyline on desktop.
-                  fontSize: { xs: 'clamp(34px, 10.5vw, 96px)', lg: 'clamp(48px, 5.2vw, 96px)' },
+                  fontSize: { xs: 'clamp(34px, 10.5vw, 96px)', lg: 'clamp(48px, 4.6vw, 96px)' },
                   lineHeight: 0.95,
                   textTransform: 'uppercase',
                 }}
@@ -247,12 +234,26 @@ export default function Hero({ dictionary, lang }: { dictionary: Dictionary; lan
                 <KineticWord word={site.firstName} />
                 <KineticWord word={site.lastName} accent />
               </Typography>
+              {/* The title is the first screening fact, so it reads as a line, not a label. */}
+              <Typography
+                component="p"
+                sx={{
+                  mt: { xs: 2, md: 2.5 },
+                  fontFamily: fontFamilies.display,
+                  fontWeight: 500,
+                  fontSize: { xs: '1.3rem', sm: '1.5rem', lg: '1.65rem' },
+                  letterSpacing: '-0.015em',
+                  lineHeight: 1.2,
+                }}
+              >
+                {hero.title}
+              </Typography>
             </motion.div>
         </Box>
 
         <Box className="hero-text" sx={{ gridArea: 'body' }}>
           <motion.div {...heroItem(0.16)}>
-            <Typography sx={{ mt: { xs: 3.5, md: 4 }, maxWidth: 520, fontSize: '1.1rem', lineHeight: 1.7, color: 'text.secondary' }}>
+            <Typography sx={{ mt: { xs: 2.5, md: 3 }, maxWidth: 520, fontSize: '1.1rem', lineHeight: 1.7, color: 'text.secondary' }}>
               {hero.intro}
             </Typography>
             <Typography sx={{ mt: 1.5, maxWidth: 520, fontSize: '1rem', lineHeight: 1.65, color: 'text.primary', fontWeight: 500 }}>
@@ -263,11 +264,9 @@ export default function Hero({ dictionary, lang }: { dictionary: Dictionary; lan
           <motion.div {...heroItem(0.24)}>
             <Typography
               sx={{
-                mt: 4,
+                mt: { xs: 3, md: 4 },
                 mb: 1.5,
-                fontFamily: fontFamilies.mono,
-                fontSize: '0.75rem',
-                letterSpacing: '0.04em',
+                fontSize: '0.92rem',
                 color: 'text.secondary',
               }}
             >
@@ -321,7 +320,7 @@ export default function Hero({ dictionary, lang }: { dictionary: Dictionary; lan
                 gap: 1,
                 mt: 2.5,
                 fontFamily: fontFamilies.mono,
-                fontSize: '0.68rem',
+                fontSize: '0.72rem',
                 color: 'text.secondary',
               }}
             >
@@ -331,32 +330,12 @@ export default function Hero({ dictionary, lang }: { dictionary: Dictionary; lan
           </motion.div>
         </Box>
 
-        {/* The 3D commit skyline. */}
-        <Box
-          sx={{
-            gridArea: 'stage',
-            alignSelf: 'center',
-            position: 'relative',
-            height: { xs: 300, sm: 380, lg: 'min(620px, 66vh)' },
-            my: { xs: 2, lg: 0 },
-            mx: { xs: -1, sm: 0 },
-            // Bleeds left under the text column (which lets pointer events
-            // through) so the slab has room to breathe.
-            ml: { lg: '-30%' },
-            mr: { lg: -4 },
-            zIndex: 1,
-          }}
-        >
-          <CommitSkyline dictionary={dictionary} lang={lang} />
-        </Box>
-      </Box>
-
-      <motion.div {...heroItem(0.36)}>
+        <motion.div {...heroItem(0.32)} style={{ gridArea: 'stats', position: 'relative', zIndex: 2 }}>
         <Box
           sx={{
             display: 'grid',
             gridTemplateColumns: { xs: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' },
-            mt: { xs: 5, lg: 3 },
+            mt: { xs: 4.5, lg: 3 },
             borderTop: 1,
             borderColor: 'divider',
           }}
@@ -381,8 +360,8 @@ export default function Hero({ dictionary, lang }: { dictionary: Dictionary; lan
               <Box
                 sx={{
                   fontFamily: fontFamilies.mono,
-                  fontSize: '0.62rem',
-                  letterSpacing: '0.14em',
+                  fontSize: '0.72rem',
+                  letterSpacing: '0.06em',
                   color: 'text.secondary',
                   textTransform: 'uppercase',
                   mt: 0.75,
@@ -394,6 +373,27 @@ export default function Hero({ dictionary, lang }: { dictionary: Dictionary; lan
           ))}
         </Box>
       </motion.div>
+
+        {/* The 3D commit skyline. */}
+        <Box
+          sx={{
+            gridArea: 'stage',
+            alignSelf: 'center',
+            position: 'relative',
+            height: { xs: 280, sm: 380, lg: 'min(620px, 66vh)' },
+            mt: { xs: 3, lg: 0 },
+            mx: { xs: -1, sm: 0 },
+            // Bleeds left under the text column (which lets pointer events
+            // through) so the slab has room to breathe.
+            ml: { lg: '-30%' },
+            mr: { lg: -4 },
+            zIndex: 1,
+          }}
+        >
+          <CommitSkyline dictionary={dictionary} lang={lang} />
+        </Box>
+      </Box>
+
     </Box>
   );
 }

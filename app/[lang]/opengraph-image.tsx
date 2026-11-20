@@ -36,7 +36,7 @@ export default async function OpengraphImage({ params }: { params: Promise<{ lan
       >
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <div style={{ display: 'flex', fontSize: 24, letterSpacing: 4, color: ACCENT, textTransform: 'uppercase' }}>
-            {d.hero.eyebrow}
+            {d.hero.title}
           </div>
           <div style={{ display: 'flex', fontSize: 88, fontWeight: 700, marginTop: 24, lineHeight: 1 }}>
             {site.firstName} {site.lastName}

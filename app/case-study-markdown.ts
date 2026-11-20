@@ -17,7 +17,7 @@ export function caseStudyMarkdown(project: Project, dictionary: Dictionary, lang
   const links = [
     project.liveUrl ? `- ${liveDemo}: ${project.liveUrl}` : project.status ? `- Status: ${project.status}` : null,
     project.githubUrl ? `- ${viewCode}: ${project.githubUrl}` : null,
-    `- ${detail.eyebrow} (HTML): ${page}`,
+    `- ${detail.caseStudy} (HTML): ${page}`,
   ].filter(Boolean);
 
   const cs = project.caseStudy;
@@ -63,7 +63,7 @@ ${architecture}`;
 
 > ${project.summary}
 
-${detail.eyebrow} · ${name} · ${site.url}/${lang}
+${[detail.caseStudy, name, project.role, project.period].filter(Boolean).join(' · ')} · ${site.url}/${lang}
 
 ${links.join('\n')}
 

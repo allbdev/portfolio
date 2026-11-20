@@ -40,7 +40,7 @@ function Wordmark({ role }: { role: string }) {
       <Box
         sx={{
           fontFamily: fontFamilies.mono,
-          fontSize: '0.65rem',
+          fontSize: '0.72rem',
           letterSpacing: '0.12em',
           color: 'accent.text',
           mt: 1.25,
@@ -78,14 +78,16 @@ function NavLinks({
               alignItems: 'center',
               gap: 1.5,
               py: 1,
-              opacity: isActive ? 1 : 0.55,
-              transition: 'opacity 0.25s',
-              '&:hover': { opacity: 1 },
+              // Real muted colour, not opacity: dimming with opacity drops the
+              // index and label below AA contrast in light mode.
+              color: isActive ? 'text.primary' : 'text.secondary',
+              transition: 'color 0.25s',
+              '&:hover': { color: 'text.primary' },
             }}
           >
             <Box
               component="span"
-              sx={{ fontFamily: fontFamilies.mono, fontSize: '0.65rem', color: 'accent.text' }}
+              sx={{ fontFamily: fontFamilies.mono, fontSize: '0.72rem', color: 'accent.text' }}
             >
               {section.index}
             </Box>
@@ -198,9 +200,8 @@ export default function Sidebar({
           <Box
             sx={{
               fontFamily: fontFamilies.mono,
-              fontSize: '0.6rem',
+              fontSize: '0.72rem',
               color: 'text.secondary',
-              opacity: 0.7,
             }}
           >
             © {site.year} — BR
@@ -232,8 +233,12 @@ export default function Sidebar({
           sx={{
             fontFamily: fontFamilies.display,
             fontWeight: 700,
-            fontSize: '0.95rem',
+            fontSize: { xs: '0.86rem', sm: '0.95rem' },
             letterSpacing: '-0.01em',
+            whiteSpace: 'nowrap',
+            minWidth: 0,
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
           }}
         >
           {site.firstName} {site.lastName}

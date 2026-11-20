@@ -145,8 +145,8 @@ export default function CommitSkyline({ dictionary, lang }: { dictionary: Dictio
           flexWrap: 'wrap',
           pointerEvents: 'none',
           fontFamily: fontFamilies.mono,
-          fontSize: '0.64rem',
-          letterSpacing: '0.08em',
+          fontSize: '0.72rem',
+          letterSpacing: '0.04em',
           color: 'text.secondary',
         }}
       >
@@ -159,7 +159,14 @@ export default function CommitSkyline({ dictionary, lang }: { dictionary: Dictio
           </Box>
           <Box>
             {t.streak.replace('{n}', String(commits.longestStreak))} ·{' '}
-            {t.activeDays.replace('{n}', String(commits.activeDays))} · {t.dragHint}
+            {t.activeDays.replace('{n}', String(commits.activeDays))} ·{' '}
+            {/* Touch screens can't hover, so they get the tap wording. */}
+            <Box component="span" sx={{ '@media (hover: none)': { display: 'none' } }}>
+              {t.dragHint}
+            </Box>
+            <Box component="span" sx={{ display: 'none', '@media (hover: none)': { display: 'inline' } }}>
+              {t.tapHint}
+            </Box>
           </Box>
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>

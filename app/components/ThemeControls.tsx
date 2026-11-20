@@ -61,8 +61,9 @@ export default function ThemeControls({ lang }: { lang: Locale }) {
           ...controlSx,
           px: 1.5,
           fontFamily: fontFamilies.mono,
-          fontSize: '0.68rem',
-          letterSpacing: '0.1em',
+          fontSize: '0.72rem',
+          letterSpacing: '0.04em',
+          whiteSpace: 'nowrap',
         }}
       >
         {lang.toUpperCase()} → {other.toUpperCase()}

@@ -8,9 +8,9 @@
     "contact": "Contato"
   },
   "hero": {
-    "eyebrow": "Engenheiro Full-stack Sênior · Disponível",
+    "title": "Engenheiro Full-stack Sênior",
     "role": "Eng. Full-stack Sênior",
-    "intro": "Projeto e entrego produtos web e mobile rápidos.",
+    "intro": "Construo produtos de ponta a ponta, do banco de dados à interface, para times e para o SaaS que cofundei.",
     "subtitle": "Sou engenheiro de software full stack sênior, com mais de 6 anos levando funcionalidades do banco de dados à interface, em empresas de produto e projetos para clientes. Construo o frontend em React ou Next.js e a API em Node.js, NestJS ou Go por trás dele, e já cuidei de pipelines de CI/CD e de publicações nas lojas de aplicativos.\n\nNa Bird, arquitetei um construtor de dashboards no-code que lida com bases corporativas de mais de 1 milhão de registros. Também sou cofundador técnico e único engenheiro do Path Trader, um SaaS que hoje atende cerca de 70 clientes.",
     "cta": "Ver projetos",
     "downloadCv": "Baixar currículo",
@@ -41,10 +41,11 @@
       "streak": "maior sequência: {n} dias",
       "activeDays": "{n} dias ativos",
       "dragHint": "arraste para girar · passe o mouse num dia",
+      "tapHint": "arraste para girar · toque num dia",
       "less": "menos",
       "more": "mais"
     },
-    "tagline": "Engenheiro full-stack sênior. React e Next.js na frente, Node.js, NestJS e Go por trás, fluxo de trabalho AI-first.",
+    "tagline": "React e Next.js na frente, Node.js, NestJS e Go por trás, fluxo de trabalho AI-first.",
     "hiring": "Contratando para uma vaga full-stack remota?",
     "emailCta": "Me mande um e-mail"
   },
@@ -76,14 +77,6 @@
       {
         "label": "Idiomas",
         "value": "Português (nativo) · Inglês (fluente)"
-      },
-      {
-        "label": "Experiência",
-        "value": "6+ anos · desde jan 2020"
-      },
-      {
-        "label": "Construindo",
-        "value": "Path Trader · ~70 clientes"
       },
       {
         "label": "Formação",
@@ -162,7 +155,7 @@
         "llms": [
           "# um perfil em texto para assistentes de IA",
           "{url}",
-          "# pergunte ao seu: cole o prompt da seção \"Pergunte à sua IA\""
+          "# pergunte ao seu: cole o prompt da seção Contato"
         ]
       },
       "openHint": "# tente: open path-trader",
@@ -283,7 +276,7 @@
     "code": "Código",
     "viewDetails": "Ver detalhes",
     "detail": {
-      "eyebrow": "Estudo de caso",
+      "caseStudy": "Estudo de caso",
       "back": "VOLTAR",
       "overview": "Visão geral",
       "highlights": "Destaques",
@@ -293,13 +286,99 @@
       "built": "O que construí",
       "hardPart": "A parte difícil",
       "result": "Resultado",
-      "architecture": "Arquitetura"
+      "architecture": "Arquitetura",
+      "next": "Próximo estudo de caso",
+      "fullWriteup": "Ler o texto completo"
     },
     "items": [
       {
+        "title": "Path Trader",
+        "slug": "path-trader",
+        "eyebrow": "SaaS independente · No ar desde jan 2026",
+        "role": "Cofundador técnico · único engenheiro",
+        "period": "Jan 2026 – atual",
+        "description": "SaaS independente para traders brasileiros, do qual sou cofundador técnico e único engenheiro, com cerca de 70 clientes. Monorepo pnpm + Turborepo com quatro apps Next.js 16 (app web, site institucional, admin e landing page) e uma API NestJS 11 com 56 módulos sobre um schema Prisma/PostgreSQL de 74 modelos. Assistente de IA com roteador multiagente, tool calling e RAG em pgvector, rodando em OpenAI ou AWS Bedrock com orçamento mensal de custo por plano, além de um servidor MCP protegido por OAuth. Assinaturas Asaas com webhooks idempotentes, filas pg-boss, Pusher, AWS S3/SES, PWA com Serwist, cerca de 500 arquivos de testes unitários e e2e, e 16 workflows do GitHub Actions com deploy na Vercel e no Fly.",
+        "summary": "SaaS independente para traders brasileiros: diário, análises, importação de corretoras e um assistente de IA com RAG e servidor MCP. Cofundador técnico e único engenheiro, hoje com cerca de 70 clientes.",
+        "longDescription": "Path Trader é uma plataforma independente que ajuda traders brasileiros a registrar operações, analisar desempenho e gerenciar risco. Cofundei o projeto com um sócio que trouxe a ideia e cuida do marketing; como único engenheiro, sou responsável por toda a tecnologia, e hoje ela atende cerca de 70 clientes. É um monorepo pnpm + Turborepo com quatro apps Next.js 16 (o app web, o site institucional, o painel admin e uma landing page) e uma API NestJS 11, compartilhando onze pacotes internos e um único schema Prisma de 74 modelos no PostgreSQL, distribuído em 56 módulos de API. As operações entram por oito parsers de importação específicos de corretoras e plataformas (MetaTrader 4/5, Profit, TradingView e outras). O assistente de IA é um roteador de chat multiagente com tool calling e busca em um corpus no pgvector; roda em OpenAI ou AWS Bedrock atrás de uma abstração de provedor, calcula o custo de cada requisição pelos tokens e aplica um orçamento mensal por plano. Um servidor MCP protegido por OAuth permite que o trader consulte o próprio diário pelo Claude e outros clientes MCP. A cobrança roda em assinaturas Asaas: os webhooks são autenticados e processados de forma assíncrona por handlers idempotentes, um job diário reconcilia eventos perdidos, e as notas fiscais de serviço (NFS-e) são emitidas automaticamente. Trabalho demorado, como turnos de IA, importações e notificações, passa por filas pg-boss no Postgres, com atualizações em tempo real via Pusher e armazenamento e e-mail na AWS S3/SES. O app web é um PWA com Serwist, a API é protegida com helmet e rate limiting global, o Sentry cobre a API e os apps públicos, e cerca de 500 arquivos de testes Jest e Playwright rodam em 16 workflows do GitHub Actions que fazem release e deploy na Vercel e no Fly.",
+        "highlights": [
+          "Monorepo pnpm + Turborepo: quatro apps Next.js 16 e uma API NestJS 11 (56 módulos) compartilhando 11 pacotes e um schema Prisma de 74 modelos",
+          "Assistente de IA: roteador multiagente com tool calling e RAG em pgvector, em OpenAI ou AWS Bedrock, com orçamento mensal de custo por plano",
+          "Servidor MCP protegido por OAuth para o trader usar o diário pelo Claude e outros clientes MCP",
+          "Cobrança Asaas com webhooks autenticados e idempotentes, reconciliação diária e emissão automática de NFS-e",
+          "Oito parsers de importação de corretoras e filas pg-boss para IA, importações e notificações, com Pusher em tempo real e AWS S3/SES",
+          "Cerca de 500 arquivos de testes Jest e Playwright e 16 workflows do GitHub Actions: testes, suítes e2e, releases automáticos, backups e deploy na Vercel e no Fly"
+        ],
+        "screenshots": [
+          {
+            "src": "/projects/path-trader/path-trader-analytics.webp",
+            "alt": "Painel do Path Trader com análises de desempenho"
+          },
+          {
+            "src": "/projects/path-trader/path-trader-dashboard.webp",
+            "alt": "Visão do dashboard principal do Path Trader"
+          },
+          {
+            "src": "/projects/path-trader/path-trader-elliot-ai.webp",
+            "alt": "Chat do assistente com IA do Path Trader"
+          }
+        ],
+        "liveUrl": "https://www.path-trader.com.br/",
+        "techStack": [
+          "Turborepo",
+          "Next.js",
+          "NestJS",
+          "TypeScript",
+          "PostgreSQL",
+          "Prisma",
+          "pgvector",
+          "OpenAI",
+          "AWS",
+          "Playwright"
+        ],
+        "caseStudy": {
+          "problem": "Traders brasileiros registram as operações em planilhas, quando registram, e não enxergam os próprios padrões: quais setups dão resultado, quando operam demais, quanto risco realmente correm. O Path Trader transforma operações importadas em diário e análises, com um assistente de IA que responde perguntas sobre os dados do próprio trader.",
+          "hardPart": {
+            "title": "Cobrança que nunca perde um evento",
+            "text": "As assinaturas rodam no Asaas, e um webhook de pagamento perdido ou entregue duas vezes significa um cliente sem acesso ou cobrado errado. Os webhooks são autenticados e processados de forma assíncrona por handlers idempotentes, então uma nova tentativa não tem efeito; um job diário concilia com o Asaas para pegar o que escapou, e as notas fiscais de serviço (NFS-e) são emitidas automaticamente. O assistente de IA recebe o mesmo cuidado com custo: cada requisição é precificada pelos tokens e checada contra um orçamento mensal por plano."
+          },
+          "result": "Cerca de 70 clientes, 540 pull requests mergeados e cerca de 56 deploys em produção, cada um protegido por GitHub Actions com checagem de tipos, testes unitários e end-to-end. Construído e operado por mim como único engenheiro e cofundador técnico; meu sócio trouxe a ideia e cuida do marketing."
+        },
+        "architecture": {
+          "nodes": [
+            {
+              "label": "Apps Next.js",
+              "items": [
+                "Web app (PWA)",
+                "Admin",
+                "Site de marketing"
+              ]
+            },
+            {
+              "label": "API NestJS",
+              "items": [
+                "56 módulos",
+                "Rate limiting"
+              ]
+            },
+            {
+              "label": "Serviços",
+              "items": [
+                "PostgreSQL + pgvector",
+                "Jobs com pg-boss",
+                "Cobrança no Asaas",
+                "OpenAI / Bedrock",
+                "S3, SES, Pusher"
+              ]
+            }
+          ],
+          "note": "Sentry na API e nos apps públicos · 16 workflows do GitHub Actions fazem deploy na Vercel e na Fly"
+        }
+      },
+      {
         "title": "Bird · Construtor de dashboards no-code",
         "slug": "bird-dashboard-builder",
-        "eyebrow": "Destaque · Bird · Analytics corporativo · 2024-2026",
+        "role": "Frontend Engineer na Bird",
+        "period": "Abr 2024 – jun 2026",
         "status": "Em produção na Bird",
         "shipped": true,
         "description": "Construtor de dashboards analíticos no-code que arquitetei na Bird, plataforma de comunicação em nuvem com sede em Amsterdã. O usuário monta consultas campo a campo no Malloy e as renderiza com Vega como gráficos de linha, barra, rosca e funil, tabelas ou KPIs, num layout de arrastar e soltar com edição, clonagem e exclusão. Interface em SolidJS com TanStack Query como camada de estado de servidor, lançado desligado atrás de feature flags por organização e usado em produção por clientes corporativos em bases de mais de 1 milhão de registros.",
@@ -368,87 +447,6 @@
           "Vitest",
           "Playwright"
         ]
-      },
-      {
-        "title": "Path Trader",
-        "slug": "path-trader",
-        "eyebrow": "Destaque · SaaS independente · No ar desde jan 2026",
-        "description": "SaaS independente para traders brasileiros, do qual sou cofundador técnico e único engenheiro, com cerca de 70 clientes. Monorepo pnpm + Turborepo com quatro apps Next.js 16 (app web, site institucional, admin e landing page) e uma API NestJS 11 com 56 módulos sobre um schema Prisma/PostgreSQL de 74 modelos. Assistente de IA com roteador multiagente, tool calling e RAG em pgvector, rodando em OpenAI ou AWS Bedrock com orçamento mensal de custo por plano, além de um servidor MCP protegido por OAuth. Assinaturas Asaas com webhooks idempotentes, filas pg-boss, Pusher, AWS S3/SES, PWA com Serwist, cerca de 500 arquivos de testes unitários e e2e, e 16 workflows do GitHub Actions com deploy na Vercel e no Fly.",
-        "summary": "SaaS independente para traders brasileiros: diário, análises, importação de corretoras e um assistente de IA com RAG e servidor MCP. Cofundador técnico e único engenheiro, hoje com cerca de 70 clientes.",
-        "longDescription": "Path Trader é uma plataforma independente que ajuda traders brasileiros a registrar operações, analisar desempenho e gerenciar risco. Cofundei o projeto com um sócio que trouxe a ideia e cuida do marketing; como único engenheiro, sou responsável por toda a tecnologia, e hoje ela atende cerca de 70 clientes. É um monorepo pnpm + Turborepo com quatro apps Next.js 16 (o app web, o site institucional, o painel admin e uma landing page) e uma API NestJS 11, compartilhando onze pacotes internos e um único schema Prisma de 74 modelos no PostgreSQL, distribuído em 56 módulos de API. As operações entram por oito parsers de importação específicos de corretoras e plataformas (MetaTrader 4/5, Profit, TradingView e outras). O assistente de IA é um roteador de chat multiagente com tool calling e busca em um corpus no pgvector; roda em OpenAI ou AWS Bedrock atrás de uma abstração de provedor, calcula o custo de cada requisição pelos tokens e aplica um orçamento mensal por plano. Um servidor MCP protegido por OAuth permite que o trader consulte o próprio diário pelo Claude e outros clientes MCP. A cobrança roda em assinaturas Asaas: os webhooks são autenticados e processados de forma assíncrona por handlers idempotentes, um job diário reconcilia eventos perdidos, e as notas fiscais de serviço (NFS-e) são emitidas automaticamente. Trabalho demorado, como turnos de IA, importações e notificações, passa por filas pg-boss no Postgres, com atualizações em tempo real via Pusher e armazenamento e e-mail na AWS S3/SES. O app web é um PWA com Serwist, a API é protegida com helmet e rate limiting global, o Sentry cobre a API e os apps públicos, e cerca de 500 arquivos de testes Jest e Playwright rodam em 16 workflows do GitHub Actions que fazem release e deploy na Vercel e no Fly.",
-        "highlights": [
-          "Monorepo pnpm + Turborepo: quatro apps Next.js 16 e uma API NestJS 11 (56 módulos) compartilhando 11 pacotes e um schema Prisma de 74 modelos",
-          "Assistente de IA: roteador multiagente com tool calling e RAG em pgvector, em OpenAI ou AWS Bedrock, com orçamento mensal de custo por plano",
-          "Servidor MCP protegido por OAuth para o trader usar o diário pelo Claude e outros clientes MCP",
-          "Cobrança Asaas com webhooks autenticados e idempotentes, reconciliação diária e emissão automática de NFS-e",
-          "Oito parsers de importação de corretoras e filas pg-boss para IA, importações e notificações, com Pusher em tempo real e AWS S3/SES",
-          "Cerca de 500 arquivos de testes Jest e Playwright e 16 workflows do GitHub Actions: testes, suítes e2e, releases automáticos, backups e deploy na Vercel e no Fly"
-        ],
-        "screenshots": [
-          {
-            "src": "/projects/path-trader/path-trader-analytics.avif",
-            "alt": "Painel do Path Trader com análises de desempenho"
-          },
-          {
-            "src": "/projects/path-trader/path-trader-dashboard.avif",
-            "alt": "Visão do dashboard principal do Path Trader"
-          },
-          {
-            "src": "/projects/path-trader/path-trader-elliot-ai.avif",
-            "alt": "Chat do assistente com IA do Path Trader"
-          }
-        ],
-        "liveUrl": "https://www.path-trader.com.br/",
-        "techStack": [
-          "Turborepo",
-          "Next.js",
-          "NestJS",
-          "TypeScript",
-          "PostgreSQL",
-          "Prisma",
-          "pgvector",
-          "OpenAI",
-          "AWS",
-          "Playwright"
-        ],
-        "caseStudy": {
-          "problem": "Traders brasileiros registram as operações em planilhas, quando registram, e não enxergam os próprios padrões: quais setups dão resultado, quando operam demais, quanto risco realmente correm. O Path Trader transforma operações importadas em diário e análises, com um assistente de IA que responde perguntas sobre os dados do próprio trader.",
-          "hardPart": {
-            "title": "Cobrança que nunca perde um evento",
-            "text": "As assinaturas rodam no Asaas, e um webhook de pagamento perdido ou entregue duas vezes significa um cliente sem acesso ou cobrado errado. Os webhooks são autenticados e processados de forma assíncrona por handlers idempotentes, então uma nova tentativa não tem efeito; um job diário concilia com o Asaas para pegar o que escapou, e as notas fiscais de serviço (NFS-e) são emitidas automaticamente. O assistente de IA recebe o mesmo cuidado com custo: cada requisição é precificada pelos tokens e checada contra um orçamento mensal por plano."
-          },
-          "result": "Cerca de 70 clientes, 540 pull requests mergeados e cerca de 56 deploys em produção, cada um protegido por GitHub Actions com checagem de tipos, testes unitários e end-to-end. Construído e operado por mim como único engenheiro e cofundador técnico; meu sócio trouxe a ideia e cuida do marketing."
-        },
-        "architecture": {
-          "nodes": [
-            {
-              "label": "Apps Next.js",
-              "items": [
-                "Web app (PWA)",
-                "Admin",
-                "Site de marketing"
-              ]
-            },
-            {
-              "label": "API NestJS",
-              "items": [
-                "56 módulos",
-                "Rate limiting"
-              ]
-            },
-            {
-              "label": "Serviços",
-              "items": [
-                "PostgreSQL + pgvector",
-                "Jobs com pg-boss",
-                "Cobrança no Asaas",
-                "OpenAI / Bedrock",
-                "S3, SES, Pusher"
-              ]
-            }
-          ],
-          "note": "Sentry na API e nos apps públicos · 16 workflows do GitHub Actions fazem deploy na Vercel e na Fly"
-        }
       },
       {
         "title": "Tavi",
@@ -846,7 +844,7 @@
       {
         "title": "Docker — Full Cycle",
         "institution": "Full Cycle",
-        "description": "Curso de Docker (credencial 088ac69a-c05f-4aa4-bad8-1c3af72085f)."
+        "description": "Curso de Docker."
       },
       {
         "title": "Especialização: Next.js, React, React Native, TypeScript",
@@ -862,11 +860,6 @@
         "title": "Especialização: HTML + CSS",
         "institution": "UpInside Treinamentos",
         "description": "Fev 2020."
-      },
-      {
-        "title": "Ensino médio",
-        "institution": "Faculdade Projeção",
-        "description": "Dez 2016."
       }
     ],
     "showMore": "+ {n} commits",
@@ -875,7 +868,7 @@
       "branch": "HEAD -> open-to-work",
       "date": "Agora",
       "title": "Aberto a vagas de Engenheiro Full-stack Sênior",
-      "text": "Remoto do Brasil (UTC-3), CLT ou PJ, com sobreposição diária com horários de EST e CET. Enquanto isso, cuido da tecnologia do Path Trader, o SaaS que cofundei, com cerca de 70 clientes."
+      "text": "Remoto do Brasil (UTC-3), CLT ou PJ, com sobreposição diária com horários de EST e CET."
     },
     "root": {
       "date": "Jan 2020",
@@ -883,15 +876,13 @@
     }
   },
   "ai": {
-    "eyebrow": "Pergunte à sua IA",
-    "title": "Sem tempo para continuar? Pergunte ao seu assistente.",
-    "text": "Cole este prompt no ChatGPT, no Claude ou em qualquer agente. Ele aponta para o llms.txt, uma versão em texto deste portfólio feita para assistentes de IA, e você recebe um resumo preciso em segundos.",
+    "title": "Prefere o resumo do seu assistente?",
+    "text": "Este prompt aponta o ChatGPT, o Claude ou qualquer agente para o llms.txt, uma versão em texto deste portfólio feita para assistentes de IA, para que o resumo fique nos fatos.",
     "prompt": "Leia {url} e me explique quem é Vinícius Albuquerque: sua experiência, o que ele já construiu, seus pontos fortes e para que tipo de vaga ele seria uma ótima escolha.",
     "copy": "Copiar prompt",
     "copied": "Copiado!",
     "open": "ou abra no",
-    "viewFile": "Ver llms.txt",
-    "chatHere": "Ou pergunte aqui mesmo"
+    "viewFile": "Ver llms.txt"
   },
   "chat": {
     "open": "Pergunte à IA sobre mim",
@@ -922,10 +913,12 @@
     "disclaimer": "Respostas de IA podem errar; o currículo é a fonte oficial."
   },
   "contact": {
-    "title": "Vamos construir algo grande.",
+    "title": "Contratando um engenheiro full-stack sênior? Vamos conversar.",
     "location": "Vila Velha, BR · UTC-3 · Remoto",
     "copyright": "© 2026 Vinícius Albuquerque",
-    "hiring": "Contratando para uma vaga full-stack remota?"
+    "hiring": "Remoto do Brasil (UTC-3), CLT ou PJ, com sobreposição diária com horários de EST e CET.",
+    "copyEmail": "Copiar e-mail",
+    "emailCopied": "E-mail copiado"
   },
   "palette": {
     "trigger": "Ações rápidas",

@@ -1,12 +1,11 @@
 'use client';
 
 import Box from '@mui/material/Box';
-import { alpha } from '@mui/material/styles';
 import SectionHeading from './SectionHeading';
 import { fontFamilies } from '../fonts';
 import type { Dictionary } from '../get-dictionary';
 
-/** One row per category: mono label on the left, pills on the right. */
+/** One row per category: mono label on the left, a dot-separated line on the right. */
 export default function Skills({ dictionary }: { dictionary: Dictionary }) {
   return (
     <Box
@@ -23,7 +22,7 @@ export default function Skills({ dictionary }: { dictionary: Dictionary }) {
             display: 'grid',
             gridTemplateColumns: { xs: '1fr', md: '240px 1fr' },
             gap: { xs: 2, md: 4 },
-            py: 3.5,
+            py: { xs: 2.5, md: 3 },
             borderTop: 1,
             borderColor: 'divider',
             alignItems: 'baseline',
@@ -40,28 +39,30 @@ export default function Skills({ dictionary }: { dictionary: Dictionary }) {
           >
             {category.label}
           </Box>
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.25 }}>
-            {category.items.map((item) => (
-              <Box
-                key={item}
-                component="span"
-                sx={{
-                  fontSize: '0.88rem',
-                  fontWeight: 500,
-                  border: 1,
-                  borderColor: 'divider',
-                  borderRadius: 999,
-                  px: 2,
-                  py: 1,
-                  transition: 'border-color 0.2s, background-color 0.2s, transform 0.2s',
-                  '&:hover': {
-                    borderColor: 'accent.main',
-                    bgcolor: (theme) => alpha(theme.palette.accent.main, 0.09),
-                    transform: 'translateY(-2px)',
-                  },
-                }}
-              >
-                {item}
+          {/* A scannable line per group instead of a wall of pills: every keyword
+              stays for recruiters, the first few (the daily drivers) read strongest. */}
+          <Box component="p" sx={{ m: 0, fontSize: { xs: '1rem', md: '1.05rem' }, lineHeight: 1.7, maxWidth: 760 }}>
+            {category.items.map((item, index) => (
+              <Box component="span" key={item}>
+                {/* Real spaces around the dot give the line somewhere to wrap. */}
+                {index > 0 ? (
+                  <>
+                    {' '}
+                    <Box component="span" aria-hidden sx={{ color: 'text.secondary', mx: 0.5 }}>
+                      ·
+                    </Box>{' '}
+                  </>
+                ) : null}
+                <Box
+                  component="span"
+                  sx={{
+                    color: index < 4 ? 'text.primary' : 'text.secondary',
+                    fontWeight: index < 4 ? 500 : 400,
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  {item}
+                </Box>
               </Box>
             ))}
           </Box>

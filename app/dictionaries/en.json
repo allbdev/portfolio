@@ -8,9 +8,9 @@
     "contact": "Contact"
   },
   "hero": {
-    "eyebrow": "Senior Full-stack Engineer · Open to work",
+    "title": "Senior Full-stack Engineer",
     "role": "Senior Full-stack Engineer",
-    "intro": "I design and ship fast web and mobile products.",
+    "intro": "I build products end to end, from the database to the UI, for teams and for the SaaS I co-founded.",
     "subtitle": "I'm a senior full-stack engineer with 6+ years taking features from database to UI, across product companies and client projects. I build the React or Next.js frontend and the Node.js, NestJS or Go API behind it, and I've run CI/CD pipelines and app store releases.\n\nAt Bird I architected a no-code dashboard builder that handles enterprise datasets of 1M+ records. I'm also the technical co-founder and only engineer of Path Trader, a SaaS now serving about 70 customers.",
     "cta": "See the work",
     "downloadCv": "Download CV",
@@ -41,10 +41,11 @@
       "streak": "longest streak {n} days",
       "activeDays": "{n} active days",
       "dragHint": "drag to rotate · hover a day",
+      "tapHint": "drag to rotate · tap a day",
       "less": "less",
       "more": "more"
     },
-    "tagline": "Senior full-stack engineer. React and Next.js on the front, Node.js, NestJS and Go on the back, AI-first workflow.",
+    "tagline": "React and Next.js on the front, Node.js, NestJS and Go on the back, AI-first workflow.",
     "hiring": "Hiring for a remote full-stack role?",
     "emailCta": "Email me"
   },
@@ -76,14 +77,6 @@
       {
         "label": "Languages",
         "value": "Portuguese (native) · English (fluent)"
-      },
-      {
-        "label": "Experience",
-        "value": "6+ years · since Jan 2020"
-      },
-      {
-        "label": "Building",
-        "value": "Path Trader · ~70 customers"
       },
       {
         "label": "Education",
@@ -162,7 +155,7 @@
         "llms": [
           "# a plain-text profile for AI assistants",
           "{url}",
-          "# ask yours: paste the prompt from the \"Ask your AI\" section"
+          "# ask yours: paste the prompt from the Contact section"
         ]
       },
       "openHint": "# try: open path-trader",
@@ -283,7 +276,7 @@
     "code": "Code",
     "viewDetails": "Case study",
     "detail": {
-      "eyebrow": "Case study",
+      "caseStudy": "Case study",
       "back": "BACK",
       "overview": "Overview",
       "highlights": "Highlights",
@@ -293,13 +286,99 @@
       "built": "What I built",
       "hardPart": "Hard part",
       "result": "Result",
-      "architecture": "Architecture"
+      "architecture": "Architecture",
+      "next": "Next case study",
+      "fullWriteup": "Read the full write-up"
     },
     "items": [
       {
+        "title": "Path Trader",
+        "slug": "path-trader",
+        "eyebrow": "Self-funded SaaS · Live since Jan 2026",
+        "role": "Technical co-founder · only engineer",
+        "period": "Jan 2026 – present",
+        "description": "Self-funded SaaS for Brazilian traders, where I'm the technical co-founder and only engineer, serving about 70 customers. pnpm + Turborepo monorepo with four Next.js 16 apps (web app, marketing site, admin, landing page) and a NestJS 11 API with 56 modules over a 74-model Prisma/PostgreSQL schema. AI assistant with a multi-agent router, tool calling and RAG on pgvector, running on OpenAI or AWS Bedrock with per-plan monthly cost budgets, plus an OAuth-protected MCP server. Asaas subscriptions with idempotent webhooks, pg-boss queues, Pusher, AWS S3/SES, a Serwist PWA, ~500 unit and e2e test files, and 16 GitHub Actions workflows deploying to Vercel and Fly.",
+        "summary": "Self-funded SaaS for Brazilian traders: journaling, analytics, broker imports and an AI assistant with RAG and an MCP server. Technical co-founder and only engineer, now serving about 70 customers.",
+        "longDescription": "Path Trader is an independent, self-funded platform that helps Brazilian traders journal their operations, review performance and manage risk. I co-founded it with a partner who brought the idea and runs marketing; as the only engineer I own the whole technology side, and it now serves about 70 customers. It is a pnpm + Turborepo monorepo with four Next.js 16 apps (the web app, the marketing site, the admin panel and a landing page) and a NestJS 11 API, sharing eleven internal packages and one Prisma schema of 74 models on PostgreSQL across 56 API modules. Trades come in through eight broker-specific import parsers (MetaTrader 4/5, Profit, TradingView and others). The AI assistant is a multi-agent chat router with tool calling and retrieval over a pgvector corpus; it runs on OpenAI or AWS Bedrock behind a provider abstraction, prices every request from its tokens, and enforces a monthly cost budget per plan. An OAuth-protected MCP server lets traders query their own journal from Claude and other MCP clients. Billing runs on Asaas subscriptions: webhooks are authenticated and processed asynchronously by idempotent handlers, a daily job reconciles missed events, and service invoices (NFS-e) are issued automatically. Long-running work such as AI turns, imports and notifications goes through pg-boss queues on Postgres, with realtime updates over Pusher and storage and email on AWS S3/SES. The web app is a Serwist PWA, the API is hardened with helmet and global rate limiting, Sentry covers the API and public apps, and about 500 Jest and Playwright test files run across 16 GitHub Actions workflows that release and deploy to Vercel and Fly.",
+        "highlights": [
+          "pnpm + Turborepo monorepo: four Next.js 16 apps and a NestJS 11 API (56 modules) sharing 11 packages and a 74-model Prisma schema",
+          "AI assistant: multi-agent router with tool calling and RAG on pgvector, on OpenAI or AWS Bedrock, with per-plan monthly cost budgets",
+          "OAuth-protected MCP server so traders can use their journal from Claude and other MCP clients",
+          "Asaas billing with authenticated, idempotent webhook handlers, daily reconciliation and automatic NFS-e invoices",
+          "Eight broker import parsers and pg-boss queues for AI turns, imports and notifications, with Pusher realtime and AWS S3/SES",
+          "~500 Jest and Playwright test files and 16 GitHub Actions workflows: tests, e2e suites, automated releases, backups and deploys to Vercel and Fly"
+        ],
+        "screenshots": [
+          {
+            "src": "/projects/path-trader/path-trader-analytics.webp",
+            "alt": "Path Trader dashboard with performance analytics"
+          },
+          {
+            "src": "/projects/path-trader/path-trader-dashboard.webp",
+            "alt": "Path Trader main dashboard view"
+          },
+          {
+            "src": "/projects/path-trader/path-trader-elliot-ai.webp",
+            "alt": "Path Trader AI assistant chat"
+          }
+        ],
+        "liveUrl": "https://www.path-trader.com.br/",
+        "techStack": [
+          "Turborepo",
+          "Next.js",
+          "NestJS",
+          "TypeScript",
+          "PostgreSQL",
+          "Prisma",
+          "pgvector",
+          "OpenAI",
+          "AWS",
+          "Playwright"
+        ],
+        "caseStudy": {
+          "problem": "Brazilian traders journal their trades in spreadsheets, if at all, so they can't see their own patterns: which setups pay, when they overtrade, how much risk they really take. Path Trader turns imported trades into a journal and analytics, with an AI assistant that answers questions over the trader's own data.",
+          "hardPart": {
+            "title": "Billing that never loses an event",
+            "text": "Subscriptions run on Asaas, and a payment webhook that is dropped or delivered twice means a customer loses access or gets charged wrong. Webhooks are authenticated and processed asynchronously by idempotent handlers, so a retry is a no-op; a daily job reconciles with Asaas to catch anything missed, and service invoices (NFS-e) are issued automatically. The AI assistant gets the same care on cost: every request is priced from its tokens and checked against a monthly budget per plan."
+          },
+          "result": "About 70 customers, 540 merged pull requests and about 56 production deployments, each gated by GitHub Actions running type checks, unit and end-to-end tests. Built and run as the only engineer and technical co-founder; my partner brought the idea and runs marketing."
+        },
+        "architecture": {
+          "nodes": [
+            {
+              "label": "Next.js apps",
+              "items": [
+                "Web app (PWA)",
+                "Admin",
+                "Marketing site"
+              ]
+            },
+            {
+              "label": "NestJS API",
+              "items": [
+                "56 modules",
+                "Rate limiting"
+              ]
+            },
+            {
+              "label": "Services",
+              "items": [
+                "PostgreSQL + pgvector",
+                "pg-boss jobs",
+                "Asaas billing",
+                "OpenAI / Bedrock",
+                "S3, SES, Pusher"
+              ]
+            }
+          ],
+          "note": "Sentry across the API and public apps · 16 GitHub Actions workflows deploy to Vercel and Fly"
+        }
+      },
+      {
         "title": "Bird · No-code dashboard builder",
         "slug": "bird-dashboard-builder",
-        "eyebrow": "Featured · Bird · Enterprise analytics · 2024-2026",
+        "role": "Frontend Engineer at Bird",
+        "period": "Apr 2024 – Jun 2026",
         "status": "Shipped at Bird",
         "shipped": true,
         "description": "No-code analytics dashboard builder I architected at Bird, an Amsterdam-based cloud communications platform. Users compose queries field by field on Malloy and render them with Vega as line, bar, doughnut and funnel charts, tables or KPIs, on a drag-and-drop layout with inline edit, clone and delete. SolidJS UI with TanStack Query as the server-state layer, shipped dark behind organization-scoped feature flags and used in production by enterprise customers on datasets of 1M+ records.",
@@ -368,87 +447,6 @@
           "Vitest",
           "Playwright"
         ]
-      },
-      {
-        "title": "Path Trader",
-        "slug": "path-trader",
-        "eyebrow": "Featured · Self-funded SaaS · Live since Jan 2026",
-        "description": "Self-funded SaaS for Brazilian traders, where I'm the technical co-founder and only engineer, serving about 70 customers. pnpm + Turborepo monorepo with four Next.js 16 apps (web app, marketing site, admin, landing page) and a NestJS 11 API with 56 modules over a 74-model Prisma/PostgreSQL schema. AI assistant with a multi-agent router, tool calling and RAG on pgvector, running on OpenAI or AWS Bedrock with per-plan monthly cost budgets, plus an OAuth-protected MCP server. Asaas subscriptions with idempotent webhooks, pg-boss queues, Pusher, AWS S3/SES, a Serwist PWA, ~500 unit and e2e test files, and 16 GitHub Actions workflows deploying to Vercel and Fly.",
-        "summary": "Self-funded SaaS for Brazilian traders: journaling, analytics, broker imports and an AI assistant with RAG and an MCP server. Technical co-founder and only engineer, now serving about 70 customers.",
-        "longDescription": "Path Trader is an independent, self-funded platform that helps Brazilian traders journal their operations, review performance and manage risk. I co-founded it with a partner who brought the idea and runs marketing; as the only engineer I own the whole technology side, and it now serves about 70 customers. It is a pnpm + Turborepo monorepo with four Next.js 16 apps (the web app, the marketing site, the admin panel and a landing page) and a NestJS 11 API, sharing eleven internal packages and one Prisma schema of 74 models on PostgreSQL across 56 API modules. Trades come in through eight broker-specific import parsers (MetaTrader 4/5, Profit, TradingView and others). The AI assistant is a multi-agent chat router with tool calling and retrieval over a pgvector corpus; it runs on OpenAI or AWS Bedrock behind a provider abstraction, prices every request from its tokens, and enforces a monthly cost budget per plan. An OAuth-protected MCP server lets traders query their own journal from Claude and other MCP clients. Billing runs on Asaas subscriptions: webhooks are authenticated and processed asynchronously by idempotent handlers, a daily job reconciles missed events, and service invoices (NFS-e) are issued automatically. Long-running work such as AI turns, imports and notifications goes through pg-boss queues on Postgres, with realtime updates over Pusher and storage and email on AWS S3/SES. The web app is a Serwist PWA, the API is hardened with helmet and global rate limiting, Sentry covers the API and public apps, and about 500 Jest and Playwright test files run across 16 GitHub Actions workflows that release and deploy to Vercel and Fly.",
-        "highlights": [
-          "pnpm + Turborepo monorepo: four Next.js 16 apps and a NestJS 11 API (56 modules) sharing 11 packages and a 74-model Prisma schema",
-          "AI assistant: multi-agent router with tool calling and RAG on pgvector, on OpenAI or AWS Bedrock, with per-plan monthly cost budgets",
-          "OAuth-protected MCP server so traders can use their journal from Claude and other MCP clients",
-          "Asaas billing with authenticated, idempotent webhook handlers, daily reconciliation and automatic NFS-e invoices",
-          "Eight broker import parsers and pg-boss queues for AI turns, imports and notifications, with Pusher realtime and AWS S3/SES",
-          "~500 Jest and Playwright test files and 16 GitHub Actions workflows: tests, e2e suites, automated releases, backups and deploys to Vercel and Fly"
-        ],
-        "screenshots": [
-          {
-            "src": "/projects/path-trader/path-trader-analytics.avif",
-            "alt": "Path Trader dashboard with performance analytics"
-          },
-          {
-            "src": "/projects/path-trader/path-trader-dashboard.avif",
-            "alt": "Path Trader main dashboard view"
-          },
-          {
-            "src": "/projects/path-trader/path-trader-elliot-ai.avif",
-            "alt": "Path Trader AI assistant chat"
-          }
-        ],
-        "liveUrl": "https://www.path-trader.com.br/",
-        "techStack": [
-          "Turborepo",
-          "Next.js",
-          "NestJS",
-          "TypeScript",
-          "PostgreSQL",
-          "Prisma",
-          "pgvector",
-          "OpenAI",
-          "AWS",
-          "Playwright"
-        ],
-        "caseStudy": {
-          "problem": "Brazilian traders journal their trades in spreadsheets, if at all, so they can't see their own patterns: which setups pay, when they overtrade, how much risk they really take. Path Trader turns imported trades into a journal and analytics, with an AI assistant that answers questions over the trader's own data.",
-          "hardPart": {
-            "title": "Billing that never loses an event",
-            "text": "Subscriptions run on Asaas, and a payment webhook that is dropped or delivered twice means a customer loses access or gets charged wrong. Webhooks are authenticated and processed asynchronously by idempotent handlers, so a retry is a no-op; a daily job reconciles with Asaas to catch anything missed, and service invoices (NFS-e) are issued automatically. The AI assistant gets the same care on cost: every request is priced from its tokens and checked against a monthly budget per plan."
-          },
-          "result": "About 70 customers, 540 merged pull requests and about 56 production deployments, each gated by GitHub Actions running type checks, unit and end-to-end tests. Built and run as the only engineer and technical co-founder; my partner brought the idea and runs marketing."
-        },
-        "architecture": {
-          "nodes": [
-            {
-              "label": "Next.js apps",
-              "items": [
-                "Web app (PWA)",
-                "Admin",
-                "Marketing site"
-              ]
-            },
-            {
-              "label": "NestJS API",
-              "items": [
-                "56 modules",
-                "Rate limiting"
-              ]
-            },
-            {
-              "label": "Services",
-              "items": [
-                "PostgreSQL + pgvector",
-                "pg-boss jobs",
-                "Asaas billing",
-                "OpenAI / Bedrock",
-                "S3, SES, Pusher"
-              ]
-            }
-          ],
-          "note": "Sentry across the API and public apps · 16 GitHub Actions workflows deploy to Vercel and Fly"
-        }
       },
       {
         "title": "Tavi",
@@ -846,7 +844,7 @@
       {
         "title": "Docker — Full Cycle",
         "institution": "Full Cycle",
-        "description": "Docker course (credential 088ac69a-c05f-4aa4-bad8-1c3af72085f)."
+        "description": "Docker course."
       },
       {
         "title": "Specialization: Next.js, React, React Native, TypeScript",
@@ -862,11 +860,6 @@
         "title": "Specialization: HTML + CSS",
         "institution": "UpInside Treinamentos",
         "description": "Feb 2020."
-      },
-      {
-        "title": "High school diploma",
-        "institution": "Faculdade Projeção",
-        "description": "Dec 2016."
       }
     ],
     "showMore": "+ {n} more commits",
@@ -875,7 +868,7 @@
       "branch": "HEAD -> open-to-work",
       "date": "Now",
       "title": "Open to Senior Full-stack Engineer roles",
-      "text": "Remote from Brazil (UTC-3), full-time or contract, with daily overlap across EST and CET hours. Meanwhile I run the tech side of Path Trader, the SaaS I co-founded, serving about 70 customers."
+      "text": "Remote from Brazil (UTC-3), full-time or contract, with daily overlap across EST and CET hours."
     },
     "root": {
       "date": "Jan 2020",
@@ -883,15 +876,13 @@
     }
   },
   "ai": {
-    "eyebrow": "Ask your AI",
-    "title": "Too busy to keep going? Ask your assistant.",
-    "text": "Paste this prompt into ChatGPT, Claude or any agent. It points at llms.txt, a plain-text version of this portfolio written for AI assistants, so you get an accurate summary in seconds.",
+    "title": "Prefer your assistant's summary?",
+    "text": "This prompt points ChatGPT, Claude or any agent at llms.txt, a plain-text version of this portfolio written for AI assistants, so its summary sticks to the facts.",
     "prompt": "Read {url} and explain to me who Vinícius Albuquerque is: his experience, what he has built, his strongest skills, and what kind of role he would be a great fit for.",
     "copy": "Copy prompt",
     "copied": "Copied!",
     "open": "or open in",
-    "viewFile": "View llms.txt",
-    "chatHere": "Or ask right here"
+    "viewFile": "View llms.txt"
   },
   "chat": {
     "open": "Ask AI about me",
@@ -922,10 +913,12 @@
     "disclaimer": "AI answers can be wrong; the CV is the source of truth."
   },
   "contact": {
-    "title": "Let's build something great.",
+    "title": "Hiring a senior full-stack engineer? Let's talk.",
     "location": "Vila Velha, BR · UTC-3 · Remote worldwide",
     "copyright": "© 2026 Vinícius Albuquerque",
-    "hiring": "Hiring for a remote full-stack role?"
+    "hiring": "Remote from Brazil (UTC-3), full-time or contract, with daily overlap across EST and CET hours.",
+    "copyEmail": "Copy email",
+    "emailCopied": "Email copied"
   },
   "palette": {
     "trigger": "Quick actions",

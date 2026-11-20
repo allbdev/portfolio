@@ -78,7 +78,7 @@ export default function About({ dictionary, lang }: { dictionary: Dictionary; la
                     component="div"
                     sx={{
                       fontFamily: fontFamilies.mono,
-                      fontSize: '0.62rem',
+                      fontSize: '0.72rem',
                       letterSpacing: '0.16em',
                       textTransform: 'uppercase',
                       color: 'text.secondary',
