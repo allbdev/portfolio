@@ -112,6 +112,11 @@ function Bars({ counts, accent, idle, dark, reducedMotion, onHover }: Omit<Scene
         event.stopPropagation();
         setHover(event.instanceId ?? null, event);
       }}
+      // A tap never fires pointermove, so touch users pick a day on pointerdown.
+      onPointerDown={(event) => {
+        event.stopPropagation();
+        setHover(event.instanceId ?? null, event);
+      }}
       onPointerOut={() => setHover(null)}
     >
       <meshStandardMaterial roughness={0.35} metalness={0.15} toneMapped={false} />

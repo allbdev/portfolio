@@ -1,0 +1,513 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-20T17:13:34.230293+00:00",
+  "title": "Design System: Vinícius Albuquerque — Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "signal-mint": {
+        "role": "primary",
+        "displayName": "Signal Mint",
+        "canonical": "oklch(78.2% 0.152 163)",
+        "tonalRamp": [
+          "oklch(15% 0.054 163)",
+          "oklch(25% 0.076 163)",
+          "oklch(35% 0.097 163)",
+          "oklch(48% 0.124 163)",
+          "oklch(60% 0.150 163)",
+          "oklch(72% 0.124 163)",
+          "oklch(84% 0.099 163)",
+          "oklch(95% 0.076 163)"
+        ]
+      },
+      "signal-mint-ink": {
+        "role": "primary",
+        "displayName": "Mint Ink",
+        "canonical": "oklch(19.5% 0.04 155)",
+        "tonalRamp": [
+          "oklch(15% 0.022 155)",
+          "oklch(25% 0.030 155)",
+          "oklch(35% 0.039 155)",
+          "oklch(48% 0.050 155)",
+          "oklch(60% 0.060 155)",
+          "oklch(72% 0.050 155)",
+          "oklch(84% 0.040 155)",
+          "oklch(95% 0.030 155)"
+        ]
+      },
+      "signal-mint-text-light": {
+        "role": "primary",
+        "displayName": "Deep Mint Text",
+        "canonical": "oklch(52% 0.11 163)",
+        "tonalRamp": [
+          "oklch(15% 0.044 163)",
+          "oklch(25% 0.060 163)",
+          "oklch(35% 0.077 163)",
+          "oklch(48% 0.100 163)",
+          "oklch(60% 0.120 163)",
+          "oklch(72% 0.100 163)",
+          "oklch(84% 0.079 163)",
+          "oklch(95% 0.060 163)"
+        ]
+      },
+      "console-night": {
+        "role": "neutral",
+        "displayName": "Console Night",
+        "canonical": "oklch(15.5% 0.012 245)",
+        "tonalRamp": [
+          "oklch(15% 0.005 245)",
+          "oklch(25% 0.008 245)",
+          "oklch(35% 0.010 245)",
+          "oklch(48% 0.012 245)",
+          "oklch(60% 0.015 245)",
+          "oklch(72% 0.012 245)",
+          "oklch(84% 0.010 245)",
+          "oklch(95% 0.008 245)"
+        ]
+      },
+      "console-panel": {
+        "role": "neutral",
+        "displayName": "Console Panel",
+        "canonical": "oklch(18.5% 0.014 245)",
+        "tonalRamp": [
+          "oklch(15% 0.005 245)",
+          "oklch(25% 0.008 245)",
+          "oklch(35% 0.010 245)",
+          "oklch(48% 0.012 245)",
+          "oklch(60% 0.015 245)",
+          "oklch(72% 0.012 245)",
+          "oklch(84% 0.010 245)",
+          "oklch(95% 0.008 245)"
+        ]
+      },
+      "console-panel-raised": {
+        "role": "neutral",
+        "displayName": "Raised Panel",
+        "canonical": "oklch(21% 0.016 245)",
+        "tonalRamp": [
+          "oklch(15% 0.006 245)",
+          "oklch(25% 0.009 245)",
+          "oklch(35% 0.011 245)",
+          "oklch(48% 0.014 245)",
+          "oklch(60% 0.017 245)",
+          "oklch(72% 0.014 245)",
+          "oklch(84% 0.011 245)",
+          "oklch(95% 0.009 245)"
+        ]
+      },
+      "console-hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "rgba(151, 166, 180, 0.14)",
+        "tonalRamp": [
+          "oklch(15% 0.007 240)",
+          "oklch(25% 0.010 240)",
+          "oklch(35% 0.013 240)",
+          "oklch(48% 0.017 240)",
+          "oklch(60% 0.020 240)",
+          "oklch(72% 0.017 240)",
+          "oklch(84% 0.013 240)",
+          "oklch(95% 0.010 240)"
+        ]
+      },
+      "console-text": {
+        "role": "neutral",
+        "displayName": "Console Text",
+        "canonical": "oklch(94.5% 0.008 245)",
+        "tonalRamp": [
+          "oklch(15% 0.004 245)",
+          "oklch(25% 0.005 245)",
+          "oklch(35% 0.006 245)",
+          "oklch(48% 0.008 245)",
+          "oklch(60% 0.010 245)",
+          "oklch(72% 0.008 245)",
+          "oklch(84% 0.007 245)",
+          "oklch(95% 0.005 245)"
+        ]
+      },
+      "console-text-muted": {
+        "role": "neutral",
+        "displayName": "Muted Text",
+        "canonical": "oklch(69% 0.025 235)",
+        "tonalRamp": [
+          "oklch(15% 0.011 235)",
+          "oklch(25% 0.015 235)",
+          "oklch(35% 0.019 235)",
+          "oklch(48% 0.025 235)",
+          "oklch(60% 0.030 235)",
+          "oklch(72% 0.025 235)",
+          "oklch(84% 0.020 235)",
+          "oklch(95% 0.015 235)"
+        ]
+      },
+      "terminal-well": {
+        "role": "neutral",
+        "displayName": "Terminal Well",
+        "canonical": "oklch(13% 0.01 245)",
+        "tonalRamp": [
+          "oklch(15% 0.004 245)",
+          "oklch(25% 0.006 245)",
+          "oklch(35% 0.008 245)",
+          "oklch(48% 0.010 245)",
+          "oklch(60% 0.012 245)",
+          "oklch(72% 0.010 245)",
+          "oklch(84% 0.008 245)",
+          "oklch(95% 0.006 245)"
+        ]
+      },
+      "daylight-bg": {
+        "role": "neutral",
+        "displayName": "Daylight",
+        "canonical": "oklch(96.5% 0.004 250)",
+        "tonalRamp": [
+          "oklch(15% 0.002 250)",
+          "oklch(25% 0.003 250)",
+          "oklch(35% 0.004 250)",
+          "oklch(48% 0.005 250)",
+          "oklch(60% 0.006 250)",
+          "oklch(72% 0.005 250)",
+          "oklch(84% 0.004 250)",
+          "oklch(95% 0.003 250)"
+        ]
+      },
+      "daylight-panel": {
+        "role": "neutral",
+        "displayName": "Daylight Panel",
+        "canonical": "oklch(100% 0 0)",
+        "tonalRamp": [
+          "oklch(15% 0.001 250)",
+          "oklch(25% 0.002 250)",
+          "oklch(35% 0.003 250)",
+          "oklch(48% 0.003 250)",
+          "oklch(60% 0.004 250)",
+          "oklch(72% 0.003 250)",
+          "oklch(84% 0.003 250)",
+          "oklch(95% 0.002 250)"
+        ]
+      },
+      "daylight-panel-raised": {
+        "role": "neutral",
+        "displayName": "Daylight Raised",
+        "canonical": "oklch(94% 0.007 250)",
+        "tonalRamp": [
+          "oklch(15% 0.003 250)",
+          "oklch(25% 0.004 250)",
+          "oklch(35% 0.005 250)",
+          "oklch(48% 0.007 250)",
+          "oklch(60% 0.008 250)",
+          "oklch(72% 0.007 250)",
+          "oklch(84% 0.005 250)",
+          "oklch(95% 0.004 250)"
+        ]
+      },
+      "daylight-hairline": {
+        "role": "neutral",
+        "displayName": "Daylight Hairline",
+        "canonical": "rgba(20, 32, 44, 0.13)",
+        "tonalRamp": [
+          "oklch(15% 0.007 240)",
+          "oklch(25% 0.010 240)",
+          "oklch(35% 0.013 240)",
+          "oklch(48% 0.017 240)",
+          "oklch(60% 0.020 240)",
+          "oklch(72% 0.017 240)",
+          "oklch(84% 0.013 240)",
+          "oklch(95% 0.010 240)"
+        ]
+      },
+      "daylight-text": {
+        "role": "neutral",
+        "displayName": "Daylight Text",
+        "canonical": "oklch(23% 0.02 245)",
+        "tonalRamp": [
+          "oklch(15% 0.007 245)",
+          "oklch(25% 0.010 245)",
+          "oklch(35% 0.013 245)",
+          "oklch(48% 0.017 245)",
+          "oklch(60% 0.020 245)",
+          "oklch(72% 0.017 245)",
+          "oklch(84% 0.013 245)",
+          "oklch(95% 0.010 245)"
+        ]
+      },
+      "daylight-text-muted": {
+        "role": "neutral",
+        "displayName": "Daylight Muted",
+        "canonical": "oklch(52% 0.025 235)",
+        "tonalRamp": [
+          "oklch(15% 0.011 235)",
+          "oklch(25% 0.015 235)",
+          "oklch(35% 0.019 235)",
+          "oklch(48% 0.025 235)",
+          "oklch(60% 0.030 235)",
+          "oklch(72% 0.025 235)",
+          "oklch(84% 0.020 235)",
+          "oklch(95% 0.015 235)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero name only; per-letter variable weight on pointer move."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles with mono index and hairline rule."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card and case-study titles (1.35–2.1rem)."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Descriptions and prose, Muted Text."
+      },
+      "body-lead": {
+        "displayName": "Lead",
+        "purpose": "Hero and section lead paragraphs, ~520px measure."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Chips, status, indices, metadata — the machine voice."
+      },
+      "overline": {
+        "displayName": "Overline",
+        "purpose": "Uppercase mono eyebrows above major headings."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card-lift",
+        "value": "0 24px 80px rgba(52, 211, 153, 0.10)",
+        "purpose": "Project cards on hover, with translateY(-6px) and mint border at 40%."
+      },
+      {
+        "name": "cta-glow",
+        "value": "0 8px 40px rgba(52, 211, 153, 0.45)",
+        "purpose": "Primary button hover."
+      },
+      {
+        "name": "feature-glow",
+        "value": "0 30px 90px rgba(52, 211, 153, 0.12), 0 0 0 1px rgba(52, 211, 153, 0.25)",
+        "purpose": "Featured or focused panels."
+      },
+      {
+        "name": "pulse",
+        "value": "0 0 0 0 rgba(52,211,153,.45) → 0 0 0 14px rgba(52,211,153,0)",
+        "purpose": "Git-graph head and live indicators (animated)."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-signal",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "The single easing curve for every transition and reveal."
+      },
+      {
+        "name": "reveal-up",
+        "value": "0.8s, y 26px → 0, opacity 0 → 1",
+        "purpose": "Section and block reveals on scroll."
+      },
+      {
+        "name": "stagger",
+        "value": "0.08s between children, 0.6s each, y 20px",
+        "purpose": "Lists and grids revealing in sequence."
+      },
+      {
+        "name": "hover-state",
+        "value": "0.2–0.4s",
+        "purpose": "Color, border, lift and glow transitions."
+      },
+      {
+        "name": "magnetic",
+        "value": "strength 0.18, radius 110px",
+        "purpose": "Hero and card CTAs drift toward the pointer (fine pointers only)."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animations/transitions ≈ 0ms",
+        "purpose": "Global override under prefers-reduced-motion; JS effects also check it."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "xs",
+        "value": "0px"
+      },
+      {
+        "name": "sm",
+        "value": "600px"
+      },
+      {
+        "name": "md",
+        "value": "900px"
+      },
+      {
+        "name": "lg",
+        "value": "1200px"
+      },
+      {
+        "name": "xl",
+        "value": "1536px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Signal Mint CTA for the one action that matters (email, open case study).",
+      "html": "<button class=\"ds-btn-primary\">Email me <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z\"/></svg></button>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:8px;background:#34d399;color:#071a10;border:0;border-radius:12px;padding:14px 30px;font-family:'Instrument Sans',system-ui,sans-serif;font-size:0.95rem;font-weight:600;cursor:pointer;transition:box-shadow .3s cubic-bezier(0.22, 1, 0.36, 1),transform .3s cubic-bezier(0.22, 1, 0.36, 1)}.ds-btn-primary:hover{box-shadow:0 8px 40px rgba(52,211,153,.45)}.ds-btn-primary:focus-visible{outline:2px solid #34d399;outline-offset:3px}.ds-btn-primary:active{transform:translateY(1px)}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Hairline outlined button for the secondary action (download CV).",
+      "html": "<button class=\"ds-btn-secondary\">Download CV <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z\"/></svg></button>",
+      "css": ".ds-btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#e9eef3;border:1px solid rgba(151,166,180,.14);border-radius:12px;padding:13px 29px;font-family:'Instrument Sans',system-ui,sans-serif;font-size:0.95rem;font-weight:600;cursor:pointer;transition:border-color .25s cubic-bezier(0.22, 1, 0.36, 1),color .25s cubic-bezier(0.22, 1, 0.36, 1)}.ds-btn-secondary:hover{border-color:#34d399;color:#34d399}.ds-btn-secondary:focus-visible{outline:2px solid #34d399;outline-offset:3px}"
+    },
+    {
+      "name": "Inline Link",
+      "kind": "custom",
+      "refersTo": "button-secondary",
+      "description": "Text link with trailing arrow for 'view details'.",
+      "html": "<a class=\"ds-inline-link\" href=\"#\">View details <svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z\"/></svg></a>",
+      "css": ".ds-inline-link{display:inline-flex;min-height:44px;align-items:center;gap:6px;font-family:'Instrument Sans',system-ui,sans-serif;font-size:0.88rem;font-weight:600;color:#8fa0ae;text-decoration:none;transition:color .2s}.ds-inline-link:hover{color:#34d399}.ds-inline-link:focus-visible{outline:2px solid #34d399;outline-offset:3px;border-radius:4px}"
+    },
+    {
+      "name": "Tech Chip",
+      "kind": "chip",
+      "refersTo": "chip-tech",
+      "description": "Mono pill listing a technology; display-only.",
+      "html": "<span class=\"ds-chip\">TypeScript</span><span class=\"ds-chip\">NestJS</span><span class=\"ds-chip\">PostgreSQL</span>",
+      "css": ".ds-chip{display:inline-block;margin:0 6px 6px 0;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:0.72rem;letter-spacing:.04em;color:#8fa0ae;border:1px solid rgba(151,166,180,.14);border-radius:999px;padding:5px 11px}"
+    },
+    {
+      "name": "In-development Badge",
+      "kind": "chip",
+      "refersTo": "badge-in-development",
+      "description": "Neutral status pill where a live link would sit; no second hue, no blink.",
+      "html": "<span class=\"ds-badge\"><span class=\"ds-badge-dot\"></span>In development</span>",
+      "css": ".ds-badge{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.72rem;letter-spacing:.04em;color:#8fa0ae;border:1px solid rgba(151,166,180,.14);border-radius:999px;padding:6px 12px}.ds-badge-dot{width:7px;height:7px;border-radius:50%;box-sizing:border-box;border:1.5px solid #8fa0ae}"
+    },
+    {
+      "name": "Spotlight Card",
+      "kind": "card",
+      "refersTo": "card-project",
+      "description": "Project card: flat at rest, lifts with mint glow and border on hover.",
+      "html": "<article class=\"ds-card\"><div class=\"ds-card-glow\"></div><h3 class=\"ds-card-title\">Path Trader</h3><p class=\"ds-card-body\">SaaS for traders, built and run by one engineer.</p><span class=\"ds-chip-in\">Next.js</span><span class=\"ds-chip-in\">NestJS</span></article>",
+      "css": ".ds-card{position:relative;overflow:hidden;max-width:360px;padding:28px;background:#10151c;border:1px solid rgba(151,166,180,.14);border-radius:20px;transition:border-color .3s,transform .4s cubic-bezier(0.22, 1, 0.36, 1),box-shadow .4s}.ds-card-glow{position:absolute;inset:0;background:radial-gradient(480px circle at 60% 30%,rgba(52,211,153,.07),transparent 60%);opacity:0;transition:opacity .35s;pointer-events:none}.ds-card:hover{border-color:rgba(52,211,153,.4);transform:translateY(-6px);box-shadow:0 24px 80px rgba(52,211,153,.1)}.ds-card:hover .ds-card-glow{opacity:1}.ds-card-title{margin:0 0 10px;font-family:'Space Grotesk',system-ui,sans-serif;font-weight:600;font-size:1.45rem;letter-spacing:-.01em;color:#e9eef3}.ds-card-body{margin:0 0 18px;font-family:'Instrument Sans',system-ui,sans-serif;font-size:.95rem;line-height:1.6;color:#8fa0ae}.ds-chip-in{display:inline-block;margin-right:6px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.72rem;letter-spacing:.04em;color:#8fa0ae;border:1px solid rgba(151,166,180,.14);border-radius:999px;padding:5px 11px}"
+    },
+    {
+      "name": "Sidebar Nav",
+      "kind": "nav",
+      "refersTo": "nav-sidebar",
+      "description": "Numbered section nav; active item grows a mint bar.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-item\" href=\"#\"><span class=\"ds-nav-idx\">01</span>About</a><a class=\"ds-nav-item is-active\" href=\"#\"><span class=\"ds-nav-idx\">02</span>Projects<span class=\"ds-nav-bar\"></span></a><a class=\"ds-nav-item\" href=\"#\"><span class=\"ds-nav-idx\">03</span>Experience</a></nav>",
+      "css": ".ds-nav{display:flex;flex-direction:column;gap:6px;width:232px;padding:16px 28px;background:#0a0e13}.ds-nav-item{display:flex;align-items:center;gap:12px;padding:8px 0;font-family:'Instrument Sans',system-ui,sans-serif;font-size:.9rem;font-weight:500;letter-spacing:.01em;color:#8fa0ae;text-decoration:none;transition:color .2s}.ds-nav-item:hover,.ds-nav-item.is-active{color:#e9eef3}.ds-nav-item:focus-visible{outline:2px solid #34d399;outline-offset:2px;border-radius:4px}.ds-nav-idx{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.72rem;color:#34d399}.ds-nav-bar{width:22px;height:2px;background:#34d399;transition:width .35s cubic-bezier(0.22, 1, 0.36, 1)}"
+    },
+    {
+      "name": "Section Heading",
+      "kind": "custom",
+      "description": "Mono index, display headline, hairline rule to the edge.",
+      "html": "<div class=\"ds-sh\"><span class=\"ds-sh-idx\">02</span><h2 class=\"ds-sh-title\">Projects</h2><span class=\"ds-sh-rule\"></span></div>",
+      "css": ".ds-sh{display:flex;align-items:baseline;gap:20px}.ds-sh-idx{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.75rem;color:#34d399}.ds-sh-title{margin:0;font-family:'Space Grotesk',system-ui,sans-serif;font-weight:600;font-size:2.6rem;letter-spacing:-.02em;color:#e9eef3}.ds-sh-rule{flex:1;height:1px;min-width:24px;align-self:center;background:rgba(151,166,180,.14)}"
+    },
+    {
+      "name": "Terminal",
+      "kind": "custom",
+      "refersTo": "terminal",
+      "description": "macOS-style terminal window with a mint block caret.",
+      "html": "<div class=\"ds-term\"><div class=\"ds-term-bar\"><i style=\"background:#ff5f57\"></i><i style=\"background:#febc2e\"></i><i style=\"background:#28c840\"></i></div><div class=\"ds-term-body\"><span class=\"ds-term-p\">~ $</span> git log --oneline<br>f9f9084 ship it<br><span class=\"ds-term-p\">~ $</span> <span class=\"ds-caret\"></span></div></div>",
+      "css": ".ds-term{max-width:420px;border-radius:14px;border:1px solid rgba(52,211,153,.22);background:#070a0e;overflow:hidden;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.82rem;color:#e9eef3}.ds-term-bar{display:flex;gap:7px;padding:11px 14px;border-bottom:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.03)}.ds-term-bar i{width:11px;height:11px;border-radius:50%;display:block}.ds-term-body{padding:16px;line-height:1.7}.ds-term-p{color:#34d399}.ds-caret{display:inline-block;width:.6em;height:1.15em;vertical-align:text-bottom;background:#34d399;animation:ds-blink 1.05s steps(1) infinite}@keyframes ds-blink{50%{opacity:0}}@media (prefers-reduced-motion:reduce){.ds-caret{animation:none}}"
+    },
+    {
+      "name": "Live Status",
+      "kind": "custom",
+      "description": "Availability line with pinging mint dot.",
+      "html": "<span class=\"ds-status\"><span class=\"ds-dot\"></span>Open to remote roles · UTC-3</span>",
+      "css": ".ds-status{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.72rem;color:#8fa0ae}.ds-dot{position:relative;width:8px;height:8px;border-radius:50%;background:#34d399}.ds-dot::after{content:'';position:absolute;inset:0;border-radius:50%;background:#34d399;animation:ds-ping 1.8s cubic-bezier(0,0,.2,1) infinite}@keyframes ds-ping{75%,100%{transform:scale(2.6);opacity:0}}@media (prefers-reduced-motion:reduce){.ds-dot::after{animation:none}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Engineer's Console",
+    "overview": "The site reads as an instrument rather than a brochure. It is a quiet, dark workspace where a single live signal (Signal Mint) marks what is on, active, passing or clickable. The engineering vocabulary is the ornament: numbered sections, mono labels, a live status dot, a blinking terminal caret, a git-graph timeline, and a 3D skyline of real commits. Nothing is decorative for its own sake. Each motif is either evidence of work or a working tool.\n\nDensity is calm. Wide gutters, generous line height and one idea per section let recruiters scan quickly, while the engineers who dig in find detail layered into cards, case studies and interactive pieces. Dark is the native mode. Light mode, \"Daylight\", is a full peer with its own contrast-corrected accent text.\n\nInteraction is precise and responsive. Surfaces are still at rest and answer the pointer crisply: a spotlight follows the cursor across cards, primary CTAs pull gently toward the pointer, and cards lift a few pixels. All motion runs on one easing curve and is suppressed under `prefers-reduced-motion`.",
+    "keyCharacteristics": [
+      "One accent hue and nothing else. Every emphasis is Signal Mint.",
+      "Mono labels and two-digit indices organise the page like a console.",
+      "Flat panels, hairline borders, and depth only on response.",
+      "Three type voices with strict jobs: display, reading and machine.",
+      "A single easing curve, `cubic-bezier(0.22, 1, 0.36, 1)`, for every transition."
+    ],
+    "rules": [
+      {
+        "name": "The One Signal Rule",
+        "body": "Signal Mint is the only chromatic color in the UI. A second accent, gradient or semantic color needs a deliberate decision first. It is never a default. Screenshots and project art are exempt.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ink-on-Mint Rule",
+        "body": "Text on a mint fill is Mint Ink, never white.",
+        "section": "colors"
+      },
+      {
+        "name": "The Daylight Contrast Rule",
+        "body": "In light mode, accent text uses Deep Mint Text and accent fills keep the raw mint.",
+        "section": "colors"
+      },
+      {
+        "name": "The Three Voices Rule",
+        "body": "Display is for names and headings, Instrument Sans is for anything read as prose, and mono is for anything a machine would print: numbers, indices, tags, status, code. Never set prose in mono.",
+        "section": "typography"
+      },
+      {
+        "name": "The Index Rule",
+        "body": "Every top-level section opens with its two-digit mono index (`00`–`05`) in accent text.",
+        "section": "typography"
+      },
+      {
+        "name": "The No-Eyebrow Rule",
+        "body": "Headings carry their own weight: no kicker or eyebrow label stacked above a heading. Meta that used to sit there (project type, dates, role) goes on a mono line *below* the title.",
+        "section": "typography"
+      },
+      {
+        "name": "The Readable Floor Rule",
+        "body": "No text below 0.72rem (11.5px), and dim text uses a muted colour token, never opacity: opacity drops contrast below AA.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "Nothing casts a shadow at rest. Depth is a reply to hover, focus or a live state.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Light-Not-Shadow Rule",
+        "body": "Elevation is always mint-tinted light, never neutral black shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** route every emphasis through Signal Mint, and use Deep Mint Text for small accent text in Daylight mode.",
+      "**Do** keep surfaces flat at rest and reveal depth only as mint-tinted glow on hover, focus or a live state.",
+      "**Do** open each top-level section with its two-digit mono index, display headline and edge-running hairline.",
+      "**Do** use `cubic-bezier(0.22, 1, 0.36, 1)` for every transition. Reveals run 0.6–0.8s, rising 20–26px with an 0.08s stagger.",
+      "**Do** set numbers, tags, indices and status in JetBrains Mono, and prose in Instrument Sans.",
+      "**Do** guard every new animation with `prefers-reduced-motion`.",
+      "**Do** design every screen in both Console (dark) and Daylight (light) modes."
+    ],
+    "donts": [
+      "**Don't** introduce a second accent hue, gradient fill or semantic color palette without an explicit decision.",
+      "**Don't** put white text on Signal Mint. Use Mint Ink.",
+      "**Don't** use raw `#34d399` for small text on the Daylight background. It fails contrast.",
+      "**Don't** add resting drop shadows or grey elevation.",
+      "**Don't** set body prose in mono or uppercase button labels.",
+      "**Don't** use the live status dot for anything except availability.",
+      "**Don't** stack an eyebrow or kicker above a heading, or set any text below 0.72rem.",
+      "**Don't** dim text with opacity. Use Muted Text.",
+      "**Don't** use amber, red or any second hue for status. In-progress work is neutral."
+    ]
+  }
+}

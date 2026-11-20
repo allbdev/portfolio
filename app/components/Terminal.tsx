@@ -269,7 +269,7 @@ export default function Terminal({ dictionary, lang }: { dictionary: Dictionary;
     cmd: '#e9eef3',
     out: '#a9b7c3',
     accent: theme.palette.accent.main,
-    dim: '#5f6f7c',
+    dim: '#7f8d99',
     err: '#f87171',
   };
 
@@ -311,7 +311,7 @@ export default function Terminal({ dictionary, lang }: { dictionary: Dictionary;
           {['#ff5f57', '#febc2e', '#28c840'].map((color) => (
             <Box key={color} sx={{ width: 11, height: 11, borderRadius: '50%', bgcolor: color }} />
           ))}
-          <Box sx={{ flex: 1, textAlign: 'center', fontSize: '0.7rem', color: '#8fa0ae', mr: 5 }}>{t.title}</Box>
+          <Box sx={{ flex: 1, textAlign: 'center', fontSize: '0.75rem', color: '#8fa0ae', mr: 5 }}>{t.title}</Box>
         </Box>
 
         <Box

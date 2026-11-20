@@ -285,7 +285,7 @@ export default function ChatWidget({ dictionary, lang }: { dictionary: Dictionar
                         alignItems: 'center',
                         gap: 0.75,
                         fontFamily: fontFamilies.mono,
-                        fontSize: '0.66rem',
+                        fontSize: '0.72rem',
                         color: 'text.secondary',
                       }}
                     >
@@ -329,7 +329,7 @@ export default function ChatWidget({ dictionary, lang }: { dictionary: Dictionar
                     <Box
                       sx={{
                         fontFamily: fontFamilies.mono,
-                        fontSize: '0.68rem',
+                        fontSize: '0.72rem',
                         color: 'text.secondary',
                         px: 0.5,
                       }}
@@ -544,7 +544,7 @@ export default function ChatWidget({ dictionary, lang }: { dictionary: Dictionar
                     sx={{
                       mt: 1,
                       textAlign: 'center',
-                      fontSize: '0.64rem',
+                      fontSize: '0.72rem',
                       color: 'text.secondary',
                       fontFamily: fontFamilies.mono,
                     }}

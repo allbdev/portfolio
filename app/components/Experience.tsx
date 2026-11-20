@@ -21,7 +21,7 @@ function shortHash(seed: string) {
   return (h >>> 0).toString(16).padStart(8, '0').slice(0, 7);
 }
 
-const monoSx = { fontFamily: fontFamilies.mono, fontSize: '0.7rem', letterSpacing: '0.08em' } as const;
+const monoSx = { fontFamily: fontFamilies.mono, fontSize: '0.75rem', letterSpacing: '0.08em' } as const;
 
 function BranchChip({ label, head = false }: { label: string; head?: boolean }) {
   return (
@@ -29,7 +29,7 @@ function BranchChip({ label, head = false }: { label: string; head?: boolean }) 
       component="span"
       sx={(theme) => ({
         ...monoSx,
-        fontSize: '0.64rem',
+        fontSize: '0.72rem',
         letterSpacing: '0.04em',
         px: 1,
         py: 0.25,
@@ -197,7 +197,7 @@ export default function Experience({ dictionary }: { dictionary: Dictionary }) {
                           component="span"
                           sx={{
                             ...monoSx,
-                            fontSize: '0.62rem',
+                            fontSize: '0.72rem',
                             letterSpacing: '0.04em',
                             color: 'text.secondary',
                             border: 1,
@@ -308,7 +308,7 @@ export default function Experience({ dictionary }: { dictionary: Dictionary }) {
         <Box
           sx={{
             fontFamily: fontFamilies.mono,
-            fontSize: '0.7rem',
+            fontSize: '0.75rem',
             letterSpacing: '0.18em',
             color: 'text.secondary',
             textTransform: 'uppercase',
@@ -345,7 +345,7 @@ export default function Experience({ dictionary }: { dictionary: Dictionary }) {
                 <Box
                   sx={{
                     fontFamily: fontFamilies.mono,
-                    fontSize: '0.66rem',
+                    fontSize: '0.72rem',
                     letterSpacing: '0.08em',
                     color: 'accent.text',
                     my: 1,

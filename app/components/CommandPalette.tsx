@@ -247,7 +247,7 @@ export default function CommandPalette({ dictionary, lang }: { dictionary: Dicti
                           pt: 1.5,
                           pb: 0.75,
                           fontFamily: fontFamilies.mono,
-                          fontSize: '0.6rem',
+                          fontSize: '0.72rem',
                           letterSpacing: '0.16em',
                           textTransform: 'uppercase',
                           color: 'text.secondary',
@@ -281,7 +281,7 @@ export default function CommandPalette({ dictionary, lang }: { dictionary: Dicti
                     >
                       <span>{item.label}</span>
                       {item.hint && (
-                        <Box sx={{ fontFamily: fontFamilies.mono, fontSize: '0.68rem', color: 'text.secondary', opacity: 0.8 }}>
+                        <Box sx={{ fontFamily: fontFamilies.mono, fontSize: '0.72rem', color: 'text.secondary', opacity: 0.8 }}>
                           {item.hint}
                         </Box>
                       )}
@@ -301,7 +301,7 @@ export default function CommandPalette({ dictionary, lang }: { dictionary: Dicti
                 borderTop: 1,
                 borderColor: 'divider',
                 fontFamily: fontFamilies.mono,
-                fontSize: '0.62rem',
+                fontSize: '0.72rem',
                 color: 'text.secondary',
               }}
             >
@@ -317,7 +317,7 @@ export default function CommandPalette({ dictionary, lang }: { dictionary: Dicti
 
 export const kbdSx = {
   fontFamily: fontFamilies.mono,
-  fontSize: '0.6rem',
+  fontSize: '0.72rem',
   letterSpacing: '0.08em',
   color: 'text.secondary',
   border: 1,

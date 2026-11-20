@@ -77,12 +77,29 @@ export const getTheme = (mode: 'light' | 'dark') => {
           '::selection': {
             backgroundColor: `${ACCENT}59`,
           },
+          // One visible keyboard focus ring, in the accent, for every control.
+          ':focus-visible': {
+            outline: `2px solid ${ACCENT}`,
+            outlineOffset: '3px',
+          },
+          html: {
+            scrollbarColor: `${mode === 'dark' ? 'rgba(151,166,180,0.28)' : 'rgba(20,32,44,0.28)'} transparent`,
+          },
           a: { color: 'inherit', textDecoration: 'none' },
           img: { maxWidth: '100%' },
         },
       },
       MuiPaper: {
         styleOverrides: { root: { backgroundImage: 'none' } },
+      },
+      // The grey Material ripple is not part of this system; focus uses the ring above.
+      MuiButtonBase: {
+        defaultProps: { disableRipple: true },
+        styleOverrides: {
+          root: {
+            '&.Mui-focusVisible': { outline: `2px solid ${ACCENT}`, outlineOffset: '3px' },
+          },
+        },
       },
       MuiButton: {
         defaultProps: { disableElevation: true },

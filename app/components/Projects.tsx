@@ -21,7 +21,7 @@ type Project = Dictionary['projects']['items'][number];
 
 const chipSx = {
   fontFamily: fontFamilies.mono,
-  fontSize: '0.66rem',
+  fontSize: '0.72rem',
   letterSpacing: '0.06em',
   color: 'text.secondary',
   border: 1,
@@ -35,6 +35,7 @@ const inlineLinkSx = {
   display: 'inline-flex',
   alignItems: 'center',
   gap: 0.75,
+  minHeight: 44,
   fontSize: '0.88rem',
   fontWeight: 600,
   color: 'text.secondary',
@@ -53,7 +54,7 @@ export function StatusBadge({
   /** Calm, non-blinking accent badge for work that is live but not public. */
   shipped?: boolean;
 }) {
-  const tone = shipped ? 'accent.text' : 'warning.main';
+  // One Signal: shipped work gets the accent, work in progress stays neutral.
   return (
     <Box
       component="span"
@@ -62,13 +63,12 @@ export function StatusBadge({
         alignItems: 'center',
         gap: 1,
         fontFamily: fontFamilies.mono,
-        fontSize: size === 'lg' ? '0.8rem' : '0.7rem',
-        letterSpacing: '0.08em',
-        textTransform: 'uppercase',
-        color: tone,
+        fontSize: size === 'lg' ? '0.8rem' : '0.72rem',
+        letterSpacing: '0.04em',
+        color: shipped ? 'accent.text' : 'text.secondary',
         border: 1,
-        borderColor: (theme) => alpha(shipped ? theme.palette.accent.main : theme.palette.warning.main, 0.4),
-        bgcolor: (theme) => alpha(shipped ? theme.palette.accent.main : theme.palette.warning.main, 0.08),
+        borderColor: (theme) => (shipped ? alpha(theme.palette.accent.main, 0.4) : theme.palette.divider),
+        bgcolor: (theme) => (shipped ? alpha(theme.palette.accent.main, 0.08) : 'transparent'),
         borderRadius: 999,
         px: size === 'lg' ? 2 : 1.5,
         py: size === 'lg' ? 1.25 : 0.75,
@@ -76,12 +76,13 @@ export function StatusBadge({
     >
       <Box
         component="span"
+        aria-hidden
         sx={{
           width: 7,
           height: 7,
           borderRadius: '50%',
-          bgcolor: tone,
-          animation: shipped ? 'none' : 'soft-blink 1.6s ease-in-out infinite',
+          boxSizing: 'border-box',
+          ...(shipped ? { bgcolor: 'accent.main' } : { border: '1.5px solid', borderColor: 'text.secondary' }),
         }}
       />
       {label}
@@ -187,21 +188,14 @@ function FeaturedProject({
           zIndex: 2,
         }}
       >
-        <Box
-          sx={{
-            fontFamily: fontFamilies.mono,
-            fontSize: '0.65rem',
-            letterSpacing: '0.18em',
-            color: 'accent.text',
-            textTransform: 'uppercase',
-            mb: 2.25,
-          }}
-        >
-          {project.eyebrow}
-        </Box>
-        <Typography component="h3" variant="h3" sx={{ mb: 1.75, fontSize: { xs: '1.7rem', md: '2.1rem' } }}>
+        <Typography component="h3" variant="h3" sx={{ mb: 1, fontSize: { xs: '1.9rem', md: '2.4rem' } }}>
           {project.title}
         </Typography>
+        {project.eyebrow ? (
+          <Box sx={{ fontFamily: fontFamilies.mono, fontSize: '0.78rem', color: 'accent.text', mb: 2.25 }}>
+            {project.eyebrow}
+          </Box>
+        ) : null}
         <Typography sx={{ m: 0, fontSize: '1rem', lineHeight: 1.65, color: 'text.secondary' }}>
           {project.summary}
         </Typography>
@@ -262,15 +256,23 @@ function SecondaryProject({
   project,
   dictionary,
   lang,
+  wide = false,
 }: {
   project: Project;
   dictionary: Dictionary;
   lang: Locale;
+  /** Spans both columns, picture beside the text, so an odd last card doesn't sit alone. */
+  wide?: boolean;
 }) {
   return (
     <SpotlightCard
       glow={420}
-      sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}
+      sx={{
+        display: wide ? { xs: 'flex', md: 'grid' } : 'flex',
+        flexDirection: 'column',
+        gridTemplateColumns: wide ? { md: '1fr 1fr' } : undefined,
+        height: '100%',
+      }}
     >
       <Box
         className="shot"
@@ -278,13 +280,19 @@ function SecondaryProject({
           display: 'flex',
           position: 'relative',
           overflow: 'hidden',
-          aspectRatio: project.architecture?.onCard ? undefined : '16 / 9',
-          minHeight: project.architecture?.onCard ? { xs: 400, sm: 300 } : undefined,
-          borderBottom: 1,
+          aspectRatio: project.architecture?.onCard ? undefined : wide ? { xs: '16 / 9', md: 'auto' } : '16 / 9',
+          minHeight: project.architecture?.onCard ? { xs: 400, sm: 300 } : wide ? { md: 320 } : undefined,
+          // The picture keeps its height: a tall diagram grows the card instead of being clipped.
+          flexShrink: 0,
+          // Longhands: a responsive border shorthand would reset the colour.
+          borderStyle: 'solid',
+          borderWidth: 0,
+          borderBottomWidth: wide ? { xs: 1, md: 0 } : 1,
+          borderRightWidth: wide ? { md: 1 } : 0,
           borderColor: 'divider',
         }}
       >
-        <CardVisual project={project} sizes="(max-width: 900px) 100vw, 45vw" position="center top" />
+        <CardVisual project={project} sizes="(max-width: 900px) 100vw, 45vw" position={wide ? 'left top' : 'center top'} />
       </Box>
       <Box
         sx={{
@@ -380,8 +388,9 @@ export default function Projects({
   lang: Locale;
 }) {
   const { items, lab } = dictionary.projects;
-  const featured = items.filter((project) => project.eyebrow && !project.lab);
-  const secondary = items.filter((project) => !project.eyebrow && !project.lab);
+  // One featured card (the first with a meta line); everything else outside the Lab is secondary.
+  const featured = items.filter((project) => project.eyebrow && !project.lab).slice(0, 1);
+  const secondary = items.filter((project) => !project.lab && !featured.includes(project));
   const labItems = items.filter((project) => project.lab);
 
   return (
@@ -406,11 +415,16 @@ export default function Projects({
             gap: 4,
           }}
         >
-          {secondary.map((project, index) => (
-            <Reveal key={project.slug} delay={index * 0.08} fullHeight>
-              <SecondaryProject project={project} dictionary={dictionary} lang={lang} />
-            </Reveal>
-          ))}
+          {secondary.map((project, index) => {
+            const wide = secondary.length % 2 === 1 && index === secondary.length - 1;
+            return (
+              <Box key={project.slug} sx={wide ? { gridColumn: { md: '1 / -1' } } : undefined}>
+                <Reveal delay={index * 0.08} fullHeight>
+                  <SecondaryProject project={project} dictionary={dictionary} lang={lang} wide={wide} />
+                </Reveal>
+              </Box>
+            );
+          })}
         </Box>
 
         {labItems.length > 0 ? (

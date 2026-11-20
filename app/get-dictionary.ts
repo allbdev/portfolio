@@ -19,8 +19,8 @@ export interface Dictionary {
     contact: string;
   };
   hero: {
-    /** Mono eyebrow above the name. */
-    eyebrow: string;
+    /** Full job title, shown as a line under the name. */
+    title: string;
     /** Short role label used in the sidebar. */
     role: string;
     /** Short lead paragraph shown under the name. */
@@ -46,6 +46,8 @@ export interface Dictionary {
       streak: string;
       activeDays: string;
       dragHint: string;
+      /** Replaces dragHint on touch screens, which can't hover. */
+      tapHint: string;
       less: string;
       more: string;
     };
@@ -93,9 +95,8 @@ export interface Dictionary {
       askAi: string;
     };
   };
-  /** "Ask your AI" section. `{url}` in the prompt becomes the llms.txt link. */
+  /** "Ask your AI" row inside Contact. `{url}` in the prompt becomes the llms.txt link. */
   ai: {
-    eyebrow: string;
     title: string;
     text: string;
     prompt: string;
@@ -103,7 +104,6 @@ export interface Dictionary {
     copied: string;
     open: string;
     viewFile: string;
-    chatHere: string;
   };
   /** Floating AI chat (Gemini Nano on-device, else the /api/chat free tier). */
   chat: {
@@ -137,7 +137,8 @@ export interface Dictionary {
     code: string;
     viewDetails: string;
     detail: {
-      eyebrow: string;
+      /** "Case study", used in the Markdown twin's header. */
+      caseStudy: string;
       back: string;
       overview: string;
       highlights: string;
@@ -149,14 +150,22 @@ export interface Dictionary {
       hardPart: string;
       result: string;
       architecture: string;
+      /** Label above the link to the next case study. */
+      next: string;
+      /** Toggle that reveals the long description on full case studies. */
+      fullWriteup: string;
     };
     /** Strip of side projects under the selected work. */
     lab: { title: string; text: string };
     items: {
       title: string;
       slug: string;
-      /** Set on featured projects: the eyebrow on their large card. */
+      /** Set on the featured project: the meta line under its title on the large card. */
       eyebrow?: string;
+      /** Role on the project, shown in the case study's meta line. */
+      role?: string;
+      /** Dates on the project, shown in the case study's meta line. */
+      period?: string;
       /** Shown instead of the live link while a project is not public yet. */
       status?: string;
       /** The status badge reads as shipped (e.g. built at an employer) rather than in development. */
@@ -212,6 +221,8 @@ export interface Dictionary {
     /** Right-hand footer line. */
     location: string;
     copyright: string;
+    copyEmail: string;
+    emailCopied: string;
   };
 }
 
