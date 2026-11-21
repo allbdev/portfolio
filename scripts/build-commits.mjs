@@ -37,6 +37,8 @@ const PUBLIC_REPOS = {
   'dig-to-japan': 'Dig to Japan',
   'dig-to-japan-3d': 'Dig to Japan',
   'shave-the-capybara': 'Shave the Capybara',
+  'um-buraco-so': 'The Single Hole',
+  'cartorio-simulator': 'Cartório Simulator',
 };
 const PRIVATE_LABEL = 'client work';
 
