@@ -610,6 +610,98 @@
         "lab": true
       },
       {
+        "title": "The Single Hole",
+        "slug": "the-single-hole",
+        "description": "Free multiplayer browser game where everyone on the internet digs the same hole, from Brazil to Japan, with a spoon: one shared depth, live, no login. The real problem is the number: thousands of clients adding to one counter in real time with optimistic updates, reconciliation, server-side rate limits and persistence. The room is pure logic with a fake clock, run in production as a Cloudflare Worker with one Durable Object on the WebSocket Hibernation API. Load tested at 6,000 players digging with 34 ms p95 broadcast latency. three.js with procedural textures, ~175 KB of initial JS.",
+        "summary": "Everyone on the internet digs the same hole, live, from Brazil to Japan with a spoon. One shared counter for thousands of clients on a Cloudflare Durable Object, load tested at 6,000 players and 34 ms p95.",
+        "longDescription": "The Single Hole (Um Buraco Só) is a free, open source browser game played from a link with no login: everyone digs the same hole, from a backyard in Brazil to a rock garden in Kyoto, with a spoon. Each player is a spoon on the rim, tagged with their country and scoop count; a cross-section shows the eight layers down to the core, and a globe shows who is digging right now and the year we reach Japan at this week's pace. The interesting problem is the number: thousands of clients adding to one shared counter in real time. The room is a single authoritative class with no timers, sockets or storage: connections, raw messages and the clock go in, messages come out, so every rule is unit tested with a fake clock and hosting is a thin adapter, a Node WebSocket server for development and a Cloudflare Worker with one Durable Object in production. The client applies your scoops at once, batches them every 400 ms through a mirror of the server's token bucket, and eases the display toward the server's total plus your unconfirmed scoops without ever going backwards; batches in flight when the connection drops are discarded rather than risk counting twice. Every message is validated before the room sees it, with per-connection and per-IP scoop limits, connection caps, strikes for bad input and a first-come line once the room holds 10,000 players; the country comes from platform headers, never from the client. State is snapshotted every few seconds with a backup copy, and the room refuses to start rather than silently reset a live hole to zero. On Cloudflare it uses the WebSocket Hibernation API, so it costs almost nothing while idle. One room held 6,000 players digging at 34 ms p95 broadcast latency and reached its 10,000-player cap at 55 ms p95. Rendering is three.js with procedural textures and no image assets, with a lazy-loaded globe and ~175 KB of initial JS checked against a budget in CI. No accounts, names or cookies; IPs live only in memory for rate limits.",
+        "highlights": [
+          "One authoritative room as pure logic (no timers, sockets or storage), unit tested with a fake clock, behind Node and Cloudflare Durable Object adapters",
+          "Optimistic client: batches every 400 ms through a mirror of the server's token bucket, and a display that reconciles to the server total without going backwards",
+          "Load tested at 6,000 players digging with 34 ms p95 broadcast latency, and 55 ms p95 at the 10,000-player cap, with a waiting line past it",
+          "Abuse handling: validated protocol, per-connection and per-IP rate limits, strikes, and country from platform headers, covered by abuse tests",
+          "Snapshots with a backup copy, a room that refuses to start rather than reset to zero, and WebSocket Hibernation so it is cheap when idle",
+          "three.js with procedural textures and no image assets, a lazy-loaded globe and ~175 KB of initial JS under a CI budget"
+        ],
+        "screenshots": [
+          {
+            "src": "/projects/the-single-hole/hole-dig.avif",
+            "alt": "The hole on the lawn, every player a spoon tagged with their country and scoops"
+          },
+          {
+            "src": "/projects/the-single-hole/hole-section.avif",
+            "alt": "Cross-section of the eight layers, with the shaft showing how deep the world has dug"
+          },
+          {
+            "src": "/projects/the-single-hole/hole-world.avif",
+            "alt": "Globe with a dot per country digging now and the top countries"
+          },
+          {
+            "src": "/projects/the-single-hole/hole-arrival.avif",
+            "alt": "Season end: the hole comes out in a Kyoto rock garden"
+          }
+        ],
+        "liveUrl": "https://the-single-hole.vinicius-albuquerque.com.br",
+        "githubUrl": "https://github.com/allbdev/the-single-hole",
+        "techStack": [
+          "TypeScript",
+          "three.js",
+          "WebSockets",
+          "Cloudflare Workers",
+          "Durable Objects",
+          "Vite",
+          "Vitest",
+          "Playwright",
+          "k6"
+        ],
+        "lab": true
+      },
+      {
+        "title": "Cartório Simulator",
+        "slug": "cartorio-simulator",
+        "description": "Free daily browser game: get one document stamped at a Brazilian cartório before the windows close for lunch. Each day's bureaucracy is generated from a seed and is the same for everyone. The game is a pure function of a seed and the player's inputs: a seeded generator builds a dependency graph of documents that is solvable by construction, property tests run a solver over 10,000 days to check a fairness bound, and windows, queues and the 30× clock are deterministic state machines, so a bug report is a seed plus an input log. The forms are real HTML form controls, playable by keyboard and screen reader.",
+        "summary": "A daily browser game about Brazilian bureaucracy: get one stamp before lunch. Every day's chain is generated from a seed, solvable by construction, and checked by a solver over 10,000 days in the test suite.",
+        "longDescription": "Cartório Simulator is a free daily browser game, in English and Portuguese, on desktop and phone: get one document stamped at a Brazilian cartório before the windows close for lunch. Window 3 says you need Form 27-B, Form 27-B needs a copy, the copy must be authenticated at Window 4, and Window 4 goes to lunch in 40 seconds. You take a ticket, queue, fill in forms where every form has a trap, get sent back and try again, then paste your result: time, forms, send-backs and your path through the windows. The game is a pure function of a seed and the player's inputs. A seeded generator builds a dependency graph of documents backwards from the day's goal, so every chain is solvable by construction. A discovery solver that plays like a careful first-time player runs over 10,000 consecutive days plus 500 random seeds on every test run and checks that each one finishes within a 6-minute fairness bound; the seed report puts the median at 1:18. Windows, queues, lunch breaks and the 30× cartório clock are state machines advanced in fixed ticks, so the run saved in localStorage is just a list of ticks and actions, and replaying it rebuilds the exact state: a bug report is a date plus that log. The hall is drawn on a canvas, and the paper (forms, ticket, folder, stamps) is real HTML form controls, playable with a keyboard and a screen reader and readable on a phone. Pure game logic lives in its own folder with no DOM, the bundle is held under 200 KB by the check script, and GitHub Actions runs the checks and a Playwright smoke test on every push and deploys to GitHub Pages.",
+        "highlights": [
+          "The whole game is a pure function of a seed and the player's inputs: a run is replayed exactly from an input log",
+          "Seeded generator that builds a document dependency graph backwards from the goal, solvable by construction",
+          "Property tests run a solver over 10,000 consecutive days plus 500 random seeds and enforce a 6-minute fairness bound",
+          "Windows, queues, lunch breaks and a 30× clock as state machines advanced in fixed ticks",
+          "Forms are real HTML form controls, playable by keyboard and screen reader, in English and Portuguese",
+          "Bundle held under 200 KB, Playwright smoke test and deploy to GitHub Pages on every push"
+        ],
+        "screenshots": [
+          {
+            "src": "/projects/cartorio-simulator/cartorio-hall.avif",
+            "alt": "The cartório hall: five windows, their lines and the ticket board"
+          },
+          {
+            "src": "/projects/cartorio-simulator/cartorio-form.avif",
+            "alt": "A form with a trap, next to the ID card and today's rules at the window"
+          },
+          {
+            "src": "/projects/cartorio-simulator/cartorio-queue.avif",
+            "alt": "In line at Window 1, three people ahead"
+          },
+          {
+            "src": "/projects/cartorio-simulator/cartorio-result.avif",
+            "alt": "Result: the stamped declaration, time, forms and the path through the windows"
+          }
+        ],
+        "liveUrl": "https://allbdev.github.io/notary-office-simulator/",
+        "githubUrl": "https://github.com/allbdev/notary-office-simulator",
+        "techStack": [
+          "TypeScript",
+          "Canvas",
+          "Vite",
+          "Vitest",
+          "Property-based testing",
+          "Playwright",
+          "GitHub Actions"
+        ],
+        "lab": true
+      },
+      {
         "title": "Dig to Japan with a Spoon",
         "slug": "dig-to-japan",
         "status": "In development",
@@ -714,7 +806,7 @@
     ],
     "lab": {
       "title": "Lab",
-      "text": "Side projects where I try things outside the day job: games, personal finance, new stacks."
+      "text": "Side projects where I try things outside the day job: multiplayer and daily web games, Steam games, personal finance."
     }
   },
   "experience": {

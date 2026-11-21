@@ -610,6 +610,98 @@
         "lab": true
       },
       {
+        "title": "Um Buraco Só",
+        "slug": "the-single-hole",
+        "description": "Jogo multiplayer gratuito no navegador onde todo mundo na internet cava o mesmo buraco, do Brasil ao Japão, com uma colher: uma profundidade só, ao vivo, sem login. O problema de verdade é o número: milhares de clientes somando num contador só em tempo real, com atualização otimista, reconciliação, limites de taxa no servidor e persistência. A sala é lógica pura com relógio falso, e em produção roda num Cloudflare Worker com um Durable Object na WebSocket Hibernation API. Teste de carga com 6.000 jogadores cavando a 34 ms de p95 na transmissão. three.js com texturas procedurais, ~175 KB de JS inicial.",
+        "summary": "Todo mundo na internet cava o mesmo buraco, ao vivo, do Brasil ao Japão com uma colher. Um contador compartilhado por milhares de clientes num Durable Object da Cloudflare, testado com 6.000 jogadores a 34 ms de p95.",
+        "longDescription": "Um Buraco Só é um jogo de navegador gratuito e open source, jogado a partir de um link, sem login: todo mundo cava o mesmo buraco, de um quintal no Brasil até um jardim de pedras em Quioto, com uma colher. Cada jogador é uma colher na borda, com o país e o número de colheradas; um corte mostra as oito camadas até o núcleo, e um globo mostra quem está cavando agora e o ano em que chegamos ao Japão no ritmo desta semana. O problema interessante é o número: milhares de clientes somando num contador compartilhado em tempo real. A sala é uma única classe autoritativa sem timers, sockets ou armazenamento: entram conexões, mensagens cruas e o relógio, saem mensagens, então toda regra tem teste unitário com relógio falso e a hospedagem é um adaptador fino, um servidor WebSocket em Node no desenvolvimento e um Cloudflare Worker com um Durable Object em produção. O cliente aplica suas colheradas na hora, manda em lotes a cada 400 ms por um espelho do token bucket do servidor, e o placar se aproxima do total do servidor mais as suas colheradas não confirmadas sem nunca andar para trás; lotes em voo quando a conexão cai são descartados em vez de arriscar contar duas vezes. Toda mensagem é validada antes de chegar à sala, com limites de colheradas por conexão e por IP, teto de conexões, advertências para entrada inválida e uma fila por ordem de chegada quando a sala chega a 10.000 jogadores; o país vem dos headers da plataforma, nunca do cliente. O estado é salvo a cada poucos segundos com uma cópia de reserva, e a sala se recusa a subir em vez de zerar em silêncio um buraco ao vivo. Na Cloudflare usa a WebSocket Hibernation API, então quase não custa nada parada. Uma sala aguentou 6.000 jogadores cavando a 34 ms de p95 na transmissão e chegou ao teto de 10.000 jogadores a 55 ms de p95. A renderização é three.js com texturas procedurais e nenhuma imagem, com o globo carregado sob demanda e ~175 KB de JS inicial conferidos contra um orçamento no CI. Sem contas, nomes ou cookies; IPs ficam só em memória para os limites de taxa.",
+        "highlights": [
+          "Uma sala autoritativa como lógica pura (sem timers, sockets ou armazenamento), testada com relógio falso, atrás de adaptadores para Node e Durable Object da Cloudflare",
+          "Cliente otimista: lotes a cada 400 ms por um espelho do token bucket do servidor, e um placar que reconcilia com o total do servidor sem andar para trás",
+          "Teste de carga com 6.000 jogadores cavando a 34 ms de p95 na transmissão, e 55 ms de p95 no teto de 10.000 jogadores, com fila de espera depois disso",
+          "Contra abuso: protocolo validado, limites por conexão e por IP, advertências e país vindo dos headers da plataforma, com testes de abuso",
+          "Snapshots com cópia de reserva, uma sala que se recusa a subir em vez de zerar, e WebSocket Hibernation para ficar barata parada",
+          "three.js com texturas procedurais e nenhuma imagem, globo carregado sob demanda e ~175 KB de JS inicial dentro de um orçamento no CI"
+        ],
+        "screenshots": [
+          {
+            "src": "/projects/the-single-hole/hole-dig.avif",
+            "alt": "O buraco no gramado, cada jogador uma colher com seu país e colheradas"
+          },
+          {
+            "src": "/projects/the-single-hole/hole-section.avif",
+            "alt": "Corte das oito camadas, com o poço mostrando até onde o mundo cavou"
+          },
+          {
+            "src": "/projects/the-single-hole/hole-world.avif",
+            "alt": "Globo com um ponto por país cavando agora e os países do topo"
+          },
+          {
+            "src": "/projects/the-single-hole/hole-arrival.avif",
+            "alt": "Fim de temporada: o buraco sai num jardim de pedras em Quioto"
+          }
+        ],
+        "liveUrl": "https://the-single-hole.vinicius-albuquerque.com.br",
+        "githubUrl": "https://github.com/allbdev/the-single-hole",
+        "techStack": [
+          "TypeScript",
+          "three.js",
+          "WebSockets",
+          "Cloudflare Workers",
+          "Durable Objects",
+          "Vite",
+          "Vitest",
+          "Playwright",
+          "k6"
+        ],
+        "lab": true
+      },
+      {
+        "title": "Cartório Simulator",
+        "slug": "cartorio-simulator",
+        "description": "Jogo diário gratuito no navegador: consiga carimbar um documento num cartório antes de os guichês fecharem para o almoço. A burocracia de cada dia é gerada a partir de uma seed e é a mesma para todo mundo. O jogo é uma função pura da seed e das ações do jogador: um gerador com seed monta um grafo de dependências de documentos que tem solução por construção, testes de propriedade rodam um solver sobre 10.000 dias para conferir um limite de justiça, e guichês, filas e o relógio 30× são máquinas de estado determinísticas, então um bug report é uma seed mais um log de ações. Os formulários são controles de formulário HTML de verdade, jogáveis por teclado e leitor de tela.",
+        "summary": "Um jogo diário de navegador sobre a burocracia brasileira: consiga um carimbo antes do almoço. A cadeia de cada dia sai de uma seed, tem solução por construção e é conferida por um solver sobre 10.000 dias nos testes.",
+        "longDescription": "Cartório Simulator é um jogo diário gratuito de navegador, em português e inglês, no computador e no celular: consiga carimbar um documento num cartório antes de os guichês fecharem para o almoço. O guichê 3 diz que você precisa do Formulário 27-B, o 27-B precisa de uma cópia, a cópia tem que ser autenticada no guichê 4, e o guichê 4 sai para o almoço em 40 segundos. Você pega uma senha, entra na fila, preenche formulários em que cada um tem uma pegadinha, é mandado de volta e tenta de novo, e no fim cola o resultado: tempo, formulários, devoluções e o caminho pelos guichês. O jogo é uma função pura da seed e das ações do jogador. Um gerador com seed monta um grafo de dependências de documentos de trás para frente a partir do objetivo do dia, então toda cadeia tem solução por construção. Um solver que joga como alguém cuidadoso na primeira vez roda sobre 10.000 dias seguidos mais 500 seeds aleatórias a cada execução dos testes e confere que cada um termina dentro de um limite de justiça de 6 minutos; o relatório de seeds dá mediana de 1:18. Guichês, filas, almoço e o relógio do cartório, 30 vezes mais rápido, são máquinas de estado avançadas em ticks fixos, então a partida salva no localStorage é só uma lista de ticks e ações, e reproduzi-la reconstrói o estado exato: um bug report é a data mais esse log. O salão é desenhado num canvas, e o papel (formulários, senha, pasta, carimbos) é feito de controles de formulário HTML de verdade, jogável por teclado e leitor de tela e legível no celular. A lógica do jogo fica numa pasta própria sem DOM, o bundle é mantido abaixo de 200 KB pelo script de verificação, e o GitHub Actions roda as verificações e um smoke test em Playwright a cada push e publica no GitHub Pages.",
+        "highlights": [
+          "O jogo inteiro é uma função pura da seed e das ações do jogador: uma partida é reproduzida exatamente a partir de um log",
+          "Gerador com seed que monta um grafo de dependências de documentos de trás para frente a partir do objetivo, com solução por construção",
+          "Testes de propriedade rodam um solver sobre 10.000 dias seguidos mais 500 seeds aleatórias e garantem um limite de justiça de 6 minutos",
+          "Guichês, filas, almoço e um relógio 30× como máquinas de estado avançadas em ticks fixos",
+          "Formulários feitos de controles HTML de verdade, jogáveis por teclado e leitor de tela, em português e inglês",
+          "Bundle abaixo de 200 KB, smoke test em Playwright e deploy no GitHub Pages a cada push"
+        ],
+        "screenshots": [
+          {
+            "src": "/projects/cartorio-simulator/cartorio-hall.avif",
+            "alt": "O salão do cartório: cinco guichês, as filas e o painel de senhas"
+          },
+          {
+            "src": "/projects/cartorio-simulator/cartorio-form.avif",
+            "alt": "Um formulário com pegadinha, ao lado do RG e das regras do dia no guichê"
+          },
+          {
+            "src": "/projects/cartorio-simulator/cartorio-queue.avif",
+            "alt": "Na fila do guichê 1, três pessoas na frente"
+          },
+          {
+            "src": "/projects/cartorio-simulator/cartorio-result.avif",
+            "alt": "Resultado: a declaração carimbada, o tempo, os formulários e o caminho pelos guichês"
+          }
+        ],
+        "liveUrl": "https://allbdev.github.io/notary-office-simulator/",
+        "githubUrl": "https://github.com/allbdev/notary-office-simulator",
+        "techStack": [
+          "TypeScript",
+          "Canvas",
+          "Vite",
+          "Vitest",
+          "Testes de propriedade",
+          "Playwright",
+          "GitHub Actions"
+        ],
+        "lab": true
+      },
+      {
         "title": "Cavar até o Japão com uma Colher",
         "slug": "dig-to-japan",
         "status": "Em desenvolvimento",
@@ -714,7 +806,7 @@
     ],
     "lab": {
       "title": "Lab",
-      "text": "Projetos paralelos onde testo coisas fora do trabalho: jogos, finanças pessoais, stacks novas."
+      "text": "Projetos paralelos onde testo coisas fora do trabalho: jogos web multiplayer e diários, jogos para a Steam, finanças pessoais."
     }
   },
   "experience": {
