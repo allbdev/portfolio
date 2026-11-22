@@ -311,15 +311,15 @@
         "screenshots": [
           {
             "src": "/projects/path-trader/path-trader-analytics.webp",
-            "alt": "Path Trader dashboard with performance analytics"
+            "alt": "Path Trader analytics: P&L, trade duration and holding time plotted over the month"
           },
           {
             "src": "/projects/path-trader/path-trader-dashboard.webp",
-            "alt": "Path Trader main dashboard view"
+            "alt": "Path Trader dashboard: KPI cards and a monthly P&L calendar"
           },
           {
-            "src": "/projects/path-trader/path-trader-elliot-ai.webp",
-            "alt": "Path Trader AI assistant chat"
+            "src": "/projects/path-trader/path-trader-routine.webp",
+            "alt": "Path Trader trader routine: daily discipline chart, habit stats and monthly checklist"
           }
         ],
         "liveUrl": "https://www.path-trader.com.br/",
