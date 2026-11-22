@@ -311,15 +311,15 @@
         "screenshots": [
           {
             "src": "/projects/path-trader/path-trader-analytics.webp",
-            "alt": "Painel do Path Trader com análises de desempenho"
+            "alt": "Análises do Path Trader: lucro, duração das operações e tempo de retenção ao longo do mês"
           },
           {
             "src": "/projects/path-trader/path-trader-dashboard.webp",
-            "alt": "Visão do dashboard principal do Path Trader"
+            "alt": "Dashboard do Path Trader: indicadores e calendário mensal de resultados"
           },
           {
-            "src": "/projects/path-trader/path-trader-elliot-ai.webp",
-            "alt": "Chat do assistente com IA do Path Trader"
+            "src": "/projects/path-trader/path-trader-routine.webp",
+            "alt": "Rotina do trader no Path Trader: gráfico de disciplina diária, hábitos e checklist do mês"
           }
         ],
         "liveUrl": "https://www.path-trader.com.br/",
