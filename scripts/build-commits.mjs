@@ -39,6 +39,8 @@ const PUBLIC_REPOS = {
   'shave-the-capybara': 'Shave the Capybara',
   'um-buraco-so': 'The Single Hole',
   'cartorio-simulator': 'Cartório Simulator',
+  'park-the-cart': 'Park the Cart',
+  'my-links': 'My Links',
 };
 const PRIVATE_LABEL = 'client work';
 
