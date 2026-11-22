@@ -610,6 +610,60 @@
         "lab": true
       },
       {
+        "title": "Park the Cart",
+        "slug": "park-the-cart",
+        "description": "Free 3D browser game: push a shopping cart with one bad wheel across a crowded supermarket car park and into the corral without scratching the cars, and every scratch goes on the receipt. No physics engine and no 3D library: the cart is a hand-written rigid-body model in a deterministic core with its own trig functions, so a replay link is just the inputs and a messy 40-second run ends bit-identical in Chromium, Firefox, WebKit and Node. A parking bot plans with A* and drives the real simulation, so all ten levels and every day's daily level are proven finishable, and CI replays forty bot runs. The car park is drawn by about 2,300 lines of hand-written WebGL 2, with models built in code and real shadows.",
+        "summary": "A 3D browser game: park a shopping cart with one bad wheel without scratching the cars. Hand-written cart physics and WebGL 2, replays that are bit-identical across browsers, and a bot that proves every level can be finished.",
+        "longDescription": "Park the Cart (Estacione o Carrinho) is a free, open source 3D browser game, in English and Portuguese, on desktop and phone: push a shopping cart with one bad wheel across a crowded supermarket car park and into the corral without scratching the cars. Every scratch goes on the receipt, each level has a card limit that starts at R$ 4,000 and ends at R$ 100, and the result is a receipt like \"R$ 3,480 of damage in 41 seconds\". There are ten levels, a daily level that is the same for everyone, five carts and replays you can share as a link. The game is a pure function of the level, the cart and the player's inputs. There is no physics engine: the cart is a rigid body on four wheels in about 200 lines, with fixed rear wheels that cancel sideways slip, swivelling front casters and one faulty caster that alternates stuck and rolling phases drawn from the level's seed. Since nobody can feel a slider in a test suite, the feel is pinned by measurements (drift per second, top speed, coasting and braking distance, sliding in the rain) and a property test checks that no cart ever gains energy without input. A replay link is only the inputs, run-length encoded as varints in base64url, so the same inputs must give the same run in every browser: a fixed 120 Hz step and quantised inputs handle most of it, and because Math.sin, cos and atan2 differ between V8, SpiderMonkey and JavaScriptCore, the core has its own trig built only from exactly rounded operations, with an ESLint rule that bans the others, Math.random and the clock in the core. An end-to-end test plays a messy 40-second run in Chromium, Firefox and WebKit and checks that the final state is bit-identical to Node's. A parking bot plans a path with A* on a 25 cm grid around everything that can bill, then drives the real simulation with a steering and speed controller, waiting for gaps in moving traffic. Levels are generated from a spec and a seed and kept only if the bot parks them with R$ 0 of damage; the bot's run ships as the level's par, CI replays forty bot runs across the carts, and the daily level re-rolls until the bot can finish it, so over 2,000 simulated days every one was finishable. The car park is 3D without a 3D library: about 2,300 lines of WebGL 2 written for the game, with cars, carts, cones and kerbs built in code from the same sizes the collisions use, painted asphalt, one low sun with a shadow map that falls through the baskets' wire mesh, and a flat top-down renderer as the fallback. The matrices, camera and models are plain functions unit tested in Node, and the bundle is held under a 200 KB budget.",
+        "highlights": [
+          "Hand-written cart model with no physics engine: fixed rear wheels, swivelling casters and one faulty wheel, with the feel pinned by measurements and a no-free-energy property test",
+          "Deterministic core with its own trig built from exactly rounded operations, so a 40-second run ends bit-identical in Chromium, Firefox, WebKit and Node",
+          "Replays shared as a link: run-length-encoded inputs as varints in base64url, parsed strictly as untrusted input and fuzzed with fast-check",
+          "A parking bot with A* and a driving controller proves every level finishable; CI replays forty bot runs, and the daily level re-rolls until the bot parks it",
+          "3D without a 3D library: about 2,300 lines of WebGL 2, models built in code from the collision sizes, a shadow map and a flat renderer as fallback",
+          "Ten levels, a daily level, five carts, English and Portuguese, desktop and phone, under a 200 KB bundle budget"
+        ],
+        "screenshots": [
+          {
+            "src": "/projects/park-the-cart/cart-title.avif",
+            "alt": "Landing: \"3 wheels work, the fourth is free\" over the car park"
+          },
+          {
+            "src": "/projects/park-the-cart/cart-play.avif",
+            "alt": "Level 3 in play: damage, time, the bad wheel and the corral"
+          },
+          {
+            "src": "/projects/park-the-cart/cart-scratch.avif",
+            "alt": "A scratch: close-up on the bumper and the open receipt"
+          },
+          {
+            "src": "/projects/park-the-cart/cart-receipt.avif",
+            "alt": "Result: the itemised damage receipt, total and time"
+          },
+          {
+            "src": "/projects/park-the-cart/cart-rain.avif",
+            "alt": "Rain level: wet asphalt, puddles and traffic that does not brake"
+          },
+          {
+            "src": "/projects/park-the-cart/cart-replay.avif",
+            "alt": "Replay: the path, scratch marks on the scrubber and the copy-link button"
+          }
+        ],
+        "liveUrl": "https://park-the-cart.vinicius-albuquerque.com.br/",
+        "githubUrl": "https://github.com/allbdev/park-the-cart",
+        "techStack": [
+          "TypeScript",
+          "WebGL 2",
+          "Canvas",
+          "Vite",
+          "Vitest",
+          "Property-based testing",
+          "Playwright",
+          "GitHub Actions"
+        ],
+        "lab": true
+      },
+      {
         "title": "The Single Hole",
         "slug": "the-single-hole",
         "description": "Free multiplayer browser game where everyone on the internet digs the same hole, from Brazil to Japan, with a spoon: one shared depth, live, no login. The real problem is the number: thousands of clients adding to one counter in real time with optimistic updates, reconciliation, server-side rate limits and persistence. The room is pure logic with a fake clock, run in production as a Cloudflare Worker with one Durable Object on the WebSocket Hibernation API. Load tested at 6,000 players digging with 34 ms p95 broadcast latency. three.js with procedural textures, ~175 KB of initial JS.",
@@ -698,6 +752,48 @@
           "Property-based testing",
           "Playwright",
           "GitHub Actions"
+        ],
+        "lab": true
+      },
+      {
+        "title": "My Links",
+        "slug": "my-links",
+        "description": "Self-hosted link-in-bio page: one static page with my photo, a short bio and my links, in English and Portuguese, driven by a single JSON file. The build is the validator: a strict Zod schema stops the build on a misspelt key, a javascript: URL or a missing image, so a typo made on GitHub fails CI and never reaches the live page. A Next.js static export with only two small client islands, accessible by default with axe in CI, a strict Content Security Policy, no cookies or analytics, and Lighthouse 95 / 100 / 100 / 100 on mobile.",
+        "summary": "My link-in-bio page, self-hosted: one static page driven by one JSON file that the build validates. Next.js static export, two client islands, axe in CI and a strict CSP.",
+        "longDescription": "My Links is the page behind the link in my bios: my photo, a short bio, social icons, links as cards, section headings and one featured project card, in English at / and Portuguese at /pt/. It replaces a hosted link-in-bio service with a page I own, and everything on it comes from one file, content/links.json. That file is parsed with a strict Zod schema when the page is built, so a misspelt key, a title that is too long, an image that is not in public/ or an unsafe URL stops the build with a message that points at the field; links accept only https:, mailto: and paths on the site, and javascript:, data:, http:, protocol-relative URLs and paths with whitespace or .. are rejected and tested. Editing the links on GitHub is enough: CI validates the file and Vercel builds and deploys it. It is a Next.js App Router static export: the profile, cards and footer are Server Components rendered to HTML at build time, and the share dialog and a scroll reveal are the only client components, so the page renders and animates without JavaScript. The share dialog shares the whole page or a single link by copy, WhatsApp, LinkedIn, X, e-mail or the phone's own share sheet. Each language is its own static page with its own html lang, metadata, hreflang links and Open Graph image, all generated from the same file. Accessibility is built in: real links and buttons, a native dialog that moves focus in and back, 44 px touch targets, reduced motion respected, and text contrast checked by a unit test for every colour pairing, with axe running in CI on the page and the open dialog on desktop and phone. vercel.json sets a strict Content Security Policy, HSTS and the other security headers, and the local preview server applies the same file, so the end-to-end tests run under the real CSP and fail on any console error. There are no cookies, analytics or requests to other origins. On mobile Lighthouse scores 95 / 100 / 100 / 100, and a size check fails CI if first-load JS goes over 150 KB gzipped.",
+        "highlights": [
+          "One JSON file drives the page, and the build is the validator: a strict Zod schema fails CI on a bad key, an unsafe URL or a missing image, pointing at the field",
+          "Next.js static export with Server Components and only two client islands; the page renders and animates without JavaScript",
+          "Share dialog for the page and each link: copy, WhatsApp, LinkedIn, X, e-mail and the native share sheet, with share URLs covered by property tests",
+          "English and Portuguese as separate static pages, each with its own lang, metadata, hreflang and Open Graph image",
+          "Accessible by default: native dialog focus handling, 44 px targets, reduced motion, a contrast test for every colour pair and axe in CI on desktop and phone",
+          "Strict CSP and security headers tested end to end, no cookies or analytics, Lighthouse 95 / 100 / 100 / 100 and a 150 KB JS budget in CI"
+        ],
+        "screenshots": [
+          {
+            "src": "/projects/my-links/links-page.avif",
+            "alt": "The page on a phone: profile and links, the projects section, and the share dialog"
+          },
+          {
+            "src": "/projects/my-links/links-desktop.avif",
+            "alt": "The page on a desktop screen"
+          },
+          {
+            "src": "/projects/my-links/links-languages.avif",
+            "alt": "The same page in English and in Portuguese"
+          }
+        ],
+        "liveUrl": "https://links.vinicius-albuquerque.com.br",
+        "githubUrl": "https://github.com/allbdev/my-links",
+        "techStack": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Zod",
+          "Vitest",
+          "Playwright",
+          "axe-core",
+          "Vercel"
         ],
         "lab": true
       },
@@ -806,7 +902,7 @@
     ],
     "lab": {
       "title": "Lab",
-      "text": "Side projects where I try things outside the day job: multiplayer and daily web games, Steam games, personal finance."
+      "text": "Side projects where I try things outside the day job: multiplayer, daily and 3D web games, Steam games, personal finance, my own link page."
     }
   },
   "experience": {
