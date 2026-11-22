@@ -610,6 +610,60 @@
         "lab": true
       },
       {
+        "title": "Estacione o Carrinho",
+        "slug": "park-the-cart",
+        "description": "Jogo 3D gratuito no navegador: empurre um carrinho de supermercado com uma roda ruim por um estacionamento lotado até o curral sem riscar os carros, e cada risco vai para a nota. Sem engine de física e sem biblioteca 3D: o carrinho é um modelo de corpo rígido escrito à mão num núcleo determinístico com trigonometria própria, então um link de replay é só a lista de comandos e uma partida bagunçada de 40 segundos termina bit a bit igual no Chromium, Firefox, WebKit e Node. Um bot de estacionar planeja com A* e dirige a simulação de verdade, provando que as dez fases e a fase diária de todo dia têm solução, e o CI repete quarenta partidas do bot. O estacionamento é desenhado por cerca de 2.300 linhas de WebGL 2 escritas à mão, com modelos feitos em código e sombras de verdade.",
+        "summary": "Um jogo 3D no navegador: estacione um carrinho de supermercado com uma roda ruim sem riscar os carros. Física do carrinho e WebGL 2 escritos à mão, replays bit a bit iguais entre navegadores e um bot que prova que toda fase tem solução.",
+        "longDescription": "Estacione o Carrinho (Park the Cart) é um jogo 3D gratuito e open source no navegador, em português e inglês, no computador e no celular: empurre um carrinho de supermercado com uma roda ruim por um estacionamento lotado até o curral sem riscar os carros. Cada risco vai para a nota, cada fase tem um limite no cartão que começa em R$ 4.000 e termina em R$ 100, e o resultado é uma nota como \"R$ 3.480 de prejuízo em 41 segundos\". São dez fases, uma fase diária igual para todo mundo, cinco carrinhos e replays que viram link. O jogo é uma função pura da fase, do carrinho e dos comandos do jogador. Não tem engine de física: o carrinho é um corpo rígido sobre quatro rodas em cerca de 200 linhas, com rodas traseiras fixas que anulam o deslize lateral, rodízios dianteiros que giram e um rodízio com defeito que alterna fases travado e solto sorteadas pela semente da fase. Como ninguém sente um slider num teste, a sensação é fixada por medidas (desvio por segundo, velocidade máxima, distância de embalo e de frenagem, deslize na chuva), e um teste de propriedade confere que nenhum carrinho ganha energia sem comando. Um link de replay é só a lista de comandos, codificada em run-length como varints em base64url, então os mesmos comandos precisam dar a mesma partida em todo navegador: um passo fixo de 120 Hz e comandos quantizados resolvem quase tudo, e como Math.sin, cos e atan2 diferem entre V8, SpiderMonkey e JavaScriptCore, o núcleo tem trigonometria própria feita só de operações com arredondamento exato, com uma regra de ESLint que proíbe as outras, Math.random e o relógio no núcleo. Um teste end-to-end joga uma partida bagunçada de 40 segundos no Chromium, Firefox e WebKit e confere que o estado final é bit a bit igual ao do Node. Um bot de estacionar planeja o caminho com A* numa grade de 25 cm em volta de tudo que pode gerar cobrança e dirige a simulação de verdade com um controlador de direção e velocidade, esperando brechas no trânsito. As fases são geradas a partir de uma especificação e uma semente e só ficam se o bot estacionar com R$ 0 de prejuízo; a partida do bot vai junto como o par da fase, o CI repete quarenta partidas do bot entre os carrinhos, e a fase diária é sorteada de novo até o bot conseguir terminar, então em 2.000 dias simulados todos tinham solução. O estacionamento é 3D sem biblioteca 3D: cerca de 2.300 linhas de WebGL 2 escritas para o jogo, com carros, carrinhos, cones e meios-fios feitos em código com as mesmas medidas das colisões, asfalto pintado, um sol baixo com shadow map que atravessa a grade dos carrinhos, e um renderizador plano visto de cima como alternativa. Matrizes, câmera e modelos são funções puras testadas no Node, e o bundle fica dentro de um orçamento de 200 KB.",
+        "highlights": [
+          "Modelo do carrinho escrito à mão, sem engine de física: rodas traseiras fixas, rodízios que giram e uma roda com defeito, com a sensação fixada por medidas e um teste de propriedade contra energia de graça",
+          "Núcleo determinístico com trigonometria própria feita de operações com arredondamento exato, então uma partida de 40 segundos termina bit a bit igual no Chromium, Firefox, WebKit e Node",
+          "Replays compartilhados como link: comandos codificados em run-length como varints em base64url, lidos com rigor como entrada não confiável e testados com fuzzing no fast-check",
+          "Um bot de estacionar com A* e um controlador de direção prova que toda fase tem solução; o CI repete quarenta partidas do bot, e a fase diária é sorteada de novo até o bot estacionar",
+          "3D sem biblioteca 3D: cerca de 2.300 linhas de WebGL 2, modelos feitos em código com as medidas das colisões, shadow map e um renderizador plano como alternativa",
+          "Dez fases, uma fase diária, cinco carrinhos, português e inglês, computador e celular, dentro de um orçamento de 200 KB de bundle"
+        ],
+        "screenshots": [
+          {
+            "src": "/projects/park-the-cart/cart-title.avif",
+            "alt": "Tela inicial: \"3 rodas funcionam, a quarta é grátis\" sobre o estacionamento"
+          },
+          {
+            "src": "/projects/park-the-cart/cart-play.avif",
+            "alt": "Fase 3 em jogo: prejuízo, tempo, a roda ruim e o curral"
+          },
+          {
+            "src": "/projects/park-the-cart/cart-scratch.avif",
+            "alt": "Um risco: close no para-choque e a nota aberta"
+          },
+          {
+            "src": "/projects/park-the-cart/cart-receipt.avif",
+            "alt": "Resultado: a nota do prejuízo item por item, total e tempo"
+          },
+          {
+            "src": "/projects/park-the-cart/cart-rain.avif",
+            "alt": "Fase com chuva: asfalto molhado, poças e carros que não freiam"
+          },
+          {
+            "src": "/projects/park-the-cart/cart-replay.avif",
+            "alt": "Replay: o caminho, os riscos marcados na linha do tempo e o botão de copiar o link"
+          }
+        ],
+        "liveUrl": "https://park-the-cart.vinicius-albuquerque.com.br/",
+        "githubUrl": "https://github.com/allbdev/park-the-cart",
+        "techStack": [
+          "TypeScript",
+          "WebGL 2",
+          "Canvas",
+          "Vite",
+          "Vitest",
+          "Property-based testing",
+          "Playwright",
+          "GitHub Actions"
+        ],
+        "lab": true
+      },
+      {
         "title": "Um Buraco Só",
         "slug": "the-single-hole",
         "description": "Jogo multiplayer gratuito no navegador onde todo mundo na internet cava o mesmo buraco, do Brasil ao Japão, com uma colher: uma profundidade só, ao vivo, sem login. O problema de verdade é o número: milhares de clientes somando num contador só em tempo real, com atualização otimista, reconciliação, limites de taxa no servidor e persistência. A sala é lógica pura com relógio falso, e em produção roda num Cloudflare Worker com um Durable Object na WebSocket Hibernation API. Teste de carga com 6.000 jogadores cavando a 34 ms de p95 na transmissão. three.js com texturas procedurais, ~175 KB de JS inicial.",
@@ -698,6 +752,48 @@
           "Testes de propriedade",
           "Playwright",
           "GitHub Actions"
+        ],
+        "lab": true
+      },
+      {
+        "title": "Meus Links",
+        "slug": "my-links",
+        "description": "Página de links da bio hospedada por mim: uma página estática com minha foto, uma bio curta e meus links, em português e inglês, gerada a partir de um único arquivo JSON. O build é o validador: um schema Zod estrito para o build numa chave escrita errado, numa URL javascript: ou numa imagem que não existe, então um erro de digitação feito no GitHub quebra o CI e nunca chega à página no ar. Export estático do Next.js com só duas pequenas ilhas de cliente, acessível por padrão com axe no CI, uma Content Security Policy estrita, sem cookies nem analytics, e Lighthouse 95 / 100 / 100 / 100 no celular.",
+        "summary": "Minha página de links da bio, hospedada por mim: uma página estática gerada de um arquivo JSON que o build valida. Export estático do Next.js, duas ilhas de cliente, axe no CI e CSP estrita.",
+        "longDescription": "Meus Links é a página por trás do link nas minhas bios: minha foto, uma bio curta, ícones das redes, links em cards, títulos de seção e um card de projeto em destaque, em inglês em / e em português em /pt/. Ela substitui um serviço de link na bio por uma página que é minha, e tudo nela vem de um arquivo só, content/links.json. Esse arquivo é lido com um schema Zod estrito no build, então uma chave escrita errado, um título longo demais, uma imagem que não está em public/ ou uma URL insegura param o build com uma mensagem que aponta o campo; os links aceitam só https:, mailto: e caminhos do próprio site, e javascript:, data:, http:, URLs sem protocolo e caminhos com espaços ou .. são rejeitados e testados. Editar os links no GitHub basta: o CI valida o arquivo e a Vercel faz o build e publica. É um export estático do Next.js com App Router: perfil, cards e rodapé são Server Components renderizados em HTML no build, e o diálogo de compartilhar e uma animação de entrada na rolagem são os únicos componentes de cliente, então a página renderiza e anima sem JavaScript. O diálogo compartilha a página inteira ou um link por cópia, WhatsApp, LinkedIn, X, e-mail ou a folha de compartilhamento do próprio celular. Cada idioma é uma página estática própria, com seu html lang, metadados, links hreflang e imagem de Open Graph, tudo gerado do mesmo arquivo. A acessibilidade vem de fábrica: links e botões de verdade, um dialog nativo que leva o foco e devolve, alvos de toque de 44 px, movimento reduzido respeitado e o contraste do texto conferido por um teste unitário para cada par de cores, com axe rodando no CI na página e no diálogo aberto, no computador e no celular. O vercel.json define uma Content Security Policy estrita, HSTS e os outros headers de segurança, e o servidor local de preview aplica o mesmo arquivo, então os testes end-to-end rodam sob a CSP real e falham com qualquer erro no console. Sem cookies, analytics ou requisições para outros domínios. No celular o Lighthouse dá 95 / 100 / 100 / 100, e um teste de tamanho quebra o CI se o JS inicial passar de 150 KB com gzip.",
+        "highlights": [
+          "Um arquivo JSON gera a página, e o build é o validador: um schema Zod estrito quebra o CI com uma chave errada, uma URL insegura ou uma imagem faltando, apontando o campo",
+          "Export estático do Next.js com Server Components e só duas ilhas de cliente; a página renderiza e anima sem JavaScript",
+          "Diálogo de compartilhar para a página e cada link: cópia, WhatsApp, LinkedIn, X, e-mail e a folha nativa, com as URLs de compartilhamento cobertas por testes de propriedade",
+          "Português e inglês como páginas estáticas separadas, cada uma com seu lang, metadados, hreflang e imagem de Open Graph",
+          "Acessível por padrão: foco do dialog nativo, alvos de 44 px, movimento reduzido, teste de contraste para cada par de cores e axe no CI no computador e no celular",
+          "CSP estrita e headers de segurança testados de ponta a ponta, sem cookies nem analytics, Lighthouse 95 / 100 / 100 / 100 e orçamento de 150 KB de JS no CI"
+        ],
+        "screenshots": [
+          {
+            "src": "/projects/my-links/links-page.avif",
+            "alt": "A página no celular: perfil e links, a seção de projetos e o diálogo de compartilhar"
+          },
+          {
+            "src": "/projects/my-links/links-desktop.avif",
+            "alt": "A página numa tela de computador"
+          },
+          {
+            "src": "/projects/my-links/links-languages.avif",
+            "alt": "A mesma página em inglês e em português"
+          }
+        ],
+        "liveUrl": "https://links.vinicius-albuquerque.com.br",
+        "githubUrl": "https://github.com/allbdev/my-links",
+        "techStack": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Zod",
+          "Vitest",
+          "Playwright",
+          "axe-core",
+          "Vercel"
         ],
         "lab": true
       },
@@ -806,7 +902,7 @@
     ],
     "lab": {
       "title": "Lab",
-      "text": "Projetos paralelos onde testo coisas fora do trabalho: jogos web multiplayer e diários, jogos para a Steam, finanças pessoais."
+      "text": "Projetos paralelos onde testo coisas fora do trabalho: jogos web multiplayer, diários e em 3D, jogos para a Steam, finanças pessoais, minha própria página de links."
     }
   },
   "experience": {

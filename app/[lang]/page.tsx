@@ -64,7 +64,7 @@ export default async function IndexPage({
     address: { '@type': 'PostalAddress', addressLocality: 'Vila Velha', addressCountry: 'BR' },
     knowsLanguage: ['pt-BR', 'en'],
     knowsAbout: ['React', 'Next.js', 'TypeScript', 'Node.js', 'NestJS', 'Go', 'PostgreSQL', 'AWS', 'MCP'],
-    sameAs: [site.linkedin, site.github, 'https://www.path-trader.com.br/'],
+    sameAs: [site.linkedin, site.github, 'https://links.vinicius-albuquerque.com.br', 'https://www.path-trader.com.br/'],
   };
 
   return (
