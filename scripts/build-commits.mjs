@@ -41,6 +41,8 @@ const PUBLIC_REPOS = {
   'cartorio-simulator': 'Cartório Simulator',
   'park-the-cart': 'Park the Cart',
   'my-links': 'My Links',
+  cofre: 'Cofre',
+  'force-push': 'Force Push',
 };
 const PRIVATE_LABEL = 'client work';
 

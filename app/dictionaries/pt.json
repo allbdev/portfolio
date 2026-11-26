@@ -566,6 +566,106 @@
         }
       },
       {
+        "title": "Force Push",
+        "slug": "force-push",
+        "description": "Jogo de navegador 3D multiplayer e gratuito para 2 a 4 jogadores: ande por um escritório open space, solte force-pushes e pinte o chão com a cor da sua branch; quem tiver a maior parte do código quando o sprint acaba vence, e o resultado é um diff. Uma partida é uma função pura de uma seed, um mapa e as entradas de todo mundo, avançada 20 vezes por segundo só com inteiros, e o mesmo núcleo roda no navegador e num Durable Object da Cloudflare por sala: o servidor é a autoridade, e cada cliente prevê os próprios movimentos e volta atrás quando chegam as entradas do servidor. Os bots jogam no mesmo step, 1.000 partidas de bots com seed rodam no CI, e o Playwright repete uma partida de 3 minutos no Chromium, Firefox e WebKit e confere o hash final de cada um com o do Node.",
+        "summary": "Um jogo 3D multiplayer de navegador: solte bombas de git push --force num escritório open space e pinte o chão com a cor da sua branch. Um núcleo só de inteiros para navegador e servidor, previsão no cliente com rollback e bots testados em 1.000 partidas.",
+        "longDescription": "Force Push é um jogo de navegador 3D gratuito e open source para 2 a 4 jogadores, em português e inglês, no computador e no celular. Quatro vagas, quatro branches (main, feature, hotfix e dev), e as vagas vazias são preenchidas por bots. Você solta um force-push, três segundos depois ele explode em cruz e pinta com a sua cor cada piso que alcança; as explosões quebram caixas de legado, algumas escondendo café, um patinho de borracha, Stack Overflow, um segundo monitor ou um rebase, e param nos racks de servidor. Pego numa explosão, você sofre revert: quatro segundos fora e três pisos perdidos, mas ninguém é eliminado, e nos últimos 30 segundos um code freeze fecha a borda do mapa. Quando o sprint acaba os pisos são contados e o resultado parece um diff: \"main venceu: +212 −181 (31%)\", com revanche, o maior push repetido de perto e um link de replay. Por baixo, uma partida é uma função pura de uma seed, um mapa e as entradas de todo mundo: step(state, inputs) → state, 20 vezes por segundo. O núcleo não tem Math.random, relógio, floats no estado, DOM nem rede, e uma regra de ESLint garante isso; o estado é feito de inteiros e typed arrays, então clona barato, dá o mesmo hash FNV-1a em qualquer lugar e viaja como snapshot. As salas online rodam num Cloudflare Worker com um Durable Object por sala que importa o mesmo núcleo. O servidor é a autoridade: carimba cada entrada no tick em que ela chega, avança a partida e transmite as entradas de cada tick, uns 25 bytes para quatro jogadores, enquanto os clientes mandam cinco bits de entrada por tick. Cada cliente guarda um estado confirmado, sempre igual ao do servidor, e um previsto, refeito a cada tick com as próprias entradas ainda não confirmadas, então o seu jogador se move na hora e um palpite errado é corrigido assim que chegam as entradas do servidor; um hash por segundo pega qualquer divergência e pede um snapshot. Um teste de propriedade passa entradas aleatórias por latência e jitter aleatórios e confere que todo cliente converge para o servidor, e o Playwright joga um sprint inteiro com dois navegadores pelo wrangler dev. Os bots leem só o estado e devolvem os mesmos cinco bits que um jogador manda, então se comportam igual no servidor, offline e num replay: cada decisão monta um mapa de perigo com toda explosão pendente, incluindo as em cadeia, e um bot só solta um push quando consegue chegar antes a um piso seguro. O CI roda 1.000 partidas só de bots com seed e falha se um bot travar ou entrar numa explosão visível, e o mapa diário só é aceito depois que os bots o jogam. O placar é um invariante: + conta os pisos que viraram a sua cor, − os seus que viraram qualquer outra, e + menos − é exatamente o que você tem, conferido junto com a conservação dos pisos a cada tick de partidas aleatórias. Cada modelo é uma caixa chanfrada construída em código e desenhada com three.js, as cores do chão têm um padrão por branch e passam por uma checagem de daltonismo, e o cliente inteiro, com three.js, cabe num orçamento de 250 KB com gzip cobrado no CI.",
+        "highlights": [
+          "Núcleo determinístico só de inteiros, step(state, inputs) → state a 20 Hz, compartilhado por navegador e servidor e com o mesmo hash no Chromium, Firefox, WebKit e Node",
+          "Salas online em Cloudflare Workers com um Durable Object por sala: servidor como autoridade, cinco bits de entrada por tick, previsão no cliente com rollback e conferência de hash a cada segundo",
+          "Um teste de propriedade passa entradas aleatórias por latência e jitter aleatórios e confere que todo cliente converge para o servidor; o Playwright joga um sprint inteiro com dois navegadores",
+          "Bots no mesmo step com um mapa de perigo das explosões pendentes; 1.000 partidas só de bots no CI, e o mapa diário só é aceito depois que os bots o jogam",
+          "O placar é um diff e um invariante: + menos − é igual aos pisos que você tem, conferido com a conservação dos pisos a cada tick de partidas aleatórias",
+          "Replays como seed + mapa + entradas, checagem de daltonismo nas cores do chão, português e inglês, computador e celular, dentro de 250 KB com three.js"
+        ],
+        "screenshots": [
+          {
+            "src": "/projects/force-push/fp-match.avif",
+            "alt": "Uma partida no Open Space: a barra de território, pushes armados, power-ups no chão e o log de commits"
+          },
+          {
+            "src": "/projects/force-push/fp-blast.avif",
+            "alt": "O destaque do fim da partida: o maior force-push de perto, com o diff dele"
+          },
+          {
+            "src": "/projects/force-push/fp-result.avif",
+            "alt": "O resultado é um diff: a branch vencedora, o + e o − de cada branch e um link de replay"
+          },
+          {
+            "src": "/projects/force-push/fp-phone.avif",
+            "alt": "No celular, em retrato: a partida com o direcional e o botão push -f, o lobby e o resultado"
+          },
+          {
+            "src": "/projects/force-push/fp-lobby.avif",
+            "alt": "O lobby: código da sala, quatro vagas e branches, mapa e duração do sprint"
+          },
+          {
+            "src": "/projects/force-push/fp-landing.avif",
+            "alt": "Tela inicial: criar sala, entrar com um código ou jogar contra bots"
+          }
+        ],
+        "liveUrl": "https://force-push.vinicius-albuquerque.com.br",
+        "githubUrl": "https://github.com/allbdev/force-push",
+        "techStack": [
+          "TypeScript",
+          "three.js",
+          "Cloudflare Workers",
+          "Durable Objects",
+          "WebSockets",
+          "Vite",
+          "Vitest",
+          "Property-based testing",
+          "Playwright"
+        ],
+        "lab": true
+      },
+      {
+        "title": "Cofre",
+        "slug": "cofre",
+        "description": "App nativo de macOS para as senhas, chaves de API, tokens e strings de conexão que um desenvolvedor copia todo dia. Cada item é um nome e um valor, e o valor nunca aparece: você cola uma vez e daí em diante só copia. Um atalho global abre um painel de busca, Enter copia, e a área de transferência se limpa sozinha 30 segundos depois. Os segredos ficam no Keychain de proteção de dados do macOS, presos a este Mac e protegidos pelo Touch ID, o app roda em sandbox sem permissão de rede, e o backup é um arquivo PBKDF2 + AES-256-GCM documentado. SwiftUI com AppKit onde o SwiftUI não alcança, sobre um pacote Swift puro coberto por mais de 100 testes.",
+        "summary": "Um cofre nativo de macOS para segredos de dev: aperte ⌃⌥K, digite três letras, Enter, e a chave fica na área de transferência por 30 segundos. Keychain e Touch ID, sem rede, valores nunca exibidos.",
+        "longDescription": "Cofre é um app nativo de macOS para as senhas, chaves de API, tokens e strings de conexão que eu copio todo dia. Cada item é um nome e um valor, e o valor só pode ser escrito na interface: dá para digitar, colar, trocar e copiar, nunca exibir. Aperte ⌃⌥K de qualquer app, digite algumas letras, Enter, e o segredo está na área de transferência; 30 segundos depois ela é limpa, mas só se ainda tiver o segredo, então nada que você copiou depois se perde, e ele é gravado com os tipos concealed e transient para que gerenciadores de área de transferência o ignorem. Nada é feito em casa onde importa. Cada segredo é um item de senha genérica no Keychain de proteção de dados do macOS, WhenUnlockedThisDeviceOnly, nunca sincronizado e legível só depois do Touch ID ou da senha do Mac; um desbloqueio vale para uma rodada de trabalho e termina depois de cinco minutos parado, ao dormir, ao bloquear a tela ou ao sair. O app roda no App Sandbox sem a permissão de rede, então \"nada sai do seu Mac\" é algo que qualquer um confere no arquivo de entitlements, e não uma promessa. Como itens ThisDeviceOnly não sobreviveriam a um Mac morto, existe uma exportação criptografada: uma frase-senha de pelo menos 12 caracteres passa por PBKDF2-HMAC-SHA256 com 600.000 iterações até um AES-256-GCM, com todos os campos do cabeçalho amarrados como dados autenticados, num formato JSON versionado e documentado com uma receita para decifrar sem o app, e uma importação que pergunta o que fazer com nomes repetidos. Um aviso lembra quando o último backup está velho. O atalho global usa o RegisterEventHotKey do Carbon, então não precisa da permissão de Acessibilidade, e abre um painel flutuante com busca ranqueada: prefixo do nome primeiro, depois prefixo de palavra, substring e subsequência, sem ligar para maiúsculas e acentos. O código é dividido para ser testável: CofreKit é um pacote Swift sem AppKit com o tipo SecretValue redigido (nunca se imprime e não é Codable), as regras de nome, o protocolo de armazenamento com uma versão em memória, o ranking da busca, o codec de exportação, o planejador de importação, a guarda da área de transferência, a política de bloqueio e o VaultModel observável a que as telas se ligam, coberto por mais de 100 testes com Swift Testing, incluindo testes de propriedade; um segundo target embrulha o Keychain. O app por cima são telas finas em SwiftUI e adaptadores AppKit para a área de transferência, o atalho e o painel, em português e inglês, com um teste que garante que toda string da interface tem as duas versões. O CI roda o lint de formatação, os testes e um build sem assinatura a cada push. Ele roda no meu Mac no dia a dia; um release notarizado e uma ferramenta de linha de comando são os próximos passos.",
+        "highlights": [
+          "Valores só podem ser escritos na interface: digitados ou colados uma vez, depois só copiados, atrás de um tipo SecretValue redigido que nunca se imprime",
+          "Atalho global (⌃⌥K) pelo Carbon, sem permissão de Acessibilidade, abrindo um painel flutuante com busca ranqueada e insensível a acentos",
+          "Keychain de proteção de dados, só neste aparelho, protegido pelo Touch ID; a área de transferência é limpa em 30 segundos só se ainda tiver o segredo",
+          "Sandbox sem a permissão de rede, então \"nada sai do seu Mac\" pode ser conferido no arquivo de entitlements",
+          "Backup criptografado: PBKDF2-HMAC-SHA256 com 600.000 iterações e AES-256-GCM com o cabeçalho como dados autenticados, num formato documentado",
+          "Pacote Swift puro com mais de 100 testes, SwiftUI e AppKit por cima, português e inglês, lint, testes e build no CI"
+        ],
+        "screenshots": [
+          {
+            "src": "/projects/cofre/cofre-quick-panel.avif",
+            "alt": "O painel rápido do ⌃⌥K: busca, Enter copia, Esc fecha"
+          },
+          {
+            "src": "/projects/cofre/cofre-main-window.avif",
+            "alt": "A janela principal: só nomes e datas, nunca valores, e um aviso pedindo o primeiro backup"
+          },
+          {
+            "src": "/projects/cofre/cofre-add-secret.avif",
+            "alt": "Adicionando um segredo: um nome e um valor escondido, digitado ou colado da área de transferência"
+          },
+          {
+            "src": "/projects/cofre/cofre-settings.avif",
+            "alt": "Ajustes: limpeza da área de transferência, bloqueio automático e o atalho de acesso rápido"
+          }
+        ],
+        "githubUrl": "https://github.com/allbdev/cofre",
+        "techStack": [
+          "Swift",
+          "SwiftUI",
+          "AppKit",
+          "Keychain",
+          "Touch ID",
+          "CryptoKit",
+          "Swift Testing",
+          "GitHub Actions"
+        ],
+        "lab": true
+      },
+      {
         "title": "Vestra Gestão Financeira",
         "slug": "vestra-gestao-financeira",
         "description": "PWA mobile-first de finanças pessoais num monorepo pnpm + Turborepo: dashboard Vite + React 19 com service worker Workbox, site institucional em Next.js 16 e API NestJS 11 com Prisma e PostgreSQL (17 modelos, dinheiro em Decimal). Autenticação JWT global com rotação de refresh token, guards de dono e membro do workspace, clonagem transacional de workspaces, transações recorrentes agendadas, notificações via Pusher e Web Push, e limites dos planos free e pro. Deploy no Fly.io e na Vercel com Neon Postgres.",
@@ -902,7 +1002,26 @@
     ],
     "lab": {
       "title": "Lab",
-      "text": "Projetos paralelos onde testo coisas fora do trabalho: jogos web multiplayer, diários e em 3D, jogos para a Steam, finanças pessoais, minha própria página de links."
+      "text": "Projetos paralelos onde testo coisas fora do trabalho: jogos web multiplayer, diários e em 3D, um app nativo para Mac, jogos para a Steam, finanças pessoais, minha própria página de links.",
+      "featured": [
+        "force-push",
+        "cofre",
+        "my-links"
+      ],
+      "seeAll": "Ver todos os {n} projetos do Lab",
+      "pageTitle": "Lab",
+      "pageText": "Tudo que eu construo fora do trabalho: jogos web multiplayer, diários e em 3D, um app nativo para Mac, jogos para a Steam, finanças pessoais e minha própria página de links.",
+      "back": "VOLTAR",
+      "searchLabel": "Buscar no Lab",
+      "searchPlaceholder": "Busque por nome, ideia ou tecnologia…",
+      "scopeLabel": "Buscar em",
+      "scopeTitle": "Título",
+      "scopeContent": "Conteúdo",
+      "results": "{n} de {total} projetos",
+      "empty": "Nada encontrado para “{q}”.",
+      "clear": "Limpar busca",
+      "metaDescription": "Projetos paralelos de Vinícius Albuquerque: jogos web, um app nativo para Mac, finanças pessoais e mais, cada um com um estudo de caso.",
+      "paletteHint": "todos os projetos"
     }
   },
   "experience": {

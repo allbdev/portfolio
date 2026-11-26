@@ -88,6 +88,13 @@ export default function CommandPalette({ dictionary, lang }: { dictionary: Dicti
         run: close(() => router.push(`/${lang}/projeto/${project.slug}`)),
       })),
       {
+        id: 'lab',
+        group: t.groups.projects,
+        label: dictionary.projects.lab.pageTitle,
+        hint: dictionary.projects.lab.paletteHint,
+        run: close(() => router.push(`/${lang}/lab`)),
+      },
+      {
         id: 'ask-ai',
         group: t.groups.actions,
         label: t.actions.askAi,

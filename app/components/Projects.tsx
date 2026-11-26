@@ -336,8 +336,8 @@ function SecondaryProject({
   );
 }
 
-/** Compact card for the Lab strip. */
-function LabProject({
+/** Compact card for the Lab strip and the Lab page. */
+export function LabProject({
   project,
   dictionary,
   lang,
@@ -391,7 +391,11 @@ export default function Projects({
   // One featured card (the first with a meta line); everything else outside the Lab is secondary.
   const featured = items.filter((project) => project.eyebrow && !project.lab).slice(0, 1);
   const secondary = items.filter((project) => !project.lab && !featured.includes(project));
-  const labItems = items.filter((project) => project.lab);
+  const allLab = items.filter((project) => project.lab);
+  // The home page shows a few picked Lab projects; the rest live on /lab.
+  const labItems = lab.featured
+    .map((slug) => allLab.find((project) => project.slug === slug))
+    .filter((project): project is Project => Boolean(project));
 
   return (
     <Box
@@ -448,6 +452,28 @@ export default function Projects({
                 </Reveal>
               ))}
             </Box>
+            {allLab.length > labItems.length ? (
+              <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
+                <Button
+                  component={Link}
+                  href={`/${lang}/lab`}
+                  variant="outlined"
+                  endIcon={<ArrowForwardIcon sx={{ fontSize: 16 }} />}
+                  sx={{
+                    px: 2.75,
+                    py: 1.25,
+                    color: 'text.primary',
+                    borderColor: 'divider',
+                    borderRadius: '10px',
+                    fontSize: '0.88rem',
+                    transition: 'border-color 0.25s, color 0.25s',
+                    '&:hover': { borderColor: 'accent.main', color: 'accent.text' },
+                  }}
+                >
+                  {lab.seeAll.replace('{n}', String(allLab.length))}
+                </Button>
+              </Box>
+            ) : null}
           </Box>
         ) : null}
       </Box>

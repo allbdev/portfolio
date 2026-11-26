@@ -12,4 +12,4 @@ Screenshot assets for the project detail pages (`/[lang]/projeto/[slug]`).
 
 ## Current folders
 
-`path-trader`, `vestra-gestao-financeira`, `tavi`, `bem-coberto`, `park-the-cart`, `the-single-hole`, `cartorio-simulator`, `my-links`, `dig-to-japan`, `shave-the-capybara`.
+`path-trader`, `vestra-gestao-financeira`, `tavi`, `bem-coberto`, `force-push`, `cofre`, `park-the-cart`, `the-single-hole`, `cartorio-simulator`, `my-links`, `dig-to-japan`, `shave-the-capybara`.
