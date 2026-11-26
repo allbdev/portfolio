@@ -566,6 +566,107 @@
         }
       },
       {
+        "title": "Force Push",
+        "slug": "force-push",
+        "description": "Free 3D multiplayer browser game for 2 to 4 players: walk an open-plan office, drop force-pushes and paint the floor in your branch's colour; whoever owns the most of the codebase when the sprint ends wins, and the result is a diff. A match is a pure function of a seed, a map and everyone's inputs, stepped 20 times a second in integers only, and the same core runs in the browser and in one Cloudflare Durable Object per room: the server is the authority, and each client predicts its own moves and rolls back when the server's inputs arrive. Bots play on the same step, 1,000 seeded bot matches run in CI, and Playwright replays a 3-minute match in Chromium, Firefox and WebKit and checks each final hash against Node's.",
+        "summary": "A 3D multiplayer browser game: drop git push --force bombs in an open-plan office and paint the floor in your branch's colour. One integer-only core for browser and server, client prediction with rollback, and bots proven in 1,000 matches.",
+        "longDescription": "Force Push is a free, open source 3D browser game for 2 to 4 players, in English and Portuguese, on desktop and phone. Four seats, four branches (main, feature, hotfix and dev), and empty seats are filled by bots. You drop a force-push, three seconds later it blasts in a cross and paints every tile it reaches in your colour; blasts break legacy boxes, some hiding coffee, a rubber duck, Stack Overflow, a second monitor or a rebase, and stop at server racks. Caught in a blast you are reverted, four seconds out and three tiles lost, but nobody is eliminated, and in the last 30 seconds a code freeze closes the edge of the map. When the sprint ends the tiles are counted and the result reads like a diff: \"main won: +212 −181 (31%)\", with a rematch, the biggest push replayed up close and a replay link. Under it, a match is a pure function of a seed, a map and everyone's inputs: step(state, inputs) → state, 20 times a second. The core has no Math.random, no clock, no floats in the state, no DOM and no network, and an ESLint rule enforces it; the state is integers and typed arrays, so it clones cheaply, hashes the same everywhere with FNV-1a and travels as a snapshot. Online rooms run on a Cloudflare Worker with one Durable Object per room that imports the same core. The server is the authority: it stamps each input to the tick it arrives on, steps the match and broadcasts every tick's inputs, about 25 bytes for four players, while clients send five bits of input per tick. Each client keeps a confirmed state that always equals the server's and a predicted one, rebuilt every tick from its own unacknowledged inputs, so your own player moves at once and a wrong guess is corrected as soon as the server's inputs arrive; a hash every second catches any divergence and asks for a snapshot. A property test drives random inputs through random latency and jitter and checks that every client converges to the server, and Playwright plays a whole sprint with two browsers through wrangler dev. Bots read only the state and return the same five bits a player sends, so they behave the same on the server, offline and in a replay: each decision builds a danger map of every pending blast, chains included, and a bot only drops a push when it can reach a safe tile first. CI runs 1,000 seeded bot-only matches and fails on a stuck bot or a walk into a visible blast, and the daily map is accepted only after bots play it. The score is an invariant: + counts tiles that turned your colour, − tiles of yours that turned to anything else, and + minus − is exactly what you own, checked with tile conservation after every tick of random matches. Every model is a bevelled box built in code and drawn with three.js, the floor colours carry a pattern per branch and pass a colour-blindness check, and the whole client, three.js included, fits a 250 KB gzipped budget enforced in CI.",
+        "highlights": [
+          "Deterministic integer-only core, step(state, inputs) → state at 20 Hz, shared by the browser and the server and hashed the same in Chromium, Firefox, WebKit and Node",
+          "Online rooms on Cloudflare Workers with one Durable Object per room: server authority, five bits of input per tick, client prediction with rollback and a hash check every second",
+          "A property test runs random inputs through random latency and jitter and checks every client converges to the server; Playwright plays a full sprint with two browsers",
+          "Bots on the same step with a danger map of pending blasts; 1,000 seeded bot-only matches in CI, and the daily map is only accepted after bots play it",
+          "The score is a diff and an invariant: + minus − equals the tiles you own, checked with tile conservation on every tick of random matches",
+          "Replays as seed + map + inputs, a colour-blind check of the floor colours, English and Portuguese, desktop and phone, under a 250 KB budget with three.js"
+        ],
+        "screenshots": [
+          {
+            "src": "/projects/force-push/fp-match.avif",
+            "alt": "A match in Open Space: the territory bar, pending pushes, power-ups on the floor and the commit log"
+          },
+          {
+            "src": "/projects/force-push/fp-blast.avif",
+            "alt": "The end-of-match highlight: the biggest force-push up close, with its diff"
+          },
+          {
+            "src": "/projects/force-push/fp-result.avif",
+            "alt": "The result is a diff: the winning branch, each branch's + and − and a replay link"
+          },
+          {
+            "src": "/projects/force-push/fp-phone.avif",
+            "alt": "On a phone, in portrait: the match with a stick and the push -f button, the lobby and the result"
+          },
+          {
+            "src": "/projects/force-push/fp-lobby.avif",
+            "alt": "The lobby: room code, four seats and branches, map and sprint length"
+          },
+          {
+            "src": "/projects/force-push/fp-landing.avif",
+            "alt": "Landing: create a room, join with a code or play against bots"
+          }
+        ],
+        "liveUrl": "https://force-push.vinicius-albuquerque.com.br",
+        "githubUrl": "https://github.com/allbdev/force-push",
+        "techStack": [
+          "TypeScript",
+          "three.js",
+          "Cloudflare Workers",
+          "Durable Objects",
+          "WebSockets",
+          "Vite",
+          "Vitest",
+          "Property-based testing",
+          "Playwright"
+        ],
+        "lab": true
+      },
+      {
+        "title": "Cofre",
+        "slug": "cofre",
+        "status": "In development",
+        "description": "Native macOS app for the passwords, API keys, tokens and connection strings a developer copies every day. Each item is a name and a value, and the value is never shown: you paste it in once and from then on only copy it. A global hotkey opens a search panel, Enter copies, and the clipboard clears itself 30 seconds later. Secrets live in the macOS data protection Keychain, bound to this Mac and guarded by Touch ID, the app is sandboxed without the network entitlement, and backups are a documented PBKDF2 + AES-256-GCM file. SwiftUI with AppKit where SwiftUI can't reach, over a pure Swift package covered by more than 100 tests.",
+        "summary": "A native macOS vault for dev secrets: press ⌃⌥K, type three letters, Enter, and the key is on the clipboard for 30 seconds. Keychain and Touch ID, no network, values never shown.",
+        "longDescription": "Cofre (Portuguese for safe) is a native macOS app for the passwords, API keys, tokens and connection strings I copy every day. Each item is a name and a value, and the value is write-only in the interface: it can be typed, pasted, replaced and copied, never displayed. Press ⌃⌥K from any app, type a few letters, press Enter, and the secret is on the clipboard; 30 seconds later it is cleared, but only if the clipboard still holds it, so nothing you copied since is lost, and it is written with the concealed and transient pasteboard types so clipboard managers skip it. Nothing is home-made where it matters. Every secret is one generic-password item in the macOS data protection Keychain, WhenUnlockedThisDeviceOnly, never synced, and readable only after Touch ID or the Mac's password; an unlock covers a burst of work and ends after five idle minutes, on sleep, on screen lock or on quit. The app runs in the App Sandbox without the network entitlement, so \"nothing leaves your Mac\" is something anyone can check in the entitlements file rather than a promise. Because ThisDeviceOnly items would not survive a dead Mac, there is an encrypted export: a passphrase of at least 12 characters goes through PBKDF2-HMAC-SHA256 with 600,000 iterations into AES-256-GCM, with every header field bound in as additional authenticated data, a versioned JSON format documented with a recipe to decrypt it without the app, and an import that asks what to do with name clashes. A banner reminds you when the last backup is stale. The global hotkey uses Carbon's RegisterEventHotKey, so it needs no Accessibility permission, and opens a floating panel with ranked search: name prefix first, then word prefix, substring and subsequence, ignoring case and accents. The code is split so it can be tested: CofreKit is a Swift package with no AppKit that holds the redacted SecretValue type (it never prints itself and is not Codable), the name rules, the store protocol with an in-memory store, the search ranking, the export codec, the import planner, the clipboard guard, the lock policy and the observable VaultModel the views bind to, covered by more than 100 Swift Testing tests including property tests; a second target wraps the Keychain. The app on top is thin SwiftUI views plus AppKit adapters for the pasteboard, the hotkey and the panel, in English and Portuguese, with a test that every interface string has both. CI runs the format lint, the tests and an unsigned build on every push. It runs day to day on my Mac; a notarized release and a command-line tool are next.",
+        "highlights": [
+          "Values are write-only in the interface: typed or pasted once, then only copied, behind a redacted SecretValue type that never prints itself",
+          "Global hotkey (⌃⌥K) through Carbon, with no Accessibility permission, opening a floating panel with ranked, accent-insensitive search",
+          "Data protection Keychain, this device only, guarded by Touch ID; the clipboard clears after 30 seconds only if it still holds the secret",
+          "Sandboxed without the network entitlement, so \"nothing leaves your Mac\" can be checked in the entitlements file",
+          "Encrypted backup: PBKDF2-HMAC-SHA256 with 600,000 iterations and AES-256-GCM with the header as authenticated data, in a documented format",
+          "Pure Swift package with more than 100 tests, SwiftUI and AppKit on top, English and Portuguese, lint, tests and build in CI"
+        ],
+        "screenshots": [
+          {
+            "src": "/projects/cofre/cofre-quick-panel.avif",
+            "alt": "The quick panel from ⌃⌥K: search, Enter copies, Esc closes"
+          },
+          {
+            "src": "/projects/cofre/cofre-main-window.avif",
+            "alt": "The main window: names and dates only, never values, and a banner asking for a first backup"
+          },
+          {
+            "src": "/projects/cofre/cofre-add-secret.avif",
+            "alt": "Adding a secret: a name and a hidden value, typed or pasted from the clipboard"
+          },
+          {
+            "src": "/projects/cofre/cofre-settings.avif",
+            "alt": "Settings: clipboard clearing, auto-lock and the quick access shortcut"
+          }
+        ],
+        "githubUrl": "https://github.com/allbdev/cofre",
+        "techStack": [
+          "Swift",
+          "SwiftUI",
+          "AppKit",
+          "Keychain",
+          "Touch ID",
+          "CryptoKit",
+          "Swift Testing",
+          "GitHub Actions"
+        ],
+        "lab": true
+      },
+      {
         "title": "Vestra Financial Management",
         "slug": "vestra-gestao-financeira",
         "description": "Mobile-first personal finance PWA built as a pnpm + Turborepo monorepo: a Vite + React 19 dashboard with a Workbox service worker, a Next.js 16 marketing site, and a NestJS 11 API on Prisma and PostgreSQL (17 models, money stored as Decimal). Global JWT auth with refresh-token rotation, workspace owner/member guards, transactional workspace cloning, scheduled recurring transactions, Pusher and Web Push notifications, and free/pro plan limits. Deployed on Fly.io and Vercel with Neon Postgres.",
@@ -902,7 +1003,7 @@
     ],
     "lab": {
       "title": "Lab",
-      "text": "Side projects where I try things outside the day job: multiplayer, daily and 3D web games, Steam games, personal finance, my own link page."
+      "text": "Side projects where I try things outside the day job: multiplayer, daily and 3D web games, a native Mac app, Steam games, personal finance, my own link page."
     }
   },
   "experience": {
