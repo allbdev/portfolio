@@ -155,8 +155,32 @@ export interface Dictionary {
       /** Toggle that reveals the long description on full case studies. */
       fullWriteup: string;
     };
-    /** Strip of side projects under the selected work. */
-    lab: { title: string; text: string };
+    /** Strip of side projects under the selected work, and the /lab page with all of them. */
+    lab: {
+      title: string;
+      text: string;
+      /** Slugs shown on the home page, in order; the rest are only on /lab. */
+      featured: string[];
+      /** Home button to /lab. `{n}` is the number of Lab projects. */
+      seeAll: string;
+      pageTitle: string;
+      pageText: string;
+      metaDescription: string;
+      back: string;
+      searchLabel: string;
+      searchPlaceholder: string;
+      /** Label before the Title / Content toggles. */
+      scopeLabel: string;
+      scopeTitle: string;
+      scopeContent: string;
+      /** `{n}` matches of `{total}` projects. */
+      results: string;
+      /** `{q}` is the query. */
+      empty: string;
+      clear: string;
+      /** Hint next to the Lab entry in the command palette. */
+      paletteHint: string;
+    };
     items: {
       title: string;
       slug: string;

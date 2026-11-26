@@ -1003,7 +1003,26 @@
     ],
     "lab": {
       "title": "Lab",
-      "text": "Projetos paralelos onde testo coisas fora do trabalho: jogos web multiplayer, diários e em 3D, um app nativo para Mac, jogos para a Steam, finanças pessoais, minha própria página de links."
+      "text": "Projetos paralelos onde testo coisas fora do trabalho: jogos web multiplayer, diários e em 3D, um app nativo para Mac, jogos para a Steam, finanças pessoais, minha própria página de links.",
+      "featured": [
+        "force-push",
+        "cofre",
+        "my-links"
+      ],
+      "seeAll": "Ver todos os {n} projetos do Lab",
+      "pageTitle": "Lab",
+      "pageText": "Tudo que eu construo fora do trabalho: jogos web multiplayer, diários e em 3D, um app nativo para Mac, jogos para a Steam, finanças pessoais e minha própria página de links.",
+      "back": "VOLTAR",
+      "searchLabel": "Buscar no Lab",
+      "searchPlaceholder": "Busque por nome, ideia ou tecnologia…",
+      "scopeLabel": "Buscar em",
+      "scopeTitle": "Título",
+      "scopeContent": "Conteúdo",
+      "results": "{n} de {total} projetos",
+      "empty": "Nada encontrado para “{q}”.",
+      "clear": "Limpar busca",
+      "metaDescription": "Projetos paralelos de Vinícius Albuquerque: jogos web, um app nativo para Mac, finanças pessoais e mais, cada um com um estudo de caso.",
+      "paletteHint": "todos os projetos"
     }
   },
   "experience": {

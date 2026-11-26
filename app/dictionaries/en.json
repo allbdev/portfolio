@@ -1003,7 +1003,26 @@
     ],
     "lab": {
       "title": "Lab",
-      "text": "Side projects where I try things outside the day job: multiplayer, daily and 3D web games, a native Mac app, Steam games, personal finance, my own link page."
+      "text": "Side projects where I try things outside the day job: multiplayer, daily and 3D web games, a native Mac app, Steam games, personal finance, my own link page.",
+      "featured": [
+        "force-push",
+        "cofre",
+        "my-links"
+      ],
+      "seeAll": "See all {n} Lab projects",
+      "pageTitle": "Lab",
+      "pageText": "Everything I build outside the day job: multiplayer, daily and 3D web games, a native Mac app, Steam games, personal finance and my own link page.",
+      "back": "BACK",
+      "searchLabel": "Search the Lab",
+      "searchPlaceholder": "Search by name, idea or technology…",
+      "scopeLabel": "Search in",
+      "scopeTitle": "Title",
+      "scopeContent": "Content",
+      "results": "{n} of {total} projects",
+      "empty": "Nothing matches “{q}”.",
+      "clear": "Clear search",
+      "metaDescription": "Side projects by Vinícius Albuquerque: web games, a native Mac app, personal finance and more, each with a case study.",
+      "paletteHint": "all projects"
     }
   },
   "experience": {
