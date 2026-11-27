@@ -1,110 +1,88 @@
-# **VINÍCIUS ALBUQUERQUE** 
+# **Vinícius Albuquerque Barros** 
 
-## **Senior Full-stack Engineer** 
-
-6+ years end to end · React, Next.js, TypeScript · Node.js, NestJS, Go · PostgreSQL, Docker, AWS · AI-first workflow vini.alb13@gmail.com · linkedin.com/in/albuquerque-vinicius · github.com/allbdev · vinicius-albuquerque.com.br · Vila Velha, Brazil 
+Senior Software Engineer | React, Next.js, TypeScript | Node.js, NestJS, Go, PostgreSQL vini.alb13@gmail.com | +55 27 99201-0432 | linkedin.com/in/albuquerque-vinicius | Vila Velha, Espírito Santo, Brazil 
 
 ### **SUMMARY** 
 
-Senior full-stack engineer with 6+ years taking features from database to UI for an Amsterdam-based communications platform and for Brazilian product teams. Built Bird's no-code analytics dashboard builder, used by enterprise customers. Technical co-founder and only engineer of Path Trader, a SaaS with about 70 customers. Works AI-first with Claude and MCP, with a focus on keeping AI-written code safe to ship. 
-
-### **CORE SKILLS** 
-
-**Frontend** · React, Next.js, TypeScript, SolidJS, TanStack Query, TanStack Table, Tailwind CSS, Radix UI **Backend** · Node.js, NestJS, Go, PHP (Laravel), REST APIs, WebSockets, Socket.io, PusherJS, OpenAI API **Data and viz** · PostgreSQL, Redis, Prisma, Malloy, Vega, Recharts, Chart.js **Mobile** · React Native, Expo, NativeWind, App Store and Google Play releases 
-
-**Testing** · Vitest, Jest, React Testing Library, Playwright, Cypress 
-
-**Platform** · Git, GitHub Actions, Bitbucket Pipelines, Docker, AWS, Vercel, Fly, Sentry, Datadog, Turborepo, pnpm, Claude, MCP 
+Senior software engineer with 6+ years shipping web and mobile products for an Amsterdam-based communications platform and for Brazilian product teams. Works across the frontend and the API behind it, owning architecture, CI/CD and release decisions, with a core stack of React, Next.js and TypeScript, plus Node.js, NestJS and Go on the backend, PostgreSQL and Prisma for data, and AWS, Docker and GitHub Actions for delivery, testing with Playwright, Vitest and React Testing Library. Built Bird's no-code analytics dashboard builder, where enterprise customers compose their own queries and keep dashboards interactive on 1M+ record datasets, and saved an at-risk client account at MULTTI by reorganizing a team that kept missing deadlines until it was delivering on time again. Today designs, builds and runs Path Trader, a trading SaaS now serving about 70 customers. Looking for Senior Software Engineer roles, remote full-time or contract, with teams in North America and Europe, working from Vila Velha, Brazil with daily overlap across EST and CET hours. 
 
 ### **EXPERIENCE** 
 
-#### **Technical Co-Founder** · Path Trader · Remote · Jan 2026 - Present 
+### **Co-Founder** 
 
-- Grew to about 70 customers on a platform architected, built and run as the only engineer, co-founded with a partner who runs 
+Jan 2026 - Present 
 
-- marketing. 
+Path Trader | Vila Velha, ES, Brazil 
 
-- Built the full stack on a Turborepo monorepo: Next.js and React frontend, NestJS API, Prisma on PostgreSQL, background 
+Self-funded SaaS for Brazilian traders (journaling, analytics, AI assistant); owns the entire technology side, from architecture to production. 
 
-- jobs, Asaas payments and email on AWS SES. 
+Grew to about 70 customers on a platform architected, built and run as the only engineer. 
 
-- Merged 540 pull requests and shipped about 56 production deployments, each gated by GitHub Actions running type checks, 
+- Shipped the full stack on a Turborepo monorepo: Next.js and React frontend, NestJS API, Prisma on PostgreSQL, background jobs, payments through Asaas and transactional email on AWS SES. 
 
-- unit and end-to-end tests. 
+- Built an in-product AI assistant on OpenAI GPT-5 mini that answers each trader's questions over their own journal, with RAG for context and SSE for streaming replies. 
 
-- Built an in-product AI assistant on OpenAI GPT-5 mini over each trader's own journal and analytics. 
+- Let traders log trades straight from Claude through an MCP server and review them afterwards in the dashboard. Merged 540 pull requests and shipped about 56 production deployments, each one gated by GitHub Actions running type checks, unit tests and end-to-end tests. 
 
-- Runs production observability with Sentry, connected to Claude through MCP for error triage. 
+**Skills:** TypeScript, Next.js, React, NestJS, Prisma, PostgreSQL, Turborepo, GitHub Actions, Playwright, Asaas, OpenAI API, AWS SES, Sentry, Vercel/Fly, Claude, MCP 
 
-#### **Frontend Engineer** · Bird · Remote (HQ Amsterdam) · Apr 2024 - Jun 2026 
+**Frontend Engineer** Apr 2024 - Jun 2026 
 
-- Architected a no-code dashboard builder with Malloy, SolidJS and Vega: users compose queries field by field and render 
+Bird | Amsterdam, Netherlands (remote from Brazil) 
 
-- them as charts, tables or KPIs, with drag-and-drop layout. 
+Analytics, marketing cloud, sales and website areas of an Amsterdam-based communications platform, worked remotely from Brazil. 
 
-- Kept dashboards interactive on 1M+ record datasets for enterprise customers, with TanStack Query as the server-state layer. 
+- Let customers build their own analytics without engineering by architecting a no-code dashboard builder (Malloy, SolidJS, Vega): users compose queries field by field and render them as charts, tables or KPIs. 
 
-- Built the sales suite end to end (lead boards, lead configuration, opportunities and deals) and the Go API endpoints carrying 
+- Kept dashboards interactive on 1M+ record datasets for enterprise customers by optimizing rendering, with TanStack Query as the server-state layer. 
 
-- its business logic. 
+- Gave sales teams a full pipeline inside Bird by building the sales suite end to end (lead boards, opportunities, deals) and the Go endpoints behind it. 
 
-- Designed a custom objects system for user-defined attributes, with a dynamic form layer of masked, format-aware inputs. 
+- Made Bird's documentation answerable by AI assistants and indexable by search engines with Markdown mirrors, llmsfull.txt and structured content, shipped with the new bird.com, rebuilt from Framer to Next.js. 
 
-- Core contributor to the marketing cloud redesign: rebuilt about 20 pages on a Radix UI and Tailwind CSS component system. 
+- Core contributor to the marketing cloud redesign: rebuilt about 20 pages against Figma on a Radix UI and Tailwind CSS component system. 
 
-- Made the docs answerable by AI assistants and easier to index (Markdown mirrors, llms-full.txt, structured content) with the 
+**Skills:** TypeScript, React, SolidJS, Next.js, Tailwind CSS, Radix UI, Malloy, Vega, TanStack Query, TanStack Table, Recharts, Go, Vitest, Playwright, Datadog 
 
-- new bird.com launch. 
+**Senior Software Engineer** 
 
-- Shipped all new code dark behind organization-scoped feature flags with gradual rollout, covered by Vitest, React Testing 
+Jan 2022 - Mar 2024 
 
-- Library and Playwright. 
+## MULTTI - Tecnologia e Integrações 
 
-#### **Senior Software Engineer** · MULTTI · Remote · Jan 2022 - Mar 2024 
+Technical lead in a small team at a software outsourcing company, hands-on with React, React Native, and PHP (Laravel). 
 
-- Saved an at-risk client account by reorganizing a team that kept missing deadlines: ran daily stand-ups, tracked each 
+- Saved an at-risk client account by reorganizing a team that kept missing deadlines: led daily stand-ups, tracked each developer's progress closely, and helped define project requirements and scope, getting back to on-time delivery within about 3 months; the client stayed. 
 
-- developer's progress and helped define scope, back to on-time delivery within about 3 months. 
+- Kept a real-time chat smooth with about 100 people live in one conversation and 1K+ messages loaded by architecting it with React, PusherJS, WebSockets and virtualized lists. 
 
-- Mentored junior engineers and improved the team's agile development workflow. 
+Let any engineer ship to production on demand by replacing manual deploys with automated pipelines on Docker, AWS and Bitbucket Pipelines, including mobile releases to Google Play and the App Store. 
 
-- Architected a real-time chat for about 100 live participants and 1K+ messages using React, PusherJS, WebSockets and 
+**Skills:** React, React Native, Expo, TypeScript, PHP, Laravel, PusherJS, WebSockets, MUI, Docker, AWS, Bitbucket Pipelines 
 
-- virtualized lists. 
+**Software Engineer** Jan 2020 - Jan 2022 
 
-- Led end-to-end development of a React Native (Expo) delivery-tracking app with live maps and push notifications. 
+## Solution4apps | Brasília, DF, Brazil 
 
-- Built a React and MUI lead management system and a financial-market streaming platform. 
+Web and mobile delivery at a software outsourcing company, including projects for a US client, with React and React Native. 
 
-- Replaced manual deploys with automated pipelines by introducing Docker, AWS and Bitbucket Pipelines. 
+Put a React Native (Expo) venue-finder app in the hands of a US client's users, with interactive maps, real-time camera processing and push notifications, and ran its App Store and Google Play releases. 
 
-- Owned mobile releases, with automated deployments to Google Play and the App Store. 
+- Built a responsive real-time financial markets platform with Next.js, Socket.io, Chakra UI and React Spring. Delivered an accessible, high-performance public-sector web application with Next.js and Tailwind CSS. 
 
-#### **Software Engineer** · Solution4apps · Brasília, hybrid · Jan 2020 - Jan 2022 
+**Skills:** React Native, Expo, NativeWind, Next.js, React, Socket.io, Chakra UI, React Spring, Tailwind CSS 
 
-- Owned technical delivery of web and mobile projects from discovery through production release. 
+### **EDUCATION** 
 
-- Built a React Native (Expo) app with interactive maps, real-time camera processing, push notifications and NativeWind. 
+**Bachelor's degree in Information Systems** Universidade Vila Velha - UVV 
 
-- Developed a responsive real-time financial markets platform using Next.js, Socket.io, Chakra UI and React Spring. 
+Jun 2023 - Jun 2028 
 
-- Delivered an accessible public-sector web application using Next.js and Tailwind CSS. 
+### **SKILLS** 
 
-### **PROJECTS** 
+React.js, React Native, JavaScript, TypeScript, Next.js, Test Automation, Payment Gateways, Vite.js, Product Development, Software as a Service (SaaS), Search Engine Optimization (SEO), Technical Leadership, Mentoring, Code Review, Agile Methodologies, Software Architecture, AI Pair Programming / AI-Assisted Programming, Prompt Engineering, Large Language Models (LLM), Anthropic Claude, Model Context Protocol (MCP), OpenAI API, Claude Code, Monorepo, pnpm, End-to-end Testing, Unit Testing, Cypress, React Testing Library, Jest, Vitest, Datadog, Feature Flags, Bitbucket, Continuous Integration and Continuous Delivery (CI/CD), Fly.io, Amazon SES, Asaas, SQL, Redis, WebSocket, Back-End Web Development, Pusher, Socket.io, REST APIs, Google Play, App Store, Mobile Application Development, NativeWind, Expo 
 
-- **Tavi** · oitavi.com.br. AI-first personal assistant for daily routines: users log training, diet, weight and goals by talking to it, in 
+### **LICENSES & CERTIFICATIONS** 
 
-- the app or from Claude and ChatGPT through its MCP server. Offline-first React Native app synced with PowerSync, NestJS API with its own OAuth for MCP, and a Claude-powered assistant checked by an eval suite, deployed with AWS CDK. Expo, Drizzle, PostgreSQL, Claude API. 
-
-- **Bem Coberto** · travel insurance marketplace for Brazil, in development. Designed the architecture: one adapter per insurer 
-
-- behind a shared provider interface, an outbox and worker for every side effect after payment, integer-cents money and field-level encryption of personal data. NestJS on Fastify, Prisma, Zod, Vitest. 
-
-- **Vestra** · vestra-financas.com.br · github.com/allbdev/vestra-v2. Mobile-first personal finance PWA with multi-user workspaces 
-
-- and recurring transactions. Turborepo, NestJS, Next.js, Vite, React. 
-
-**SPEAKING** Portuguese (native), English (fluent) 
-
-**EDUCATION** Bachelor's Degree in Information Systems (in progress), Universidade Vila Velha (UVV), expected Jun 2028 
+Software Architecture Fundamentals Course | Full Cycle | 2025 Docker course | Full Cycle | 2024 
 
